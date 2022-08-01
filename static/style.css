@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    padding: 40px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    max-width: 960px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    -moz-osx-font-smoothing: grayscale;
+}
+#header, #jason-hallen #nav, h1, h2, h3, h4, h5 {
+    font-family:'Josefin Slab', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 40px 0 12px;
+}
+h2 {
+    font-size: 36px;
+    line-height: 36px;
+    padding-bottom: 5px;
+}
+h3 {
+    font-size: 26px;
+    line-height: 30px;
+}
+h4 {
+    font-size: 22px;
+    line-height: 16px;
+}
+a {
+    color: black;
+}
+h2 a {
+    text-decoration: none;
+}
+h2 a:hover, h2 a:focus {
+    text-decoration: underline;
+}
+ul, ol {
+    padding: 0;
+    margin: 0 0 22px 25px;
+}
+img {
+    max-width: 100%;
+}
+figure {
+    display: table;
+    margin: 35px 0px 30px;
+    width: 100%;
+    text-align: center;
+}
+figure img {
+    width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+figcaption {
+    caption-side: bottom;
+    font-style: italic;
+    font-size: 16px;
+    text-align: center;
+}
+code {
+    font-family: Menlo, Consolas, "Courier New", monospace;
+    font-size: 16px;
+    font-weight: bold;
+}
+audio {
+    display: inline-block;
+    width: 100%;
+}
+@media (min-width: 768px) {
+    h2 {
+        margin: 11px 0px 5px 0px;
+    }
+    #header {
+        position: fixed;
+        width: 150px;
+    }
+    #page-content, #pagination {
+        margin-left: 200px;
+        max-width: 75%;
+    }
+}
+@media (max-width: 767px) {
+    body {
+        padding-top: 20px;
+    }
+    h2 {
+        margin: 40px 0px 0px 0px;
+    }
+    #header {
+        position: relative;
+        width: 100%;
+        margin-bottom: 36px;
+    }
+    #page-content, #pagination {
+        margin-left: 0px;
+        max-width: 100%;
+        /* clear: left; */
+    }
+}
+#header {
+    float: left;
+}
+#header a {
+    text-decoration: none;
+    color: black;
+}
+#jason-hallen {
+    font-size: 54px;
+    line-height: 52px;
+    font-weight: bold;
+}
+#nav {
+    font-weight: bold;
+    margin: 10px 0px 18px;
+    /* margin-left: 0;
+    margin-bottom: 18px; */
+    font-size: 28px;
+}
+#nav ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+    display: inline;
+}
+#nav li {
+    float: left;
+    margin: 0px 30px 7px 0px;
+}
+#nav li a {
+    line-height: 60px;
+    padding: 20px 0px 3px 0px;
+}
+#header a:hover, #nav li a:hover, #nav li a:focus {
+    background-color: #eee;
+}
+#nav li.active a {
+    border-bottom: 3px solid black;
+}
+.readmore {
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border: 1px black solid;
+    font-weight: bold;
+    text-decoration: none !important;
+    color: white;
+    background-color: black;
+    display: block;
+    width: 5em;
+    margin: 30px 0 75px;
+    text-align: center;
+}
+.readmore:hover {
+    background-color: white;
+    color: black;
+}
+.readmore.floatleft {
+    float: left;
+}
+.readmore.floatright {
+    float: right;
+}
+.muted {
+    color: #999;
+    font-family: "Josefin Slab";
+    font-weight: bold;
+    font-size: 20px;
+}
+#pagination span {
+    margin-right:5px;
+    text-decoration: none;
+    font-family: "Josefin Slab";
+    font-weight: bold;
+    font-size: 20px;
+}
+#pagination span a {
+    font-size: 20px;
+    text-decoration: none;
+    padding: 3px 10px;
+}
+#pagination span a:hover {
+    background-color: #eee;
+}
+#pagination #paginationPages {
+    margin-right: 10px;
+    margin-left: 5px;
+}
+#pagination span.muted {
+    padding: 3px 10px;
+}
