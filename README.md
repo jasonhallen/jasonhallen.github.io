@@ -35,9 +35,15 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `teeny build`
 * Lauch development server to render site locally
   * `teeny develop`
-* Deploy new build to `gh-pages` branch
-  * `gh-pages -d "public/"`
+* Costum bash script to update Teeny repository and reinstall via NPM
+  * `tpush`
+* Clear contents of `gh-pages` branch ([from here](https://blog.ediri.io/how-to-create-a-github-gh-pages-branch-in-an-existing-repository))
+  * `git checkout gh-pages`
+  * `git reset --hard`
+  * `git commit --allow-empty -m "Cleared contents of gh-pages"`
+  * `git push origin gh-pages`
 
+* 
 
 ## Tasks
 - [x] Fork Teeny into my GitHub
