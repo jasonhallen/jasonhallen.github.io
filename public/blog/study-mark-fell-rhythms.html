@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"><title>Study: Mark Fell - Rhythms</title></head>
+
+<body>
+    <div id="header">
+        <span id="jason-hallen">
+            <a href="/">Jason Hallen</a>
+        </span>
+        <div id="nav">
+            <ul>
+                <li class="active"><a href="/">Blog</a></li>
+                <li><a href="/music.html">Music</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div id="page-content"><h2 id="study-mark-fell---rhythms">Study: Mark Fell - Rhythms</h2><span class="muted">April 3, 2020</span>
+<figure><a href="/blog/study-mark-fell-rhythms"><img src="/images/electric_davis.png" alt="Electric Miles Davis"></a>
+</figure>
+
+<p>I was drawn to the work of <a href="http://www.markfell.com/wiki/">Mark Fell</a> this past fall when I was exploring <a href="blog/project-drum-machine">rhythmic pattern generation</a> and FM synthesis. In particular, I was blown away by Fell’s collaboration with Gábor Lázár from 2015 called <em><a href="https://soundcloud.com/gaborlazar/mark-fell-and-gabor-lazar-the-neurobiology-of-moral-decision-making-2015">The Neurobiology of Moral Decision Making</a></em>.</p>
+<p>I wanted to know how Fell and Lázár made these rhythms and sounds. A Google search landed me on <a href="https://llllllll.co/t/approaching-gabor-lazar-sound-design-techniques/13349">this thread in the lines forum</a> where I learned that Fell completed a PhD thesis in 2013 called <a href="http://epubs.surrey.ac.uk/804661/"><em>Works in Sound and Pattern Synthesis</em></a>. It turns out this thesis provides detailed discussions of Fell’s rhythmic pattern and synthesis algorithms. I decided to implement Fell’s ideas in Csound just like I did with <a href="blog/study-james-tenney">James Tenney’s ideas</a>.</p>
+
+<h3 id="multistability">Multistability</h3>
+<p>So far I’ve only focused on the ideas Fell explores on his album <em>Multistability</em> from 2010. Specifically, I’ve implemented some of his rhythmic pattern algorithms, which I’ll cover in this post. In my next post I’ll cover his FM synthesis algorithms.</p>
+<p>Fell’s basic approach to rhythm on <em>Multistability</em> is to avoid clearly defined tempos or meters. Instead of setting a tempo and generating rhythmic patterns based on equal subdivisions of the beat, he essentially changes the tempo from one beat to the next. In other words, he defines the time in milliseconds between each beat for a sequence of beats and then cycles through that sequence. This might sound confusing, so let me illustrate the idea by showing you the “rhythmic pattern generator” I coded in Csound and Cabbage.</p>
+<h3 id="rhythmic-pattern-generator">Rhythmic Pattern Generator</h3>
+<p><img src="images/images/fell_rhythmic_pattern_generator.png" alt="fell rhythmic pattern generator"></p>
+<p>Screenshot of the Fell rhythmic pattern generator built in Cabbage.</p>
+<p>Let’s first look at the top box called “Rhythm”. The six columns in the middle each represent a beat (or multiple beats depending on the Repetition value) in the rhythmic sequence. The rhythmic sequence is cycled through over and over. Here’s what the different fields mean.</p>
+<ul>
+<li><strong>Duration</strong> - This sets the duration of each beat in milliseconds. You can see how this allows you to create a sequence of irregularly timed beats (e.g. 500, 90, 65, 220, 412, and 500). Alternatively, you could just as well create a sequence of beats that mimic regular subdivisions (e.g. 500, 250, 500, 125, 250).</li>
+<li><strong>Multiplier</strong> - This is a factor that the duration of each beat is multiplied by. For example, if the multiplier is set to 5 and the duration of a beat is set to 40, then the actual duration of the beat is 5 x 40 = 200ms.</li>
+<li><strong>Repetition</strong> - This sets the number of times that a beat will be repeated during the sequence.</li>
+<li><strong>Max Duration</strong> - When the Randomize All button is pressed, the duration values are randomly generated with a maximum possible value of Max Duration divided by Multiplier.</li>
+<li><strong>On/Off</strong> - This determines whether the column is included in the rhythmic sequence. If a column is turned off then the three drum parts in the corresponding column below are skipped during the sequence.</li>
+</ul>
+<p>Now let’s look at the three boxes below the Rhythm box. These are the individual drum parts. Here’s what the widgets do.</p>
+<ul>
+<li><strong>Instrument</strong> - The dropdown menu on the left lets you select different instruments such as kick drum, snare, handclaps, high hat, etc.</li>
+<li><strong>On/Off</strong> - The six buttons in the middle determine whether the drum part will be triggered on that beat.</li>
+<li><strong>Amplitude Sequence</strong> - On the right side of the box you’ll see six vertical sliders and six buttons. The sliders create an amplitude sequence for the drum part, and the buttons determine whether to include the above slider value in the sequence. The drum part cycles through this amplitude sequence over and over as the overall rhythmic sequence is traversed.</li>
+<li><strong>Mute</strong> - The “M” button mutes the drum part.</li>
+<li><strong>Volume Knob</strong> - This adjusts the overall volume of the drum part. You use this in conjunction with the amplitude sequence to determine the volume of the drum part.</li>
+</ul>
+<p>The ideas here are a combination of Mark Fell’s and mine. Fell wrote about the duration, multiplier, repetition, and amplitude sequence ideas in his thesis. I added more interactivity in the Cabbage interface and the ability to layer more drum parts. That’s the fun of studying other people’s ideas. You immediately start taking them in directions that are interesting to you.</p>
+<h3 id="example-recordings">Example Recordings</h3>
+<p>Here are some improvisations I recorded with this instrument. In each case I started with a pre-made rhythmic pattern and quickly began altering the pattern. Note that these are not the most compelling pieces of music on their own. To bring these pieces to life I’ll need to add synthesizer accompaniment, which I’ll cover in the next post.</p>
+<p>Your browser does not support the audio element.</p>
+<p>"hallen_fell_rhythm_2020_4_1_a.mp3"</p>
+<p>Your browser does not support the audio element.</p>
+<p>"hallen_fell_rhythm_2020_4_1_e.mp3"</p>
+<p>Your browser does not support the audio element.</p>
+<p>"hallen_fell_rhythm_2020_4_1_c.mp3"</p>
+<p>Your browser does not support the audio element.</p>
+<p>"hallen_fell_rhythm_2020_4_1_b.mp3"</p>
+<h3 id="playing-the-instrument">Playing the Instrument</h3>
+<p>This instrument is an example of how a few simple elements (i.e. duration, multiplier, repetition, and amplitude sequence) can interact to create complex and surprising patterns. Playing it is very different from playing a <a href="blog/project-drum-machine">traditional drum machine</a> where each drum part is independent and fully controllable. Instead, in this instrument the drum parts are interconnected. It takes some getting used to.</p>
+<p>You can make metrical rhythms that sound pretty traditional with this instrument, but it’s an uphill battle. This instrument is better for creating awkward, knotty rhythms, and that was Fell’s intention. Your best bet is to embrace the awkwardness and let the rhythms get weird.</p>
+<h3 id="csound-code">Csound Code</h3>
+<p>The Csound code for this instrument is pretty similar to the code for <a href="blog/project-drum-machine">the drum machine I made</a>. The code reads the various widget values into arrays, cycles through the active rows and columns, and triggers the drum samples which are played with the <code>loscil</code> opcode.</p>
+<p>The main difference is that this instrument changes the value of the <code>metro</code> opcode every time it moves to the next rhythm column. In other words, it continuously cycles through different tempos, whereas the traditional drum machine maintains a constant tempo as it cycles through the drum patterns.</p>
+<span><a href="/blog/update-the-last-four-months.html" class="readmore floatleft">Newer</a></span><span><a href="/blog/project-drum-machine.html" class="readmore floatright">Older</a></span></div>
+
+
+</body></html>
