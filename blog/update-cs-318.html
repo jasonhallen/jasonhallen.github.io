@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link rel="stylesheet" href="/style.css"><title>Update: CS 318</title></head>
+
+<body>
+    <div id="header">
+        <span id="jason-hallen">
+            <a href="/">Jason Hallen</a>
+        </span>
+        <div id="nav">
+            <ul>
+                <li class="active"><a href="/">Blog</a></li>
+                <li><a href="/music.html">Music</a></li>
+                <li><a href="/about.html">About</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div id="page-content"><h2 id="update-cs-318">Update: CS 318</h2><span class="muted">October 18, 2020</span>
+<figure><a href="/blog/update-cs-318"><img src="/images/soft_landscape.jpg" alt="Soft landscpes"></a>
+<figcaption>Computer-generated landscape by the [soft landscapes Twitter bot](https://twitter.com/softlandscapes).</figcaption>
+</figure>
+
+<p>This fall I've been sitting in on a computer science course at Carleton called CS 318: Computational Media, taught by a visiting professor named <a href="https://www.jamesryan.world/">James Ryan</a>. This course focuses on new forms of creative expression and media that can only be made with computers. Examples include computer-generated poetry and novels, Twitter bots, computer-generated visual art, and virtual reality works.</p>
+
+<p>At first I debated whether to take CS 318 or a more foundational computer science course such as Programming Languages or Software Design. Having taken three foundational computer science courses over the past year and a half, I wondered if CS 318 was too frivolous, not a rigorous enough immersion in computer science theory and techniques.</p>
+<p>However, after some reflection I felt compelled to explore the creative side of coding. While CS 318 primarily focuses on text (e.g. poetry, novels, Twitter), I've been taking it with an eye toward applying the ideas I've learned to music. I'm now half-way through the term, so here is a recap of some of the highlights.</p>
+<h3 id="poetry">Poetry</h3>
+<p>Before we did any coding, James first had us learn about pre-computational approaches to text generation, including the Fünffacher Denckring der Teutschen Sprache (1651), the Eureka machine (1845), and the Dadaist cut-up method (1920s). Even though I took this class to apply the ideas to music, I have to say that playing with language itself has been very creatively stimulating.</p>
+<p>For example, here's a paragraph I found in a recent issue of the Walker Art Center Magazine.</p>
+<p><img src="images/images/walker_magazine_paragraph.jpg" alt="Walker Magazine paragraph"></p>
+<p>Paragraph from recent issue of the Walker Art Center Magazine.</p>
+<p>Here's a poem I made by cutting up the words in this paragraph and using chance procedures to reassemble them.</p>
+<blockquote>
+<p><strong>Walker Cut-Up</strong><br>structural apocalypse imagine realities<br>to incomprehensibility<br>futures the crossroads<br>surveillance individuals<br>we lives from and are digitization<br>hard overwhelming pandemic of our present<br>it faced racism activities everyday<br>seem all-encompassing might<br>divergent number<br>at climate infinite data complexities<br>stand slow-motion big shape can these<br>today variety ubiquitous be<br>daily with how</p>
+</blockquote>
+<p>Next we turned to the use of templates to generate text. Templates are basically computerized Mad Libs (i.e. sentences with fill-in-the-blank slots), but they were state-of-the-art programming in the 1950s. Here's a poem I generated with templates I created based on several lines of poetry by Kay Ryan. I also used Python code to cut up the generated text and arrange it into lines.</p>
+<blockquote>
+<p><strong>Hommage to Kay Ryan</strong><br>it, like half<br>hereafters of hereafter,<br>comfort sunburnt<br>disaster really,<br>matching face gestated<br>hovered whole no ornate<br>shape's laughter oh<br>if passersby gathered sulfurous<br>the tiring<br>humanity crashing<br>during slate with<br>scratching the offspring<br>most not reacted suffer<br>quite otherly and<br>of an<br>acetate</p>
+</blockquote>
+<h3 id="twitter-bots">Twitter Bots</h3>
+<p>The last couple weeks we've focused on using grammars to generate text. Grammars are basically templates nested within templates nested within templates, etc. More technically, grammars involve non-terminal symbols (e.g. <code>[NOUN_PHRASE]</code>) which are expanded via production rules (i.e. <code>-&gt;</code>) into terminal symbols (e.g. <code>apples</code>). Production rules can have multiple options to choose from, indicated by the vertical pipe "<code>|</code>". Here's a simple example.</p>
+<p><code>SENTENCE -&gt; [NOUN_PHRASE] [VERB_PHRASE]   NOUN_PHRASE -&gt; [NOUN] | [ADJECTIVE] [NOUN]   NOUN -&gt; apples | trees | birds   ADJECTIVE -&gt; happy | sad | brilliant   VERB_PHRASE -&gt; [VERB] | [ADVERB] [VERB]   VERB -&gt; fall | chirp | grow   ADVERB -&gt; quickly | noisily | freely</code></p>
+<p>Here are some possible outputs of the grammar above.</p>
+<ul>
+<li>apples chirp quickly</li>
+<li>brilliant birds fall</li>
+<li>sad trees grow freely</li>
+</ul>
+<p>James taught us how to build Twitter bots using a grammar language called <a href="https://tracery.io/">Tracery</a> in conjunction with the site <a href="https://cheapbotsdonequick.com/">Cheap Bots, Done Quick</a>. It's easier to do than you might think.</p>
+<p><a href="https://twitter.com/thrivetodeath?ref_src=twsrc%5Etfw">Tweets by thrivetodeath</a></p>
+<p><a href="https://twitter.com/thrivetodeath">Thrive to Death</a>, my first Twitter bot.</p>
+<p>I created a bot called <a href="https://twitter.com/thrivetodeath">Thrive to Death</a>, which is a parody of productivity gurus like Tim Ferriss and David Allen. The grammar is based on sentence structures and vocabulary I found in popular productivity gurus' Twitter feeds. Developing grammars like this is fun. You can easily spend hours and hours tweaking and refining the grammars so they can generate a wide range of structures and nuanced ideas. But unless you're very sophisticated with your grammar it will end up sounding slightly off and non-human at times.</p>
+<p>Here are a few of my favorite tweets produced so far by Thrive to Death.</p>
+<ul>
+<li>Productivity isn't a choice. It's a dream.</li>
+<li>When's the last time you championed your routine?</li>
+<li>Here's an idea: underestimate a big priority.</li>
+<li>Sometimes you celebrate a schedule, and sometimes a schedule celebrates you.</li>
+</ul>
+<h3 id="up-next">Up Next...</h3>
+<p>So how have I applied templates and grammars to music? For the past week I've been developing a grammar in Tracery that generates a Csound score. It has been an incredibly challenging but rewarding project, and I'm very excited about the results that have been produced thus far.</p>
+<p>Over the next week I'll continue to tweak and refine the grammar so that the resulting music gets closer to what I'm envisioning. In my next post I'll go into detail about the project, which I call Grammar Music, and share some recordings of the results.</p>
+<span><a href="/blog/project-grammar-music.html" class="readmore floatleft">Newer</a></span><span><a href="/blog/update-the-last-four-months.html" class="readmore floatright">Older</a></span></div>
+
+
+</body></html>
