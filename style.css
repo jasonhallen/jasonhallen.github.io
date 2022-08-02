@@ -9,6 +9,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: auto;
 }
 #header, #jason-hallen #nav, h1, h2, h3, h4, h5 {
     font-family:'Josefin Slab', sans-serif;
@@ -31,6 +32,9 @@ h4 {
 }
 a {
     color: black;
+}
+a:hover {
+    background-color: #eee;
 }
 h2 a {
     text-decoration: none;
@@ -144,14 +148,14 @@ audio {
 }
 .readmore {
     text-decoration: none;
-    padding: 0.5em 1em;
+    padding: 0.3em 0.7em;
     border: 1px black solid;
     font-weight: bold;
     text-decoration: none !important;
     color: white;
     background-color: black;
     display: block;
-    width: 5em;
+    width: 6em;
     margin: 30px 0 75px;
     text-align: center;
 }
@@ -178,10 +182,10 @@ audio {
     font-weight: bold;
     font-size: 20px;
 }
-#pagination span a {
+#pagination span a, #pagination span.muted {
     font-size: 20px;
     text-decoration: none;
-    padding: 3px 10px;
+    padding: 10px 15px;
 }
 #pagination span a:hover {
     background-color: #eee;
@@ -190,6 +194,6 @@ audio {
     margin-right: 10px;
     margin-left: 5px;
 }
-#pagination span.muted {
-    padding: 3px 10px;
-}
+/* #pagination span.muted {
+    padding: 10px 15px;
+} */
