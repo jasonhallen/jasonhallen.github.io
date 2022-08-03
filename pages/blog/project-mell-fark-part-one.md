@@ -8,7 +8,7 @@ description:
 ---
 ## Project: Mell Fark, Part One
 
-<figure><a href="/blog/project-mell-fark-part-one"><img src="../images/mell_fark_excerpt.png" alt="Mell Fark interface"/></a>
+<figure><a href="/blog/project-mell-fark-part-one"><img src="/images/mell_fark_excerpt.png" alt="Mell Fark interface"/></a>
 </figure>
 
 And just [when I wrote](/blog/update-the-past-year), after a year’s absence from the blog, that I’m not doing computer music, I’ve suddenly been swept back into computer music in the past week. It’s Gábor Lázár’s fault. His new album _Boundary Object_ on Planet Mu immediately gripped me and told me to get back to work.
@@ -23,17 +23,17 @@ The seed was planted when Kallie and I were in Nashville a few weeks ago. At the
 
 When I played it on my stereo at home a couple weeks later it knocked my socks off. It’s very much in the tradition of Mark Fell with the stuttering rhythms and relentless digital synths.
 
-As I sat listening to _Boundary Object_ for the first time, within minutes I was inspired to return to [my own explorations of Fell’s rhythm algorithms](blog/study-mark-fell-rhythms) from a couple years ago. In that project I had fleshed out the rhythmic side of Fell’s music. Picking the project back up, I’ll need to turn my attention to the digital synthesis side.
+As I sat listening to _Boundary Object_ for the first time, within minutes I was inspired to return to [my own explorations of Fell’s rhythm algorithms](/blog/study-mark-fell-rhythms) from a couple years ago. In that project I had fleshed out the rhythmic side of Fell’s music. Picking the project back up, I’ll need to turn my attention to the digital synthesis side.
 
 ### Where I Left Off
 
 When I left off with computer music a year ago I had come to prefer using the command line to control live Csound performance. In particular, I liked the constraints of only using the keyboard for input and only using single-character commands which were immediately interpreted with the `sensekey` opcode.
 
-<figure><img src="../images/buffer_command_line.png" alt="Screenshot of controlling Csound through the command line"/>
+<figure><img src="/images/buffer_command_line.png" alt="Screenshot of controlling Csound through the command line"/>
 <figcaption>Controlling a Csound performance through the command line.</figcaption>
 </figure>
 
-This was largely a reaction against the [more complex GUI I built for the Looper instrument](blog/project-looper). Between using p5.js, Web Csound, and lots of mouse clicks and animation, that whole instrument was a bit heavy. I found it liberating to simplify my Csound environment and interactivity with the command line.
+This was largely a reaction against the [more complex GUI I built for the Looper instrument](/blog/project-looper). Between using p5.js, Web Csound, and lots of mouse clicks and animation, that whole instrument was a bit heavy. I found it liberating to simplify my Csound environment and interactivity with the command line.
 
 But the problem with this approach was that I had no GUI and therefore no good way to quickly monitor the state of a Csound performance. This wasn’t a big problem for a simple Csound instrument, but the more complicated the instrument the harder it was to fly blind without a GUI.
 
@@ -60,11 +60,11 @@ I’ve only been working on this project for a week now. So far I’ve been buil
 
 Here’s a screenshot of what the original GUI in Cabbage looked like followed by the current state of the JavaScript GUI.
 
-<figure><img src="../images/fell_rhythmic_pattern_generator.png" alt="Original version of the Fell rhythmic pattern generator written in Cabbage"/>
+<figure><img src="/images/fell_rhythmic_pattern_generator.png" alt="Original version of the Fell rhythmic pattern generator written in Cabbage"/>
 <figcaption>Original version of the Fell rhythmic pattern generator written in Cabbage.</figcaption>
 </figure>
 
-<figure><img src="../images/mell_fark.png" alt="Current version of the Mell Fark interface written in JavaScript"/>
+<figure><img src="/images/mell_fark.png" alt="Current version of the Mell Fark interface written in JavaScript"/>
 <figcaption>Current version of the Mell Fark interface written in JavaScript.</figcaption>
 </figure>
 

@@ -22,7 +22,7 @@ It all started when my friend Tim told me, "Oh hey, I met this awesome new profe
 A couple months later, probably in May of 2021, this guy comes into the library where I worked, and I realize it's the Jake that Tim was telling me about. We struck up a conversation and decided to grab coffee. Over coffee we realized we had some common musical interests.
 
 <figure><img src="/images/davis_on_the_corner.jpg" alt="Album cover of Miles Davis' On the Corner"/>
-<figcaption>Miles Davis' _On the Corner_ from 1972.</figcaption>
+<figcaption>Miles Davis' On the Corner from 1972.</figcaption>
 </figure>
 
 Specifically, we were both crazy about Miles Davis' electric period (ca. 1969-1975). In particular, we loved _On the Corner_ and the guitar playing of John McLaughlin during that period. We were also both into the Japanese psychedelic rock band High Rise, which had an intensely overblown, ecstatic guitar sound.
@@ -56,7 +56,7 @@ From January to March my right ear got increasingly worse. For weeks on end I wa
 Finally I sought medical help. This ultimately led me to the Mayo Clinic in Rochester where I consulted with a surgeon who specializes in the kind of ear problem I've had since childhood. He suggested an exploratory ear surgery to improve the sound conduction in my middle ear. On the plus side, this surgery has a good chance of significantly improving the hearing in my right ear.
 
 <figure><img src="/images/ear_diagram.jpg" alt="Ear diagram"/>
-<figcaption>Ear diagram annotated in pen by doctor.</figcaption>
+<figcaption>Ear diagram with pen annotations by doctor.</figcaption>
 </figure>
 
 I've scheduled this surgery for later this month. In the meantime, our band is on hiatus.

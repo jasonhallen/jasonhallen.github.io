@@ -1,0 +1,42 @@
+<CsoundSynthesizer>
+<CsOptions>
+-+rtaudio=coreaudio -odac
+</CsOptions>
+<CsInstruments>
+sr = 44100
+ksmps = 32
+nchnls = 2
+0dbfs = 1
+
+gisample ftgen 1, 0, 0, 1, "HC75.WAV", 0, 0, 0
+
+instr 1
+	ifile_length init ftlen(1)
+	idur  = p3
+	ilock = 1
+	ipitch = 1
+	itimescale = 0.25
+	iamp  = 0.5
+
+	; atime line   0, idur, idur*itimescale
+	atime phasor (sr*itimescale)/ifile_length
+	asigl  mincer atime, iamp, ipitch, 1, ilock
+	
+	
+	; if ftchnls(p1) == 1 then
+	; 	asigl loscil 0.5, 1, p1, 1, 1
+	; 	asigr = asigl
+	; elseif ftchnls(p1) == 2 then
+	;     asigl, asigr loscil 0.5, 1, p1, 1, 0
+	; endif
+
+	; asigr diskin2 "myFile.WAV", 1
+	asigr = asigl
+	outs asigr, asigl
+endin
+
+</CsInstruments>
+<CsScore>
+; f0 z
+</CsScore>
+</CsoundSynthesizer>
