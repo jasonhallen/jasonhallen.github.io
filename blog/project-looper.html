@@ -22,7 +22,7 @@
 <figure><a href="/blog/project-looper"><img src="/images/looper.png" alt="Detail of Looper interface"></a>
 </figure>
 
-<p>It's been a while! A lot has happened since my last post three months ago. After <a href="index.php?option=com_content&amp;view=article&amp;id=21:project-musical-time-in-python&amp;catid=8:blog">finding an accurate time source in Python</a> I turned my attention to building a graphical user interface (GUI) for my Python music generator. That was moving along nicely, but then I discovered <a href="https://p5js.org/">p5.js</a> and my focus shifted entirely. This led me to develop a new web-based program that loops audio files, and I was able to perform a live set with the program on YouTube. Read on for more details!</p>
+<p>It's been a while! A lot has happened since my last post three months ago. After <a href="/blog/project-musical-time-in-python">finding an accurate time source in Python</a> I turned my attention to building a graphical user interface (GUI) for my Python music generator. That was moving along nicely, but then I discovered <a href="https://p5js.org/">p5.js</a> and my focus shifted entirely. This led me to develop a new web-based program that loops audio files, and I was able to perform a live set with the program on YouTube. Read on for more details!</p>
 
 <h3 id="working-with-pysimplegui">Working with PySimpleGUI</h3>
 <p>Before talking about the looper, here's a quick recap of how far I got on my Python GUI. I followed <a href="https://github.com/csound/ctcsound/blob/master/cookbook/11-GUI-with-PySimpleGUI.ipynb">Joachim Heintz's lead</a> and used the <a href="https://pysimplegui.readthedocs.io/en/latest/">PySimpleGUI framework</a> to build it. The advantage of using PySimpleGUI is that, as the name suggests, it makes building GUIs simpler by taking care of a lot of the messy code of other popular frameworks (e.g. tkinter, PyQT, Remi) behind the scenes.</p>
@@ -62,7 +62,7 @@
 </ol>
 <h3 id="current-state-of-the-looper">Current State of the Looper</h3>
 <p>I won't go into all the details of developing the looper. The main thing to know is that it revolves around the <code>mincer</code> opcode, which is a phase vocoder that reads the sample files which are loaded into tables. The instrument also relies on the Web Csound API to send data between the p5.js interface and Csound.</p>
-<p>You can see the current state of the looper as of this writing in my performance on YouTube below. And you can play around with the looper yourself at <a href="web/looper/">jasonhallen.com/web/looper</a>.</p>
+<p>You can see the current state of the looper as of this writing in my performance on YouTube below. And you can play around with the looper yourself at <a href="/looper/">jasonhallen.com/looper</a>.</p>
 <figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/5-UH1UPIE58" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
 
 <p>Here are some of the key features of the looper.</p>
