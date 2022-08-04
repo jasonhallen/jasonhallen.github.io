@@ -45,6 +45,7 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
 - [ ] Comments from Staticman
 - [ ] Remove image link at top of blog posts
 - [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
+- [ ] Add Google Analytics tracking
 - [x] Fork Teeny into my GitHub
 - [x] Clone Teeny fork to my local computer
 - [x] NPM install fork of Teeny
