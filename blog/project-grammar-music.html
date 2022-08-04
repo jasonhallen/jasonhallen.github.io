@@ -18,12 +18,12 @@
             </ul>
         </div>        
     </div>
-    <div id="page-content"><h2 id="project-grammar-music">Project: Grammar Music</h2><span class="muted">November 9, 2020</span>
+    <div id="page-content"><h2 id="project-grammar-music">Project: Grammar Music</h2><span class="muted date">November 9, 2020</span>
 <figure><a href="/blog/project-grammar-music"><img src="/images/grammar_music_code.png" alt="Grammar Music code screenshot"></a>
 <figcaption>Excerpt of code from Grammar Music project.</figcaption>
 </figure>
 
-<p>In my <a href="index.php?option=com_content&amp;view=article&amp;id=15:update-cs-318&amp;catid=8:blog">previous post</a> I talked about using <a href="http://tracery.io/">Tracery</a> to write grammars which generate text. In this post I'll talk about using Tracery to generate Csound scores instead.</p>
+<p>In my <a href="/blog/update-cs-318">previous post</a> I talked about using <a href="http://tracery.io/">Tracery</a> to write grammars which generate text. In this post I'll talk about using Tracery to generate Csound scores instead.</p>
 
 <h3 id="tracery">Tracery</h3>
 <p>First, let's do a quick overview of Tracery. <a href="http://www.crystalcodepalace.com/traceryTut.html">This handy tutorial</a> can explain Tracery better than I can. The syntax is actually pretty simple in that there are only a few elements to learn, but it does take some practice to get the hang of it. Despite the apparent simplicity, you come to find that Tracery can do powerful things.</p>
@@ -37,7 +37,7 @@
 <h3 id="but-first-a-little-python">But First, a Little Python</h3>
 <p>So you can use Tracery to output a Csound score, and you can then feed that score into Csound to hear Csound perform it. Is there a way to automate that process? Sure there is. I used a Python script to do this. Here are the components I used.</p>
 <ul>
-<li><a href="https://github.com/aparrish/pytraceryhttps://github.com/aparrish/pytracery">Tracery for Python</a> - This lets you run Tracery within Python. Made by Allison Parrish.</li>
+<li><a href="https://github.com/aparrish/pytracery">Tracery for Python</a> - This lets you run Tracery within Python. Made by Allison Parrish.</li>
 <li><a href="https://github.com/csound/ctcsound">ctcsound</a> - This lets you run and control Csound in Python. It comes packaged with Csound. Made by François Pinot.</li>
 </ul>
 <p>Ok, now back to score generation with Tracery.</p>
@@ -61,8 +61,10 @@
 </ul>
 <p>There's much more I could say about how all of this works, but I won't go into more detail here. You can check out <a href="https://github.com/jasonhallen/grammarmusic">my code for this project</a> if you want to learn more.</p>
 <p>Here's an output of the grammar from an early stage of development. It's a good lesson in the fact that, while it's not too hard to get Tracery to generate a valid Csound score, it's another thing to get Tracery to generate a compelling piece of music. This early output consists of loops of randomly generated melodies and rhythms. The music starts, doesn't go anywhere, and abruptly ends.</p>
-<p>Your browser does not support the audio element.</p>
-<p>"hallen_grammar_music_zoxjpqe_2020_10_11.mp3"</p>
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_zoxjpqe_2020_10_11.mp3" type="audio/mpeg"></audio>
+<figcaption>"hallen_grammar_music_zoxjpqe_2020_10_11.mp3"</figcaption>
+</figure>
+
 <p>I needed to find a way to make the grammar output more interesting, so I spent the next week wrestling with the limitations of Tracery and the constraints of the Csound score system. I had two goals:</p>
 <ol>
 <li>Find a way to create an interesting structure from beginning to end.</li>
@@ -77,10 +79,12 @@
 <li><strong>Unison Melody</strong> - While biking past a symphony band practicing outside I heard all the musicians playing a melody in unison. In that instant I was struck with the idea of having my melody instruments play in unison. I was able to implement this similarly to how I implemented the evolution feature above, except instead of evolving separately the melody instruments evolved and converged over time on the same randomly generated melody. This became the finale of the piece.</li>
 </ul>
 <p>Here's a diagram I drew of the structure of the piece as I was working it out.</p>
-<p><img src="images/images/grammar_music_diagram.jpg" alt="Grammar Music diagram"></p>
-<p>Diagram of Grammar Music structure.</p>
+<figure><img src="/images/grammar_music_diagram.jpg" alt="Grammar Music diagram">
+<figcaption>Diagram of Grammar Music structure.</figcaption>
+</figure>
+
 <h3 id="instruments">Instruments</h3>
-<p>I wanted to avoid getting bogged down in instrument design like I did on the <a href="index.php?option=com_content&amp;view=article&amp;id=13:study-mark-fell-rhythms&amp;catid=8">Mark Fell project</a>, so I decided to search online for pre-made Csound instruments. Turns out there are several opcodes that made this very easy. Here are the instruments I made for Grammar Music.</p>
+<p>I wanted to avoid getting bogged down in instrument design like I did on the <a href="/blog/study-mark-fell-rhythms">Mark Fell project</a>, so I decided to search online for pre-made Csound instruments. Turns out there are several opcodes that made this very easy. Here are the instruments I made for Grammar Music.</p>
 <ul>
 <li><strong>Plucked String</strong> - I borrowed this instrument from Iain McCurdy's Bounce project that comes with Cabbage. It uses the <a href="http://www.csounds.com/manual/html/wgpluck2.html"><code>wgpluck2</code></a> opcode, which is a physical model of a plucked string. This instrument plays both melodies and bass lines depending on the register selected.</li>
 <li><strong>Pipe Organ</strong> - This is a straightforward use of additive synthesis that I found on <a href="http://www.adp-gmbh.ch/csound/instruments/organ01.html">René Nyffenegger's site</a>.</li>
@@ -92,12 +96,18 @@
 <p>To add some atmosphere I ran all the instruments through the <a href="http://www.csounds.com/manual/html/freeverb.html"><code>freeverb</code></a> reverb opcode.</p>
 <h3 id="output">Output</h3>
 <p>Here are three outputs of the latest version of the Grammar Music system. Note that in "822l1jk" I had accidentally configured the main melody instrument, a Hammond B3, to play a perfect fifth higher than it was supposed to. This resulted in serendipitous melodies and harmonies.</p>
-<p>Your browser does not support the audio element.</p>
-<p>"hallen_grammar_music_822l1jk_2020_10_20.mp3"</p>
-<p>Your browser does not support the audio element.</p>
-<p>"hallen_grammar_music_1w1pfvp_2020_11_8.mp3"</p>
-<p>Your browser does not support the audio element.</p>
-<p>"hallen_grammar_music_9qodbm6_2020_11_8.mp3"</p>
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_822l1jk_2020_10_20.mp3" type="audio/mpeg"></audio>
+<figcaption>"hallen_grammar_music_822l1jk_2020_10_20.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_1w1pfvp_2020_11_8.mp3" type="audio/mpeg"></audio>
+<figcaption>"hallen_grammar_music_1w1pfvp_2020_11_8.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_9qodbm6_2020_11_8.mp3" type="audio/mpeg"></audio>
+<figcaption>"hallen_grammar_music_9qodbm6_2020_11_8.mp3"</figcaption>
+</figure>
+
 <h3 id="code">Code</h3>
 <p>You can check out the code for Grammar Music in <a href="https://github.com/jasonhallen/grammarmusic">my GitHub repository</a>. Note that you won't be able to hear the drum parts if you render the Csound files on your computer because I haven't included the drum samples in the repository. But you can at least see how the Tracery grammar works and how everything is stitched together in Python.</p>
 <h3 id="future-directions">Future Directions</h3>
