@@ -58,10 +58,10 @@ function draw() {
         // WARP
         // wave = int(Math.abs(Math.sin(frameCount * 0.03 - ( 0.04*x+0.04*y ) * 0.07)) * 2800);
 
-        x_component = Math.cos(frameCount/2*0.005);
-        y_component = Math.sin(frameCount/2*0.003);
-        wave = int(Math.sin(frameCount/2*0.35 - (x_component*x/3 - y_component*y/3)) * (x_component*100));
-        wave2 = int(Math.sin(frameCount/2*0.5 - (x_component*x/3 - y_component*y/3)) * (y_component*150));
+        x_component = Math.cos((frameCount + 1860)/2*0.005);
+        y_component = Math.sin((frameCount + 1860)/2*0.003);
+        wave = int(Math.sin((frameCount + 1860)/2*0.35 - (x_component*x/3 - y_component*y/3)) * (x_component*100));
+        wave2 = int(Math.sin((frameCount + 1860)/2*0.5 - (x_component*x/3 - y_component*y/3)) * (y_component*150));
         
         // SOURCE
         sx = x*tileW;
