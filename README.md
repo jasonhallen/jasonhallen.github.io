@@ -35,26 +35,24 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `teeny build`
 * Lauch development server to render site locally
   * `teeny develop`
-* Costum bash script to update Teeny repository and reinstall via NPM
+* Custpmm bash script to update Teeny repository in GitHub and reinstall via NPM
   * `tpush`
-* Clear contents of `gh-pages` branch ([from here](https://blog.ediri.io/how-to-create-a-github-gh-pages-branch-in-an-existing-repository))
-  * `git checkout gh-pages`
-  * `git reset --hard`
-  * `git commit --allow-empty -m "Cleared contents of gh-pages"`
-  * `git push origin gh-pages`
-
-* 
+* Deploy local 'public' folder from `main` branch to `gh-pages` branch of website repository
+  * `gh-pages -d public` 
 
 ## Tasks
+- [ ] Add keywords and description meta elements
+- [ ] Comments from Staticman
+- [ ] Remove image link at top of blog posts
+- [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
 - [x] Fork Teeny into my GitHub
 - [x] Clone Teeny fork to my local computer
 - [x] NPM install fork of Teeny
 - [x] Init Teeny
 - [x] Build Teeny
 - [x] Automate pushing changes to Teeny and re-installing via NPM
-- [ ] Deploy to `gh-pages` branch
-- [ ] Configure "Pages" to deploy from `gh-pages` branch
-- [ ] Blog pagination
-- [ ] Next/Prev buttons in blog
-- [ ] Strip leading zero from Day in date line
-- [ ] Add keywords and description meta elements
+- [x] Deploy to `gh-pages` branch
+- [x] Configure "Pages" to deploy from `gh-pages` branch
+- [x] Blog pagination
+- [x] Next/Prev buttons in blog
+- [x] Strip leading zero from Day in date line
