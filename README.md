@@ -35,7 +35,7 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `teeny build`
 * Lauch development server to render site locally
   * `teeny develop`
-* Custpmm bash script to update Teeny repository in GitHub and reinstall via NPM
+* Custom bash script to update Teeny repository in GitHub and reinstall via NPM
   * `tpush`
 * Deploy local 'public' folder from `main` branch to `gh-pages` branch of website repository
   * `gh-pages -d public` 
