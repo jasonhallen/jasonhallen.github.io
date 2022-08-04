@@ -232,7 +232,8 @@ audio {
     }
 }
 @media (max-width: 480px) {
-    #nav {
+    #nav li {
+        margin: 0px 20px 7px 0px;
         font-size: calc(8.5px + 4.0625vw);
     }
 }
