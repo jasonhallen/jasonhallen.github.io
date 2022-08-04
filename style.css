@@ -233,7 +233,7 @@ audio {
 }
 @media (max-width: 480px) {
     #nav li {
-        margin: 0px 25px 7px 0px;
+        /* margin: 0px 30px 7px 0px; */
         font-size: calc(8.5px + 4.0625vw);
     }
 }
