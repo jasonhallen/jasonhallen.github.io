@@ -9,7 +9,7 @@ description: "This fall I've been sitting in on a computer science course at Car
 ## Update: CS 318
 
 <figure><a href="/blog/update-cs-318"><img src="/images/soft_landscape.jpg" alt="Soft landscpes"/></a>
-<figcaption>Computer-generated landscape by the [soft landscapes Twitter bot](https://twitter.com/softlandscapes).</figcaption>
+<figcaption>Computer-generated landscape by the <a href="https://twitter.com/softlandscapes">soft landscapes Twitter bot</a>.</figcaption>
 </figure>
 
 This fall I've been sitting in on a computer science course at Carleton called CS 318: Computational Media, taught by a visiting professor named [James Ryan](https://www.jamesryan.world/). This course focuses on new forms of creative expression and media that can only be made with computers. Examples include computer-generated poetry and novels, Twitter bots, computer-generated visual art, and virtual reality works.
@@ -26,9 +26,9 @@ Before we did any coding, James first had us learn about pre-computational appro
 
 For example, here's a paragraph I found in a recent issue of the Walker Art Center Magazine.
 
-![Walker Magazine paragraph](images/images/walker_magazine_paragraph.jpg)
-
-Paragraph from recent issue of the Walker Art Center Magazine.
+<figure><img src="/images/walker_magazine_paragraph.jpg" alt="Walker Magazine paragraph">
+<figcaption>Paragraph from recent issue of the Walker Art Center Magazine.</figcaption>
+</figure>
 
 Here's a poem I made by cutting up the words in this paragraph and using chance procedures to reassemble them.
 
@@ -71,7 +71,15 @@ Next we turned to the use of templates to generate text. Templates are basically
 
 The last couple weeks we've focused on using grammars to generate text. Grammars are basically templates nested within templates nested within templates, etc. More technically, grammars involve non-terminal symbols (e.g. `[NOUN_PHRASE]`) which are expanded via production rules (i.e. `->`) into terminal symbols (e.g. `apples`). Production rules can have multiple options to choose from, indicated by the vertical pipe "`|`". Here's a simple example.
 
-`SENTENCE -> [NOUN_PHRASE] [VERB_PHRASE]   NOUN_PHRASE -> [NOUN] | [ADJECTIVE] [NOUN]   NOUN -> apples | trees | birds   ADJECTIVE -> happy | sad | brilliant   VERB_PHRASE -> [VERB] | [ADVERB] [VERB]   VERB -> fall | chirp | grow   ADVERB -> quickly | noisily | freely`
+```
+SENTENCE -> [NOUN_PHRASE] [VERB_PHRASE]
+NOUN_PHRASE -> [NOUN] | [ADJECTIVE] [NOUN]
+NOUN -> apples | trees | birds
+ADJECTIVE -> happy | sad | brilliant
+VERB_PHRASE -> [VERB] | [ADVERB] [VERB]
+VERB -> fall | chirp | grow
+ADVERB -> quickly | noisily | freely
+```
 
 Here are some possible outputs of the grammar above.
 
@@ -79,11 +87,12 @@ Here are some possible outputs of the grammar above.
 *   brilliant birds fall
 *   sad trees grow freely
 
-James taught us how to build Twitter bots using a grammar language called [Tracery](https://tracery.io/) in conjunction with the site [Cheap Bots, Done Quick](https://cheapbotsdonequick.com/). It's easier to do than you might think.
+James taught us how to build Twitter bots using a grammar language called [Tracery](https://tracery.io/) in conjunction with the site [Cheap Bots, Done Quick](https://cheapbotsdonequick.com/). It's easier to do than you might think. 
 
-[Tweets by thrivetodeath](https://twitter.com/thrivetodeath?ref_src=twsrc%5Etfw)
-
-[Thrive to Death](https://twitter.com/thrivetodeath), my first Twitter bot.
+<figure><a class="twitter-timeline" href="https://twitter.com/thrivetodeath?ref_src=twsrc%5Etfw" data-height="200" data-theme="dark">Tweets by thrivetodeath</a>
+<figcaption><a href="https://twitter.com/thrivetodeath" target="_blank" rel="noopener noreferrer">Thrive to Death</a>, my first Twitter bot.</figcaption>
+</figure>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 I created a bot called [Thrive to Death](https://twitter.com/thrivetodeath), which is a parody of productivity gurus like Tim Ferriss and David Allen. The grammar is based on sentence structures and vocabulary I found in popular productivity gurus' Twitter feeds. Developing grammars like this is fun. You can easily spend hours and hours tweaking and refining the grammars so they can generate a wide range of structures and nuanced ideas. But unless you're very sophisticated with your grammar it will end up sounding slightly off and non-human at times.
 

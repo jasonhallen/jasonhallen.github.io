@@ -10,7 +10,7 @@ description: For the past couple weeks I've been wrestling with how to handle ti
 <figure><a href="/blog/project-musical-time-in-python"><img src="/images/python_csound5.png" alt="Abstract diagram of timing problem"/></a>
 </figure>
 
-For the past couple weeks I've been wrestling with how to handle timing in Python. This was the main challenge I'd have to solve before converting my [Python music generator](index.php?option=com_content&view=article&id=18:project-music-generator&catid=8:blog) into a real-time system. After experimenting with several possible solutions I finally found a promising one.
+For the past couple weeks I've been wrestling with how to handle timing in Python. This was the main challenge I'd have to solve before converting my [Python music generator](/blog/project-music-generator) into a real-time system. After experimenting with several possible solutions I finally found a promising one.
 
 <a class="readmore" href="">Read more</a>
 
@@ -130,11 +130,15 @@ Just when I thought I had run out of ideas, a very simple one popped into my hea
 
 After digging into the [ctcsound documentation](https://csound.com/docs/ctcsound/ctcsound-API.html#module-ctcsound) I found a method called `.scoreTime()`. This simply gets the current running time of the Csound instance down to many decimal places. I added the `.scoreTime()` call to the GUI event loop and built a simple metronome like this:
 
-`time_clock = 0   while True: # GUI event loop   time_interval = 60/values['TEMPO']`  
-`test_interval = cs.scoreTime() - time_clock`  
-`if test_interval >= time_interval:`  
-`cs.sendScore("i 1 0 0.1") # trigger note in Csound`  
-`time_clock = cs.scoreTime()`
+```
+time_clock = 0
+while True:   # GUI event loop
+  time_interval = 60/values['TEMPO']
+  test_interval = cs.scoreTime() - time_clock
+  if test_interval >= time_interval:
+    cs.sendScore("i 1 0 0.1")   # trigger note in Csound
+    time_clock = cs.scoreTime()
+```
 
 You might wonder, "What's that `values['TEMPO']` line at the beginning?" That's reading the value from a slider in PySimpleGUI, and it's what allows me to control the tempo in real time.
 

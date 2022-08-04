@@ -8,10 +8,7 @@ description: Coding a drum machine from scratch in Csound.
 ---
 ## Project: Drum Machine
 
-<figure><a href="/blog/project-drum-machine"><img src="/images/electric_davis.png" alt="Electric Miles Davis"/></a>
-</figure>
-
-I can’t remember why I decided to build a drum machine in Csound. After spending a few weeks on the [James Tenney instrument](index.php?option=com_content&view=article&id=11:study-james-tenney&catid=8:blog), which generates notes in a very randomized way, I must have been interested in generating notes within a metrical framework. In other words, I wanted to learn how to use the `metro` opcode.
+I can’t remember why I decided to build a drum machine in Csound. After spending a few weeks on the [James Tenney instrument](/blog/study-james-tenney), which generates notes in a very randomized way, I must have been interested in generating notes within a metrical framework. In other words, I wanted to learn how to use the `metro` opcode.
 
 But first, why would you build a drum machine when there are dozens of free, full-featured drum machines available online? Two reasons:
 
@@ -22,15 +19,15 @@ But first, why would you build a drum machine when there are dozens of free, ful
 
 ### Sampling Drum Sounds
 
-The first step was deciding how to generate the drum sounds. Rather than synthesize the sounds from scratch I decided to play pre-recorded drum samples with the `[loscil](http://www.csounds.com/manual/html/loscil.html)` opcode. I found a huge collection of free drum machine samples on [Reverb.com](https://reverb.com/software/samples-and-loops/reverb/3514-reverb-drum-machines-the-complete-collection) and a more extensive collection of free TR-808 samples from [Michael Fischer](http://smd-records.com/tr808/?page_id=14). I chose several of my favorite samples and loaded them into function tables with [GEN routine 01](http://www.csounds.com/manual/html/GEN01.html). The `loscil` opcode would then play the different drum parts depending on which function table it was told to read from.
+The first step was deciding how to generate the drum sounds. Rather than synthesize the sounds from scratch I decided to play pre-recorded drum samples with the [`loscil`](http://www.csounds.com/manual/html/loscil.html) opcode. I found a huge collection of free drum machine samples on [Reverb.com](https://reverb.com/software/samples-and-loops/reverb/3514-reverb-drum-machines-the-complete-collection) and a more extensive collection of free TR-808 samples from [Michael Fischer](http://smd-records.com/tr808/?page_id=14). I chose several of my favorite samples and loaded them into function tables with [GEN routine 01](http://www.csounds.com/manual/html/GEN01.html). The `loscil` opcode would then play the different drum parts depending on which function table it was told to read from.
 
 ### Controlling Rhythmic Patterns
 
 The most challenging part of designing a drum machine is deciding how the user will interact with the machine to create rhythmic patterns. The trick is striking the right balance between controlability and simplicity. You want to provide enough ways for the user to control the drum machine and do exactly what they want to do musically, but you also want the drum machine to be simple enough for the user to use it without overwhelming the user with all the options.
 
-![drum machine](images/images/drum_machine.gif)
-
-Screenshot of the drum machine interface built in Cabbage.
+<figure><img src="/images/drum_machine.gif" alt="Drum machine">
+<figcaption>Screenshot of the drum machine interface built in Cabbage.</figcaption>
+</figure>
 
 I was most interested in how the user will control the rhythmic pattern of each drum part. I decided not to have the user click a box for every 1/16th note of every drum part because there would be a total of 192 boxes on the screen! I was afraid that would be overwhelming to the user and difficult to control in real time. Instead, I decided to have the user control the rhythmic patterns by entering and modifying strings of characters. My thinking was that the 24 string fields are visually simpler than 192 buttons, and it’s faster for the user to type characters than to move and click the mouse dozens of times.
 
@@ -50,15 +47,15 @@ Under the hood, this drum machine reads the various widget values into arrays, c
 
 ### Controlling Widgets in Cabbage
 
-I began coding the drum machine in [CsoundQt](https://csoundqt.github.io/), but managing the widgets (i.e. buttons, knobs, and sliders) became cumbersome as the drum machine became more complex. I needed a more efficient way to work with lots of widgets in an instrument. On the [Csound listserv](http://csound.1045644.n5.nabble.com/) I saw someone recommend another Csound development environment called [Cabbage](https://cabbageaudio.com/), so I decided to give it a shot. There was a learning curve going from CsoundQt to Cabbage, but I could see the benefits.
+I began coding the drum machine in [CsoundQt](https://csoundqt.github.io/), but managing the widgets (i.e. buttons, knobs, and sliders) became cumbersome as the drum machine became more complex. I needed a more efficient way to work with lots of widgets in an instrument. On the Csound listserv [edit: the listserv has mostly moved over to the [Csound forum](https://forum.csound.com/)] I saw someone recommend another Csound development environment called [Cabbage](https://cabbageaudio.com/), so I decided to give it a shot. There was a learning curve going from CsoundQt to Cabbage, but I could see the benefits.
 
 *   Cabbage offers a brilliant way to create and manipulate widgets through the Csound code itself. This cut down on development time a lot.
 *   You can easily export your instruments as VST/AU plugins for use in your preferred digital audio workstation.
 *   Cabbage has fantastic [documentation](https://cabbageaudio.com/docs/introduction/), and the lead developer, Rory Walsh, responds quickly and helpfully to all requests on the [Cabbage Forum](https://forum.cabbageaudio.com/).
 
-![drum machine cabbage](images/images/drum_machine_cabbage.jpg)
-
-Screenshot of Cabbage, code, and drum machine.
+<figure><img src="/images/drum_machine_cabbage.jpg" alt="Drum machine in Cabbage">
+<figcaption>Screenshot of Cabbage, code, and drum machine.</figcaption>
+</figure>
 
 ### Special Features
 
@@ -67,8 +64,8 @@ Screenshot of Cabbage, code, and drum machine.
 *   **Swing** - Any good drum machine should have a swing feature that delays every other 1/8th or 1/16th note.
 *   **Deviation** - This determines how much the exact timing of the notes can deviate from the tempo. Turning up the deviation increases the looseness of the rhythms. If you turn it up too high the rhythms begin to sound chaotic.
 
-Your browser does not support the audio element.
-
-"hallen\_drum\_machine\_2019\_9\_6.mp3" -- A live performance of the drum machine.
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_drum_machine_2019_9_6.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_drum_machine_2019_9_6.mp3" -- A live performance of the drum machine.</figcaption>
+</figure>
 
 Here's a recording of a live performance I did with this drum machine. It's pretty simple, but it's made from scratch! That's as far as I got on the drum machine because another project grabbed my attention at the time. I'm sure I'll return to this though. When I do, I'd like to expand the number of characters the user can use to control the rhythmic patterns. I'd also like to spend more time "tuning the randomness" in the drum machine because truly random rhythmic patterns are often not satisfying musically. That's for another day.

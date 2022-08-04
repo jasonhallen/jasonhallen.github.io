@@ -30,6 +30,9 @@ h4 {
     font-size: 22px;
     line-height: 16px;
 }
+p {
+    margin: 0 0 22px;
+}
 a {
     color: black;
     padding: 2px 0px;
@@ -72,6 +75,10 @@ code {
     font-family: Menlo, Consolas, "Courier New", monospace;
     font-size: 16px;
     font-weight: bold;
+}
+blockquote {
+    padding: 15px 0 5px 20px;
+    margin: 0 0 20px;
 }
 audio {
     display: inline-block;
@@ -144,6 +151,10 @@ audio {
     font-family: "Josefin Slab";
     font-weight: bold;
     font-size: 20px;
+}
+.date {
+    margin: 0px 0px 30px;
+    display: block;
 }
 #pagination span {
     margin-right:5px;

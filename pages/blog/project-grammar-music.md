@@ -12,7 +12,7 @@ description: I used the Tracery grammar language to random generate music with C
 <figcaption>Excerpt of code from Grammar Music project.</figcaption>
 </figure>
 
-In my [previous post](index.php?option=com_content&view=article&id=15:update-cs-318&catid=8:blog) I talked about using [Tracery](http://tracery.io/) to write grammars which generate text. In this post I'll talk about using Tracery to generate Csound scores instead.
+In my [previous post](/blog/update-cs-318) I talked about using [Tracery](http://tracery.io/) to write grammars which generate text. In this post I'll talk about using Tracery to generate Csound scores instead.
 
 <a class="readmore" href="">Read more</a>
 
@@ -32,7 +32,7 @@ Since the output of Tracery is a string of characters, you can get clever about 
 
 So you can use Tracery to output a Csound score, and you can then feed that score into Csound to hear Csound perform it. Is there a way to automate that process? Sure there is. I used a Python script to do this. Here are the components I used.
 
-*   [Tracery for Python](https://github.com/aparrish/pytraceryhttps://github.com/aparrish/pytracery) - This lets you run Tracery within Python. Made by Allison Parrish.
+*   [Tracery for Python](https://github.com/aparrish/pytracery) - This lets you run Tracery within Python. Made by Allison Parrish.
 *   [ctcsound](https://github.com/csound/ctcsound) - This lets you run and control Csound in Python. It comes packaged with Csound. Made by François Pinot.
 
 Ok, now back to score generation with Tracery.
@@ -63,9 +63,9 @@ There's much more I could say about how all of this works, but I won't go into m
 
 Here's an output of the grammar from an early stage of development. It's a good lesson in the fact that, while it's not too hard to get Tracery to generate a valid Csound score, it's another thing to get Tracery to generate a compelling piece of music. This early output consists of loops of randomly generated melodies and rhythms. The music starts, doesn't go anywhere, and abruptly ends.
 
-Your browser does not support the audio element.
-
-"hallen\_grammar\_music\_zoxjpqe\_2020\_10\_11.mp3"
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_zoxjpqe_2020_10_11.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_grammar_music_zoxjpqe_2020_10_11.mp3"</figcaption>
+</figure>
 
 I needed to find a way to make the grammar output more interesting, so I spent the next week wrestling with the limitations of Tracery and the constraints of the Csound score system. I had two goals:
 
@@ -82,13 +82,13 @@ I needed to find a way to make the grammar output more interesting, so I spent t
 
 Here's a diagram I drew of the structure of the piece as I was working it out.
 
-![Grammar Music diagram](images/images/grammar_music_diagram.jpg)
-
-Diagram of Grammar Music structure.
+<figure><img src="/images/grammar_music_diagram.jpg" alt="Grammar Music diagram">
+<figcaption>Diagram of Grammar Music structure.</figcaption>
+</figure>
 
 ### Instruments
 
-I wanted to avoid getting bogged down in instrument design like I did on the [Mark Fell project](index.php?option=com_content&view=article&id=13:study-mark-fell-rhythms&catid=8), so I decided to search online for pre-made Csound instruments. Turns out there are several opcodes that made this very easy. Here are the instruments I made for Grammar Music.
+I wanted to avoid getting bogged down in instrument design like I did on the [Mark Fell project](/blog/study-mark-fell-rhythms), so I decided to search online for pre-made Csound instruments. Turns out there are several opcodes that made this very easy. Here are the instruments I made for Grammar Music.
 
 *   **Plucked String** - I borrowed this instrument from Iain McCurdy's Bounce project that comes with Cabbage. It uses the [`wgpluck2`](http://www.csounds.com/manual/html/wgpluck2.html) opcode, which is a physical model of a plucked string. This instrument plays both melodies and bass lines depending on the register selected.
 *   **Pipe Organ** - This is a straightforward use of additive synthesis that I found on [René Nyffenegger's site](http://www.adp-gmbh.ch/csound/instruments/organ01.html).
@@ -104,17 +104,17 @@ To add some atmosphere I ran all the instruments through the [`freeverb`](http:/
 
 Here are three outputs of the latest version of the Grammar Music system. Note that in "822l1jk" I had accidentally configured the main melody instrument, a Hammond B3, to play a perfect fifth higher than it was supposed to. This resulted in serendipitous melodies and harmonies.
 
-Your browser does not support the audio element.
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_822l1jk_2020_10_20.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_grammar_music_822l1jk_2020_10_20.mp3"</figcaption>
+</figure>
 
-"hallen\_grammar\_music\_822l1jk\_2020\_10\_20.mp3"
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_1w1pfvp_2020_11_8.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_grammar_music_1w1pfvp_2020_11_8.mp3"</figcaption>
+</figure>
 
-Your browser does not support the audio element.
-
-"hallen\_grammar\_music\_1w1pfvp\_2020\_11\_8.mp3"
-
-Your browser does not support the audio element.
-
-"hallen\_grammar\_music\_9qodbm6\_2020\_11\_8.mp3"
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_grammar_music_9qodbm6_2020_11_8.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_grammar_music_9qodbm6_2020_11_8.mp3"</figcaption>
+</figure>
 
 ### Code
 

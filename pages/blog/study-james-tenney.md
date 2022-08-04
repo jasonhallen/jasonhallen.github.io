@@ -16,15 +16,17 @@ I like to study the writings of computer music practitioners and try to implemen
 
 <a class="readmore" href="">Read more</a>
 
+<figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2636624934/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/track=2321235511/transparent=true/" width="100%" height="120px" frameborder="0" seamless="seamless"></iframe></figure>
+
 “Dialogue” is one of the pieces Tenney produced at Bell Labs. You can hear how he explores the use of noise and the randomization of musical parameters like note duration, frequency, and amplitude envelope shape. In his essay he explains the philosophical and aesthetic foundations of his compositional practice at the time. From a technical standpoint, Tenney only illustrates his ideas with prose, schematics, and graphs, so it was up to me to figure out how to translate those into Csound code.
 
 ### Using Python to Generate the Score
 
 At the start of this project I was more familiar with Python than Csound, so I wrote a Python program to generate the entire Csound score. A simple Csound instrument (a sine wave oscillator with an amplitude envelope) would then perform the score. In order to write the program that generated the score I had to figure out how to 1) randomize several musical parameters and 2) control and direct this randomness in interesting ways.
 
-Your browser does not support the audio element.
-
-"hallen\_tenney\_2019\_8\_13.mp3" -- Initial Tenney instrument with a score generated in Python.
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_tenney_2019_8_13.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_tenney_2019_8_13.mp3" -- Initial Tenney instrument with a score generated in Python.</figcaption>
+</figure>
 
 Above is a recording I made of my initial Tenney instrument. You’ll notice that I didn’t explore noise or complex waveforms like he did; it’s all sine waves. Here are a few things to listen for:
 
@@ -40,14 +42,14 @@ In order to interact with the music in real time I needed to create a virtual in
 
 My Tenney instrument quickly took on a life of its own once I began building an interface. It began to feel less like a program and more like an instrument I could learn to play, and the more I played the instrument the more new ideas I would think of for enhancing it. Below is a screenshot of the interface I created.
 
-![](images/images/tenney_interface.png)
-
-Screenshot of the interface built in CsoundQt.
+<figure><img src="/images/tenney_interface.png" alt="Screenshot of the interface built in CsoundQt.">
+<figcaption>Screenshot of the interface built in CsoundQt.</figcaption>
+</figure>
 
 Below is a recording of a live performance I did with the Tenney instrument. Perfoming this instrument consists of manipulating the base frequencies and durations and then sculpting the degree of random deviation around them. I was pleased with the harmonic, rhythmic, and dynamic variation this instrument was able to achieve.
 
-Your browser does not support the audio element.
-
-"hallen\_tenney\_2019\_08\_27.mp3" -- A live performance of the Tenney instrument with real-time interaction.
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_tenney_2019_08_27.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_tenney_2019_08_27.mp3" -- A live performance of the Tenney instrument with real-time interaction.</figcaption>
+</figure>
 
 This was as far as I went with the Tenney project, but it served its purpose well. I learned a tremendous amount about Csound and felt empowered to move on to my next project -- building a drum machine in Csound. More on that in my next post.

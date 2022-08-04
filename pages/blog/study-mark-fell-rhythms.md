@@ -8,12 +8,12 @@ description: "How I studied and implemented the algorithmic techniques of Mark F
 ---
 ## Study: Mark Fell - Rhythms
 
-<figure><a href="/blog/study-mark-fell-rhythms"><img src="/images/electric_davis.png" alt="Electric Miles Davis"/></a>
+<figure><a href="/blog/study-mark-fell-rhythms"><img src="/images/fell_detail.png" alt="Electric Miles Davis"/></a>
 </figure>
 
-I was drawn to the work of [Mark Fell](http://www.markfell.com/wiki/) this past fall when I was exploring [rhythmic pattern generation](blog/project-drum-machine) and FM synthesis. In particular, I was blown away by Fell’s collaboration with Gábor Lázár from 2015 called _[The Neurobiology of Moral Decision Making](https://soundcloud.com/gaborlazar/mark-fell-and-gabor-lazar-the-neurobiology-of-moral-decision-making-2015)_.
+I was drawn to the work of [Mark Fell](http://www.markfell.com/wiki/) this past fall when I was exploring [rhythmic pattern generation](/blog/project-drum-machine) and FM synthesis. In particular, I was blown away by Fell’s collaboration with Gábor Lázár from 2015 called _[The Neurobiology of Moral Decision Making](https://soundcloud.com/gaborlazar/mark-fell-and-gabor-lazar-the-neurobiology-of-moral-decision-making-2015)_.
 
-I wanted to know how Fell and Lázár made these rhythms and sounds. A Google search landed me on [this thread in the lines forum](https://llllllll.co/t/approaching-gabor-lazar-sound-design-techniques/13349) where I learned that Fell completed a PhD thesis in 2013 called [_Works in Sound and Pattern Synthesis_](http://epubs.surrey.ac.uk/804661/). It turns out this thesis provides detailed discussions of Fell’s rhythmic pattern and synthesis algorithms. I decided to implement Fell’s ideas in Csound just like I did with [James Tenney’s ideas](blog/study-james-tenney).
+I wanted to know how Fell and Lázár made these rhythms and sounds. A Google search landed me on [this thread in the lines forum](https://llllllll.co/t/approaching-gabor-lazar-sound-design-techniques/13349) where I learned that Fell completed a PhD thesis in 2013 called [_Works in Sound and Pattern Synthesis_](https://openresearch.surrey.ac.uk/esploro/outputs/doctoral/Works-in-Sound-and-Pattern-Synthesis/99516858802346?institution=44SUR_INST). It turns out this thesis provides detailed discussions of Fell’s rhythmic pattern and synthesis algorithms. I decided to implement Fell’s ideas in Csound just like I did with [James Tenney’s ideas](/blog/study-james-tenney).
 
 <a class="readmore" href="">Read more</a>
 
@@ -25,9 +25,9 @@ Fell’s basic approach to rhythm on _Multistability_ is to avoid clearly define
 
 ### Rhythmic Pattern Generator
 
-![fell rhythmic pattern generator](images/images/fell_rhythmic_pattern_generator.png)
-
-Screenshot of the Fell rhythmic pattern generator built in Cabbage.
+<figure><img src="/images/fell_rhythmic_pattern_generator.png" alt="Fell rhythmic pattern generator">
+<figcaption>Screenshot of the Fell rhythmic pattern generator built in Cabbage.</figcaption>
+</figure>
 
 Let’s first look at the top box called “Rhythm”. The six columns in the middle each represent a beat (or multiple beats depending on the Repetition value) in the rhythmic sequence. The rhythmic sequence is cycled through over and over. Here’s what the different fields mean.
 
@@ -51,30 +51,30 @@ The ideas here are a combination of Mark Fell’s and mine. Fell wrote about the
 
 Here are some improvisations I recorded with this instrument. In each case I started with a pre-made rhythmic pattern and quickly began altering the pattern. Note that these are not the most compelling pieces of music on their own. To bring these pieces to life I’ll need to add synthesizer accompaniment, which I’ll cover in the next post.
 
-Your browser does not support the audio element.
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_a.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_a.mp3"</figcaption>
+</figure>
 
-"hallen\_fell\_rhythm\_2020\_4\_1\_a.mp3"
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_e.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_e.mp3"</figcaption>
+</figure>
 
-Your browser does not support the audio element.
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_c.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_c.mp3"</figcaption>
+</figure>
 
-"hallen\_fell\_rhythm\_2020\_4\_1\_e.mp3"
-
-Your browser does not support the audio element.
-
-"hallen\_fell\_rhythm\_2020\_4\_1\_c.mp3"
-
-Your browser does not support the audio element.
-
-"hallen\_fell\_rhythm\_2020\_4\_1\_b.mp3"
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_b.mp3" type="audio/mpeg" /></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_b.mp3"</figcaption>
+</figure>
 
 ### Playing the Instrument
 
-This instrument is an example of how a few simple elements (i.e. duration, multiplier, repetition, and amplitude sequence) can interact to create complex and surprising patterns. Playing it is very different from playing a [traditional drum machine](blog/project-drum-machine) where each drum part is independent and fully controllable. Instead, in this instrument the drum parts are interconnected. It takes some getting used to.
+This instrument is an example of how a few simple elements (i.e. duration, multiplier, repetition, and amplitude sequence) can interact to create complex and surprising patterns. Playing it is very different from playing a [traditional drum machine](/blog/project-drum-machine) where each drum part is independent and fully controllable. Instead, in this instrument the drum parts are interconnected. It takes some getting used to.
 
 You can make metrical rhythms that sound pretty traditional with this instrument, but it’s an uphill battle. This instrument is better for creating awkward, knotty rhythms, and that was Fell’s intention. Your best bet is to embrace the awkwardness and let the rhythms get weird.
 
 ### Csound Code
 
-The Csound code for this instrument is pretty similar to the code for [the drum machine I made](blog/project-drum-machine). The code reads the various widget values into arrays, cycles through the active rows and columns, and triggers the drum samples which are played with the `loscil` opcode.
+The Csound code for this instrument is pretty similar to the code for [the drum machine I made](/blog/project-drum-machine). The code reads the various widget values into arrays, cycles through the active rows and columns, and triggers the drum samples which are played with the `loscil` opcode.
 
 The main difference is that this instrument changes the value of the `metro` opcode every time it moves to the next rhythm column. In other words, it continuously cycles through different tempos, whereas the traditional drum machine maintains a constant tempo as it cycles through the drum patterns.

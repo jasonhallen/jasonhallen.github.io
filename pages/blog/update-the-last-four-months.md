@@ -23,17 +23,17 @@ I basically stopped working on my Csound projects when I started auditing a comp
 
 From March to June I audited the course “CS 208: Computer Organization and Architecture” at Carleton College. This course focused on central processing units (CPUs), memory management, operating systems, and the C programming language. The textbook we used was Bryant and O'Hallaron's _Computer Systems: A Programmer's Perspective_ (3rd ed., 2015), which is dense and challenging but very informative. This was my first time learning C, and it was a brutal learning curve. However, it has put me in a better position to understand how Csound works under the hood.
 
-![byrant ohallaron cspp 2015](images/images/byrant_ohallaron_cspp_2015.jpg)
-
-This is the textbook we used for "Computer Organization and Architecture."
+<figure><img style="width:300px;" src="/images/byrant_ohallaron_cspp_2015.jpg" alt="Byrant Ohallaron Computer Systems">
+<figcaption>This is the textbook we used for "Computer Organization and Architecture."</figcaption>
+</figure>
 
 ### Working Remotely
 
 The pandemic hit Minnesota in the middle of March, which is when I began working remotely full-time. I've been back in my office at the library only about fives times since then. At first I set up my home office in our craft room which is slightly bigger than a closet. After about a week I felt cramped and moved my office to a spare room. That's where I've been for a few months now. I like it.
 
-![Remote work office](images/images/remote_work_office.jpg)
-
-My remote work office.
+<figure><img style="width:300px;" src="/images/remote_work_office.jpg" alt="Remote work office">
+<figcaption>My remote work office.</figcaption>
+</figure>
 
 ### Listening to Music
 

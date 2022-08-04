@@ -16,6 +16,8 @@ It's been a great year in listening to music for me. This is mostly due to the f
 
 <a class="readmore" href="">Read more</a>
 
+<br>
+
 <figure><img src="/images/einsjager_siebenjager.jpg" alt="Einsjager & Siebenjager cover art" style="width:400px;"/>
 <figcaption><h3>Popol Vuh - Einsjäger & Siebenjäger (1974)</h3></figcaption>
 </figure>
@@ -28,6 +30,8 @@ Then I played it again and took a nap on my couch while it played. I was in one 
 
 <figure><iframe src="https://open.spotify.com/embed/album/1HO7xQMZ192OZpZVkH9fpp" width="100%" height="200" frameborder="0"></iframe></figure>
 
+<br>
+
 <figure><img src="/images/musica_esporadica.jpg" alt="Música Esporádica cover art" style="width:400px;"/>
 <figcaption><h3>Música Esporádica - Música Esporádica (1985)</h3></figcaption>
 </figure>
@@ -37,6 +41,8 @@ I forget how I stumbled on the label [Music from Memory](https://www.musicfromme
 The music is percussive, atmospheric, and entrancing. Two things make the music stand out for me. One is the vocalists whose harmonies blend in beautifully with the rest of the ensemble, as showcased on "I Forgot the Shirts". The other is the ensemble's embrace of digital synthesizers, which sound dated yet perfect.
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=463777414/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/track=3066527832/transparent=true/" width="100%" height="120px" frameborder="0"></iframe></figure>
+
+<br>
 
 <figure><img src="/images/lifted_2.jpg" alt="Lifted 2 cover art" style="width:400px;"/>
 <figcaption><h3>Lifted - 2 (2019)</h3></figcaption>
@@ -48,6 +54,8 @@ All this is to say that I learned about Lifted's 2019 album, _2_, either from TM
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=293782602/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/track=1176397/transparent=true/" width="100%" height="120px" frameborder="0"></iframe></figure>
 
+<br>
+
 <figure><img src="/images/ashra_blackouts.jpg" alt="Blackouts cover art" style="width:400px;"/>
 <figcaption><h3>Ashra - Blackouts (1977)</h3></figcaption>
 </figure>
@@ -57,6 +65,8 @@ Another favorite from my krautrock exploration. Ashra was Manuel Göttsching's s
 _New Age of Earth_ from 1976 is just as good as (though more celebrated than) _Blackouts_ from 1977. But _Blackouts_ is the one I keep coming back to. While _New Age of Earth_ is innovatively ambient, _Blackouts_ is funky and fun. For my money, Göttsching made a quantum leap forward with these albums and blew past some of the big names of the era like Kraftwerk and Cluster. Sadly, Ashra's next album, _Correlations_ from 1979, is a disappointing mix of more commercial music that hasn't aged well. Let's not forget his return to glory, however, with 1981's stunning _E2-E4_.
 
 <figure><iframe src="https://open.spotify.com/embed/album/140BMrMHrJKORgGdutEFde" width="100%" height="200" frameborder="0"></iframe></figure>
+
+<br>
 
 <figure><img src="/images/blue_spring.jpg" alt="Blue Spring cover art" style="width:400px;"/>
 <figcaption><h3>Nathan Micay - Blue Spring (2019)</h3></figcaption>
@@ -68,6 +78,8 @@ Just because I call it candy doesn't mean that it lacks substance. The music is 
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1384410168/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/track=84743223/transparent=true/" width="100%" height="120px" frameborder="0"></iframe></figure>
 
+<br>
+
 <figure><img src="/images/sacrificial_code.jpg" alt="Sacrificial Code cover art" style="width:400px;"/>
 <figcaption><h3>Kali Malone - The Sacrificial Code (2019)</h3></figcaption>
 </figure>
@@ -76,15 +88,19 @@ I first started listening to this at the end of 2019 when we were still living i
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3681884855/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/track=762892125/transparent=true/" width="100%" height="120px" frameborder="0"></iframe></figure>
 
+<br>
+
 <figure><img src="/images/multistability.jpg" alt="Multistability cover art" style="width:400px;"/>
 <figcaption><h3>Mark Fell - Multistability (2010)</h3></figcaption>
 </figure>
 
-As you might have read, I spent a couple months [studying and implementing the algorithmic techniques](index.php?option=com_content&view=article&id=13:study-mark-fell-rhythms&catid=8:blog) Fell used on his 2010 album _Multistability_. I first listened to Fell's music several years ago and found it overly conceptual and tedious. However, when I started learning how to make computer music last year I returned to Fell's music and found a new beauty in it.
+As you might have read, I spent a couple months [studying and implementing the algorithmic techniques](/blog/study-mark-fell-rhythms) Fell used on his 2010 album _Multistability_. I first listened to Fell's music several years ago and found it overly conceptual and tedious. However, when I started learning how to make computer music last year I returned to Fell's music and found a new beauty in it.
 
 Yes, the tracks on _Multistability_ are endurance tests. This is because on each track Fell isolates and patiently explores different variables in his quest to investigate his ideas about rhythm, repetition, and tone. It's easy for my ears to gloss over when listening to his music, but when I listen attentively I discover a sound world of dynamic subtleties. There's much more going on here than might initially meet the ear.
 
 <figure><iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/11294561&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true" width="100%" height="166" frameborder="0" scrolling="no"></iframe></figure>
+
+<br>
 
 <figure><img src="/images/mas_amable.jpg" alt="Mas Amable cover art" style="width:400px;"/>
 <figcaption><h3>DJ Python - Mas Amable (2020)</h3></figcaption>
@@ -94,6 +110,8 @@ I only started listening to _Mas Amable_ a few weeks ago, but it quickly made it
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3334571118/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/track=1400750696/transparent=true/" width="100%" height="120px" frameborder="0"></iframe></figure>
 
+<br>
+
 <figure><img src="/images/kulor_006.jpg" alt="Kulør 006 cover art" style="width:400px;"/>
 <figcaption><h3>Various Artists - Kulør 006 (2020)</h3></figcaption>
 </figure>
@@ -101,6 +119,8 @@ I only started listening to _Mas Amable_ a few weeks ago, but it quickly made it
 Kulør is a label that showcases Danish electronic artists. The music on this compilation album exemplifies what I think of as one of the leading strains of contemporary leftfield electronic music. It's natively digital, precise, clean, air tight, amply post-processed, and vaguely poppy yet slightly unsettling. The highlight of the album for me is Varnrable's "Cold Bright Hard Light". Those bold opening synths get my bloody pumping. Her other tracks on Spotify are also compelling, so I'm looking forward to her first album whenever that comes out. Other favorites on this album are "Look" by Sofie Birch and "Dares Soar" by X & Yde.
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1671910093/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/track=3853963091/transparent=true/" width="100%" height="120px" frameborder="0"></iframe></figure>
+
+<br>
 
 <figure><img src="/images/eurodrome.jpg" alt="Eurodrome cover art" style="width:400px;"/>
 <figcaption><h3>Alameda 5 - Eurodrome (2019)</h3></figcaption>
