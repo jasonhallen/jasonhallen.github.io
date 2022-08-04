@@ -237,3 +237,6 @@ audio {
         font-size: calc(8.5px + 4.0625vw);
     }
 }
+#defaultCanvas0 {
+    margin-top: -30px;
+}

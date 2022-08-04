@@ -8,17 +8,25 @@ function setup() {
   // background(232, 170, 26);
   pixelDensity(1);
   background("white");
-  source = createGraphics(document.getElementById("page-content").offsetWidth,600);
+  if (window.innerWidth > 600) {
+    source = createGraphics(document.getElementById("page-content").offsetWidth,600);
+  } else {
+    source = createGraphics(window.innerWidth,480);
+  }
   // source.background(232, 170, 26);
   source.fill("black");
-  source.textSize(350);
+  source.textSize(document.getElementById("page-content").offsetWidth * 0.5);
   source.push();
-  source.translate(source.width/2,source.height/2);
+  if (window.innerWidth > 500) {
+    source.translate(source.width/2,source.height/2);
+  } else {
+    source.translate(source.width/2 - 50,source.height/2);
+  }
   source.textAlign(CENTER,CENTER);
   source.textFont("Gill Sans");
   source.textStyle(NORMAL);
   source.text("404",0,-70);
-  source.textSize(120);
+  // source.textSize(120);
   // source.text("COLLECTIVE",0,90);
   source.pop();
   source.stroke("white");
@@ -88,15 +96,16 @@ function draw() {
 function windowResized() {
   resizeCanvas(document.getElementById("page-content").offsetWidth, 400);
   source.width = document.getElementById("page-content").offsetWidth;
+  source.background("white");
   source.fill("black");
-  source.textSize(350);
+  source.textSize(document.getElementById("page-content").offsetWidth * 0.5);
   source.push();
   source.translate(source.width/2,source.height/2);
   source.textAlign(CENTER,CENTER);
   source.textFont("Gill Sans");
   source.textStyle(NORMAL);
   source.text("404",0,-70);
-  source.textSize(120);
+  // source.textSize(120);
   // source.text("COLLECTIVE",0,90);
   source.pop();
   source.stroke("white");
@@ -106,10 +115,10 @@ function windowResized() {
   }
 }
 
-function mousePressed() {
-  if (freeze_status === false) {
-    freeze_status = true;
-  } else {
-    freeze_status = false;
-  }
-}
+// function mousePressed() {
+//   if (freeze_status === false) {
+//     freeze_status = true;
+//   } else {
+//     freeze_status = false;
+//   }
+// }
