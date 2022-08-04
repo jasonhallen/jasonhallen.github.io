@@ -157,7 +157,7 @@ audio {
     display: block;
 }
 #pagination span {
-    margin-right:5px;
+    /* margin-right:5px; */
     text-decoration: none;
     font-family: "Josefin Slab";
     font-weight: bold;
@@ -229,5 +229,10 @@ audio {
     #about_text {
         float: none;
         width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    #nav {
+        font-size: calc(8.5px + 4.0625vw);
     }
 }
