@@ -238,5 +238,8 @@ audio {
     }
 }
 #defaultCanvas0 {
-    margin-top: -30px;
+    margin-top: -40px;
+}
+#page-not-found h3 {
+    margin-top: -250px;
 }

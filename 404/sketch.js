@@ -1,6 +1,7 @@
 let source, overlay;
 let tilesX, tilesY, tileW, tileY, sx, sy, sw, sh, dx, dy, dw, dh, wave, x, y, x_component, y_component;
 let freeze_status = false;
+let pageNotFound;
 
 function setup() {
   var canvas = createCanvas(document.getElementById("page-content").offsetWidth,600);
@@ -44,13 +45,19 @@ function setup() {
   frameRate(60);
   // createLoop({duration:44,gif:true,open:true});
 
+  pageNotFound = document.createElement("span");
+  pageNotFound.innerHTML = "<h3>PAGE NOT FOUND</h3";
+  pageNotFound.setAttribute("id", "page-not-found");
+  // pageNotFound.setAttribute("style", "position:absolute;");
+  document.getElementById("defaultCanvas0").parentNode.insertBefore(pageNotFound, document.getElementById("defaultCanvas0").nextSibling)
+
   overlay = createGraphics(500, 100);
   overlay.background("white");
-  overlay.fill(255);
+  overlay.fill("black");
   overlay.textSize(40);
-  overlay.textFont("Gill Sans");
+  overlay.textFont("Josefin Slab");
   overlay.textStyle(BOLD);
-  overlay.text("STARTING IN A BIT...",10,60);
+  overlay.text("PAGE NOT FOUND",10,60);
   
 }
 
@@ -89,7 +96,7 @@ function draw() {
       }
     }
   }
-  // image(overlay, 600, 540);
+  // image(overlay, 100, 340);
 
 }
 
