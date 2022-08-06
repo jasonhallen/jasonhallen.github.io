@@ -57,15 +57,21 @@ figure {
     display: table;
     margin: 35px 0px 30px;
     width: 100%;
+    max-width: 600px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
-figure img {
+figure img, figure audio {
+    max-width: 100%;
     width: 600px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 figcaption {
+    display: table-caption;
+    max-width: 100%;
     caption-side: bottom;
     font-style: italic;
     font-size: 16px;
