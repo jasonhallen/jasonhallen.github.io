@@ -32,7 +32,7 @@
 <figure><a href="/blog/update-new-website"><img src="/images/pagination_detail.png" alt=""></a>
 </figure>
 
-<p>You might not realize it, but my website has been completely rebuilt.  Like most things, I stumbled into this project while working on a different project.  This time, in my quest to control Csound with web technologies I fell down the <strong>Node.js rabbit hole</strong>, which then led down the <strong>static site generator rabbit hole</strong>, which then led down the <strong>GitHub Pages rabbit hole</strong>, and so on.  Less than two weeks later I have this shiny new static website built with an ultra-minimalist custom script.  So long Joomla!  Here's how it all happened.</p>
+<p>You might not realize it, but my website has been completely rebuilt.  Like most things, I stumbled into this project while working on a different project.  This time, in my quest to control Csound with web technologies I fell down the <strong>Node.js rabbit hole</strong>, which then led down the <strong>static site generator rabbit hole</strong>, which then led down the <strong>GitHub Pages rabbit hole</strong>, and so on.  Less than two weeks later I have this shiny new static site built with an ultra-minimalist custom script.  So long Joomla!  Here's how it all happened.</p>
 
 <h3 id="csound-browsers-and-nodejs">Csound, Browsers, and Node.js</h3>
 <p>As I've been working on the <a href="/blog/project-mell-fark-part-one">Mell Fark project</a> the past few weeks I've run into a couple snags.</p>
@@ -49,11 +49,16 @@
 <p>Given that I enjoy coding with JavaScript and had already done a lot of work designing the Mell Fark interface with it, a good option would be to move to the <a href="https://nodejs.org/en/">Node.js</a> environment.  Node.js allows me to run JavaScript code natively on my computer without being in the browser environment.  All I need is a way to control Csound within Node.js.  A quick search of Node.js packages revealed the <a href="https://www.npmjs.com/package/csound-api"><code>csound-api</code></a> by Nate Whetsell, so I had a path forward.</p>
 <h3 id="static-site-generators">Static Site Generators</h3>
 <p>I'm new to Node.js, but it's been on my list of environments to learn for a while.  In fact, the timing is good because I need to get familiar with Node.js for a work project.  To get my bearings, I started with the official <a href="https://nodejs.dev/learn">Introduction to Node.js</a>, which is wonderful.  And soon thereafter I started falling down the rabbit hole of Node.js packages and frameworks.</p>
-<p>Before long I was looking into static site generators (SSG's), which are popular in the Node.js world.  I've known about SSG's for a few years but never seriously considered using them.  Here's a quick overview.  Most websites these days are built with frameworks that assemble web pages on demand from components stored in databases.  WordPress, Drupal, and Joomla are examples of these frameworks, and they're usually written in PHP.  When you navigate to one of these pages in the browser the server assembles the page on the fly and sends it to you.</p>
+<p>Before long I was looking into static site generators (SSG's), which are popular in the Node.js world.  I've known about SSG's for a few years but never seriously considered using them.  Here's a quick overview.</p>
+<ul>
+<li><strong>Dynamic</strong> - Most websites these days are built with frameworks that assemble web pages on demand from components stored in databases.  <a href="https://wordpress.org/">WordPress</a>, <a href="https://www.drupal.org/">Drupal</a>, and <a href="https://www.joomla.org/">Joomla</a> are examples of these frameworks, and they're usually written in PHP.  When you navigate to one of these pages in the browser the server assembles the page on the fly and sends it to you.</li>
+</ul>
 <figure><img src="/images/cms_logos.png" alt="Logos of WordPress, Drupal, and Joomla">
 <figcaption>WordPress, Drupal, and Joomla are CMS's that dynamically serve websites.</figcaption></figure>
 
-<p>SSG's, on the other hand, are frameworks that build all the pages from components and deposit them on the server ahead of time.  In other words, they generate a set of pre-built HTML files.  When you navigate to a page in the browser, all the server has to do is send you the HTML file.  It doesn't have to assemble the HTML file on the fly.  As a result, SSG's tend to load very fast.  They also don't need databases.  <a href="https://www.gatsbyjs.com/">Gatsby</a>, <a href="https://jekyllrb.com/">Jekyll</a>, and <a href="https://gohugo.io/">Hugo</a> are examples of these frameworks.</p>
+<ul>
+<li><strong>Static</strong> - SSG's, on the other hand, are frameworks that build all the pages from components and deposit them on the server ahead of time.  In other words, they generate a set of pre-built HTML files.  When you navigate to a page in the browser, all the server has to do is send you the HTML file.  It doesn't have to assemble the HTML file on the fly.  As a result, SSG's tend to load very fast.  They also don't need databases.  <a href="https://www.gatsbyjs.com/">Gatsby</a>, <a href="https://jekyllrb.com/">Jekyll</a>, and <a href="https://gohugo.io/">Hugo</a> are examples of these frameworks.</li>
+</ul>
 <figure><img src="/images/ssg_logos.png" alt="Logos of Gatsby, Jekyll, and Hugo">
 <figcaption>Gatsby, Jekyll, and Hugo are SSG's that generate static websites.</figcaption></figure>
 
