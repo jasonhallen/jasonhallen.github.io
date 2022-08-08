@@ -36,12 +36,12 @@
 
 <h3 id="csound-browsers-and-nodejs">Csound, Browsers, and Node.js</h3>
 <p>As I've been working on the <a href="/blog/project-mell-fark-part-one">Mell Fark project</a> the past few weeks I've run into a couple snags.</p>
-<ol>
-<li><p>There were latency issues with Michael Gogins's <code>webserver</code> opcodes which were related to communication protocols between the browser and Csound.  Performance issues like this are to be expected when a developer is ironing out bugs in a new project, and I think Michael has already resolved the latency issue.  At the time I noticed the issue, however, it made me want to get outside of the browser environment.</p>
+<ul>
+<li><p><strong>Latency</strong> - There were latency issues with Michael Gogins's <code>webserver</code> opcodes which were related to communication protocols between the browser and Csound.  Performance issues like this are to be expected when a developer is ironing out bugs in a new project, and I think Michael has already resolved the latency issue.  At the time I noticed the issue, however, it made me want to get outside of the browser environment.</p>
 </li>
-<li><p>I had forgotten how annoying it is to read and write files from your local file system in the browser environment.  I'd rather have direct access to the file system.</p>
+<li><p><strong>File system</strong> - I had forgotten how annoying it is to read and write files from your local file system in the browser environment.  I'd rather have direct access to the file system.</p>
 </li>
-</ol>
+</ul>
 <figure><img src="/images/nodejs.png" alt="Node.js logo" style="width:250px">
 <figcaption>Node.js lets you run JavaScript code outside of the browser environment.</figcaption>
 </figure>
