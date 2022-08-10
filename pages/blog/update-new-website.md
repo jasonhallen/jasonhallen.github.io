@@ -4,7 +4,7 @@ title: "Update: New Website"
 date: 20220808
 publish: yes
 keywords: website, CMS, WordPress, Drupal, Joomla, Gatsby, Jekyll, Hugo, static site generator, node.js
-description: my website has been completely rebuilt.  Like most things, I stumbled into this project while working on a different project.  This time, in my quest to control Csound with web technologies I fell down the Node.js rabbit hole, which led down the static site generator rabbit hole, which led down the GitHub Pages rabbit hole, and so on.  Less than two weeks later I have this shiny new static website built with an ultra-minimalist custom script.  So long Joomla!  Here's how it all happened.
+description: My website has been completely rebuilt.  Like most things, I stumbled into this project while working on a different project.  This time, in my quest to control Csound with web technologies I fell down the Node.js rabbit hole, which led down the static site generator rabbit hole, which led down the GitHub Pages rabbit hole, and so on.  Less than two weeks later I have this shiny new static website built with an ultra-minimalist custom script.  So long Joomla!  Here's how it all happened.
 ---
 ## Update: New Website
 
@@ -19,7 +19,7 @@ You might not realize it, but my website has been completely rebuilt.  Like most
 
 As I've been working on the [Mell Fark project](/blog/project-mell-fark-part-one) the past few weeks I've run into a couple snags.
 
-* **Latency** - There were latency issues with Michael Gogins's `webserver` opcodes which were related to communication protocols between the browser and Csound.  He's still ironing out these issues out, which is pretty common for new project like this.  Still, it made me want to get outside of the traditional server and browser environment.
+* **Latency** - There were latency issues with Michael Gogins's `webserver` opcodes which were related to communication protocols between the browser and Csound.  He's still ironing these issues out, which is pretty common for a new project like this.  Still, it made me want to get outside of the traditional server and browser environment.
 
 * **File system** - I had forgotten how annoying it is to read and write files from your local file system in the browser environment.  I'd rather have direct access to the file system.
 
@@ -27,7 +27,7 @@ As I've been working on the [Mell Fark project](/blog/project-mell-fark-part-one
 <figcaption>Node.js lets you run JavaScript code outside of the browser environment.</figcaption>
 </figure>
 
-Given that I enjoy coding with JavaScript and had already done a lot of work designing the Mell Fark interface with it, a good option would be to move to the [Node.js](https://nodejs.org/en/) environment.  Node.js allows me to run JavaScript code natively on my computer without being in the browser environment.  All I need is a way to control Csound within Node.js.  A quick search of Node.js packages revealed the [`csound-api`](https://www.npmjs.com/package/csound-api) by Nate Whetsell, so I had a path forward.
+Given that I enjoy coding with JavaScript and had already done a lot of work designing the Mell Fark interface with it, a good option would be to move to the [Node.js](https://nodejs.org/en/) environment.  Node.js allows me to run JavaScript code natively on my computer without being in the browser environment.  All I needed was a way to control Csound within Node.js.  A quick search of Node.js packages revealed the [`csound-api`](https://www.npmjs.com/package/csound-api) by Nate Whetsell, so I had a path forward.
 
 ### Static Site Generators
 
@@ -55,21 +55,21 @@ My website was originally built in Joomla.  I've never loved Joomla, and I only 
 
 * **Lack of support** - I've always found Joomla support lacking online.  It feels like a ghost town compared to the robust online support for WordPress.  I'll Google questions about how to do this or that in Joomla, and it can be very hard to get a good answer.  Even searching the Joomla extension marketplace feels sketchy at times.
 
-* **Not secure** - Earlier I mentioned that I maintained an organization's Joomla site.  Before me nobody had updated the Joomla version for a few years, so it had been hacked and injected with malicious code.  This shows how vulnerable you can be in a CMS if you're not staying up to date with patches and updates.  And yet, staying up to date with patches and updates introduces its own complications because you're always wondering what's going to break on your website when you implement them.
+* **Not secure** - Earlier I mentioned that I maintained an organization's Joomla site.  Nobody had updated the Joomla version for a few years by the time I took responsibility for the site, so it had been hacked and injected with malicious code.  This shows how vulnerable you can be in a CMS if you're not staying up to date with patches and updates.  And yet, staying up to date with patches and updates introduces its own complications because you're always wondering what's going to break on your website when you implement them.
 
 ### Choosing an SSG
 
 Given my frustrations with Joomla and that I wanted to delve into the world of Node.js, I figured that converting my website into an SSG would be a good introductory Node.js project.  The first order of business was choosing an SSG.  I briefly looked at Gatsby and Jekyll but then started to read other people's blog posts about their experiences with them.  These posts gave the impression that Gatsby and Jekyll were also flexible, abstracted frameworks with their own configuration learning curves.  The writers asked, "Why spend days wrapping our heads around somebody else's idea of how to build a website when we can build bare bones SSG's that meet our needs in the same amount of time?"
 
-One such writer was Yakko Majuri.  His post ["Why I built my own static site generator"](https://yakkomajuri.com/blog/teeny) made the case for an ultra-minimalist SSG.  He wrote his own SSG called [Teeny](https://github.com/yakkomajuri/teeny) and explained how the components work together.  If you look at the main [`cli.js`](https://github.com/yakkomajuri/teeny/blob/main/cli.js) script you'll see that it only takes about 160 lines of JavaScript to build his site.  Studying the `cli.js` file demystifies what an SSG actually does.  Inspired by his approach, I forked Teeny in GitHub and began to customize it for my own site.
+One such writer was Yakko Majuri.  His post ["Why I built my own static site generator"](https://yakkomajuri.com/blog/teeny) made the case for an ultra-minimalist SSG.  He wrote his own SSG called [Teeny](https://github.com/yakkomajuri/teeny) and explained how the components work together.  If you look at the main [`cli.js`](https://github.com/yakkomajuri/teeny/blob/main/cli.js) script you'll see that it only takes about 160 lines of JavaScript to build his site.  Studying the `cli.js` script demystifies what an SSG actually does.  Inspired by his approach, I forked Teeny in GitHub and began to customize it for my own site.
 
 ### My New Site
 
-You can find the code of my new website in my [forked Teeny repository](https://github.com/jasonhallen/teeny) and the content and assets at my [jasonhallen.github.io repository](https://github.com/jasonhallen/jasonhallen.github.io/).  I'll give you an overview of how it works.
+You can find the SSG code that builds my new website in my [forked Teeny repository](https://github.com/jasonhallen/teeny) and the content and assets at my [jasonhallen.github.io repository](https://github.com/jasonhallen/jasonhallen.github.io/).  I'll give you an overview of how it works.
 
 #### Content
 
-The content of the website (aka the Music, About, and Blog pages) is made up of Markdown files and HTML templates.  For example, [here's the Markdown file of this post](https://github.com/jasonhallen/jasonhallen.github.io/blob/main/pages/blog/update-website.md).  At the top of the file is a front matter section that contains metadata about the post.  After that is the post itself which is mostly written in Markdown with HTML sprinkled in for to format the media items.  Assets like images and audio are stored in dedicated folders within the repository.  The Node.js package called [`front-matter`](https://www.npmjs.com/package/front-matter) parses the front matter and the package called [`marked`](https://www.npmjs.com/package/marked) converts the Markdown to HTML.
+The content of the website (aka the Music, About, and Blog pages) is made up of Markdown files and HTML templates.  For example, [here's the Markdown file of this post](https://raw.githubusercontent.com/jasonhallen/jasonhallen.github.io/main/pages/blog/update-new-website.md).  At the top of the file is a front matter section that contains metadata about the post.  After that is the post itself which is mostly written in Markdown with HTML sprinkled in to format the media items.  Assets like images and audio are stored in dedicated folders within the repository.  The Node.js package called [`front-matter`](https://www.npmjs.com/package/front-matter) parses the front matter and the package called [`marked`](https://www.npmjs.com/package/marked) converts the Markdown to HTML.
 
 #### Building
 
@@ -85,7 +85,7 @@ I also put a lot of work into the [`style.css`](https://github.com/jasonhallen/j
 
 #### Hosting
 
-My site is now hosted entirely in GitHub through their free [GitHub Pages](https://pages.github.com/) service.  My old Joomla site was hosted by Bluehost which cost me $10 per month.  In fact, I'm still paying for Bluehost for now, but I hope to cancel that soon.
+My site is now hosted entirely in GitHub through their free [GitHub Pages](https://pages.github.com/) service.  My old Joomla site was hosted by Bluehost which cost me $10 per month.  In fact, I'm still paying for Bluehost for now, but I hope to cancel it soon.
 
 #### Workflow
 
@@ -95,11 +95,19 @@ Here's the workflow I've developed so far for writing and publishing blog posts.
 
 2. Use the `'teeny develop'` command to build the site and launch a local server so I can see how the new post looks.  Every time I make a change to the Markfown file Teeny will rebuild the entire site, and I can refresh the page in the browser to see how it looks with the changes.
 
-3. When I'm ready to publish the new post I commit the changes to the [`main` branch](https://github.com/jasonhallen/jasonhallen.github.io) of my website's repository and then run `'gh-pages -d public'` which commits the `public` directory of HTML files and assets to the [`gh-pages` branch](https://github.com/jasonhallen/jasonhallen.github.io/tree/gh-pages) of my website's repository.  I've set up GitHub Pages to deploy my website from the files in the `gh-pages` branch.
+3. When I'm ready to publish the new post I commit the changes to the [`main` branch](https://github.com/jasonhallen/jasonhallen.github.io) of my website's repository and then run `'gh-pages -d public'` (from the [`gh-pages`](https://www.npmjs.com/package/gh-pages) package) which commits the `public` directory of HTML files and assets to the [`gh-pages` branch](https://github.com/jasonhallen/jasonhallen.github.io/tree/gh-pages) of my website's repository.  I've set up GitHub Pages to deploy my website from the files in the `gh-pages` branch.
 
 ### Next Steps
 
-I'm very happy with my new site.  It's basically the same as my old site except that 1) I have complete command over how it works, 2) it's free, and 3) it loads much faster.  The workflow for writing new posts and publishing them is also more suited to how I like to work.  All I need is a text editor and a command line to publish my site.  No more getting lost and frustrated inside a bloated CMS.
+I'm very happy with my new site.  It's basically the same as my old site except that:
+
+1. I have complete command over how it works.
+
+2. It's free.
+
+3. It loads much faster.
+
+The workflow for writing new posts and publishing them is also more suited to how I like to work.  All I need is a text editor and a command line to publish my site.  No more getting lost and frustrated inside a bloated CMS.
 
 There's more work that could be done on my website.  Here's what I might work on next.
 
