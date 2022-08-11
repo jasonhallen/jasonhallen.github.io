@@ -3,18 +3,15 @@ template: index
 title: "Project: Music Generator"
 date: 20201129
 publish: yes
+image: "/images/music_generator1.jpg"
+imageAlt: "Music generator sketch"
+imageCaption: "Sketch of the core music generator methods."
 keywords: music generator, python, classes, objects, 318, csound, algorithmic music
 description: An overview of an automatic music generation system I designed in Python.
 ---
-## Project: Music Generator
-
-<figure><a href="/blog/project-music-generator"><img src="/images/music_generator1.jpg" alt="Music generator sketch"/></a>
-<figcaption>Sketch of the core music generator methods.</figcaption>
-</figure>
-
 In my last post I talked about [generating a Csound score with Tracery](/blog/project-grammar-music). That was a rewarding exercise, but Tracery isn't an ideal language to continue developing a music generator with. I decided to reimplement the music generator entirely in Python in order to take advantage of handy things like lists, conditional statements, functions, and classes. It all came together quicker than I expected, and I was even able to release an album of tracks showcasing the system.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### How It Works
 

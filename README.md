@@ -41,13 +41,11 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `gh-pages -d public` 
 
 ## Tasks
-- [ ] Add keywords and description meta elements
 - [ ] Comments from Staticman
-- [ ] Remove image link at top of blog posts
 - [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
-- [ ] Add Google Analytics tracking
 - [ ] Strip out Google Analytics script when in Teeny development mode
-- [ ] Auto-generate the H2's based on the frontmatter Title
+- [x] Remove image link at top of blog posts
+- [x] Auto-generate the H2's based on the frontmatter Title
 - [x] Fork Teeny into my GitHub
 - [x] Clone Teeny fork to my local computer
 - [x] NPM install fork of Teeny
@@ -59,3 +57,5 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
 - [x] Blog pagination
 - [x] Next/Prev buttons in blog
 - [x] Strip leading zero from Day in date line
+- [x] Add keywords and description meta elements
+- [x] Add Google Analytics tracking

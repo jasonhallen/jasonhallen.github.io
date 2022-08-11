@@ -3,18 +3,15 @@ template: index
 title: "Project: Grammar Music"
 date: 20201109
 publish: yes
+image: "/images/grammar_music_code.png"
+imageAlt: "Grammar Music code screenshot"
+imageCaption: "Excerpt of code from Grammar Music project."
 keywords: Tracery, grammar, music generation, Csound
 description: I used the Tracery grammar language to random generate music with Csound.
 ---
-## Project: Grammar Music
-
-<figure><a href="/blog/project-grammar-music"><img src="/images/grammar_music_code.png" alt="Grammar Music code screenshot"/></a>
-<figcaption>Excerpt of code from Grammar Music project.</figcaption>
-</figure>
-
 In my [previous post](/blog/update-cs-318) I talked about using [Tracery](http://tracery.io/) to write grammars which generate text. In this post I'll talk about using Tracery to generate Csound scores instead.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Tracery
 

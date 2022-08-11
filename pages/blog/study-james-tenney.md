@@ -3,18 +3,15 @@ template: index
 title: "Study: James Tenney"
 date: 20200308
 publish: yes
+image: "/images/tenney_at_computer.png"
+imageAlt: "James Tenney in computer lab"
+imageCaption: "James Tenney in a computer lab at the University of Illinois in 1961."
 keywords: James Tenney, computer music, Csound, Bell Labs, music-n, CsoundQt, Python, interface, algorithmic music, stochastic
 description: "I like to study the writings of computer music practitioners and try to implement their ideas in Csound.  This expands my Csound skillset and exposes me to different compositional strategies.  For example, I studied the writings of composer James Tenney about the time he spent composing computer music at Bell Labs in the 1960s."
 ---
-## Study: James Tenney
-
-<figure><a href="/blog/study-james-tenney"><img src="/images/tenney_at_computer.png" alt="James Tenney in computer lab"/></a>
-<figcaption>James Tenney in a computer lab at the University of Illinois in 1961.</figcaption>
-</figure>
-
 I like to study the writings of computer music practitioners and try to implement their ideas in Csound. This expands my Csound skillset and exposes me to different compositional strategies. For example, I spent a few weeks this fall closely reading composer James Tenney’s essay “[Computer Music Experiences, 1961-1964](http://www.plainsound.org/pdfs/ComputerMusic.pdf),” published in 1969. This essay documents Tenney’s experiences working with the [MUSIC-N computer synthesis program](https://en.wikipedia.org/wiki/MUSIC-N) at Bell Labs from September 1961 to March 1964.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 <figure><iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=2636624934/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=none/track=2321235511/transparent=true/" width="100%" height="120px" frameborder="0" seamless="seamless"></iframe></figure>
 

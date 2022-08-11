@@ -3,17 +3,15 @@ template: index
 title: "Update: The Past Year"
 date: 20220704
 publish: yes
+image: "/images/electric_davis.png"
+imageAlt: "Electric Miles Davis"
+imageCaption:
 keywords: Miles Davis, On the Corner, High Rise, electric guitar, Telecaster, Fender Pro Reverb, St. Olaf College, library, ear surgery
-description:
+description: An update on what I've been up to in the past year.  I started a Miles Davis electric fusion cover band, built my own electric guitar, developed ear problems, and started a new job.
 ---
-## Update: The Past Year
-
-<figure><a href="/blog/update-the-past-year"><img src="../images/electric_davis.png" alt="Electric Miles Davis"/></a>
-</figure>
-
 And just like that a year has passed. In my [last post back in April of 2021](/blog/project-looper), I described a major coding project involving p5.js and Web Csound which culminated in a live performance. As I mentioned at the end of the post, I hit a coding wall immediately after this frenzy of activity. Then, just as I was beginning to take on my next music coding project, I met someone who derailed everything and sent me on a radically different musical path.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### New Music Project
 

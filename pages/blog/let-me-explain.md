@@ -3,14 +3,15 @@ template: index
 title: "Let Me Explain"
 date: 20190921
 publish: yes
+image:
+imageAlt:
+imageCaption:
 keywords: Csound, computer music, electronic music, computer programming, Python, SuperCollider, Max/MSP
 description: The purpose of this blog is to document my immersion in the world of computer music.  I hope it might be helpful to anyone who's also getting started with computer music.  In upcoming posts I’ll describe the way I’ve approached learning Csound, the resources that have been most beneficial to me, and the exercises and projects I’ve undertaken along the way.  How this blog will evolve over time is like where my curiosity will lead me next — anyone’s guess.
 ---
-## Let Me Explain
-
 I’ve learned that I can’t predict where my curiosity will lead me or what obsessions will take hold of me. For instance, six months ago I did not suspect I would soon be devoting most of my time to learning Csound, a computer programming language for music, and yet today I do just that. This is all the more surprising given that six months ago I knew nothing about computer programming.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 Let me explain how I arrived at this point. I’m an academic librarian by trade, and over the past few years I’ve taken on increasingly technical responsibilities at work, such as managing the library's website and the college's digital repository. I love these new responsibilities, but earlier this year I found that my lack of programming skills was limiting how much I was able to do on my own. I could only go so far on a project before I’d have to ask IT for technical support.
 

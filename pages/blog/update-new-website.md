@@ -3,17 +3,15 @@ template: index
 title: "Update: New Website"
 date: 20220808
 publish: yes
+image: "/images/pagination_detail.png"
+imageAlt: "Close up of new pagination design"
+imageCaption:
 keywords: website, CMS, WordPress, Drupal, Joomla, Gatsby, Jekyll, Hugo, static site generator, node.js
 description: My website has been completely rebuilt.  Like most things, I stumbled into this project while working on a different project.  This time, in my quest to control Csound with web technologies I fell down the Node.js rabbit hole, which led down the static site generator rabbit hole, which led down the GitHub Pages rabbit hole, and so on.  Less than two weeks later I have this shiny new static website built with an ultra-minimalist custom script.  So long Joomla!  Here's how it all happened.
 ---
-## Update: New Website
-
-<figure><a href="/blog/update-new-website"><img src="/images/pagination_detail.png" alt=""/></a>
-</figure>
-
 You might not realize it, but my website has been completely rebuilt.  Like most things, I stumbled into this project while working on a different project.  This time, in my quest to control Csound with web technologies I fell down the **Node.js rabbit hole**, which led down the **static site generator rabbit hole**, which led down the **GitHub Pages rabbit hole**, and so on.  Less than two weeks later I have this shiny new static site built with an ultra-minimalist custom script.  So long Joomla!  Here's how it all happened.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Csound, Browsers, and Node.js
 

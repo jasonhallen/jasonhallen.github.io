@@ -1,6 +1,6 @@
 ---
 template: about
-title: About
+title:
 keywords: Jason Hallen, computer music, biography, about
 ---
 <div id="about_portrait">

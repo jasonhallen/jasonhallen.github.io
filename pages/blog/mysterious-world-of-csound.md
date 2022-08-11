@@ -3,11 +3,12 @@ template: index
 title: "The Mysterious World of Csound"
 date: 20191006
 publish: yes
+image:
+imageAlt:
+imageCaption:
 keywords: Csound, computer music, electronic music, forum, listserv, YouTube, user community, computer programming
 description: Six months ago when I started to learn Csound I struggled to wrap my head around what exactly it was and what people were doing with it. At the most basic level I knew it could be used to make strange sounds, but even after I read online documentation, read the first chapters of Csound textbooks, and watched YouTube videos, I still had unanswered questions.
 ---
-## The Mysterious World of Csound
-
 Six months ago when I started to learn Csound I struggled to wrap my head around what exactly it was and what people were doing with it. At the most basic level I knew it could be used to make strange sounds, but even after I read online documentation, read the first chapters of Csound textbooks, and watched YouTube videos, I still had unanswered questions.
 
 *   How many people are using Csound?
@@ -15,7 +16,7 @@ Six months ago when I started to learn Csound I struggled to wrap my head around
 *   Where can you find it under the hood in software/hardware applications?
 *   Is this a ubiquitous language in the music world, or is it an obscure language only used by a cultish group of practioners?
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 I just couldn't figure out the broader picture of the Csound world. There’s no central directory of Csound users, compositions, projects, or products. The official Csound website does have [a list of some Csound projects](https://csound.com/projects.html "Csound projects") and [links to SoundCloud and Bandcamp tracks tagged with #csound](https://csound.com/listen.html "Csound music"), but 1) these lists of projects and tracks are not comprehensive and 2) there’s almost no context provided to make sense of what you see or hear.
 

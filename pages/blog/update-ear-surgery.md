@@ -3,15 +3,12 @@ template: index
 title: "Update: Ear Surgery"
 date: 20220806
 publish: yes
+image: "/images/detail_audiology_test.jpg"
+imageAlt: "Detail of audiology test"
+imageCaption:
 keywords: ear, surgery, tympanoplasty, stapedectomy, mayo clinic, ent
 description: Last week I had surgery to improve the hearing in my right ear.  I'm stunned at how big a difference it has made so far.  Mundane sounds are now exhilarating.
 ---
-## Update: Ear Surgery
-
-<figure><a href="/blog/update-ear-surgery"><img src="/images/detail_audiology_test.jpg" alt="Detail of audiology test"/></a>
-<br>
-</figure>
-
 <figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/fingers_on_sheets.m4a" type="audio/mp4" /></audio>
 <figcaption>How exhilarating is the sound of your fingers dragging across your bed sheets?</figcaption>
 </figure>
@@ -26,7 +23,7 @@ description: Last week I had surgery to improve the hearing in my right ear.  I'
 
 As I mentioned [in a recent post](/blog/update-the-past-year), earlier this year my right ear began to get severely fatigued after band practices.  The symptoms included ear pressure, hearing diminishment, and headaches.  Wearing ear protection didn't help. It became disorienting and stressful for me, which led me to the Mayo Clinic's Ear, Nose, and Throat department in Rochester, Minnesota.  But there's a bigger picture.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Childhood History
 

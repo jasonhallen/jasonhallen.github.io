@@ -3,18 +3,15 @@ template: index
 title: "Update: CS 318"
 date: 20201018
 publish: yes
+image: "/images/soft_landscape.jpg"
+imageAlt: "Soft landscpes"
+imageCaption: 'Computer-generated landscape by the <a href="https://twitter.com/softlandscapes">soft landscapes Twitter bot'
 keywords: computer science, computational media, computer poetry, Twitter bots
 description: "This fall I've been sitting in on a computer science course at Carleton called CS 318: Computational Media, taught by a visiting professor named James Ryan. This course focuses on new forms of creative expression and media that can only be made with computers. Examples include computer-generated poetry and novels, Twitter bots, computer-generated visual art, and virtual reality works."
 ---
-## Update: CS 318
-
-<figure><a href="/blog/update-cs-318"><img src="/images/soft_landscape.jpg" alt="Soft landscpes"/></a>
-<figcaption>Computer-generated landscape by the <a href="https://twitter.com/softlandscapes">soft landscapes Twitter bot</a>.</figcaption>
-</figure>
-
 This fall I've been sitting in on a computer science course at Carleton called CS 318: Computational Media, taught by a visiting professor named [James Ryan](https://www.jamesryan.world/). This course focuses on new forms of creative expression and media that can only be made with computers. Examples include computer-generated poetry and novels, Twitter bots, computer-generated visual art, and virtual reality works.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 At first I debated whether to take CS 318 or a more foundational computer science course such as Programming Languages or Software Design. Having taken three foundational computer science courses over the past year and a half, I wondered if CS 318 was too frivolous, not a rigorous enough immersion in computer science theory and techniques.
 

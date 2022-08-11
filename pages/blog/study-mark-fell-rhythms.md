@@ -3,19 +3,17 @@ template: index
 title: "Study: Mark Fell - Rhythms"
 date: 20200403
 publish: yes
-keywords: Mark Fell, rhythm generator, algorithmic music, Csound, Multistability
+image: "/images/fell_detail.png"
+imageAlt: "Close up of the clap button"
+imageCaption:
+keywords: Mark Fell, rhythm generator, algorithmic music, Csound, Multistability, cabbage
 description: "How I studied and implemented the algorithmic techniques of Mark Fell."
 ---
-## Study: Mark Fell - Rhythms
-
-<figure><a href="/blog/study-mark-fell-rhythms"><img src="/images/fell_detail.png" alt="Electric Miles Davis"/></a>
-</figure>
-
 I was drawn to the work of [Mark Fell](http://www.markfell.com/wiki/) this past fall when I was exploring [rhythmic pattern generation](/blog/project-drum-machine) and FM synthesis. In particular, I was blown away by Fell’s collaboration with Gábor Lázár from 2015 called _[The Neurobiology of Moral Decision Making](https://soundcloud.com/gaborlazar/mark-fell-and-gabor-lazar-the-neurobiology-of-moral-decision-making-2015)_.
 
 I wanted to know how Fell and Lázár made these rhythms and sounds. A Google search landed me on [this thread in the lines forum](https://llllllll.co/t/approaching-gabor-lazar-sound-design-techniques/13349) where I learned that Fell completed a PhD thesis in 2013 called [_Works in Sound and Pattern Synthesis_](https://openresearch.surrey.ac.uk/esploro/outputs/doctoral/Works-in-Sound-and-Pattern-Synthesis/99516858802346?institution=44SUR_INST). It turns out this thesis provides detailed discussions of Fell’s rhythmic pattern and synthesis algorithms. I decided to implement Fell’s ideas in Csound just like I did with [James Tenney’s ideas](/blog/study-james-tenney).
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Multistability
 

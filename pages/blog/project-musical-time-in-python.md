@@ -2,17 +2,15 @@
 template: index
 title: "Project: Musical Time in Python"
 date: 20210117
+image: "/images/python_csound5.png"
+imageAlt: "Abstract diagram of timing problem"
+imageCaption:
 keywords: Python, ctcsound, Jupyter Notebook, asyncio, open sound control, osc, multitimer, time, api
 description: For the past couple weeks I've been wrestling with how to handle timing in Python. This was the main challenge I'd have to solve before converting my Python music generator into a real-time system. After experimenting with several possible solutions I finally found a promising one.
 ---
-## Project: Musical Time in Python
-
-<figure><a href="/blog/project-musical-time-in-python"><img src="/images/python_csound5.png" alt="Abstract diagram of timing problem"/></a>
-</figure>
-
 For the past couple weeks I've been wrestling with how to handle timing in Python. This was the main challenge I'd have to solve before converting my [Python music generator](/blog/project-music-generator) into a real-time system. After experimenting with several possible solutions I finally found a promising one.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### The Goal
 

@@ -3,18 +3,15 @@ template: index
 title: "Helpful Resources for Csound"
 date: 20200203
 publish: yes
+image: "/images/csound_bookshelf.jpg"
+imageAlt: "Computer music books on bookshelf"
+imageCaption: "Csound and computer music books on my bookshelf at work."
 keywords: Csound, resources, books, computer music, Victor Lazzarini, Richard Boulanger, Floss Manual, Charles Dodge, Curtis Roads, code, blog
 description: Here is a list of helpful resources for learning Csound.
 ---
-## Helpful Resources for Csound
-
-<figure><a href="/blog/helpful-resources-for-csound"><img src="/images/csound_bookshelf.jpg" alt="Computer music books on bookshelf"/></a>
-<figcaption>Csound and computer music books on my bookshelf at work.</figcaption>
-</figure>
-
 Even with the best documentation and most supportive user community Csound would still be difficult for anyone to learn. That’s because digital audio generation and processing is hard to grasp conceptually. It has been for me anyway. Tremendously hard.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 Here’s a brief selection of the topics I’ve had to wrestle with in the past ten months:
 

@@ -3,18 +3,15 @@ template: index
 title: "Listening: 2020 in Review"
 date: 20201206
 publish: yes
+image: "/images/popol_vuh.jpg"
+imageAlt: "Popol Vuh band members"
+imageCaption: "The core members of Popol Vuh: Daniel Fichelscher, Florian Fricke, and Djong Yun."
 keywords: albums, review, 2020, spotify, krautrock, electronic music, experimental, popol vuh, Música Esporádica, music from memory, lifted, ashra, blackouts, manuel gottsching, nathan micay, blue spring, kali malone, sacrificial code, mark fell, multistability, dj python, mas amable, kulor, varnrable, alameda 5, eurodrome
 description: A look back at the albums I listened to the most in 2020.
 ---
-## Listening: 2020 in Review
-
-<figure><a href="/blog/listening-2020-in-review"><img src="/images/popol_vuh.jpg" alt="Popol Vuh band members"/></a>
-<figcaption>The core members of Popol Vuh: Daniel Fichelscher, Florian Fricke, and Djong Yun.</figcaption>
-</figure>
-
 It's been a great year in listening to music for me. This is mostly due to the fact that I've been working from my home office, so I can play music on my stereo all day. Spotify was kind enough to tell me what albums I listened to most in 2020, so I thought I'd share them here along with some reflections. Writing up this blog post has given me a lot of gratitude for the listening experiences I was fortunate enough to have this year.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 <br>
 

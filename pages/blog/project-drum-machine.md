@@ -3,11 +3,12 @@ template: index
 title: "Project: Drum Machine"
 date: 20200316
 publish: yes
+image:
+imageAlt:
+imageCaption:
 keywords: Csound, drum machine, Cabbage, tr-808, rhythm
 description: Coding a drum machine from scratch in Csound.
 ---
-## Project: Drum Machine
-
 I can’t remember why I decided to build a drum machine in Csound. After spending a few weeks on the [James Tenney instrument](/blog/study-james-tenney), which generates notes in a very randomized way, I must have been interested in generating notes within a metrical framework. In other words, I wanted to learn how to use the `metro` opcode.
 
 But first, why would you build a drum machine when there are dozens of free, full-featured drum machines available online? Two reasons:
@@ -15,7 +16,7 @@ But first, why would you build a drum machine when there are dozens of free, ful
 1.  You’ll learn a lot about Csound by building one yourself.
 2.  You can custom code the drum machine to do anything you’d like.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Sampling Drum Sounds
 

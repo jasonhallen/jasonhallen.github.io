@@ -3,17 +3,15 @@ template: index
 title: "Project: Looper"
 date: 20210425
 publish: yes
-keywords: synthesizer, modular synthesizer
-description: 
+image: "/images/looper.png"
+imageAlt: "Detail of Looper interface"
+imageCaption:
+keywords: p5.js, JavaScript, WebCsound, Carl Stone, loops, YouTube, GUIs
+description: My focus shifted entirely when I learned about an animation library called p5.js.  This led me to develop a new web-based program that loops audio files with the help of WebCsound. I was able to perform a live set with my program on YouTube.  Carl Stone was my major inspiration.
 ---
-## Project: Looper
-
-<figure><a href="/blog/project-looper"><img src="/images/looper.png" alt="Detail of Looper interface"/></a>
-</figure>
-
 It's been a while! A lot has happened since my last post three months ago. After [finding an accurate time source in Python](/blog/project-musical-time-in-python) I turned my attention to building a graphical user interface (GUI) for my Python music generator. That was moving along nicely, but then I discovered [p5.js](https://p5js.org/) and my focus shifted entirely. This led me to develop a new web-based program that loops audio files, and I was able to perform a live set with the program on YouTube. Read on for more details!
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Working with PySimpleGUI
 

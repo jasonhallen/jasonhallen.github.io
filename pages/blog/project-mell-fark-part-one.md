@@ -3,17 +3,15 @@ template: index
 title: "Project: Mell Fark, Part One"
 date: 20220716
 publish: yes
+image: "/images/mell_fark_excerpt.png"
+imageAlt: "Mell Fark interface"
+imageCaption:
 keywords: Mark Fell, Gábor Lázár, Michael Gogins, csound, computer music, electronic music, synthesizer, rhythm, algorithmic music
-description: 
+description: I've been inspired by Gábor Lázár to return to my Mark Fell project.  This means picking back up Csound and building GUIs.  But I need to find new tools to accomplish what I'm imagining.
 ---
-## Project: Mell Fark, Part One
-
-<figure><a href="/blog/project-mell-fark-part-one"><img src="/images/mell_fark_excerpt.png" alt="Mell Fark interface"/></a>
-</figure>
-
 And just [when I wrote](/blog/update-the-past-year), after a year’s absence from the blog, that I’m not doing computer music, I’ve suddenly been swept back into computer music in the past week. It’s Gábor Lázár’s fault. His new album _Boundary Object_ on Planet Mu immediately gripped me and told me to get back to work.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Inspiration for the Project
 

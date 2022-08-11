@@ -3,11 +3,12 @@ template: index
 title: "Update: The Last Four Months"
 date: 20200725
 publish: yes
+image:
+imageAlt:
+imageCaption:
 keywords: Warp Records, Autechre, Squarepusher, c programming language, krautrock
 description: "An update on what I've been up to during the COVID pandemic."
 ---
-## Update: The Last Four Months
-
 It’s been a while since my last post. Here’s an update on what I’ve been up to the last four months.
 
 ### Not Doing Csound
@@ -17,7 +18,7 @@ I basically stopped working on my Csound projects when I started auditing a comp
 1.  The computer science course took up most of my free time and brain space.
 2.  I had been going down the rabbit hole of frequency modulation (FM) synthesis and was getting overwhelmed. In particular, I was trying to emulate the Yamaha TX81Z synthesizer, which is what Mark Fell used on his _Multistability_ album. However, emulating the TX81Z in Csound is not a simple project. I had gotten in over my head, so I took a little break. I've recently picked this project back up, and I hope to post about it soon.
 
-<a class="readmore" href="">Read more</a>
+[READ MORE]
 
 ### Learning C
 
