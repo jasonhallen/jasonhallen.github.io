@@ -80,6 +80,7 @@ figcaption {
 pre {
     background: #eee;
     padding: 10px 12px;
+    overflow-x: auto;
 }
 code {
     font-family: Menlo, Consolas, "Courier New", monospace;
