@@ -255,3 +255,6 @@ audio {
 #page-not-found h3 {
     margin-top: -250px;
 }
+#comment-form {
+    clear:both;
+}
