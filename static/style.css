@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 40px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 30px;
     max-width: 960px;
     width: auto;
@@ -74,13 +74,18 @@ figcaption {
     max-width: 100%;
     caption-side: bottom;
     font-style: italic;
-    font-size: 16px;
+    font-size: 18px;
     text-align: center;
+}
+pre {
+    background: #eee;
+    padding: 10px 12px;
 }
 code {
     font-family: Menlo, Consolas, "Courier New", monospace;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
+    background-color: #eee;
 }
 blockquote {
     padding: 15px 0 5px 20px;
