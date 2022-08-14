@@ -65,7 +65,7 @@ comments:
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
-  path: "static/comments/" # {options.slug}
+  path: "static/comments/{options.slug}"
 
   provider: "staticman_v2"
 

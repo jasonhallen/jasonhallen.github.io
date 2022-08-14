@@ -38,12 +38,17 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
 * Custom bash script to update Teeny repository in GitHub and reinstall via NPM
   * `tpush`
 * Deploy local 'public' folder from `main` branch to `gh-pages` branch of website repository
-  * `gh-pages -d public` 
+  * `gh-pages -d public`
+* Pull down changes from `main` branch (mostly for new comments)
+  * ???
 
 ## Tasks
 - [ ] Comments from Staticman
 - [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
 - [ ] Strip out Google Analytics script when in Teeny development mode
+- [ ] Decommission GitHub bot account
+
+## Completed Tasks
 - [x] Remove image link at top of blog posts
 - [x] Auto-generate the H2's based on the frontmatter Title
 - [x] Fork Teeny into my GitHub
