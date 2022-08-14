@@ -258,3 +258,6 @@ audio {
 #comment-form {
     clear:both;
 }
+#comment-form .hp {
+    display: none;
+}
