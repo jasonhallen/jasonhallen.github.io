@@ -1,8 +1,9 @@
-<form class="js-form form" method="post" action="https://jasonhallen-staticman.herokuapp.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
+<form method="post" action="https://jasonhallen-staticman.herokuapp.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
     
     <!-- Hidden fields -->
     <!-- <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}"> -->
     <input type="hidden" name="options[parent]" value="{{ absolute_url }}">
+    <input name="options[redirect]" type="hidden" value="https://jasonhallen.com/thanks">
     <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
     <input type="hidden" name="options[slug]" value="{{ slug }}">
     
@@ -10,38 +11,40 @@
     <!-- <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.reCaptcha.siteKey }}">
     <input type="hidden" name="options[reCaptcha][secret]"  value="{{ site.reCaptcha.secret }}"> -->
     
+    <h2>Leave a Comment</h2>
+
     <div class="textfield">
-      <label for="comment-form-message"><h2>Add Comment</h2>
-        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="Your comment (markdown accepted)" required rows="6"></textarea>
-      </label>
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <label for="comment-form-message"><strong>Comment *</strong></label>
+        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="[You can use Markdown.]" required rows="6"></textarea>
     </div>
-  
-      <div class="textfield narrowfield">
-        <label for="comment-form-name">Name
-          <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" placeholder="Your name (required)" required/>
-        </label>
-      </div>
-  
-      <div class="textfield narrowfield">
-        <label for="comment-form-email">E-mail
-          <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email" placeholder="Your email (optional)"/>
-        </label>
-      </div>
-  
-      <div class="textfield narrowfield hp">
-        <label for="hp">
-          <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
-        </label>
-      </div>
-  
-      <!-- <div id="reCaptcha" class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div> -->
-  
-      <!-- <button type="button" class="button" id="cancel-comment-reply-link" style="display: none">
-        Cancel Reply
-      </button> -->
+
+    <div class="textfield">
+        <label for="comment-form-name"><strong>Name *</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" required/>
+    </div>
     
-      <button class="button" id="comment-form-submit">
-        Submit
-      </button>
+    <div class="textfield">
+        <label for="comment-form-email"><strong>Email</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email"/>
+    </div>
+    
+    <div class="textfield hp">
+    <label for="hp">
+        <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
+    </label>
+    </div>
+
+    <!-- <div id="reCaptcha" class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div> -->
+
+    <!-- <button type="button" class="button" id="cancel-comment-reply-link" style="display: none">
+    Cancel Reply
+    </button> -->
+
+    <button class="readmore" id="comment-form-submit">
+    Submit
+    </button>
   
   </form>

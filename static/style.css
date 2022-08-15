@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 40px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 19px;
     line-height: 30px;
     max-width: 960px;
     width: auto;
@@ -55,7 +55,7 @@ img {
 }
 figure {
     display: table;
-    margin: 35px 0px 30px;
+    margin: 50px 0px 45px;
     width: 100%;
     max-width: 600px;
     text-align: center;
@@ -74,7 +74,7 @@ figcaption {
     max-width: 100%;
     caption-side: bottom;
     font-style: italic;
-    font-size: 18px;
+    font-size: 17px;
     text-align: center;
 }
 pre {
@@ -84,7 +84,7 @@ pre {
 }
 code {
     font-family: Menlo, Consolas, "Courier New", monospace;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     background-color: #eee;
 }
@@ -260,4 +260,39 @@ audio {
 }
 #comment-form .hp {
     display: none;
+}
+#comment-form .textfield {
+    margin-bottom: 13px;
+}
+#comment-form .textfield {
+    margin-bottom: 13px;
+}
+#comment-form textarea {
+    width: 100%;
+    border: 2px solid black;
+    padding: 6px 10px;
+    font-size: 18px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    /* font-size: 20px;
+    line-height: 30px;
+    -moz-osx-font-smoothing: grayscale; */
+}
+#comment-form input {
+    width: 50%;
+    min-width: 250px;
+    border: 2px solid black;
+    padding: 6px 10px;
+    font-size: 18px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+#comment-form button {
+    font-size: 19px;
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+}
+#comment-form button:hover {
+    cursor: pointer;
+}
+#comment-form textarea:focus, #comment-form input:focus {
+    outline-offset: 2px;
+    outline: 2px dotted black;
 }

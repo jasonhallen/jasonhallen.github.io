@@ -14,7 +14,7 @@ description: Last week I had surgery to improve the hearing in my right ear.  I'
 </figure>
 
 <figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/fan_in_bedroom.m4a" type="audio/mp4" /></audio>
-<figcaption>How overpowering is the sound of the fan cooling your bedroom in the summer time?</figcaption>
+<figcaption>How overpowering is the sound of the fan cooling your bedroom in the summer?</figcaption>
 </figure>
 
 <figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/passing_car.m4a" type="audio/mp4" /></audio>
