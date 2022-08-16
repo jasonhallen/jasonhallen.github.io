@@ -17,23 +17,26 @@ var addComment = function() {
   var form = select('.js-form');
   form.doReset = function() {
     submitButton.innerHTML = "Submit";
+    submitButton.setAttribute("disabled", false)
     this.classList.remove('disabled');
     if (window.grecaptcha) {
-      grecaptcha.reset();
+      grecaptcha.reset()
     }
   };
 
   form.addEventListener('submit', function (event) {
-    event.preventDefault();
+    event.preventDefault()
 
     submitButton.innerHTML =
-      '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...';
+      '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...'
+    
+    submitButton.setAttribute("disabled", true)
 
     var errorHandler = function(title, err) {
-      console.log(err);
+      console.log(err)
       var ecode = err.errorCode || "unknown";
-      showModal(title, 'An error occured.<br>[' + ecode + ']');
-      form.doReset();
+      showModal('/images/cartoon_portrait_error.jpg', title, 'An error occured.<br>[' + ecode + ']');
+      form.doReset()
     }
 
     form.classList.add('disabled');
@@ -45,7 +48,7 @@ var addComment = function() {
     }).then(
       function (data) {
         if (data.ok) {
-          showModal('Comment Submitted', "Thanks for the comment!  I'll post it on the page soon. - Jason");
+          showModal('/images/cartoon_portrait_success.jpg', 'Success!', "Thanks for the comment!  I'll post it on the page soon. - Jason");
           form.reset();
           form.doReset();
         } else {
@@ -64,12 +67,16 @@ var addComment = function() {
   select('.js-close-modal').addEventListener('click', function () {
     // select('body').classList.remove('show-modal');
     document.querySelector(".modal").style.display = "none"
+    // submitButton.innerHTML =
+    //   '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...'
+    // submitButton.setAttribute("disabled", true)
   });
 
-  function showModal(title, message) {
-    select('.js-modal-title').innerText = title;
-    select('.js-modal-text').innerHTML = message;
-    select('body').classList.add('show-modal');
+  function showModal(img, title, message) {
+    select('.modal-image').setAttribute("src", img)
+    select('.js-modal-title').innerText = title
+    select('.js-modal-text').innerHTML = message
+    document.querySelector(".modal").style.display = ""
   }
 
   // Staticman comment replies, from https://github.com/mmistakes/made-mistakes-jekyll

@@ -298,6 +298,7 @@ audio {
 #comment-form button {
     font-size: 19px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    margin: 10px 0px;
 }
 #comment-form button:hover {
     cursor: pointer;
@@ -313,6 +314,7 @@ audio {
     font-family: 'Josefin Slab', sans-serif;
     font-size: 26px;
     font-weight: bold;
+    border-bottom: 2px dotted black;
 }
 #comment-form-submit, #cancel-comment-reply-link {
     display: inline-block;
@@ -329,4 +331,43 @@ audio {
 }
 h3#comment-form-header {
     margin-top: 0px;
+    border-bottom: 2px dotted black;
+}
+.icon {
+    display: inline-block;
+    fill: currentColor;
+    height: 1em;
+    line-height: 1;
+    position: relative;
+    top: -0.125em;  /*fine-tune alignment*/
+    vertical-align: middle;
+    width: 1em;
+}
+.spin {
+    animation: spin 2s infinite linear;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+    to {
+        transform: rotate(360deg)
+    }
+}
+article.modal {
+    display: flex;
+    align-items: center;
+    border: 2px dotted black;
+    padding-right: 15px;
+    margin: 30px 0px;
+}
+img.modal-image {
+    width: 30%;
+}
+#modal-text-wrapper {
+    width: 70%;
+}
+.modal button.readmore {
+    float: right;
+
 }
