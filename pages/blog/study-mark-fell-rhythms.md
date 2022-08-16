@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Study: Mark Fell - Rhythms"
 date: 20200403
 publish: yes

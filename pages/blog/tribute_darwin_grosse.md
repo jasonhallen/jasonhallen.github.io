@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Tribute: Darwin Grosse"
 date: 20200729
 publish: no

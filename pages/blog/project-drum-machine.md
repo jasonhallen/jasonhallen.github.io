@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Project: Drum Machine"
 date: 20200316
 publish: yes

@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Helpful Resources for Csound"
 date: 20200203
 publish: yes

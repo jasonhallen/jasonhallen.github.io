@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Update: Illiac, Vocoders & Scheme"
 date: 20201216
 publish: yes

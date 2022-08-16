@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "The Mysterious World of Csound"
 date: 20191006
 publish: yes

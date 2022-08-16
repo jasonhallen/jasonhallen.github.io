@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Update: The Last Four Months"
 date: 20200725
 publish: yes

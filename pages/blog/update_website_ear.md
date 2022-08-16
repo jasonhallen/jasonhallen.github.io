@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Update: Website & Ear"
 date: 20220730
 publish: no

@@ -40,7 +40,7 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
 * Deploy local 'public' folder from `main` branch to `gh-pages` branch of website repository
   * `gh-pages -d public`
 * Pull down changes from `main` branch (mostly for new comments)
-  * ???
+  * `git pull origin main`
 
 ## Tasks
 - [ ] Comments from Staticman

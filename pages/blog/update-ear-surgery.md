@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Update: Ear Surgery"
 date: 20220806
 publish: yes

@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Project: Looper"
 date: 20210425
 publish: yes

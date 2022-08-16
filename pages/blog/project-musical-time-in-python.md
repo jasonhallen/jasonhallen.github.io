@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Project: Musical Time in Python"
 date: 20210117
 image: "/images/python_csound5.png"

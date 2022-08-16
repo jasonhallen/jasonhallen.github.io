@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Project: Music Generator"
 date: 20201129
 publish: yes

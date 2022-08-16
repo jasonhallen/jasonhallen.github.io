@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Listening: 2020 in Review"
 date: 20201206
 publish: yes

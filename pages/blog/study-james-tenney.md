@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Study: James Tenney"
 date: 20200308
 publish: yes

@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Update: CS 318"
 date: 20201018
 publish: yes

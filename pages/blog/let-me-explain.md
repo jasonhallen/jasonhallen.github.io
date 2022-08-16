@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Let Me Explain"
 date: 20190921
 publish: yes

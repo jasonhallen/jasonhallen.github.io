@@ -1,5 +1,5 @@
 ---
-template: index
+template: blogPost
 title: "Project: Mell Fark, Part One"
 date: 20220716
 publish: yes

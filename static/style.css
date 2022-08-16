@@ -162,7 +162,7 @@ audio {
     color: #999;
     font-family: "Josefin Slab";
     font-weight: bold;
-    font-size: 20px;
+    font-size: 23px;
 }
 .date {
     margin: 0px 0px 30px;
@@ -255,8 +255,13 @@ audio {
 #page-not-found h3 {
     margin-top: -250px;
 }
-#comment-form {
+#comment-form, #comment-list {
     clear:both;
+    border-top: 2px solid black;
+    padding-top: 20px;
+}
+#comment-list .muted {
+    text-decoration: none;
 }
 #comment-form .hp {
     display: none;
@@ -270,7 +275,7 @@ audio {
 #comment-form textarea {
     width: 100%;
     border: 2px solid black;
-    padding: 6px 10px;
+    padding: 6px 0px 6px 10px;
     font-size: 18px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
     /* font-size: 20px;
@@ -295,4 +300,11 @@ audio {
 #comment-form textarea:focus, #comment-form input:focus {
     outline-offset: 2px;
     outline: 2px dotted black;
+}
+.comment-article {
+    margin: 20px 0px 50px 0px;
+}
+.comment-author {
+    font-family: 'Josefin Slab', sans-serif;
+    font-size: 26px;
 }
