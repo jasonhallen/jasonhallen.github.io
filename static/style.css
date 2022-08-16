@@ -62,7 +62,7 @@ figure {
     margin-left: auto;
     margin-right: auto;
 }
-figure img, figure audio {
+figure img, figure audio, figure iframe {
     max-width: 100%;
     width: 600px;
     display: block;
@@ -135,6 +135,18 @@ audio {
 #nav li.active a {
     border-bottom: 3px solid black;
 }
+#post-section {
+    border-bottom: 2px solid black;
+    /* overflow: auto; */
+}
+#post-section, #comments-section {
+    margin-bottom: 26px;
+}
+#prev-next-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
 .readmore {
     text-decoration: none;
     padding: 0.3em 0.7em;
@@ -145,18 +157,12 @@ audio {
     background-color: black;
     display: block;
     width: 6em;
-    margin: 30px 0 75px;
+    margin: 30px 0 60px;
     text-align: center;
 }
 .readmore:hover {
     background-color: white;
     color: black;
-}
-.readmore.floatleft {
-    float: left;
-}
-.readmore.floatright {
-    float: right;
 }
 .muted {
     color: #999;
@@ -255,10 +261,8 @@ audio {
 #page-not-found h3 {
     margin-top: -250px;
 }
-#comment-form, #comment-list {
-    clear:both;
-    border-top: 2px solid black;
-    padding-top: 20px;
+#comment-list {
+    border-bottom: 2px solid black;
 }
 #comment-list .muted {
     text-decoration: none;
@@ -278,6 +282,7 @@ audio {
     padding: 6px 0px 6px 10px;
     font-size: 18px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
     /* font-size: 20px;
     line-height: 30px;
     -moz-osx-font-smoothing: grayscale; */
@@ -302,9 +307,26 @@ audio {
     outline: 2px dotted black;
 }
 .comment-article {
-    margin: 20px 0px 50px 0px;
+    margin: 20px 0px 40px 0px;
 }
 .comment-author {
     font-family: 'Josefin Slab', sans-serif;
     font-size: 26px;
+    font-weight: bold;
+}
+#comment-form-submit, #cancel-comment-reply-link {
+    display: inline-block;
+    margin-right: 20px;
+}
+.nested {
+    margin-left: 60px;
+}
+.comment-reply-link {
+    color: #999;
+}
+.comment-reply-link:hover {
+    cursor: pointer;
+}
+h3#comment-form-header {
+    margin-top: 0px;
 }

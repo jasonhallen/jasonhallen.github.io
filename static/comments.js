@@ -62,7 +62,8 @@ var addComment = function() {
   });
 
   select('.js-close-modal').addEventListener('click', function () {
-    select('body').classList.remove('show-modal');
+    // select('body').classList.remove('show-modal');
+    document.querySelector(".modal").style.display = "none"
   });
 
   function showModal(title, message) {
@@ -81,7 +82,7 @@ var addComment = function() {
     // commId - the id attribute of the comment replied to (e.g., "comment-10")
     // respondId - the string 'respond', I guess
     // parentUid - the UID of the parent comment
-    moveForm: function(commId, respondId, parentUid) {
+    moveForm: function(commId, respondId, parentUid, name) {
       var t           = this;
       var comm        = I( commId );                                // whole comment
       var respond     = I( respondId );                             // whole new comment form
@@ -107,9 +108,17 @@ var addComment = function() {
         respond.parentNode.insertBefore(div, respond); // create and insert a bookmark div right before comment form
       }
 
+      let prevSibling = document.getElementById("comment-form").previousSibling
+      if (prevSibling.classList.contains("comment-article")) {
+        prevSibling.querySelector(".comment-reply-link").style.display = ""
+      }
       comm.parentNode.insertBefore( respond, comm.nextSibling );  // move the form from the bottom to above the next sibling
       parentuidF.value = parentUid;
       cancel.style.display = '';                        // make the cancel link visible
+      comm.querySelector(".comment-reply-link").style.display = "none"
+      respond.querySelector("#comment-form-header").outerHTML = `<h3 id="comment-form-header">Reply to ${name}</h3>`
+      respond.classList.add("nested")
+
 
       cancel.onclick = function() {
         var temp    = I( 'sm-temp-form-div' );            // temp is the original bookmark
@@ -122,6 +131,9 @@ var addComment = function() {
         I('comment-replying-to-uid').value = null;
         temp.parentNode.insertBefore(respond, temp);  // move the comment form to its original location
         temp.parentNode.removeChild(temp);            // remove the bookmark div
+        respond.querySelector("#comment-form-header").outerHTML = `<h2 id="comment-form-header">Leave a Comment</h2>`
+        respond.classList.remove("nested")
+        comm.querySelector(".comment-reply-link").style.display = ""
         this.style.display = 'none';                  // make the cancel link invisible
         this.onclick = null;                          // retire the onclick handler
         return false;
