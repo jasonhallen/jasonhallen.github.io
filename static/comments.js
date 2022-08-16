@@ -45,7 +45,7 @@ var addComment = function() {
     }).then(
       function (data) {
         if (data.ok) {
-          showModal('Comment submitted', 'Thanks! Your comment is <a href="https://github.com/travisdowns/travisdowns.github.io/pulls">pending</a>. It will appear when approved.');
+          showModal('Comment Submitted', "Thanks for the comment!  I'll post it on the page soon. - Jason");
           form.reset();
           form.doReset();
         } else {
