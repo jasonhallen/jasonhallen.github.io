@@ -48,7 +48,7 @@ var addComment = function() {
     }).then(
       function (data) {
         if (data.ok) {
-          showModal('/images/cartoon_portrait_success.jpg', 'Success!', "Thanks for the comment!  I'll post it on the page soon. - Jason");
+          showModal('/images/cartoon_portrait_success.jpg', 'Success!', "Thanks for the comment!  I'll post it on the page soon.\n- Jason");
           form.reset();
           form.doReset();
         } else {
@@ -125,6 +125,7 @@ var addComment = function() {
       comm.querySelector(".comment-reply-link").style.display = "none"
       respond.querySelector("#comment-form-header").outerHTML = `<h3 id="comment-form-header">Reply to ${name}</h3>`
       respond.classList.add("nested")
+      document.getElementById("comment-list").style.borderBottom = "none"
 
 
       cancel.onclick = function() {
@@ -141,6 +142,7 @@ var addComment = function() {
         respond.querySelector("#comment-form-header").outerHTML = `<h2 id="comment-form-header">Leave a Comment</h2>`
         respond.classList.remove("nested")
         comm.querySelector(".comment-reply-link").style.display = ""
+        document.getElementById("comment-list").style.borderBottom = "2px solid black"
         this.style.display = 'none';                  // make the cancel link invisible
         this.onclick = null;                          // retire the onclick handler
         return false;

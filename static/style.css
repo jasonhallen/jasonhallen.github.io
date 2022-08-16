@@ -263,9 +263,13 @@ audio {
 }
 #comment-list {
     border-bottom: 2px solid black;
+    margin-bottom: 26px;
 }
 #comment-list .muted {
     text-decoration: none;
+}
+#comment-form {
+    margin-bottom: 50px;
 }
 #comment-form .hp {
     display: none;
