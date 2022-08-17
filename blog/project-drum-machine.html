@@ -33,7 +33,7 @@
             </ul>
         </div>        
     </div>
-    <div id="page-content"><h2>Project: Drum Machine</h2><span class="muted date">March 16, 2020</span>
+    <div id="page-content"><div id="post-section"><h2>Project: Drum Machine</h2><span class="muted date">March 16, 2020</span>
 
 <p>I can’t remember why I decided to build a drum machine in Csound. After spending a few weeks on the <a href="/blog/study-james-tenney">James Tenney instrument</a>, which generates notes in a very randomized way, I must have been interested in generating notes within a metrical framework. In other words, I wanted to learn how to use the <code>metro</code> opcode.</p>
 <p>But first, why would you build a drum machine when there are dozens of free, full-featured drum machines available online? Two reasons:</p>
@@ -87,7 +87,78 @@
 </figure>
 
 <p>Here's a recording of a live performance I did with this drum machine. It's pretty simple, but it's made from scratch! That's as far as I got on the drum machine because another project grabbed my attention at the time. I'm sure I'll return to this though. When I do, I'd like to expand the number of characters the user can use to control the rhythmic patterns. I'd also like to spend more time "tuning the randomness" in the drum machine because truly random rhythmic patterns are often not satisfying musically. That's for another day.</p>
-<span><a href="/blog/study-mark-fell-rhythms" class="readmore floatleft">Newer</a></span><span><a href="/blog/study-james-tenney" class="readmore floatright">Older</a></span></div>
+<div id="prev-next-container"><span><a href="/blog/study-mark-fell-rhythms" class="readmore floatleft">Newer</a></span><span><a href="/blog/study-james-tenney" class="readmore floatright">Older</a></span></div></div><div id="comments-section"><div id="comment-form"><form class="js-form" method="post" action="https://jasonhallen-staticman.herokuapp.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
+    
+    <!-- <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}"> -->
+    <input type="hidden" name="options[parent]" value="https://jasonhallen.com/blog/project-drum-machine.html">
+    <!-- <input name="options[redirect]" type="hidden" value="https://jasonhallen.com/thanks"> -->
+    <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
+    <input type="hidden" name="options[slug]" value="project-drum-machine">
+    
+    <!-- reCaptcha -->
+    <!-- <input type="hidden" name="options[reCaptcha][siteKey]" value="{{ site.reCaptcha.siteKey }}">
+    <input type="hidden" name="options[reCaptcha][secret]"  value="{{ site.reCaptcha.secret }}"> -->
+    
+    <h2 id="comment-form-header">Leave a Comment</h2>
+
+    <div class="textfield">
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <label for="comment-form-message"><strong>Comment *</strong></label>
+        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="[You can use Markdown.]" required="" rows="6"></textarea>
+    </div>
+
+    <div class="textfield">
+        <label for="comment-form-name"><strong>Name *</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" required="">
+    </div>
+    
+    <div class="textfield">
+        <label for="comment-form-email"><strong>Email</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email">
+    </div>
+    
+    <div class="textfield hp">
+    <label for="hp">
+        <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
+    </label>
+    </div>
+
+    <!-- <div id="reCaptcha" class="g-recaptcha" data-sitekey="{{ site.reCaptcha.siteKey }}"></div> -->
+
+    <div id="submit-cancel-buttons">
+        <button class="readmore" id="comment-form-submit">
+        Submit
+        </button>
+
+        <button type="button" class="readmore" id="cancel-comment-reply-link" style="display: none">
+        Cancel
+        </button>
+    </div>
+
+</form>
+
+<div id="modal-wrapper" style="display: none;">
+    <article class="modal">
+        <img class="modal-image" src="/images/cartoon_portrait_success.jpg">
+            <div id="modal-text-wrapper">
+            <h3 class="modal-title js-modal-title">Modal Title</h3>
+            <div class="mdl-card__supporting-text js-modal-text">Modal supporting text Modal supporting text Modal supporting text</div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button class="button readmore mdl-button--colored mdl-js-button mdl-js-ripple-effect js-close-modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <symbol id="icon-loading" viewBox="149.8 37.8 499.818 525"><path d="M557.8 187.8c13.8 0 24.601-10.8 24.601-24.6S571.6 138.6 557.8 138.6s-24.6 10.8-24.6 24.6c0 13.2 10.8 24.6 24.6 24.6zm61.2 90.6c-16.8 0-30.6 13.8-30.6 30.6s13.8 30.6 30.6 30.6 30.6-13.8 30.6-30.6c.6-16.8-13.2-30.6-30.6-30.6zm-61.2 145.2c-20.399 0-36.6 16.2-36.6 36.601 0 20.399 16.2 36.6 36.6 36.6 20.4 0 36.601-16.2 36.601-36.6C595 439.8 578.2 423.6 557.8 423.6zM409 476.4c-24 0-43.2 19.199-43.2 43.199s19.2 43.2 43.2 43.2 43.2-19.2 43.2-43.2S433 476.4 409 476.4zM260.8 411c-27 0-49.2 22.2-49.2 49.2s22.2 49.2 49.2 49.2 49.2-22.2 49.2-49.2-22.2-49.2-49.2-49.2zm-10.2-102c0-27.6-22.8-50.4-50.4-50.4-27.6 0-50.4 22.8-50.4 50.4 0 27.6 22.8 50.4 50.4 50.4 27.6 0 50.4-22.2 50.4-50.4zm10.2-199.8c-30 0-54 24-54 54s24 54 54 54 54-24 54-54-24.6-54-54-54zM409 37.8c-35.4 0-63.6 28.8-63.6 63.6S374.2 165 409 165s63.6-28.8 63.6-63.6-28.2-63.6-63.6-63.6z"></path>
+    </symbol>
+</svg></div></div></div>
+    <script src="/comments.js"></script>
 
 
 </body></html>

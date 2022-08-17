@@ -1,0 +1,18 @@
+_id: cee2f440-1d76-11ed-aa02-53c69b2b9d86
+_parent: 'https://jasonhallen.com/blog/project-musical-time-in-python.html'
+replying_to_uid: ''
+message: >-
+  Happy to find your blog and read about your adventures w/Csound and Python. I
+  have been picking at the problem you talk through in this post - thanks for
+  the clear articulation here, really saved me some time. I was heading down the
+  metro route and will opt for scoreTime in the Csound API, as you did. I am
+  sending notes to Csound via UDP with great results, though OSC works will too
+  of course. Thanks again!
+
+
+  Ben
+  
+  http://listenfaster.com
+name: Ben McAllister
+email: ''
+date: '2022-02-07T02:10:00.007Z'
