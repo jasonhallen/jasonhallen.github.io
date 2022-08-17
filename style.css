@@ -237,6 +237,7 @@ audio {
         align-items: center;
         border: 7px solid black;
         width: 50%;
+        max-width: 600px;
         margin: auto;
         background-color: rgb(255, 255, 255);
         padding: 10px;
@@ -249,7 +250,6 @@ audio {
     }
     .modal-title {
         margin-top: 15px;
-        text-align: center;
     }
     .modal button.readmore {
         float: right;
@@ -286,10 +286,9 @@ audio {
         width: 100%;
     }
     article.modal {
-        /* display: flex; */
-        /* align-items: center; */
         border: 7px solid black;
         width: 50%;
+        max-width: 300px;
         margin: auto;
         background-color: rgb(255, 255, 255);
         padding: 12px;
@@ -423,4 +422,7 @@ h3#comment-form-header {
 }
 .disabled {
     pointer-events: none;
+}
+.js-close-modal {
+    margin: 15px 0px 0px 0px;
 }
