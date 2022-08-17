@@ -147,6 +147,9 @@ audio {
     justify-content: space-between;
     width: 100%;
 }
+.older-button {
+    margin-left: auto;
+}
 .readmore {
     text-decoration: none;
     padding: 0.3em 0.7em;
@@ -156,7 +159,7 @@ audio {
     color: white;
     background-color: black;
     display: block;
-    width: 6em;
+    width: 5em;
     margin: 30px 0 60px;
     text-align: center;
 }
@@ -234,6 +237,7 @@ audio {
         align-items: center;
         border: 7px solid black;
         width: 50%;
+        max-width: 600px;
         margin: auto;
         background-color: rgb(255, 255, 255);
         padding: 10px;
@@ -246,7 +250,6 @@ audio {
     }
     .modal-title {
         margin-top: 15px;
-        text-align: center;
     }
     .modal button.readmore {
         float: right;
@@ -283,10 +286,9 @@ audio {
         width: 100%;
     }
     article.modal {
-        /* display: flex; */
-        /* align-items: center; */
         border: 7px solid black;
         width: 50%;
+        max-width: 300px;
         margin: auto;
         background-color: rgb(255, 255, 255);
         padding: 12px;
@@ -350,7 +352,7 @@ audio {
 }
 #comment-form input {
     width: 50%;
-    min-width: 220px;
+    min-width: 200px;
     border: 2px solid black;
     padding: 6px 6px;
     font-size: 18px;
@@ -366,6 +368,8 @@ audio {
 }
 #comment-form #submit-cancel-buttons button {
     margin: 10px 10px 10px 0px;
+    padding: 8px 0px;
+    width: 123px;
 }
 #comment-form textarea:focus, #comment-form input:focus {
     outline-offset: 2px;
@@ -420,4 +424,16 @@ h3#comment-form-header {
 }
 .disabled {
     pointer-events: none;
+}
+.js-close-modal {
+    margin: 15px 0px 0px 0px;
+}
+.caret {
+    width: 0px;
+    height: 0px;
+    display: inline-block;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 10px solid #999;
+    vertical-align: middle;
 }
