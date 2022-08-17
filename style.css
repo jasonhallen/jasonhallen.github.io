@@ -393,6 +393,7 @@ audio {
 }
 .comment-reply-link {
     color: #999;
+    border-bottom: 2px dotted #999;
 }
 .comment-reply-link:hover {
     cursor: pointer;
