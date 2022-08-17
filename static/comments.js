@@ -17,7 +17,7 @@ var addComment = function() {
   var form = select('.js-form');
   form.doReset = function() {
     submitButton.innerHTML = "Submit";
-    submitButton.setAttribute("disabled", false)
+    // submitButton.removeAttribute("disabled")
     this.classList.remove('disabled');
     if (window.grecaptcha) {
       grecaptcha.reset()
@@ -30,7 +30,7 @@ var addComment = function() {
     submitButton.innerHTML =
       '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...'
     
-    submitButton.setAttribute("disabled", true)
+    // submitButton.setAttribute("disabled", "")
 
     var errorHandler = function(title, err) {
       console.log(err)
@@ -48,7 +48,8 @@ var addComment = function() {
     }).then(
       function (data) {
         if (data.ok) {
-          showModal('/images/cartoon_portrait_success.jpg', 'Success!', "Thanks for the comment!  I'll post it on the page soon.\n- Jason");
+          I("modal-wrapper").style.display = ""
+          showModal('/images/cartoon_portrait_success.jpg', 'Success!', "Thanks for the comment!  I'll post it on the page soon.");
           form.reset();
           form.doReset();
         } else {
@@ -66,7 +67,10 @@ var addComment = function() {
 
   select('.js-close-modal').addEventListener('click', function () {
     // select('body').classList.remove('show-modal');
-    document.querySelector(".modal").style.display = "none"
+    select(".modal").style.display = "none"
+    I("modal-wrapper").style.display = "none"
+    // Remove listener
+
     // submitButton.innerHTML =
     //   '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...'
     // submitButton.setAttribute("disabled", true)
@@ -96,11 +100,6 @@ var addComment = function() {
       var cancel      = I( 'cancel-comment-reply-link' );           // whole reply cancel link
       var parentuidF  = I( 'comment-replying-to-uid' );             // a hidden element in the comment
 
-      console.log(t)
-      console.log(comm)
-      console.log(respond)
-      console.log(cancel)
-      console.log(parentuidF)
       if ( ! comm || ! respond || ! cancel || ! parentuidF ) {
         console.log("TEST")
         return;
@@ -146,11 +145,13 @@ var addComment = function() {
         this.style.display = 'none';                  // make the cancel link invisible
         this.onclick = null;                          // retire the onclick handler
         return false;
+        // return;
       };
 
       I('comment-form-message').focus();
 
       return false;
+      // return;
     }
   }
 }();

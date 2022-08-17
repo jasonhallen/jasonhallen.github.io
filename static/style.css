@@ -205,6 +205,18 @@ audio {
     float: left;
     width: 60%;
 } */
+#modal-wrapper {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 150px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(255, 255, 255,0.7); /* Black w/ opacity */
+}
 @media (min-width: 768px) {
     h2 {
         margin: 11px 0px 5px 0px;
@@ -217,6 +229,28 @@ audio {
         margin-left: 200px;
         max-width: 75%;
     }
+    article.modal {
+        display: flex;
+        align-items: center;
+        border: 7px solid black;
+        width: 50%;
+        margin: auto;
+        background-color: rgb(255, 255, 255);
+        padding: 10px;
+    }
+    img.modal-image {
+        width: 30%;
+    }
+    #modal-text-wrapper {
+        width: 70%;
+    }
+    .modal-title {
+        margin-top: 15px;
+        text-align: center;
+    }
+    .modal button.readmore {
+        float: right;
+    }    
 }
 @media (max-width: 767px) {
     body {
@@ -247,6 +281,29 @@ audio {
     #about_text {
         float: none;
         width: 100%;
+    }
+    article.modal {
+        /* display: flex; */
+        /* align-items: center; */
+        border: 7px solid black;
+        width: 50%;
+        margin: auto;
+        background-color: rgb(255, 255, 255);
+        padding: 12px;
+    }
+    img.modal-image {
+        width: 100%;
+    }
+    #modal-text-wrapper {
+        width: 100%;
+    }
+    .js-modal-title {
+        text-align: center;
+        margin-top: 0px;
+    }
+    .modal button.readmore {
+        /* float: right; */
+        margin: 10px auto;
     }
 }
 @media (max-width: 480px) {
@@ -283,7 +340,7 @@ audio {
 #comment-form textarea {
     width: 100%;
     border: 2px solid black;
-    padding: 6px 0px 6px 10px;
+    padding: 6px 0px 6px 6px;
     font-size: 18px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
     box-sizing: border-box;
@@ -293,19 +350,22 @@ audio {
 }
 #comment-form input {
     width: 50%;
-    min-width: 250px;
+    min-width: 220px;
     border: 2px solid black;
-    padding: 6px 10px;
+    padding: 6px 6px;
     font-size: 18px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
 }
 #comment-form button {
     font-size: 19px;
     font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-    margin: 10px 0px;
+    width: inherit;
 }
 #comment-form button:hover {
     cursor: pointer;
+}
+#comment-form #submit-cancel-buttons button {
+    margin: 10px 10px 10px 0px;
 }
 #comment-form textarea:focus, #comment-form input:focus {
     outline-offset: 2px;
@@ -358,20 +418,6 @@ h3#comment-form-header {
         transform: rotate(360deg)
     }
 }
-article.modal {
-    display: flex;
-    align-items: center;
-    border: 2px dotted black;
-    padding-right: 15px;
-    margin: 30px 0px;
-}
-img.modal-image {
-    width: 30%;
-}
-#modal-text-wrapper {
-    width: 70%;
-}
-.modal button.readmore {
-    float: right;
-
+.disabled {
+    pointer-events: none;
 }
