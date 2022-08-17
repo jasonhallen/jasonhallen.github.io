@@ -159,7 +159,7 @@ audio {
     color: white;
     background-color: black;
     display: block;
-    width: 6em;
+    width: 5em;
     margin: 30px 0 60px;
     text-align: center;
 }
@@ -352,7 +352,7 @@ audio {
 }
 #comment-form input {
     width: 50%;
-    min-width: 164px;
+    min-width: 200px;
     border: 2px solid black;
     padding: 6px 6px;
     font-size: 18px;
@@ -368,7 +368,8 @@ audio {
 }
 #comment-form #submit-cancel-buttons button {
     margin: 10px 10px 10px 0px;
-    padding: 8px 30px;
+    padding: 8px 0px;
+    width: 123px;
 }
 #comment-form textarea:focus, #comment-form input:focus {
     outline-offset: 2px;
