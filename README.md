@@ -28,6 +28,18 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
 * Configure "Pages" setting of repository to deploy from `gh-pages`
 * Deploy static pages to `gh-pages` branch of `jasonhallen.github.io`
 
+## Comments
+* Use [Staticman v3]()
+* Followed [Travis Downs](https://travisdowns.github.io/blog/2020/02/05/now-with-comments.html), [Spinning Numbers](https://spinningnumbers.org/a/staticman-heroku.html), [Michael Rumpler](https://www.mrumpler.at/comments-with-staticman/), and [Made Mistakes](https://mademistakes.com/mastering-jekyll/static-comments-improved/)
+* Created a Heroku app at https://jasonhallen-staticman.herokuapp.com
+* How comments work:
+  * Comment form on website `POSTs` to Staticman server running on Heroku. This wakes up the Node.js server, which then parses the `POST` request.
+  * Staticman is configured to connect to a GitHub app installed in my website repository.  This app has permissions to submit pull requests to the repository.  Authentication keys for the GitHub app are configured as Heroku environment variables.
+  * Staticman sends the comment as a pull request to the repository's `comments` directory.  I get notified by GitHub via email.
+  * I go into the repository to view the comment.  Before merging the request, I have to commit (and possibly push) any local changes on my computer to the repository. Otherwise I'll lose the changes when merging the comment.
+  * I might want to fix Markdown formatting issues in the request. To approve it I click "Merge pull request" in the pull request. Then run `git pull origin main` locally in order to pull down the comment.
+  * To publish the comment on the website run `teeny build` and `gh-pages -d public`
+
 ## Commands
 * Install/update Teeny on local machine
   * `npm i -g https://github.com/jasonhallen/teeny`
@@ -43,12 +55,12 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `git pull origin main`
 
 ## Tasks
-- [ ] Comments from Staticman
 - [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
 - [ ] Strip out Google Analytics script when in Teeny development mode
 - [ ] Decommission GitHub bot account
 
 ## Completed Tasks
+- [x] Comments from Staticman
 - [x] Remove image link at top of blog posts
 - [x] Auto-generate the H2's based on the frontmatter Title
 - [x] Fork Teeny into my GitHub
