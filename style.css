@@ -428,9 +428,9 @@ h3#comment-form-header {
 .js-close-modal {
     margin: 15px 0px 0px 0px;
 }
-/* .grecaptcha-badge { 
+.grecaptcha-badge { 
     visibility: hidden;
-} */
+}
 #recaptcha-fine-print, #recaptcha-fine-print a {
     color: #999;
 }

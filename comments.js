@@ -35,7 +35,9 @@ var addComment = function() {
     var errorHandler = function(title, err) {
       console.log(err)
       var ecode = err.errorCode || "unknown"
-      showModal('/images/cartoon_portrait_error.jpg', title, 'An error occured.<br>[' + ecode + ']')
+      I("modal-wrapper").style.display = ""
+      // showModal('/images/cartoon_portrait_error.jpg', title, 'An error occured.<br>[' + ecode + ']')
+      showModal('/images/cartoon_portrait_error.jpg', "Sorry!", "An error occurred when sending your comment. I'll work on fixing this right away.")
       form.doReset()
     }
 
