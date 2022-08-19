@@ -34,8 +34,8 @@ var addComment = function() {
 
     var errorHandler = function(title, err) {
       console.log(err)
-      var ecode = err.errorCode || "unknown";
-      showModal('/images/cartoon_portrait_error.jpg', title, 'An error occured.<br>[' + ecode + ']');
+      var ecode = err.errorCode || "unknown"
+      showModal('/images/cartoon_portrait_error.jpg', title, 'An error occured.<br>[' + ecode + ']')
       form.doReset()
     }
 
