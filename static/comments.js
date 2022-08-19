@@ -56,11 +56,17 @@ var addComment = function() {
           data.json().then(function(err) {
             errorHandler('Server Error', err);
           });
+          if (window.grecaptcha) {
+            grecaptcha.reset()
+          }
         }
       }
     ).catch(function (err) {
-      console.error(err);
-      errorHandler('Unexpected Error', err);
+      console.error(err)
+      errorHandler('Unexpected Error', err)
+      if (window.grecaptcha) {
+        grecaptcha.reset()
+      }
     });
 
   });

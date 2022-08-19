@@ -428,12 +428,9 @@ h3#comment-form-header {
 .js-close-modal {
     margin: 15px 0px 0px 0px;
 }
-.caret {
-    width: 0px;
-    height: 0px;
-    display: inline-block;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 10px solid #999;
-    vertical-align: middle;
+.grecaptcha-badge { 
+    visibility: hidden;
+}
+#recaptcha-fine-print, #recaptcha-fine-print a {
+    color: #999;
 }
