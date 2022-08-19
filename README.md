@@ -38,7 +38,8 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * Staticman sends the comment as a pull request to the repository's `comments` directory.  I get notified by GitHub via email.
   * I go into the repository to view the comment.  Before merging the request, I have to commit (and possibly push) any local changes on my computer to the repository. Otherwise I'll lose the changes when merging the comment.
   * I might want to fix Markdown formatting issues in the request. To approve it I click "Merge pull request" in the pull request. Then run `git pull origin main` locally in order to pull down the comment.
-  * To publish the comment on the website run `teeny build` and `gh-pages -d public`
+  * To publish the comment on the website run `teeny build` and `gh-pages -d public`.
+  * To reject the pull request, click "Close pull request" which then deletes the request and the branch.
 
 ## Commands
 * Install/update Teeny on local machine
