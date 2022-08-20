@@ -80,6 +80,6 @@ comments:
     email: md5
 
   reCaptcha:
-    enabled: false
+    enabled: true
     siteKey: "6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI"
     secret: "J/1tx/gxjjcF4Qw17kZ0QUhUK9xnotL31qIetlT0EGmt7rZEyYfRDfKKHit/hxajHF4EV898b9pWqF0nbhZVa+j+AmxyMrcJTvP7lD0Fvfdk6fK/W/6OMe1q3dOROo/HIF5lLmDcdFMKc9L1Y3T0wDNuStn2lvL3v2ECnajXG5/CSurNFRnFq1k1iwGvHn5XLeypNgz08MKk+5E5f55DyEeRwxtLu2wAaiyIBISpboEas5v9OZpPoclYnYWneAiX0CeccxGSL3EyxJ3CCD9GSJsFrrOYAPRRujw4hXmRzAzzJunSLd1V4icFPaqlsqWYAGYMehQeeHlV77MAcg7gxeSJv9GVyrfbtg82yhsASgtkGhtUFEmN7AenM1XZs4TDqUUxP01o9Gj/oYmfGQUdr734IVewVQkcm65zF092ZSeeTefX/5s8cZedPiFK6bvLylbFxu/s4kLG482H/ZU64QdSIyrDuSzOISbZo+0Yd9OlElvkgeZML6+pyjd8SrNjxfCSA1bgOhb+3aGfXKVw+JxinWCizR2JB6Q/FOZzEa4I0aefzOeGwNK8XGC/vHzmt/58KFeEDNTpse77cHywvoT74XVIciJcPUvTrq6rAw5tkaekmuDX03Trefxo+pAMBXqj8wy06mgYsg721XNd8IpE+Qk7wPs/Dv8BfEhH6sc="
