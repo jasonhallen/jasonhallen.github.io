@@ -2,7 +2,7 @@
 template: blogPost
 title: "Update: Now with Comments!"
 date: 20220818
-publish: yes
+publish: no
 image: "/images/pagination_detail.png"
 imageAlt: "Close up of new pagination design"
 imageCaption:
