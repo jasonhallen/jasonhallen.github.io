@@ -17,7 +17,6 @@ var addComment = function() {
   var form = select('.js-form');
   form.doReset = function() {
     submitButton.innerHTML = "Submit";
-    // submitButton.removeAttribute("disabled")
     this.classList.remove('disabled');
     if (window.grecaptcha) {
       grecaptcha.reset()
@@ -30,8 +29,6 @@ var addComment = function() {
     submitButton.innerHTML =
       '<svg class="icon spin"><use xlink:href="#icon-loading"></use></svg> Sending...'
     
-    // submitButton.setAttribute("disabled", "")
-
     var errorHandler = function(title, err) {
       console.log(err)
       var ecode = err.errorCode || "unknown"
