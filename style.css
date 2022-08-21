@@ -76,6 +76,7 @@ figcaption {
     font-style: italic;
     font-size: 17px;
     text-align: center;
+    margin-top: 14px;
 }
 pre {
     background: #eee;
