@@ -35,6 +35,8 @@ Here's a high-level diagram of the process from Staticman's website.
 
 I'd like to demystify one thing that took me a while to understand.  **In Staticman, a comment is simply a YML (or JSON or front matter) file that contains the comment message along with metadata such as author, email, and date**.  This file gets deposited into any directory you want in your website repository.  [Here's an example](https://github.com/jasonhallen/jasonhallen.github.io/blob/main/static/comments/update-the-last-four-months/comment-1660681066445.yml) of a comment on my site.
 
+<figure><img src="/images/comment_example.png" alt="Example of a comment YML file in my website repository."><figcaption>Example of a comment YML file in my website repository.</figcaption></figure>
+
 Staticman's job is just to deposit comment files in my repository.  It's my job to figure out how to incorporate the comment files into my website build process and display the comments on my pages.
 
 ### Details of My Implementation
@@ -79,11 +81,13 @@ There is one big problem with Staticman that Rumpler touches on, and it's worth 
 
 One of the main differences between v2 and v3 is that, if you're using GitHub, v3 only authenticates through a GitHub app connection.  You can't use a personal access token through a GitHub bot as Travis Downs and Spinning Numbers suggest.  This isn't documented anywhere, and it caused me lots of frustration until I figured it out.
 
-Even after I set up a GitHub app and installed it in my website repository, my Staticman instance was still not authenticating with GitHub.  I had read that [there were formatting issues](https://github.com/eduardoboucas/staticman/issues/406) when storing the `GITHUB_PRIVATE_KEY` environment variable in Heroku.  It had to do with new lines and spaces that might get inserted into the key after `"BEGIN RSA PRIVATE KEY-----"` and before `"-----END RSA PRIVATE KEY"`.  After trial and error I formatted the key in the way that GitHub would accept for authentication.  In my case, I just opened the GitHub private key (it's a .pem file downloaded from GitHub) in a text editor, copied the whole thing, and pasted it into the Config Vars section of Heroku.  I didn't add `\n` or change the formatting in any way.
+Even after I set up a GitHub app and installed it in my website repository, my Staticman instance was still not authenticating with GitHub.  I had read that [there were formatting issues](https://github.com/eduardoboucas/staticman/issues/406) when storing the `GITHUB_PRIVATE_KEY` environment variable in Heroku.  It had to do with new lines and spaces that might get inserted into the key after `"BEGIN RSA PRIVATE KEY-----"` and before `"-----END RSA PRIVATE KEY"`.
 
-#### Formatting the Comments and Form
+After trial and error I formatted the key in the way that GitHub would accept for authentication.  In my case, I just opened the GitHub private key (it's a .pem file downloaded from GitHub) in a text editor, copied the whole thing, and pasted it into the Config Vars section of Heroku.  I didn't add `\n` or change the formatting in any way.
 
 The hardest part of the whole installation was correctly configuring Staticman to receive a test comment, authenticate with Github, and create a pull request in my website repository.  It took a while to get that ironed out, but what a great feeling when the first test comment showed up in my repository!  I could then move on to the fun part of formatting the comments and the comment form.
+
+#### Formatting the Comments and Form
 
 This is where you have complete control over the functionality and styling of the comments section.  Like so many other people using Staticman, I followed Michael Rose's lead in [Made Mistakes](https://mademistakes.com/mastering-jekyll/static-comments-improved/) where he shows how to create one level of nesting in the comments section and how to display messages upon the success or failure of sending the comment.  Frankly, this took hours of fiddling with CSS and JavaScript to get the look and interactivity right, but it was fun.  I added a friendly message whenever someone successfully sends a comment.
 
@@ -93,7 +97,9 @@ This is where you have complete control over the functionality and styling of th
 
 After all this work, I was excited to get my first comment yesterday.  A nice gentleman named Darrin sent a comment singing the praises of Amman Arab University, which he called "a Jordanian bookish institute of cutting edge education, located on Jordan Street".  So yeah, it was spam.  That didn't take long.  I decided to implement reCAPTCHA in order to prevent bots from spamming my site with comments.
 
-Implementing reCAPTHCA has been surprisingly difficult, and I'm not yet satisfied with the result.  Registering my site with reCAPTCHA was easy enough.  The problem was that I wanted the "v2 Invisible Badge" type (which is what Made Mistakes has) rather than the "v2 Checkbox" (which is what Spinning Numbers has), but I kept getting `"invalid-input-response"` errors with the invisible badge type.  I tried switching to reCAPTCHA v3 which is also invisible (i.e. requires no interaction from the user), but that didn't work either.  I suspect this has to do with how Staticman has implemented reCAPTCHA.  I see that it uses `express-recaptcha` v2 in its [`package.json`](https://github.com/eduardoboucas/staticman/blob/master/package.json), yet `express-recaptcha` is now up to v5.
+Implementing reCAPTHCA has been surprisingly difficult, and I'm not yet satisfied with the result.  Registering my site with reCAPTCHA was easy enough.  The problem was that I wanted the "v2 Invisible Badge" type (which is what Made Mistakes has) rather than the "v2 Checkbox" (which is what Spinning Numbers has), but I kept getting `"invalid-input-response"` errors with the invisible badge type.
+
+I tried switching to reCAPTCHA v3 which is also invisible (i.e. requires no interaction from the user), but that didn't work either.  I suspect this has to do with how Staticman has implemented reCAPTCHA.  I see that it uses `express-recaptcha` v2 in its [`package.json`](https://github.com/eduardoboucas/staticman/blob/master/package.json), yet `express-recaptcha` is now up to v5.
 
 If I want to dive deeper into this, I could fork Staticman, customize it to meet my needs, and deploy it to Heroku, but I'd rather switch back to my Csound project at this point.  For now I'll just live with the reCAPTCHA checkbox.
 
