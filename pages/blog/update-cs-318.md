@@ -5,10 +5,11 @@ date: 20201018
 publish: yes
 image: "/images/soft_landscape.jpg"
 imageAlt: "Soft landscpes"
-imageCaption: 'Computer-generated landscape by the <a href="https://twitter.com/softlandscapes">soft landscapes Twitter bot'
+imageCaption: 'Computer-generated landscape by the <a href="https://twitter.com/softlandscapes">soft landscapes Twitter bot</a>.'
 keywords: computer science, computational media, computer poetry, Twitter bots
 description: "This fall I've been sitting in on a computer science course at Carleton called CS 318: Computational Media, taught by a visiting professor named James Ryan. This course focuses on new forms of creative expression and media that can only be made with computers. Examples include computer-generated poetry and novels, Twitter bots, computer-generated visual art, and virtual reality works."
 ---
+
 This fall I've been sitting in on a computer science course at Carleton called CS 318: Computational Media, taught by a visiting professor named [James Ryan](https://www.jamesryan.world/). This course focuses on new forms of creative expression and media that can only be made with computers. Examples include computer-generated poetry and novels, Twitter bots, computer-generated visual art, and virtual reality works.
 
 [READ MORE]

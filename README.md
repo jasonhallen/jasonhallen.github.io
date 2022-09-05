@@ -56,6 +56,7 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `git pull origin main`
 
 ## Tasks
+- [ ] Find Heroku alternative to host Staticman app for free
 - [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
 - [ ] Strip out Google Analytics script when in Teeny development mode
 - [ ] Decommission GitHub bot account
