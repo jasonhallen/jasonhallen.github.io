@@ -1,7 +1,7 @@
 ---
 template: blogPost
 title: "Update: Csound, Node.js, and Electron"
-date: 20220904
+date: 20220905
 publish: yes
 image: "/images/cs_node_electron_header.jpg"
 imageAlt: "Csound logo plus Node logo plus Electron logo equals an unhappy face."
@@ -91,7 +91,7 @@ It took a lot of trial and error to get `ipcMain`, `ipcRenderer`, and `webConten
 
 #### Complications with Apple's M1 Chips
 
-This isn't an Electron issue, but not all software has caught up with Apple's switch to M1/ARM chips.  This caused incompatibility problems when I tried [NW.js](https://nwjs.io/).  Since I had been frustrated with IPC in Electron I thought NW.js, which allows you to run Node.js packages within the renderer process, would be a better option.  However, NW.js and csound-api did not work together because NW.js was written for the x86 architecture and csound-api was written for ARM.
+This isn't an Electron issue, but not all software has caught up with Apple's switch to M1/ARM chips.  This caused incompatibility problems when I tried [NW.js](https://nwjs.io/).  Since I had been frustrated with IPC in Electron I thought NW.js, which allows you to run Node.js packages within the renderer process, would be a better option.  However, NW.js and csound-api did not work together because NW.js was written for the x86 architecture and csound-api was written for the ARM architecture.
 
 ### Getting High Resolution Data from Csound
 
@@ -170,7 +170,7 @@ This increased the resolution of the volume data to about 26 values per second f
 
 It seemed like control channels were not a good solution for getting high resolution data out of Csound, so I switched over to [Open Sound Control (OSC)](https://ccrma.stanford.edu/groups/osc/index.html).  OSC is a data transport standard that allows applications to exchange data, and the data is transmitted over network protocols.
 
-On the Csound side, the `OSCsend` opcode conveniently handles the sending of OSC messages.  In this example, I'm sending the message over the User Datagram Protocol (UDP) network layer to IP address `127.0.0.1` (aka `localhost`) at port `8080` with channel name `/test/message/`.  Here's what that code looks like:
+On the Csound side, the `OSCsend` opcode conveniently handles the sending of OSC messages.  In this example, I'm sending the message over the User Datagram Protocol (UDP) network layer to IP address `127.0.0.1` (aka `localhost`) at port `8080` with channel name `"/test/message/"`.  Here's what that code looks like:
 
 ```
 OSCsend kcount, "127.0.0.1", 8080, "/test/message/", "f", kmeter
