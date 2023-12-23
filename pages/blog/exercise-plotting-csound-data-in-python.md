@@ -1,13 +1,13 @@
 ---
 template: blogPost
 title: "Exercise: Plotting Csound Data in Python"
-date: 20220919
+date: 20220921
 publish: yes
 image: "/images/waveform_detail.png"
-imageAlt: ""
+imageAlt: "Audio waveform snapshot"
 imageCaption:
-keywords: 
-description: 
+keywords: Python, graphical user interface, GUI, pygraphqt, pyqt5, frequency spectrum, numpy, scipy, matplotlib, waveform, plotting, graphing
+description: Here's the way I've found to display Csound amplitude and frequency data quickly and smoothly in Python.
 ---
 Recently in my quest to find a good GUI framework for building Csound instruments I've been exploring Python and [PyQt5](https://riverbankcomputing.com/software/pyqt/intro).  Before this I was exploring Node.js and Electron, but I ran into frustrating problems displaying Csound data in that framework.  So when I switched to PyQt5 the first thing I focused on was displaying data.  I'm happy to report that the results thus far have been great.  Here's the way I've found to display amplitude and frequency data quickly and smoothly.
 

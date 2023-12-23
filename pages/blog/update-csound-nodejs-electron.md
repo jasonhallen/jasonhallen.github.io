@@ -9,7 +9,7 @@ imageCaption:
 keywords: Csound, Node.js, Electron, GUI, framework, open sound control, OSC, JavaScript, HTML, CSS
 description: In my search for a framework to build Csound GUIs with I tried Node.js and Electron, but I was disappointed with the results.
 ---
-I've spent the last few weeks trying to build a Csound GUI with Node.js and Electron.  My immediate goal has been to revive my [Mell Fark project](https://www.jasonhallen.com/blog/project-mell-fark-part-one), but my longer-term goal is to find a framework to build other Csound GUIs with going forward.  Alas, I suspect Node.js and Electron won't be that framework.  As much as I enjoy working with HTML, CSS, and JavScript for rendering GUIs, I've grown frustrated with the Node.js environment.
+I've spent the last few weeks trying to build a Csound GUI with Node.js and Electron.  My immediate goal has been to revive my [Mell Fark project](https://www.jasonhallen.com/blog/project-mell-fark-part-one), but my longer-term goal is to find a framework to build other Csound GUIs with going forward.  Alas, I suspect Node.js and Electron won't be that framework.  As much as I enjoy working with HTML, CSS, and JavaScript for rendering GUIs, I've grown frustrated with the Node.js environment.
 
 [READ MORE]
 
