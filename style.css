@@ -435,3 +435,23 @@ h3#comment-form-header {
 #recaptcha-fine-print, #recaptcha-fine-print a {
     color: #999;
 }
+
+video {
+    width: 100%;
+}
+
+#header.home {
+    z-index: 1;
+}
+
+#header.home span, #header.home li {
+    background-color: white;
+}
+
+/* #home_video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+  } */
