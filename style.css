@@ -268,6 +268,13 @@ audio {
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(255, 255, 255,0.7); /* Black w/ opacity */
 }
+video {
+    width: 100%;
+}
+#home_video {
+    width: 75%;
+    margin-left: 200px;
+}
 @media (min-width: 768px) {
     h2 {
         margin: 11px 0px 5px 0px;
@@ -319,10 +326,10 @@ audio {
     #header {
         position: relative;
         width: 100%;
-        margin-bottom: 36px;
+        margin-bottom: 0px;
     }
     #header.home {
-        position: fixed;
+        /* position: fixed; */
     }
     #page-content, #pagination {
         margin-left: 0px;
@@ -333,6 +340,7 @@ audio {
         display: inline-grid;
         grid-template-columns: 40% 60%;
         align-items: center;
+        margin-top: 40px;
     }
     #about_portrait {
         float: none;
@@ -370,6 +378,10 @@ audio {
         /* float: right; */
         margin: 10px auto;
     }
+    #home_video {
+        width: 100%;
+        margin-left: 0px;
+    }
 }
 @media (max-width: 550px) {
     #info #page-content, #pagination {
@@ -380,6 +392,9 @@ audio {
     }
     #about_text {
         margin-left: 0px;
+    }
+    #header.home {
+        position: relative;
     }
 }
 @media (max-width: 480px) {
@@ -509,9 +524,6 @@ h3#comment-form-header {
     color: #999;
 }
 
-video {
-    width: 100%;
-}
 
 #header.home {
     z-index: 1;
