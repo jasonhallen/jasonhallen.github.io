@@ -37,20 +37,20 @@
 
 <figure><img class="cover-image" src="/images/cs_node_electron_header.jpg" alt="Csound logo plus Node logo plus Electron logo equals an unhappy face."></figure>
 
-<p>I've spent the last few weeks trying to build a Csound GUI with Node.js and Electron.  My immediate goal has been to revive my <a href="https://www.jasonhallen.com/blog/project-mell-fark-part-one">Mell Fark project</a>, but my longer-term goal is to find a framework to build other Csound GUIs with going forward.  Alas, I suspect Node.js and Electron won't be that framework.  As much as I enjoy working with HTML, CSS, and JavaScript for rendering GUIs, I've grown frustrated with the Node.js environment.</p>
+<p>I've spent the last few weeks trying to build a Csound GUI with Node.js and Electron.  My immediate goal has been to revive my <a href="project-mell-fark-part-one">Mell Fark project</a>, but my longer-term goal is to find a framework to build other Csound GUIs with going forward.  Alas, I suspect Node.js and Electron won't be that framework.  As much as I enjoy working with HTML, CSS, and JavaScript for rendering GUIs, I've grown frustrated with the Node.js environment.</p>
 
 <h3 id="one-big-caveat">One Big Caveat</h3>
 <p>Before going any further, I want to mention one big caveat.  <strong>It's very likely that Node.js/Electron are great environments for building Csound GUIs, but as a rudimentary programmer I don't have the knowledge and skills to make it work for my needs</strong>.  Please don't take this blog post to mean that it's not worth pursuing Node.js/Electron.  People with more command of the Node.js environment can probably do amazing things with it.</p>
 <h3 id="the-search-for-a-gui-framework">The Search for a GUI Framework</h3>
 <p>I'm searching for a framework to build GUIs for <strong>real-time interactive Csound performance</strong>.  My blog has actually documented my journey with Csound GUIs up until now.</p>
 <ul>
-<li><strong><a href="https://www.jasonhallen.com/blog/study-james-tenney">James Tenney project</a></strong> - This began with Python scripts generating algorithmic pieces and ended with building my first GUI in CsoundQt.<figure><img src="/images/tenney_interface.png" alt=""><figcaption>James Tenney GUI.</figcaption></figure></li>
-<li><strong><a href="https://www.jasonhallen.com/blog/project-drum-machine">Drum machine project</a> and <a href="https://www.jasonhallen.com/blog/study-mark-fell-rhythms">Mark Fell project</a></strong> - These saw me building GUIs in Cabbage for the first time.<figure><img src="/images/drum_machine.gif" alt=""><figcaption>Drum machine GUI.</figcaption></figure>
+<li><strong><a href="study-james-tenney">James Tenney project</a></strong> - This began with Python scripts generating algorithmic pieces and ended with building my first GUI in CsoundQt.<figure><img src="/images/tenney_interface.png" alt=""><figcaption>James Tenney GUI.</figcaption></figure></li>
+<li><strong><a href="project-drum-machine">Drum machine project</a> and <a href="study-mark-fell-rhythms">Mark Fell project</a></strong> - These saw me building GUIs in Cabbage for the first time.<figure><img src="/images/drum_machine.gif" alt=""><figcaption>Drum machine GUI.</figcaption></figure>
 <figure><img src="/images/fell_rhythmic_pattern_generator.png" alt=""><figcaption>Mark Fell GUI.</figcaption></figure></li>
-<li><strong><a href="https://www.jasonhallen.com/blog/project-looper">Looper project</a></strong> - I briefly explored Python and PySimpleGUI to build a GUI and then dove into Web Csound and p5.js instead.<figure><img src="/images/python_generator.png" alt=""><figcaption>Music generator GUI.</figcaption></figure>
+<li><strong><a href="project-looper">Looper project</a></strong> - I briefly explored Python and PySimpleGUI to build a GUI and then dove into Web Csound and p5.js instead.<figure><img src="/images/python_generator.png" alt=""><figcaption>Music generator GUI.</figcaption></figure>
 <figure><img src="/images/looper_gui.png" alt=""><figcaption>Looper GUI.</figcaption></figure></li>
 </ul>
-<p>This brings us to the present where I've returned to the Mark Fell project, now renamed the <a href="http://localhost:8000/blog/project-mell-fark-part-one">Mell Fark project</a>.  This time I'd like to focus on building a performant GUI that avoids some of the pain points of Web Csound.</p>
+<p>This brings us to the present where I've returned to the Mark Fell project, now renamed the <a href="project-mell-fark-part-one">Mell Fark project</a>.  This time I'd like to focus on building a performant GUI that avoids some of the pain points of Web Csound.</p>
 <h3 id="framework-requirements">Framework Requirements</h3>
 <p>Here's what I'm looking for in a GUI framework:</p>
 <ul>

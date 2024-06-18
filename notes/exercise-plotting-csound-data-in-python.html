@@ -152,7 +152,7 @@ sys.exit(app.exec_())
 <figcaption>Plotting a scrolling waveform.</figcaption>
 </figure>
 
-<p>Brilliant!  I hadn't thought of that before.  When I was using p5.js for my <a href="/blog/project-looper">Looper GUI</a> I drew the waveform as a <code>canvas</code> element.  That was a lot of extra code.  I should have been using a plotting library instead.</p>
+<p>Brilliant!  I hadn't thought of that before.  When I was using p5.js for my <a href="project-looper">Looper GUI</a> I drew the waveform as a <code>canvas</code> element.  That was a lot of extra code.  I should have been using a plotting library instead.</p>
 <p><a href="https://matplotlib.org/">Matplotlib</a> is a popular way to plot graphs in Python, but <a href="https://www.pyqtgraph.org/">pyqtgraph</a> is better optimized for plotting in PyQt5.  The rule of thumb I read is that matplotlib is better for creating print-quality graphs while pyqtgraph is better for animating graphs in real time.  I used <a href="https://www.pythonguis.com/tutorials/plotting-pyqtgraph/">this tutorial</a> from the very helpful <a href="https://www.pythonguis.com/pyqt5/">Python GUIs</a> website.</p>
 <h4 id="csound-code-1">Csound Code</h4>
 <p>For this plot, I'll use the same Csound channel data from the first example above.  Here's the new Csound code for sending values through the channel.</p>
