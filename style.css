@@ -19,7 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h2 {
     font-size: 36px;
-    line-height: 38px;
+    line-height: 36px;
     padding-bottom: 5px;
     /* background-color: #ffc2cb; */
     display: inline-block;
@@ -147,7 +147,7 @@ audio {
 }
 #jason-hallen {
     font-size: 54px;
-    line-height: 55px;
+    line-height: 54px;
     font-weight: bold;
 }
 #nav {
@@ -271,9 +271,14 @@ audio {
 video {
     width: 100%;
 }
-#home_video {
-    width: 75%;
-    margin-left: 200px;
+#home_video_container {
+    position: relative;
+}
+.home_video {
+    /* width: 75%;
+    margin-left: 200px; */
+    position: absolute;
+    z-index: 1;
 }
 @media (min-width: 768px) {
     h2 {
@@ -329,7 +334,7 @@ video {
         margin-bottom: 0px;
     }
     #header.home {
-        /* position: fixed; */
+        position: fixed;
     }
     #page-content, #pagination {
         margin-left: 0px;
@@ -394,6 +399,9 @@ video {
         margin-left: 0px;
     }
     #header.home {
+        position: relative;
+    }
+    .home_video {
         position: relative;
     }
 }
@@ -526,13 +534,56 @@ h3#comment-form-header {
 
 
 #header.home {
-    z-index: 1;
+    z-index: 99;
 }
 
 .home span, .home a {
     background-color: white;
 }
-
+.hidden {
+    display: none !important;
+}
+.media_button {
+    position: absolute;
+    z-index: 10;
+    font-size: 43px;
+    background-color: white;
+    border: none;
+    color: black;
+    width: 50px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+}
+.media_button:hover {
+    cursor: pointer;
+    background-color: #ffc2cb;
+    /* color: white; */
+}
+#play_pause {
+    top: 602px;
+    left: 40px;
+    padding: 2px 0px 0px 13px;
+    font-size: 48px;
+}
+#previous {
+    top: 602px;
+    left: 90px;
+    padding: 33px 0px 0px 12px;
+    font-size: 74px;
+}
+#next {
+    top: 602px;
+    left: 90px;
+    padding: 33px 0px 0px 12px;
+    font-size: 74px;
+}
+.rotate {
+    transform: rotate(-90deg);
+}
+#play_pause.rotate {
+    padding-left: 11px;
+}
 /* #home_video {
     position: fixed;
     right: 0;
