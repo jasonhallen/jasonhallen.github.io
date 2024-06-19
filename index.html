@@ -92,7 +92,7 @@
             var old_video = document.getElementsByClassName('home_video')[0]
             var new_video = document.createElement('video')
             new_video.className = 'home_video'
-            video_source = vid_array[Math.floor(Math.random() * vid_array.length)]
+            var video_source = vid_array[Math.floor(Math.random() * vid_array.length)]
             // while (!old_video.src.includes(video_source)) {
             //     video_source = vid_array[Math.floor(Math.random() * vid_array.length)]
             // }
@@ -102,6 +102,7 @@
             // new_video.loop = true
             if (ended === true) {
                 new_video.autoplay = true
+                console.log("TESTING")
             } else {
                 new_video.autoplay = !old_video.paused
             }
@@ -117,7 +118,7 @@
             new_video.addEventListener("loadedmetadata", (event) => {
                 this.currentTime = 4
             })
-            home_video_container.appendChild (new_video);
+            home_video_container.appendChild(new_video);
         }
         function add_onclick(video) {
             video.onclick = change_video

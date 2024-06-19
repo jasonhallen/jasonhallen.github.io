@@ -38,7 +38,7 @@ h2:after {
 h3 {
     font-size: 30px;
     line-height: 34px;
-    background-color: #ffc2cb;/* #bdf9f9; */
+    /* background-color: #ffc2cb;#bdf9f9; */
     display: inline-block;
 }
 h3:after {
@@ -55,7 +55,7 @@ h3:after {
 h4 {
     font-size: 24px;
     /* line-height: 16px; */
-    background-color: #bdf9f9;/*#ffffa4; */
+    /* background-color: #bdf9f9;#ffffa4; */
     display: inline-block;
 }
 h4:after {
@@ -210,7 +210,7 @@ audio {
     text-align: center;
 }
 .readmore:hover {
-    background-color: white;
+    background-color: #ffc2cb;
     color: black;
 }
 .muted {
@@ -228,15 +228,15 @@ audio {
     text-decoration: none;
     font-family: "Josefin Slab";
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
 }
 #pagination span a, #pagination span.muted {
-    font-size: 20px;
+    font-size: 30px;
     text-decoration: none;
     padding: 10px 15px;
 }
 #pagination span a:hover {
-    background-color: #eee;
+    background-color: #ffc2cb;
 }
 #pagination #paginationPages {
     margin-right: 10px;
@@ -547,7 +547,7 @@ h3#comment-form-header {
 .media_button {
     position: absolute;
     z-index: 10;
-    font-size: 43px;
+    font-family: "Source Sans Pro";
     background-color: white;
     border: none;
     color: black;
@@ -564,19 +564,14 @@ h3#comment-form-header {
 #play_pause {
     top: 602px;
     left: 40px;
-    padding: 2px 0px 0px 13px;
+    padding: 0px 0px 0px 13px;
     font-size: 48px;
-}
-#previous {
-    top: 602px;
-    left: 90px;
-    padding: 33px 0px 0px 12px;
-    font-size: 74px;
+    font-weight: bold;
 }
 #next {
     top: 602px;
     left: 90px;
-    padding: 33px 0px 0px 12px;
+    padding: 33px 0px 0px 11px;
     font-size: 74px;
 }
 .rotate {
