@@ -38,9 +38,9 @@
     <!-- <div id='page-content'>
     </div> -->
     <div id="home_video_container">
-        <video class="home_video" loop="" muted="" onloadeddata="update_button_position()">
+        <video class="home_video" muted="" onloadeddata="update_button_position()" onended="change_video(ended = true)">
             Your browser does not support the video element.
-            <source src="/video/mosh_kallie_annie_2024_4_15.mp4" type="video/mp4">
+            <source src="/video/anim_transitions_2024_2_28.mp4" type="video/mp4">
         </video>
     </div>
     <!-- <button id="previous" class='media_button' onclick="">&#x23EE;</button> -->
@@ -76,7 +76,8 @@
             }
         }
 
-        function change_video() {
+        function change_video(ended = false) {
+            console.log(ended)
             var vid_array = [
             '/video/mosh_kallie_annie_2024_4_15.mp4',    
             '/video/mosh_kallie_horizontal11_2024_4_15.mp4',
@@ -98,11 +99,16 @@
             // console.log(video_source, old_video.getElementsByTagName("source")[0].src, !old_video.src.includes(video_source))
             new_video.src = video_source
             new_video.controls = false
-            new_video.loop = true
-            new_video.autoplay = !old_video.paused
+            // new_video.loop = true
+            if (ended === true) {
+                new_video.autoplay = true
+            } else {
+                new_video.autoplay = !old_video.paused
+            }
             new_video.muted = true
             new_video.preload = 'metadata'
-            add_onclick(new_video)
+            new_video.onended = (event) => change_video(ended = true)
+            // add_onclick(new_video)
             new_video.addEventListener("loadeddata", (event) => {
                 document.getElementsByClassName('home_video')[0].remove()
                 this.currentTime = 3
