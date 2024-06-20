@@ -29,7 +29,7 @@ function toggle_play() {
 function loaded_data() {
     console.log("loaded_data")
     document.getElementsByClassName('home_video')[0].remove()
-    this.currentTime = 3
+    // this.currentTime = 3
     update_button_position()
 }
 
@@ -71,9 +71,6 @@ function change_video(ended = false) {
     //     console.log("loadedmetadata")
     // })
     home_video_container.appendChild(new_video);
-}
-function add_onclick(video) {
-    video.onclick = change_video
 }
 
 window.onresize = update_button_position
