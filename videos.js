@@ -26,8 +26,15 @@ function toggle_play() {
     }
 }
 
+function loaded_data() {
+    console.log("loaded_data")
+    document.getElementsByClassName('home_video')[0].remove()
+    this.currentTime = 3
+    update_button_position()
+}
+
 function change_video(ended = false) {
-    console.log(ended)
+    console.log("change_video: end of video = " + ended)
     var vid_array = [
     '/video/mosh_kallie_annie_2024_4_15.mp4',    
     '/video/mosh_kallie_horizontal11_2024_4_15.mp4',
@@ -59,14 +66,9 @@ function change_video(ended = false) {
     new_video.preload = 'metadata'
     new_video.onended = (event) => change_video(ended = true)
     // add_onclick(new_video)
-    new_video.addEventListener("loadeddata", (event) => {
-        console.log("loadeddata called")
-        document.getElementsByClassName('home_video')[0].remove()
-        this.currentTime = 3
-        update_button_position()
-    })
+    new_video.onloadeddata = (event) => loaded_data()
     new_video.addEventListener("loadedmetadata", (event) => {
-        this.currentTime = 4
+        console.log("loadedmetadata")
     })
     home_video_container.appendChild(new_video);
 }
