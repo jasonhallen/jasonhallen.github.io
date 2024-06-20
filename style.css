@@ -270,15 +270,18 @@ audio {
 }
 video {
     width: 100%;
+    height: 100%
 }
 #home_video_container {
     position: relative;
+    aspect-ratio: 3 / 2;
 }
 .home_video {
     /* width: 75%;
     margin-left: 200px; */
     position: absolute;
     z-index: 1;
+    object-fit: fill;
 }
 #defaultCanvas0 {
     margin-top: -40px;
