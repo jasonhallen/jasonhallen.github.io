@@ -1,10 +1,10 @@
 function update_button_position() {
-    bottom_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().bottom
+    // bottom_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().bottom
     right_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().right
     media_buttons = Array.from(document.getElementsByClassName('media_button'))
     var i = 1
     media_buttons.forEach((element) => {
-        element.style.top = bottom_position - 50 + "px"
+        // element.style.top = bottom_position - 50 + "px"
         element.style.left = right_position - 50 * i + "px"
         element.classList.remove('hidden')
         i += 1
@@ -43,7 +43,10 @@ function change_video(ended = false) {
     '/video/mosh_output4_2024_2_27.mp4',
     '/video/anim_horizontal_2024_2_27.mp4',
     '/video/anim_transitions_2024_2_28.mp4',
-    '/video/anim_pan_skew_2024_3_20.mp4'
+    '/video/anim_pan_skew_2024_3_20.mp4',
+    'video/anim_smear_2024_4_11.mp4',
+    'video/anim_molly_2024_4_10.mp4',
+    'video/anim_lake_2024_4_8.mp4'
     ]
     var home_video_container = document.getElementById('home_video_container')
     var old_video = document.getElementsByClassName('home_video')[0]
@@ -66,12 +69,13 @@ function change_video(ended = false) {
     new_video.muted = true
     // new_video.preload = 'metadata'
     new_video.onended = (event) => change_video(ended = true)
+    new_video.onclick = toggle_play
     // add_onclick(new_video)
     new_video.onloadeddata = loaded_data
     // new_video.addEventListener("loadedmetadata", (event) => {
     //     console.log("loadedmetadata")
     // })
-    home_video_container.appendChild(new_video);
+    home_video_container.appendChild(new_video)
 }
 
 window.onresize = update_button_position
