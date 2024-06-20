@@ -66,7 +66,7 @@ function change_video(ended = false) {
     // new_video.preload = 'metadata'
     new_video.onended = (event) => change_video(ended = true)
     // add_onclick(new_video)
-    new_video.onloadeddata = (event) => loaded_data()
+    new_video.onloadeddata = loaded_data
     // new_video.addEventListener("loadedmetadata", (event) => {
     //     console.log("loadedmetadata")
     // })
