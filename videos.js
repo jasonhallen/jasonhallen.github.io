@@ -46,7 +46,13 @@ function change_video(ended = false) {
     '/video/anim_pan_skew_2024_3_20.mp4',
     'video/anim_smear_2024_4_11.mp4',
     'video/anim_molly_2024_4_10.mp4',
-    'video/anim_lake_2024_4_8.mp4'
+    'video/anim_lake_2024_4_8.mp4',
+    'video/anim_red_grid_2024_4_10.mp4',
+    'video/anim_coast_2024_4_10.mp4',
+    'video/anim_smear_annie-2024_4_11.mp4',
+    'video/anim_glitch_2024_4_8.mp4',
+    'video/anim_glitch2_2024_4_8.mp4',
+    'video/anim_coffee_2024_3_21.mp4'
     ]
     var home_video_container = document.getElementById('home_video_container')
     var old_video = document.getElementsByClassName('home_video')[0]
