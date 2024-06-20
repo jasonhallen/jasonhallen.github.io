@@ -56,6 +56,7 @@ function change_video(ended = false) {
     // console.log(video_source, old_video.getElementsByTagName("source")[0].src, !old_video.src.includes(video_source))
     new_video.src = video_source
     new_video.controls = false
+    new_video.playsinline = true
     // new_video.loop = true
     if (ended === true) {
         new_video.autoplay = true
