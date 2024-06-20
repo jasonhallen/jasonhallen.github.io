@@ -1,3 +1,32 @@
+var videos_all = [
+    'mosh_kallie_annie_2024_4_15.mp4',    
+    'mosh_kallie_horizontal11_2024_4_15.mp4',
+    'mosh_kallie_horizontal14_2024_4_15.mp4',
+    'mosh_kallie_average8_2024_4_15.mp4',
+    'mosh_output4_2024_2_27.mp4',
+    'anim_horizontal_2024_2_27.mp4',
+    'anim_transitions_2024_2_28.mp4',
+    'anim_pan_skew_2024_3_20.mp4',
+    'anim_smear_2024_4_11.mp4',
+    'anim_molly_2024_4_10.mp4',
+    'anim_lake_2024_4_8.mp4',
+    'anim_red_grid_2024_4_10.mp4',
+    'anim_coast_2024_4_10.mp4',
+    'anim_smear_annie-2024_4_11.mp4',
+    'anim_glitch_2024_4_8.mp4',
+    'anim_glitch2_2024_4_8.mp4',
+    'anim_coffee_2024_3_21.mp4',
+    'anim_rotate_2024_3_21.mp4',
+    'anim_rotate2_2024_3_21.mp4',
+    'anim_rotate3_2024_3_21.mp4'
+]
+
+var starting_video = 'anim_transitions_2024_2_28.mp4'
+var videos_available = videos_all.map((x) => x)
+videos_available.splice(videos_available.indexOf(starting_video), 1)
+
+var videos_blocked = []
+
 function update_button_position() {
     // bottom_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().bottom
     right_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().right
@@ -35,38 +64,24 @@ function loaded_data() {
 
 function change_video(ended = false) {
     console.log("change_video: end of video = " + ended)
-    var vid_array = [
-    'mosh_kallie_annie_2024_4_15.mp4',    
-    'mosh_kallie_horizontal11_2024_4_15.mp4',
-    'mosh_kallie_horizontal14_2024_4_15.mp4',
-    'mosh_kallie_average8_2024_4_15.mp4',
-    'mosh_output4_2024_2_27.mp4',
-    'anim_horizontal_2024_2_27.mp4',
-    'anim_transitions_2024_2_28.mp4',
-    'anim_pan_skew_2024_3_20.mp4',
-    'anim_smear_2024_4_11.mp4',
-    'anim_molly_2024_4_10.mp4',
-    'anim_lake_2024_4_8.mp4',
-    'anim_red_grid_2024_4_10.mp4',
-    'anim_coast_2024_4_10.mp4',
-    'anim_smear_annie-2024_4_11.mp4',
-    'anim_glitch_2024_4_8.mp4',
-    'anim_glitch2_2024_4_8.mp4',
-    'anim_coffee_2024_3_21.mp4',
-    'anim_rotate_2024_3_21.mp4',
-    'anim_rotate2_2024_3_21.mp4',
-    'anim_rotate3_2024_3_21.mp4'
-    ]
+
     var home_video_container = document.getElementById('home_video_container')
     var old_video = document.getElementsByClassName('home_video')[0]
     var new_video = document.createElement('video')
     new_video.className = 'home_video'
-    var video_source = '/video/' + vid_array[Math.floor(Math.random() * vid_array.length)]
-    // while (!old_video.src.includes(video_source)) {
-    //     video_source = vid_array[Math.floor(Math.random() * vid_array.length)]
-    // }
-    // console.log(video_source, old_video.getElementsByTagName("source")[0].src, !old_video.src.includes(video_source))
-    new_video.src = video_source
+    var video_source = videos_available[Math.floor(Math.random() * videos_available.length)]
+    
+    // remove src from available list
+    videos_available.splice(videos_available.indexOf(video_source), 1)
+    // add to block list
+    videos_blocked.push(video_source)
+    // if block list > 10, remove oldest src from block list, add back to available list
+    if (videos_blocked.length > 10) {
+        videos_available.push(videos_blocked.shift())
+    }
+    console.log(video_source, videos_available, videos_blocked)
+
+    new_video.src = '/video/' + video_source
     new_video.controls = false
     new_video.playsInline = true
     // new_video.loop = true
