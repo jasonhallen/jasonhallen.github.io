@@ -52,7 +52,6 @@ function change_video(ended = false) {
     // new_video.loop = true
     if (ended === true) {
         new_video.autoplay = true
-        console.log("TESTING")
     } else {
         new_video.autoplay = !old_video.paused
     }
@@ -61,6 +60,7 @@ function change_video(ended = false) {
     new_video.onended = (event) => change_video(ended = true)
     // add_onclick(new_video)
     new_video.addEventListener("loadeddata", (event) => {
+        console.log("loadeddata called")
         document.getElementsByClassName('home_video')[0].remove()
         this.currentTime = 3
         update_button_position()
