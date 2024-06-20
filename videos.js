@@ -63,7 +63,7 @@ function change_video(ended = false) {
         new_video.autoplay = !old_video.paused
     }
     new_video.muted = true
-    new_video.preload = 'metadata'
+    // new_video.preload = 'metadata'
     new_video.onended = (event) => change_video(ended = true)
     // add_onclick(new_video)
     new_video.onloadeddata = (event) => loaded_data()
