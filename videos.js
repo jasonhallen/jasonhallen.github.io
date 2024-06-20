@@ -66,6 +66,7 @@ function toggle_play() {
 
 function loaded_data() {
     console.log("loaded_data")
+    home_video_container.appendChild(this)
     document.getElementsByClassName('home_video')[0].remove()
     // this.currentTime = 3
     update_button_position()
@@ -85,10 +86,10 @@ function change_video(ended = false) {
     // add to block list
     videos_blocked.push(video_source)
     // if block list > 10, remove oldest src from block list, add back to available list
-    if (videos_blocked.length > 10) {
+    if (videos_blocked.length > 15) {
         videos_available.push(videos_blocked.shift())
     }
-    console.log(video_source, videos_available, videos_blocked)
+    // console.log(video_source, videos_available, videos_blocked)
 
     new_video.src = '/video/' + video_source
     new_video.controls = false
@@ -108,7 +109,7 @@ function change_video(ended = false) {
     // new_video.addEventListener("loadedmetadata", (event) => {
     //     console.log("loadedmetadata")
     // })
-    home_video_container.appendChild(new_video)
+    // home_video_container.appendChild(new_video)
 }
 
 window.onresize = update_button_position
