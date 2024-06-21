@@ -91,20 +91,28 @@ function set_timer(active_video) {
 
 function loaded_data() {
     console.log("loaded_data")
-    var start_time
     home_video_list = document.getElementsByClassName('home_video')
     if (home_video_list.length && !home_video_list[0].paused) {
-        start_time = set_timer(this).toString()
+        var start_time = set_timer(this).toString()
     } else {
-        start_time = "0.0"
+        var start_time = "0.0"
     }
     this.currentTime = start_time
+    // var home_video_container = document.getElementById('home_video_container')
+    // home_video_container.appendChild(this)
+    // if (home_video_list.length > 1) {
+    //     home_video_list[0].remove()
+    // }
+    console.log('currentTime = ' + this.currentTime)
+    // update_button_position()
+}
+
+function add_video() {
     var home_video_container = document.getElementById('home_video_container')
     home_video_container.appendChild(this)
     if (home_video_list.length > 1) {
         home_video_list[0].remove()
     }
-    console.log('currentTime = ' + this.currentTime)
     update_button_position()
 }
 
@@ -125,10 +133,10 @@ function create_new_video(ended = false) {
     new_video.className = 'home_video'
     new_video.muted = true
     new_video.playsInline = true
-    new_video.src = '/video/' + select_video_source() 
+    new_video.src = '/video/' + select_video_source() + '#t=3'
     new_video.type = "video/mp4"
     new_video.controls = false
-    new_video.preload = 'auto'
+    new_video.preload = 'metadata'
     if (ended === true) {
         new_video.autoplay = true
     } else if (document.getElementsByClassName('home_video').length) {
@@ -136,10 +144,11 @@ function create_new_video(ended = false) {
     } else {
         new_video.autoplay = false
     }
-    new_video.currentTime = "2.0"
+    // new_video.currentTime = "4.0"
     new_video.onended = (event) => create_new_video(ended = true)
     new_video.onclick = toggle_play
     new_video.onloadeddata = loaded_data
+    new_video.onseeked = add_video
     // if (!current_video.paused) {
     //     set_timer(new_video)
     // }
