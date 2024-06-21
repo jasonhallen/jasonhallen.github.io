@@ -37,8 +37,16 @@ var videos_available = videos_all.map((x) => x)
 videos_available.splice(videos_available.indexOf(starting_video), 1)
 
 var videos_blocked = []
+var active_timer
+
+function set_initial_video() {
+    var home_video = document.getElementsByClassName('home_video')[0]
+    home_video.src = '/video/' + select_video_source()
+}
 
 function update_button_position() {
+    // document.getElementsByClassName('home_video')[0].currentTime = 2
+    // console.log("video onlonad: currentTime = " + document.getElementsByClassName('home_video')[0].currentTime)
     // bottom_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().bottom
     right_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().right
     media_buttons = Array.from(document.getElementsByClassName('media_button'))
@@ -52,62 +60,90 @@ function update_button_position() {
 }
 
 function toggle_play() {
-    var video = document.getElementsByClassName('home_video')[0]
-    if (video.paused) {
-        var icon = document.getElementById('play_pause')
-        icon.innerHTML = "="
-        icon.classList.add('rotate')
-        video.play()
+    var active_video = document.getElementsByClassName('home_video')[0]
+    var play_pause_button = document.getElementById('play_pause')
+
+    if (active_video.paused) {
+        play_pause_button.innerHTML = "="
+        play_pause_button.classList.add('rotate')
+        active_video.play()
+        set_timer(active_video)
     } else {
-        var icon = document.getElementById('play_pause')
-        icon.innerHTML = ">"
-        icon.classList.remove('rotate')
-        video.pause()
+        play_pause_button.innerHTML = ">"
+        play_pause_button.classList.remove('rotate')
+        active_video.pause()
+        clearTimeout(active_timer)
     }
+}
+
+function set_timer(active_video) {
+    var time_left = active_video.duration - active_video.currentTime
+    console.log('time_left = ' + time_left)
+    if (time_left > 3) {
+        var duration = (Math.random() * 3 + 1) * 1000
+        // active_video.currentTime = 5
+        console.log('duration = ' + duration + ', currentTime = ' + active_video.currentTime)
+        active_timer = setTimeout(create_new_video, duration)
+    }
+    return 5
 }
 
 function loaded_data() {
     console.log("loaded_data")
+    var start_time
+    home_video_list = document.getElementsByClassName('home_video')
+    if (home_video_list.length && !home_video_list[0].paused) {
+        start_time = set_timer(this)
+        console.log(start_time)
+    } else {
+        start_time = "0.0"
+    }
+    this.currentTime = start_time.toString()
+    var home_video_container = document.getElementById('home_video_container')
     home_video_container.appendChild(this)
-    document.getElementsByClassName('home_video')[0].remove()
+    if (home_video_list.length > 1) {
+        home_video_list[0].remove()
+    }
+    console.log('currentTime = ' + this.currentTime)
     // this.currentTime = 3
     update_button_position()
 }
 
-function change_video(ended = false) {
-    console.log("change_video: end of video = " + ended)
-
-    var home_video_container = document.getElementById('home_video_container')
-    var old_video = document.getElementsByClassName('home_video')[0]
-    var new_video = document.createElement('video')
-    new_video.className = 'home_video'
+function select_video_source() {
     var video_source = videos_available[Math.floor(Math.random() * videos_available.length)]
-    
-    // remove src from available list
     videos_available.splice(videos_available.indexOf(video_source), 1)
-    // add to block list
     videos_blocked.push(video_source)
-    // if block list > 10, remove oldest src from block list, add back to available list
     if (videos_blocked.length > 15) {
         videos_available.push(videos_blocked.shift())
     }
-    // console.log(video_source, videos_available, videos_blocked)
+    return video_source
+}
 
-    new_video.src = '/video/' + video_source
-    new_video.controls = false
+function create_new_video(ended = false) {
+    console.log("create_new_video: end of video = " + ended)
+    var current_video = document.getElementsByClassName('home_video')[0]
+    var new_video = document.createElement('video')
+    new_video.className = 'home_video'
+    new_video.muted = true
     new_video.playsInline = true
-    // new_video.loop = true
+    new_video.src = '/video/' + select_video_source() 
+    new_video.type = "video/mp4"
+    new_video.controls = false
+    new_video.preload = 'auto'
     if (ended === true) {
         new_video.autoplay = true
+    } else if (document.getElementsByClassName('home_video').length) {
+        new_video.autoplay = !document.getElementsByClassName('home_video')[0].paused
     } else {
-        new_video.autoplay = !old_video.paused
+        new_video.autoplay = false
     }
-    new_video.muted = true
-    // new_video.preload = 'metadata'
-    new_video.onended = (event) => change_video(ended = true)
+    new_video.currentTime = "2.0"
+    new_video.onended = (event) => create_new_video(ended = true)
     new_video.onclick = toggle_play
-    // add_onclick(new_video)
     new_video.onloadeddata = loaded_data
+    // if (!current_video.paused) {
+    //     set_timer(new_video)
+    // }
     // new_video.addEventListener("loadedmetadata", (event) => {
     //     console.log("loadedmetadata")
     // })
