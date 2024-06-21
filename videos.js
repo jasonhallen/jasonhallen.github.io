@@ -81,11 +81,12 @@ function set_timer(active_video) {
     console.log('time_left = ' + time_left)
     if (time_left > 3) {
         var duration = (Math.random() * 3 + 1) * 1000
+        var start_time = (Math.random() * (time_left * 1000 - duration) + active_video.currentTime * 1000) / 1000
         // active_video.currentTime = 5
-        console.log('duration = ' + duration + ', currentTime = ' + active_video.currentTime)
+        console.log('duration = ' + duration + ', currentTime = ' + active_video.currentTime + ', start_time = ' + start_time)
         active_timer = setTimeout(create_new_video, duration)
     }
-    return 5
+    return start_time
 }
 
 function loaded_data() {
@@ -93,19 +94,17 @@ function loaded_data() {
     var start_time
     home_video_list = document.getElementsByClassName('home_video')
     if (home_video_list.length && !home_video_list[0].paused) {
-        start_time = set_timer(this)
-        console.log(start_time)
+        start_time = set_timer(this).toString()
     } else {
         start_time = "0.0"
     }
-    this.currentTime = start_time.toString()
+    this.currentTime = start_time
     var home_video_container = document.getElementById('home_video_container')
     home_video_container.appendChild(this)
     if (home_video_list.length > 1) {
         home_video_list[0].remove()
     }
     console.log('currentTime = ' + this.currentTime)
-    // this.currentTime = 3
     update_button_position()
 }
 
