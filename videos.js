@@ -38,15 +38,104 @@ videos_available.splice(videos_available.indexOf(starting_video), 1)
 
 var videos_blocked = []
 var active_timer
+var active_video_list = []
 
-function set_initial_video() {
-    var home_video = document.getElementsByClassName('home_video')[0]
-    home_video.src = '/video/' + select_video_source()
+class CustomVideo {
+    constructor(button_clicked) {
+        console.log("Initializing CustomVideo instance")
+        this.element = document.createElement('video')
+        this.element.className = 'home_video'
+        this.element.muted = true
+        this.element.playsInline = true
+        this.element.src = '/video/' + select_video_source()
+        this.element.type = "video/mp4"
+        this.element.controls = false
+        this.element.preload = 'metadata'
+
+        if (button_clicked == true) {
+            console.log('orig video playing = ' + !document.getElementsByClassName('home_video')[0].paused)
+            this.element.autoplay = !document.getElementsByClassName('home_video')[0].paused
+        } else if (document.getElementsByClassName('home_video').length) {
+            this.element.autoplay = true
+        } else {
+            this.element.autoplay = false
+        }
+
+        this.element.onclick = this.toggle_play.bind(this)
+        this.element.onloadedmetadata = this.set_video_start_duration.bind(this)
+        this.element.onseeked = this.add_video_to_dom.bind(this)
+        
+        console.log('Finished initialization')
+    }
+
+    set_video_start_duration() {
+        // var time_left = this.duration - this.currentTime
+        // console.log(this.duration, this.currentTime)
+        console.log("Starting set_video_start_duration")
+        if (this.element.duration > 4) {
+            this.duration = Math.random() * 3 + 1
+            this.start_time = Math.random() * (this.element.duration - this.duration)
+        // determine if video is playing
+        // if (home_video_list.length && !home_video_list[0].paused) {
+        //     var start_time = set_time_duration(this).toString()
+        } else {
+            this.start_time = "0.0"
+        }
+        this.element.currentTime = this.start_time
+        // this.ended = 0
+        console.log(`total = ${this.element.duration}, start_time = ${this.start_time}, duration = ${this.duration}, source = ${this.element.src}`)
+        // this.ontimeupdate = check_elapsed_time(this, start_time, duration)
+    }
+
+    add_video_to_dom() {
+        var home_video_list = document.getElementsByClassName('home_video')
+        var home_video_container = document.getElementById('home_video_container')
+        home_video_container.appendChild(this.element)
+        if (home_video_list.length > 1) {
+            home_video_list[0].remove()
+        }
+        if (this.element.autoplay) {
+            this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
+        }
+        update_button_position()
+    }
+
+    toggle_play() {
+        var play_pause_button = document.getElementById('play_pause')
+
+        if (this.element.paused) {
+            play_pause_button.innerHTML = "="
+            play_pause_button.classList.add('rotate')
+            this.element.play()
+            this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
+            // setInterval to check elapsed time
+        } else {
+            play_pause_button.innerHTML = ">"
+            play_pause_button.classList.remove('rotate')
+            Array.from(document.getElementsByClassName('home_video')).forEach(function(element) {
+                element.pause()
+                element.autoplay = false
+            })
+            clearInterval(this.timer)
+            // clear interval
+        }
+    }
+
+    check_elapsed_time() {
+        var time_elapsed = this.element.currentTime - this.start_time
+        console.log(`playing: time_elapsed = ${time_elapsed}, start_time = ${this.start_time}, duration = ${this.duration}`)
+        if (time_elapsed >= this.duration) {
+            console.log(`timeupdate`)
+            // this.ended += 1
+            clearInterval(this.timer)
+            create_new_video()
+        }
+    }
+
+
 }
 
 function update_button_position() {
-    // document.getElementsByClassName('home_video')[0].currentTime = 2
-    // console.log("video onlonad: currentTime = " + document.getElementsByClassName('home_video')[0].currentTime)
     // bottom_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().bottom
     right_position = document.getElementsByClassName('home_video')[0].getBoundingClientRect().right
     media_buttons = Array.from(document.getElementsByClassName('media_button'))
@@ -59,62 +148,73 @@ function update_button_position() {
     })
 }
 
-function toggle_play() {
-    var active_video = document.getElementsByClassName('home_video')[0]
-    var play_pause_button = document.getElementById('play_pause')
+// function toggle_play() {
+//     var active_video = document.getElementsByClassName('home_video')[0]
+//     var play_pause_button = document.getElementById('play_pause')
 
-    if (active_video.paused) {
-        play_pause_button.innerHTML = "="
-        play_pause_button.classList.add('rotate')
-        active_video.play()
-        set_timer(active_video)
-    } else {
-        play_pause_button.innerHTML = ">"
-        play_pause_button.classList.remove('rotate')
-        active_video.pause()
-        clearTimeout(active_timer)
-    }
-}
+//     if (active_video.paused) {
+//         play_pause_button.innerHTML = "="
+//         play_pause_button.classList.add('rotate')
+//         // set_time_duration(active_video)
+//         active_video.play()
+//     } else {
+//         play_pause_button.innerHTML = ">"
+//         play_pause_button.classList.remove('rotate')
+//         active_video.pause()
+//         // clearTimeout(active_timer)
+//     }
+// }
 
-function set_timer(active_video) {
-    var time_left = active_video.duration - active_video.currentTime
-    console.log('time_left = ' + time_left)
-    if (time_left > 3) {
-        var duration = (Math.random() * 3 + 1) * 1000
-        var start_time = (Math.random() * (time_left * 1000 - duration) + active_video.currentTime * 1000) / 1000
-        // active_video.currentTime = 5
-        console.log('duration = ' + duration + ', currentTime = ' + active_video.currentTime + ', start_time = ' + start_time)
-        active_timer = setTimeout(create_new_video, duration)
-    }
-    return start_time
-}
+// function set_time_duration(active_video) {
+//     var time_left = active_video.duration - active_video.currentTime
+//     // console.log(active_video.duration, active_video.currentTime)
+//     if (time_left > 3) {
+//         var duration = (Math.random() * 3 + 1) * 1000
+//         var start_time = (Math.random() * (time_left * 1000 - duration) + active_video.currentTime * 1000) / 1000
+//         // active_video.currentTime = 5
+//         console.log('start_time = ' + start_time.toFixed(2) + ', duration = ' + (duration / 1000).toFixed(2))
+//         active_timer = setTimeout(create_new_video, duration)
+//     }
+//     return start_time
+// }
 
-function loaded_data() {
-    console.log("loaded_data")
-    home_video_list = document.getElementsByClassName('home_video')
-    if (home_video_list.length && !home_video_list[0].paused) {
-        var start_time = set_timer(this).toString()
-    } else {
-        var start_time = "0.0"
-    }
-    this.currentTime = start_time
-    // var home_video_container = document.getElementById('home_video_container')
-    // home_video_container.appendChild(this)
-    // if (home_video_list.length > 1) {
-    //     home_video_list[0].remove()
-    // }
-    console.log('currentTime = ' + this.currentTime)
-    // update_button_position()
-}
+// function set_video_start_duration() {
+//     // var time_left = this.duration - this.currentTime
+//     // console.log(this.duration, this.currentTime)
+//     if (this.duration > 4) {
+//         var duration = Math.random() * 3 + 1
+//         var start_time = Math.random() * (this.duration - duration)
+//     // determine if video is playing
+//     // if (home_video_list.length && !home_video_list[0].paused) {
+//     //     var start_time = set_time_duration(this).toString()
+//     } else {
+//         var start_time = "0.0"
+//     }
+//     this.currentTime = start_time
+//     // this.ended = 0
+//     console.log(`total = ${this.duration}, start_time = ${start_time}, duration = ${duration}, source = ${this.src}`)
+//     // this.ontimeupdate = check_elapsed_time(this, start_time, duration)
+// }
 
-function add_video() {
-    var home_video_container = document.getElementById('home_video_container')
-    home_video_container.appendChild(this)
-    if (home_video_list.length > 1) {
-        home_video_list[0].remove()
-    }
-    update_button_position()
-}
+// function check_elapsed_time(video, start_time, duration) {
+//     var time_elapsed = video.currentTime - start_time
+//     console.log(`playing: time_elapsed = ${time_elapsed}, start_time = ${start_time}, duration = ${duration}`)
+//     if (time_elapsed >= duration) {
+//         console.log(`timeupdate`)
+//         // this.ended += 1
+//         create_new_video()
+//     }
+// }
+
+// function add_video_to_dom() {
+//     var home_video_list = document.getElementsByClassName('home_video')
+//     var home_video_container = document.getElementById('home_video_container')
+//     home_video_container.appendChild(this)
+//     if (home_video_list.length > 1) {
+//         home_video_list[0].remove()
+//     }
+//     update_button_position()
+// }
 
 function select_video_source() {
     var video_source = videos_available[Math.floor(Math.random() * videos_available.length)]
@@ -126,36 +226,33 @@ function select_video_source() {
     return video_source
 }
 
-function create_new_video(ended = false) {
-    console.log("create_new_video: end of video = " + ended)
-    var current_video = document.getElementsByClassName('home_video')[0]
-    var new_video = document.createElement('video')
-    new_video.className = 'home_video'
-    new_video.muted = true
-    new_video.playsInline = true
-    new_video.src = '/video/' + select_video_source() + '#t=3'
-    new_video.type = "video/mp4"
-    new_video.controls = false
-    new_video.preload = 'metadata'
-    if (ended === true) {
-        new_video.autoplay = true
-    } else if (document.getElementsByClassName('home_video').length) {
-        new_video.autoplay = !document.getElementsByClassName('home_video')[0].paused
-    } else {
-        new_video.autoplay = false
-    }
-    // new_video.currentTime = "4.0"
-    new_video.onended = (event) => create_new_video(ended = true)
-    new_video.onclick = toggle_play
-    new_video.onloadeddata = loaded_data
-    new_video.onseeked = add_video
-    // if (!current_video.paused) {
-    //     set_timer(new_video)
+function create_new_video(button_clicked = false) {
+    console.log("CREATE_NEW_VIDEO: button_clicked = " + button_clicked)
+    // var current_video = document.getElementsByClassName('home_video')[0]
+    var new_video = new CustomVideo(button_clicked)
+    active_video_list.push(new_video)
+    // var new_video = document.createElement('video')
+    // new_video.className = 'home_video'
+    // new_video.muted = true
+    // new_video.playsInline = true
+    // new_video.src = '/video/' + select_video_source()
+    // new_video.type = "video/mp4"
+    // new_video.controls = false
+    // new_video.preload = 'metadata'
+    // if (button_clicked == true) {
+    //     console.log('orig video playing = ' + !document.getElementsByClassName('home_video')[0].paused)
+    //     new_video.autoplay = !document.getElementsByClassName('home_video')[0].paused
+    // } else if (document.getElementsByClassName('home_video').length) {
+    //     new_video.autoplay = true
+    // } else {
+    //     new_video.autoplay = false
     // }
-    // new_video.addEventListener("loadedmetadata", (event) => {
-    //     console.log("loadedmetadata")
-    // })
-    // home_video_container.appendChild(new_video)
+    // // new_video.autoplay = false
+    // // console.log("autoplay = " + new_video.autoplay)
+    // // new_video.onended = (event) => create_new_video(button_clicked = false)
+    // new_video.onclick = toggle_play
+    // new_video.onloadedmetadata = set_video_start_duration
+    // new_video.onseeked = add_video_to_dom
 }
 
 window.onresize = update_button_position

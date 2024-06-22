@@ -251,7 +251,7 @@ audio {
     width: 100%;
 }
 #about_text p {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     margin-left: 20px;
     /* float: left; */
     /* width: 60%; */
