@@ -73,7 +73,7 @@ class HomeVideo {
             this.duration = 0
             this.start_time = "0.0"
         }
-        this.element.currentTime = 4.0//this.start_time.toString()
+        this.element.currentTime = this.start_time.toString()
         this.element.onseeked = swap_video_elements.bind(this)
         // this.ended = 0
         console.log(`total = ${this.element.duration}, current_time = ${this.element.currentTime}, start_time = ${this.start_time}, duration = ${this.duration}, autoplay = ${this.element.autoplay}, source = ${this.element.src}`)
