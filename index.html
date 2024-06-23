@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
     <!-- <meta charset="utf-8"/> -->
-    <script src="/videos.js"></script>
+    <!-- <script src="/videos.js"></script> -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Jason Hallen">
@@ -38,14 +38,19 @@
     </div>
     <!-- <div id='page-content'>
     </div> -->
-    <div id="home_video_container" onclick="toggle_play()">
-        <script>
-            create_new_video()
-        </script>
+    <div id="home_video_container" onclick="new_toggle_play()">
+        <video id="vid0" class="home_video" muted="" playsinline="" preload="metadata" type="video/mp4"></video>
+        <video id="vid1" class="home_video" muted="" playsinline="" preload="metadata" type="video/mp4"></video>
+       
+        <script src="/videos.js"></script>
+        <!-- <script>
+            change_video()
+        </script> -->
     </div>
     <!--  play = &#9658;, next = &#10227; -->
-    <button id="next" class="media_button hidden" onclick="create_new_video(button_clicked = true)">*</button>
-    <button id="play_pause" class="media_button hidden" onclick="toggle_play()">&gt;</button>
+    <!-- <button id="next" class='media_button hidden' onclick="create_new_video(button_clicked = true)">*</button> -->
+    <button id="next" class="media_button hidden" onclick="change_video(button_clicked = true)">*</button>
+    <button id="play_pause" class="media_button hidden" onclick="new_toggle_play()">&gt;</button>
     
 
 
