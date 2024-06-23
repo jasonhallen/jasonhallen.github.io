@@ -15,6 +15,8 @@ var videos_all = [
     'mosh_helicopter_2024_5_24_1.mp4',
     'mosh_helicopter_2024_5_24_2.mp4',
     'mosh_helicopter_2024_5_24_3.mp4',
+    'mosh_output_2024_2_27.mp4',
+    'mosh_output2_2024_2_27.mp4',
     'anim_horizontal_2024_2_27.mp4',
     'anim_transitions_2024_2_28.mp4',
     'anim_pan_skew_2024_3_20.mp4',
@@ -39,6 +41,7 @@ videos_available.splice(videos_available.indexOf(starting_video), 1)
 var videos_blocked = []
 var active_timer
 var active_video_list = []
+var video_playing = false
 
 class CustomVideo {
     constructor(button_clicked) {
@@ -55,13 +58,15 @@ class CustomVideo {
         if (button_clicked == true) {
             console.log('orig video playing = ' + !document.getElementsByClassName('home_video')[0].paused)
             this.element.autoplay = !document.getElementsByClassName('home_video')[0].paused
-        } else if (document.getElementsByClassName('home_video').length) {
+        } else if (document.getElementsByClassName('home_video').length && !document.getElementsByClassName('home_video')[0].paused) {
             this.element.autoplay = true
         } else {
             this.element.autoplay = false
         }
 
-        this.element.onclick = this.toggle_play.bind(this)
+        // this.element.autoplay = false
+
+        // this.element.onclick = this.toggle_play.bind(this)
         this.element.onloadedmetadata = this.set_video_start_duration.bind(this)
         this.element.onseeked = this.add_video_to_dom.bind(this)
         
@@ -73,7 +78,7 @@ class CustomVideo {
         // console.log(this.duration, this.currentTime)
         console.log("Starting set_video_start_duration")
         if (this.element.duration > 4) {
-            this.duration = Math.random() * 3 + 1
+            this.duration = Math.random() * 3 + 0.5
             this.start_time = Math.random() * (this.element.duration - this.duration)
         // determine if video is playing
         // if (home_video_list.length && !home_video_list[0].paused) {
@@ -83,20 +88,26 @@ class CustomVideo {
         }
         this.element.currentTime = this.start_time
         // this.ended = 0
-        console.log(`total = ${this.element.duration}, start_time = ${this.start_time}, duration = ${this.duration}, source = ${this.element.src}`)
+        console.log(`total = ${this.element.duration}, start_time = ${this.start_time}, duration = ${this.duration}, autoplay = ${this.element.autoplay}, source = ${this.element.src}`)
         // this.ontimeupdate = check_elapsed_time(this, start_time, duration)
     }
 
     add_video_to_dom() {
+        console.log('adding to DOM')
         var home_video_list = document.getElementsByClassName('home_video')
         var home_video_container = document.getElementById('home_video_container')
+        if (home_video_list.length && !home_video_list[0].paused) {
+            // this.element.play()
+            this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
+        }
         home_video_container.appendChild(this.element)
         if (home_video_list.length > 1) {
             home_video_list[0].remove()
+            active_video_list.shift()
         }
-        if (this.element.autoplay) {
-            this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
-        }
+        // if (this.element.autoplay) {
+        //     this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
+        // }
         update_button_position()
     }
 
@@ -123,7 +134,7 @@ class CustomVideo {
 
     check_elapsed_time() {
         var time_elapsed = this.element.currentTime - this.start_time
-        console.log(`playing: time_elapsed = ${time_elapsed}, start_time = ${this.start_time}, duration = ${this.duration}`)
+        // console.log(`playing: time_elapsed = ${time_elapsed}, start_time = ${this.start_time}, duration = ${this.duration}`)
         if (time_elapsed >= this.duration) {
             console.log(`timeupdate`)
             // this.ended += 1
@@ -148,22 +159,38 @@ function update_button_position() {
     })
 }
 
-// function toggle_play() {
-//     var active_video = document.getElementsByClassName('home_video')[0]
-//     var play_pause_button = document.getElementById('play_pause')
+function toggle_play() {
+    // var active_video = document.getElementsByClassName('home_video')[0]
+    var play_pause_button = document.getElementById('play_pause')
 
-//     if (active_video.paused) {
-//         play_pause_button.innerHTML = "="
-//         play_pause_button.classList.add('rotate')
-//         // set_time_duration(active_video)
-//         active_video.play()
-//     } else {
-//         play_pause_button.innerHTML = ">"
-//         play_pause_button.classList.remove('rotate')
-//         active_video.pause()
-//         // clearTimeout(active_timer)
-//     }
-// }
+    // if (active_video_list.some((video) => video.element.paused == false)) {
+        if (video_playing == true) {
+        console.log(`PLAY_PAUSE: video_playing = ${video_playing}, pausing`)
+        play_pause_button.innerHTML = ">"
+        play_pause_button.classList.remove('rotate')
+        active_video_list.forEach(video => {
+            // console.log(`playing = ${!video.element.paused}`)
+            video.element.pause()
+            video.element.autoplay = false
+            clearInterval(video.timer)
+        })
+        video_playing = false
+        // active_video.pause()
+        // clearTimeout(active_timer)
+    } else {
+        console.log(`PLAY_PAUSE: video_playing = ${video_playing}, starting`)
+        play_pause_button.innerHTML = "="
+        play_pause_button.classList.add('rotate')
+        // set_time_duration(active_video)
+        active_video_list.forEach(video => {
+            // console.log(`playing = ${!video.element.paused}`)
+            video.element.play()
+            video.timer = setInterval(video.check_elapsed_time.bind(video), 30)
+        })
+        video_playing = true
+        // active_video.play()        
+    }
+}
 
 // function set_time_duration(active_video) {
 //     var time_left = active_video.duration - active_video.currentTime
