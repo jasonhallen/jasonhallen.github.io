@@ -283,6 +283,7 @@ video {
     position: absolute;
     z-index: 1;
     object-fit: fill;
+    background-color: white;
 }
 #defaultCanvas0 {
     margin-top: -40px;
@@ -405,7 +406,6 @@ h3#comment-form-header {
     color: #999;
 }
 
-
 #header.home {
     z-index: 99;
 }
@@ -418,7 +418,7 @@ h3#comment-form-header {
 }
 .media_button {
     position: absolute;
-    z-index: 10;
+    z-index: 100;
     font-family: "Source Sans Pro";
     background-color: white;
     border: none;
