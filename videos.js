@@ -155,7 +155,7 @@ function prepare_for_display() {
 }
 
 function determine_play() {
-    console.log(`determine_play: ${this.element.id}, video_playing = ${video_playing}, seeked = ${this.seeked}`)
+    console.log(`determine_play: ${this.element.id}, video_playing = ${video_playing}, seeked = ${this.seeked}, readyState = ${this.element.readyState}`)
     if (this.seeked && video_playing == true) {
         this.timer = setInterval(check_elapsed_time.bind(this))
         this.element.play()
@@ -175,8 +175,8 @@ function toggle_video_index() {
     // only toggle when playing is paused
     console.log(`toggle_video_index: ${this}, video_playing = ${video_playing}, old index = ${video_index}`)
     if (this === window || video_playing == false || (video_playing == true && video_index != this.index)) {
-        home_video_list[video_index].element.style.zIndex = 25
         home_video_list[-video_index + 1].element.style.zIndex = 50
+        home_video_list[video_index].element.style.zIndex = 25
         home_video_list[video_index].element.pause()
         video_index = -video_index + 1
         console.log(`index changed = ${video_index}`)
