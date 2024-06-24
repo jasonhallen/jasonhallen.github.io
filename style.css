@@ -586,12 +586,13 @@ h3#comment-form-header {
         margin-left: 0px;
     }
     #header.home {
-        /* position: relative; */
-        position: absolute;
+        position: relative;
+        /* position: absolute; */
     }
     #home_video_container {
         /* position: absolute; */
-        top: 140px;
+        top: 200px;
+        right: calc(100%)
     }
     .home_video {
         /* position: relative; */
