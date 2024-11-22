@@ -62,7 +62,6 @@ class HomeVideo {
         this.element.onseeked = prepare_for_display.bind(this)
         this.element.oncanplaythrough = determine_play.bind(this)
         this.element.onplaying = toggle_video_index.bind(this)
-        this.element.load()
     }
 
     // set_video_start_duration() {
@@ -294,6 +293,7 @@ function new_toggle_play() {
 
 window.onresize = update_button_position
 change_video()
+home_video_list[1].element.load()
 
 
 
