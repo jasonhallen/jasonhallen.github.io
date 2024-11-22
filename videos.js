@@ -101,6 +101,7 @@ function change_video(change_button_clicked = false) {
     }
     home_video_list[-video_index + 1].seeked = false
     home_video_list[-video_index + 1].element.src = '/video/' + select_video_source()
+    home_video_list[-video_index + 1].element.load()
     // home_video.element.onloadedmetadata = home_video.set_video_start_duration.bind(home_video)
 }
 
@@ -293,7 +294,6 @@ function new_toggle_play() {
 
 window.onresize = update_button_position
 change_video()
-home_video_list[1].element.load()
 
 
 
