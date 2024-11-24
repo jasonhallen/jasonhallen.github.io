@@ -590,13 +590,13 @@ h3#comment-form-header {
         /* position: absolute; */
     }
     #home_video_container {
-        /* position: absolute; */
         top: 200px;
-        right: calc(100%)
+        /* right: calc(100%) */
     }
     .home_video {
         /* position: relative; */
         position: absolute;
+        right: 0px;
     }
 }
 @media (max-width: 480px) {
