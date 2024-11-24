@@ -294,6 +294,7 @@ function new_toggle_play() {
 
 window.onresize = update_button_position
 change_video()
+home_video_list[-video_index + 1].element.load()
 
 
 
