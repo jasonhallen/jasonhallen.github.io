@@ -112,6 +112,7 @@ function select_video_source() {
     if (videos_blocked.length > 15) {
         videos_available.push(videos_blocked.shift())
     }
+    console.log(`select_video_source: ${video_source}`)
     return video_source
 }
 
