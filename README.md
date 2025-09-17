@@ -56,10 +56,11 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
   * `git pull origin main`
 
 ## Tasks
-- [ ] Find Heroku alternative to host Staticman app for free
+- [x] Find Heroku alternative to host Staticman app for free
 - [ ] Create website repository package that lets me pull just the `main` branch onto my local computer, `npm run` to install `teeny` and `gh-pages`, and execute scripts that cover the main workflows
 - [ ] Strip out Google Analytics script when in Teeny development mode
 - [ ] Decommission GitHub bot account
+- [ ] Automate nav bar insertion
 
 ## Completed Tasks
 - [x] Comments from Staticman
@@ -78,3 +79,10 @@ This is where I'll build a static website in GitHub Pages. I'll try to replicate
 - [x] Strip leading zero from Day in date line
 - [x] Add keywords and description meta elements
 - [x] Add Google Analytics tracking
+
+## Home page video player
+* On load - select random video
+* Press Play from pause
+  * Check how much time remains before end of video
+  * If time > 3 seconds:
+    * Select random short duration

@@ -2,22 +2,39 @@
 <html lang="en">
 
 <head>
+    <!-- <meta charset="utf-8"/> -->
+    <!-- <script src="/videos.js"></script> -->
 </head>
 
-<body>
-    <div id="header">
+<body onresize="update_button_position()">
+    <div id="header" class="home"">
         <span id="jason-hallen">
             <a href="/">Jason Hallen</a>
         </span>
         <div id="nav">
             <ul>
-                <li class="active"><a href="/">Blog</a></li>
-                <li><a href="/music">Music</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/notes">Notes</a></li>
+                <li><a href="/output">Output</a></li>
+                <li><a href="/info">Info</a></li>
             </ul>
         </div>        
     </div>
-    <div id='page-content'></div>
+    <!-- <div id='page-content'>
+    </div> -->
+    <div id="home_video_container" onclick="new_toggle_play()">
+        <video id="vid0" class="home_video" style="z-index: 50;" muted="true" playsinline preload="auto" type="video/mp4"></video>
+        <video id="vid1" class="home_video" style="z-index: 25;" muted="true" playsinline preload="auto" type="video/mp4"></video>
+       
+        <script src="/videos.js"></script>
+        <!-- <script>
+            change_video()
+        </script> -->
+    </div>
+    <!--  play = &#9658;, next = &#10227; -->
+    <!-- <button id="next" class='media_button hidden' onclick="create_new_video(button_clicked = true)">*</button> -->
+    <button id="next" class='media_button hidden' onclick="change_video(button_clicked = true)">*</button>
+    <button id="play_pause" class='media_button hidden' onclick="new_toggle_play()">></button>
+    
 </body>
 
 </html>
