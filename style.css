@@ -723,7 +723,7 @@ select, select:hover, select:focus {
   border-radius: 4px;
 }
 
-.select-items div:hover {
+.select-items div:hover, .select-items div.pseudo-hover {
     background-color: #ffc2cb;
 }
 .select-items a {

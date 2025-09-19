@@ -18,15 +18,23 @@
   function selectOpen(event) {
     // console.log(event);
     var elem = document.getElementsByClassName("select-items");
+    const current_selection = document.querySelector('.current-selection');
     if (elem[0].classList.contains("select-hide")) {
-      elem[0].classList.remove("select-hide");
+      // Show dropdown
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.add("open");
+      elem[0].classList.remove("select-hide");
+      current_selection.scrollIntoView({
+        block: 'center',
+        inline: 'nearest'
+      });
     } else {
+      // Hide dropdown
       elem[0].classList.add("select-hide");
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.remove("open");
-      
+      // Add pseudo-hover class back to current-selection
+      current_selection.classList.add('pseudo-hover');
     }
     event.stopPropagation()
   }
@@ -36,9 +44,24 @@
       elem[0].classList.add("select-hide");
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.remove("open");
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.add('pseudo-hover');
     }
   }
+  function mouseoverDropdown(event) {
+    const targetItem = event.target.closest('.current-selection');
+    if (targetItem == null) {
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.remove('pseudo-hover')
+    }
+  }
+
   document.addEventListener("click", selectClose);
+  // const select_items = document.querySelector('.select-items');
+  // select_items.addEventListener('mouseover', (event) => {
+  //   const targetItem = event.target.closest('.current-selection');
+  //   console.log(targetItem);
+  // });
 </script>
 <link href="/images/favicon.ico" rel="shortcut icon">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">

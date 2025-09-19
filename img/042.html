@@ -18,15 +18,23 @@
   function selectOpen(event) {
     // console.log(event);
     var elem = document.getElementsByClassName("select-items");
+    const current_selection = document.querySelector('.current-selection');
     if (elem[0].classList.contains("select-hide")) {
-      elem[0].classList.remove("select-hide");
+      // Show dropdown
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.add("open");
+      elem[0].classList.remove("select-hide");
+      current_selection.scrollIntoView({
+        block: 'center',
+        inline: 'nearest'
+      });
     } else {
+      // Hide dropdown
       elem[0].classList.add("select-hide");
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.remove("open");
-      
+      // Add pseudo-hover class back to current-selection
+      current_selection.classList.add('pseudo-hover');
     }
     event.stopPropagation()
   }
@@ -36,9 +44,24 @@
       elem[0].classList.add("select-hide");
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.remove("open");
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.add('pseudo-hover');
     }
   }
+  function mouseoverDropdown(event) {
+    const targetItem = event.target.closest('.current-selection');
+    if (targetItem == null) {
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.remove('pseudo-hover')
+    }
+  }
+
   document.addEventListener("click", selectClose);
+  // const select_items = document.querySelector('.select-items');
+  // select_items.addEventListener('mouseover', (event) => {
+  //   const targetItem = event.target.closest('.current-selection');
+  //   console.log(targetItem);
+  // });
 </script>
 <link href="/images/favicon.ico" rel="shortcut icon">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
@@ -63,15 +86,19 @@
     </div>
     <div id="page-content"><div id="select-custom">
 <div id="select-selected"><h2 onclick="selectOpen(event)">Roll: 042</h2></div>
-<div class="select-items select-hide">
+<div class="select-items select-hide" onmouseover="mouseoverDropdown(event)">
 <div><a href="/img/049">049</a></div>
 <div><a href="/img/048">048</a></div>
 <div><a href="/img/047">047</a></div>
 <div><a href="/img/045">045</a></div>
 <div><a href="/img/043">043</a></div>
-<div class="current-selection"><a href="/img/042">042</a></div>
+<div class="current-selection pseudo-hover"><a href="/img/042">042</a></div>
 <div><a href="/img/041">041</a></div>
 <div><a href="/img/040">040</a></div>
+<div><a href="/img/038">038</a></div>
+<div><a href="/img/037">037</a></div>
+<div><a href="/img/034">034</a></div>
+<div><a href="/img/033">033</a></div>
 </div>
 </div>
 <p class="muted photo-metadata">Kodak TMax 400<br>Canon A-1<br>August 2025</p><div id="photos">
