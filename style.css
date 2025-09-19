@@ -706,8 +706,9 @@ select, select:hover, select:focus {
     line-height: 1.5em;
     border: 4px solid black;
     z-index: 100;
+    height: 324px;
     max-height: 324px;
-    overflow-y: scroll;
+    overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: black white;
 }

@@ -25,10 +25,22 @@
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.add("open");
       elem[0].classList.remove("select-hide");
-      current_selection.scrollIntoView({
-        block: 'center',
-        inline: 'nearest'
-      });
+      
+      // current_selection.scrollIntoView({
+        //   block: 'center',
+        //   inline: 'nearest'
+        // });
+        
+        // If an active item exists, scroll the container
+        if (current_selection) {
+          // Get the item's position relative to the document
+          const itemTop = current_selection.offsetTop;
+          const itemHeight = current_selection.clientHeight;
+          const containerHeight = elem[0].clientHeight;
+          
+          // Set the container's scroll position to match the item's position
+          elem[0].scrollTop = itemTop - (containerHeight / 2) + (itemHeight / 2);
+        }
     } else {
       // Hide dropdown
       elem[0].classList.add("select-hide");
