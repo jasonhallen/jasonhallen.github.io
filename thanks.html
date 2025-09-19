@@ -15,6 +15,31 @@
   gtag('js', new Date());
 
   gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    // console.log(event);
+    var elem = document.getElementsByClassName("select-items");
+    if (elem[0].classList.contains("select-hide")) {
+      elem[0].classList.remove("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.add("open");
+    } else {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+      
+    }
+    event.stopPropagation()
+  }
+  function selectClose() {
+    var elem = document.getElementsByClassName("select-items");
+    if (!elem[0].classList.contains("select-hide")) {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+    }
+  }
+  document.addEventListener("click", selectClose);
 </script>
 <link href="/images/favicon.ico" rel="shortcut icon">
 <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">

@@ -23,8 +23,9 @@ h2 {
     padding-bottom: 5px;
     /* background-color: #ffc2cb; */
     display: inline-block;
+    font-weight: bold;
 }
-h2:after {
+h2::after {
     left:0px;
     display:block;
     position:absolute;
@@ -155,7 +156,8 @@ audio {
     margin: 18px 0px 18px;
     /* margin-left: 0;
     margin-bottom: 18px; */
-    font-size: 28px;
+    font-size: 24px;
+    text-transform: uppercase;
 }
 #nav ul {
     margin-left: 0;
@@ -214,10 +216,13 @@ audio {
     color: black;
 }
 .muted {
-    color: #999;
+    color: #757575;
     font-family: "Josefin Slab";
     font-weight: bold;
     font-size: 23px;
+}
+.muted.photo-metadata {
+    margin-bottom: 40px;
 }
 .date {
     margin: 0px 0px 30px;
@@ -363,7 +368,7 @@ video {
     margin-left: 60px;
 }
 .comment-reply-link {
-    color: #999;
+    color: #757575;
 }
 .comment-reply-link:hover {
     cursor: pointer;
@@ -403,7 +408,7 @@ h3#comment-form-header {
     visibility: hidden;
 }
 #recaptcha-fine-print, #recaptcha-fine-print a {
-    color: #999;
+    color: #757575;
 }
 
 #header.home {
@@ -465,7 +470,7 @@ h3#comment-form-header {
     }
     #header {
         position: fixed;
-        width: 150px;
+        width: 140px;
     }
     #page-content, #pagination {
         margin-left: 200px;
@@ -604,4 +609,109 @@ h3#comment-form-header {
         /* margin: 0px 30px 7px 0px; */
         font-size: calc(8.5px + 4.0625vw);
     }
+}
+
+#photos {
+    container-type: inline-size;
+}
+/* Base styles for all images */
+#photos img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 50px;
+}
+/* Styles for landscape images */
+#photos img.landscape {
+    width: 100%;
+    height: auto;
+}
+
+/* Styles for portrait images */
+#photos img.portrait {
+  /* height: 720px; */
+  /* width: auto; */
+  height: auto;
+  /* width: auto; */
+  max-height: 100cqi;
+}
+
+select,
+::picker(select) {
+  appearance: none;
+}
+
+select, select:hover, select:focus {
+    font-weight: bold;
+    font-size: 36px;
+    font-family: 'Josefin Slab';
+    background: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.select::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: red;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+}
+
+#select-custom {
+    position: relative;
+}
+
+#select-selected h2 {
+    cursor: pointer;
+}
+
+#select-selected h2::after {
+    /* position: absolute; */
+    /* content: ""; */
+    content: " \2228";
+    /* top: 14px; */
+    /* right: 0px; */
+    /* width: 0; */
+    /* height: 0; */
+    /* background-color: red; */
+    /* border: 6px solid transparent; */
+    /* border-color: #fff transparent transparent transparent; */
+    position: relative;
+    display: inline;
+    font-size: 18px;
+    bottom: 6px;
+    left: 5px;
+}
+
+#select-selected h2.open::after {
+    content: " \2227";
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items {
+    font-family: "Josefin Slab";
+    font-size: 36px;
+    font-weight: bold;
+    position: absolute;
+    left: 64px;
+    background-color: white;
+    line-height: 1.5em;
+    border: 4px solid black;
+}
+
+.select-items div:hover {
+    background-color: #ffc2cb;
+}
+.select-items a {
+    text-decoration: none;
+    padding: 10px;
+}
+.select-items a:hover {
+    background-color: transparent;
 }

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-    <!-- <meta charset="utf-8"/> -->
-    <!-- <script src="/videos.js"></script> -->
+    <title>Info</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Jason Hallen">
@@ -48,8 +47,8 @@
 <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
 <link rel="stylesheet" href="/style.css"></head>
 
-<body onresize="update_button_position()">
-    <div id="header" class="home" "="">
+<body id="info">
+    <div id="header">
         <span id="jason-hallen">
             <a href="/">Jason Hallen</a>
         </span>
@@ -59,26 +58,21 @@
                 <li><a href="/img">img</a></li>
                 <li><a href="/aud">aud</a></li>
                 <li><a href="/vid">vid</a></li>
-                <li><a href="/bio">bio</a></li>
+                <li class="active"><a href="/bio">bio</a></li>
             </ul>
         </div>        
     </div>
-    <!-- <div id='page-content'>
-    </div> -->
-    <div id="home_video_container" onclick="new_toggle_play()">
-        <video id="vid0" class="home_video" style="z-index: 50;" muted="true" playsinline="" preload="auto" type="video/mp4"></video>
-        <video id="vid1" class="home_video" style="z-index: 25;" muted="true" playsinline="" preload="auto" type="video/mp4"></video>
-       
-        <script src="/videos.js"></script>
-        <!-- <script>
-            change_video()
-        </script> -->
-    </div>
-    <!--  play = &#9658;, next = &#10227; -->
-    <!-- <button id="next" class='media_button hidden' onclick="create_new_video(button_clicked = true)">*</button> -->
-    <button id="next" class="media_button hidden" onclick="change_video(button_clicked = true)">*</button>
-    <button id="play_pause" class="media_button hidden" onclick="new_toggle_play()">&gt;</button>
-    
+    <div id="page-content" class="info"><div id="about_portrait">
+    <img src="/images/gas_station2.jpg" id="portrait">
+</div>
+<div id="about_text">
+
+<p>I snap photos, corrupt data, and code tools for creative expression. Sometimes I share my thinky thoughts.</p>
+<p>I'm based out of Northfield, Minnesota.</p>
+<p>Are you into this stuff, too?</p>
+<p>Email: hallenj at gmail dot com</p>
+<p>IG: <a href="https://www.instagram.com/jason.hallen/">@jason.hallen</a></p>
+</div></div>
 
 
 </body></html>

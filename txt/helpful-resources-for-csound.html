@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jason Hallen">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, Csound, resources, books, computer music, Victor Lazzarini, Richard Boulanger, Floss Manual, Charles Dodge, Curtis Roads, code, blog">
+<meta name="description" content="Here is a list of helpful resources for learning Csound.">
+<!-- <title></title> -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    // console.log(event);
+    var elem = document.getElementsByClassName("select-items");
+    if (elem[0].classList.contains("select-hide")) {
+      elem[0].classList.remove("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.add("open");
+    } else {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+      
+    }
+    event.stopPropagation()
+  }
+  function selectClose() {
+    var elem = document.getElementsByClassName("select-items");
+    if (!elem[0].classList.contains("select-hide")) {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+    }
+  }
+  document.addEventListener("click", selectClose);
+</script>
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+<link rel="stylesheet" href="/style.css"><title>Helpful Resources for Csound</title></head>
+
+<body>
+    <div id="header">
+        <span id="jason-hallen">
+            <a href="/">Jason Hallen</a>
+        </span>
+        <div id="nav">
+            <ul>
+                <li class="active"><a href="/txt">txt</a></li>
+                <li><a href="/img">img</a></li>
+                <li><a href="/aud">aud</a></li>
+                <li><a href="/vid">vid</a></li>
+                <li><a href="/bio">bio</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div id="page-content"><div id="post-section"><h2>Helpful Resources for Csound</h2><span class="muted date">February 3, 2020</span>
+
+<figure><img class="cover-image" src="/images/csound_bookshelf.jpg" alt="Computer music books on bookshelf"><figcaption>Csound and computer music books on my bookshelf at work.</figcaption></figure>
+
+<p>Even with the best documentation and most supportive user community Csound would still be difficult for anyone to learn. That’s because digital audio generation and processing is hard to grasp conceptually. It has been for me anyway. Tremendously hard.</p>
+
+<p>Here’s a brief selection of the topics I’ve had to wrestle with in the past ten months:</p>
+<ul>
+<li><strong>Physical acoustics</strong> - sound waves, their propagation through media, the physical basis of pitch and amplitude, the mechanical operation of the ear, and the brain’s perception of sound</li>
+<li><strong>Digital audio</strong> - sampling rate, quantization depth, the Nyquist frequency, and aliasing</li>
+<li><strong>Trigonometry</strong> - sine, cosine, degrees, radians, frequency, period, etc. I’m relearning what I’ve forgotten from junior high school.</li>
+<li><strong>Synthesis techniques</strong> - Amplitude modulation, frequency modulation, waveshaping, additive synthesis, subtractive synthesis</li>
+</ul>
+<p>Note that none of the topics above are specifically about Csound. Rather, they are general concepts in computer music, and Csound, like all programming languages for music, has its own ways of implementing these concepts. What made Csound such a steep learning curve was not simply the Csound language itself -- the strange syntax and 2,000+ specialized functions (called “opcodes”) -- but the slow, challenging absorption of these general concepts.</p>
+<p>In case this is helpful to anyone else trying to learn Csound or computer music, here is a list of the main resources I’ve used thus far. They are listed in the order that I began using them, which as you'll see is not the order I'd recommend.</p>
+<figure><img style="width:250px" src="/images/computer_music_instruments_cover.jpg" alt="Computer Music Instruments cover">
+<figcaption><strong><a href="https://www.springer.com/gp/book/9783319635033">Computer Music Instruments: Foundations, Design and Development (2017)</a></strong><br>
+Author - Victor Lazzarini<br>
+Publisher - Springer</figcaption>
+</figure>
+
+<p>I thought <em>Computer Music Instruments: Foundations, Design and Development</em> by Victor Lazzarini would be the perfect introduction to Csound. However, I quickly became overwhelmed by the subject matter of the first chapter, which is a crash course in Csound, <a href="https://faust.grame.fr/">Faust</a> (a specialized audio processing language), and Python. I’ve since come to realize that <em>Computer Music Instruments</em> is a more advanced book for people who are already familiar with audio processing languages, general scripting, and software development. It is no doubt a rigorous and useful resource for the advanced computer music practitioner, but it wasn’t the right book for me to learn Csound.</p>
+<figure><img style="width:250px" src="/images/csound_cover.jpg" alt="Csound cover">
+<figcaption><strong><a href="https://www.springer.com/gp/book/9783319453682">Csound: A Sound and Music Computing System (2016)</a></strong><br>
+Authors - Lazzarini, Yi, ffitch, Heintz, Brantsegg, McCurdy<br>
+Publisher - Springer</figcaption>
+</figure>
+
+<p><em>Csound: A Sound and Music Computing System</em> was written by some of the core developers of Csound: Victor Lazzarini, Steven Yi, John ffitch, Joacim Heintz, Oyvind Branstegg, and Iain McCurdy. This was exactly what I needed - a thorough overview of Csound from the fundamentals of digital audio to classic synthesis techniques to methods of controlling program flow. And yet I still struggled immensely to grasp the ideas in this book. The real challenge was wrapping my head around the concept of variable rates. In Csound, variables are computed at three different rates:</p>
+<ul>
+<li><strong>Initialization rate</strong> - computed once each time an instrument is called</li>
+<li><strong>Control rate</strong> - computed multiple times at consistent intervals throughout the duration of a note, usually on the order of thousands of times per second</li>
+<li><strong>Audio rate</strong> - computed for each digital audio sample (i.e. at the sampling rate, often 44,100 or 48,000 samples/second)</li>
+</ul>
+<p>I found myself reading and rereading Chapter 2: “Key System Concepts” and Chapter 3: “Fundamentals” because I couldn’t understand how variable rates, phase, functions, and opcodes worked together to generate audio signals. It was profoundly frustrating, and I nearly gave up on Csound multiple times. After a couple weeks of struggling it all started to make more sense.</p>
+<p><em><strong>Floss Manual and Canonical Reference</strong></em></p>
+<p>The <a href="http://write.flossmanuals.net/csound/preface/">Floss Manual for Csound</a> is indispensable to anyone learning Csound. It might actually be the best place for anyone to start. The <a href="http://www.csounds.com/manual/html/">Canonical Csound Reference Manual</a> is also essential. You can’t get too far into Csound without becoming familiar with this manual because it documents the inputs and outputs of each opcode along with examples. The Reference Manual is written in fairly technical and terse language, so it doesn’t function well as a stand alone introduction to Csound. The Floss Manual is better for that.</p>
+<figure><img style="width:250px" src="/images/csound_book_cover.jpg" alt="Csound Book cover">
+<figcaption><strong><a href="https://mitpress.mit.edu/books/csound-book">The Csound Book: Perspectives in Software Synthesis, Sound Design, Signal Processing, and Programming (2010)</a></strong><br>
+Author - Richard Boulanger<br>
+Publisher - MIT Press</figcaption>
+</figure>
+
+<p>Another resource I consulted in order to round out my understanding of Csound fundamentals was Richard Boulanger’s <em>The Csound Book: Perspectives in Software Synthesis, Sound Design, Signal Processing, and Programming</em>. The large introductory chapter is meant to cover all the basics of Csound, but I found the chapter difficult to follow; it jumps from topic to topic without providing thorough explanations. I've since come to find some of the later chapters to be more focused and useful, so I still think it's a great resource. It just might not be very beginner friendly.</p>
+<figure><img style="width:250px" src="/images/computer_music_cover.jpg" alt="Computer Music cover">
+<figcaption><strong><a href="https://dl.acm.org/doi/book/10.5555/549805">Computer Music: Synthesis, Composition, and Performance (2nd edition, 1997)</a></strong><br>
+Authors - Charles Dodge and Thomas A. Jerse <br>
+Publisher - Cengage Learning</figcaption>
+</figure>
+
+<p>This is the book that finally unlocked the fundamental concepts of computer music for me. While it isn't specifically about Csound, I don't think I could have made much progress on Csound without first coming to terms with the concepts laid out in this book. One extremely helpful practice has been reading the chapters on various synthesis techniques and figuring out how to implement the examples in Csound.</p>
+<figure><img style="width:250px" src="/images/computer_music_tutorial_cover.jpg" alt="Computer Music Tutorial cover">
+<figcaption><strong><a href="https://dl.acm.org/doi/book/10.5555/525484">The Computer Music Tutorial (1996)</a></strong><br>
+Author - Curtis Roads <br>
+Publisher - MIT Press</figcaption>
+</figure>
+
+<p>Similar to <em>Computer Music</em> by Dodge and Jerse, <em>The Computer Music Tutorial</em> covers all aspects of computer music without reference to a specific programming language. It actually feels more like a reference manual because it's enormous. I haven't spent as much time with this book as I have with <em>Computer Music</em>, but I suspect I'll refer to it more and more as I explore new topics in computer music.</p>
+<div id="prev-next-container"><span><a href="/txt/study-james-tenney" class="readmore">Newer</a></span><span class="older-button"><a href="/txt/mysterious-world-of-csound" class="readmore">Older</a></span></div></div><div id="comments-section"><div id="comment-form"><form class="js-form" method="post" action="https://staticman-comments-rbo6.onrender.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
+    
+    <!-- <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}"> -->
+    <input type="hidden" name="options[parent]" value="https://jasonhallen.com/blog/helpful-resources-for-csound.html">
+    <!-- <input name="options[redirect]" type="hidden" value="https://jasonhallen.com/thanks"> -->
+    <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
+    <input type="hidden" name="options[slug]" value="helpful-resources-for-csound">
+    
+    <!-- reCaptcha -->
+    <input type="hidden" name="options[reCaptcha][siteKey]" value="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI">
+    <input type="hidden" name="options[reCaptcha][secret]" value="J/1tx/gxjjcF4Qw17kZ0QUhUK9xnotL31qIetlT0EGmt7rZEyYfRDfKKHit/hxajHF4EV898b9pWqF0nbhZVa+j+AmxyMrcJTvP7lD0Fvfdk6fK/W/6OMe1q3dOROo/HIF5lLmDcdFMKc9L1Y3T0wDNuStn2lvL3v2ECnajXG5/CSurNFRnFq1k1iwGvHn5XLeypNgz08MKk+5E5f55DyEeRwxtLu2wAaiyIBISpboEas5v9OZpPoclYnYWneAiX0CeccxGSL3EyxJ3CCD9GSJsFrrOYAPRRujw4hXmRzAzzJunSLd1V4icFPaqlsqWYAGYMehQeeHlV77MAcg7gxeSJv9GVyrfbtg82yhsASgtkGhtUFEmN7AenM1XZs4TDqUUxP01o9Gj/oYmfGQUdr734IVewVQkcm65zF092ZSeeTefX/5s8cZedPiFK6bvLylbFxu/s4kLG482H/ZU64QdSIyrDuSzOISbZo+0Yd9OlElvkgeZML6+pyjd8SrNjxfCSA1bgOhb+3aGfXKVw+JxinWCizR2JB6Q/FOZzEa4I0aefzOeGwNK8XGC/vHzmt/58KFeEDNTpse77cHywvoT74XVIciJcPUvTrq6rAw5tkaekmuDX03Trefxo+pAMBXqj8wy06mgYsg721XNd8IpE+Qk7wPs/Dv8BfEhH6sc=">
+    
+    <h2 id="comment-form-header">Leave a Comment</h2>
+
+    <div class="textfield">
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <label for="comment-form-message"><strong>Comment *</strong></label>
+        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="[You can use Markdown.]" required="" rows="6"></textarea>
+    </div>
+
+    <div class="textfield">
+        <label for="comment-form-name"><strong>Name *</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" required="">
+    </div>
+    
+    <div class="textfield">
+        <label for="comment-form-email"><strong>Email</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email">
+    </div>
+    
+    <div class="textfield hp">
+    <label for="hp">
+        <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
+    </label>
+    </div>
+
+    <div id="reCaptcha" class="g-recaptcha" data-sitekey="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI"></div>
+
+    <div id="submit-cancel-buttons">
+        <button class="readmore" id="comment-form-submit">
+        Submit
+        </button>
+
+        <button type="button" class="readmore" id="cancel-comment-reply-link" style="display: none">
+        Cancel
+        </button>
+        <!-- <p id="recaptcha-fine-print"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small></p> -->
+    </div>
+
+</form>
+
+<div id="modal-wrapper" style="display: none;">
+    <article class="modal">
+        <img class="modal-image" src="">
+            <div id="modal-text-wrapper">
+            <h3 class="modal-title js-modal-title"></h3>
+            <div class="mdl-card__supporting-text js-modal-text"></div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button class="button readmore mdl-button--colored mdl-js-button mdl-js-ripple-effect js-close-modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <symbol id="icon-loading" viewBox="149.8 37.8 499.818 525"><path d="M557.8 187.8c13.8 0 24.601-10.8 24.601-24.6S571.6 138.6 557.8 138.6s-24.6 10.8-24.6 24.6c0 13.2 10.8 24.6 24.6 24.6zm61.2 90.6c-16.8 0-30.6 13.8-30.6 30.6s13.8 30.6 30.6 30.6 30.6-13.8 30.6-30.6c.6-16.8-13.2-30.6-30.6-30.6zm-61.2 145.2c-20.399 0-36.6 16.2-36.6 36.601 0 20.399 16.2 36.6 36.6 36.6 20.4 0 36.601-16.2 36.601-36.6C595 439.8 578.2 423.6 557.8 423.6zM409 476.4c-24 0-43.2 19.199-43.2 43.199s19.2 43.2 43.2 43.2 43.2-19.2 43.2-43.2S433 476.4 409 476.4zM260.8 411c-27 0-49.2 22.2-49.2 49.2s22.2 49.2 49.2 49.2 49.2-22.2 49.2-49.2-22.2-49.2-49.2-49.2zm-10.2-102c0-27.6-22.8-50.4-50.4-50.4-27.6 0-50.4 22.8-50.4 50.4 0 27.6 22.8 50.4 50.4 50.4 27.6 0 50.4-22.2 50.4-50.4zm10.2-199.8c-30 0-54 24-54 54s24 54 54 54 54-24 54-54-24.6-54-54-54zM409 37.8c-35.4 0-63.6 28.8-63.6 63.6S374.2 165 409 165s63.6-28.8 63.6-63.6-28.2-63.6-63.6-63.6z"></path>
+    </symbol>
+</svg></div></div></div>
+    <script src="/comments.js"></script>
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+</body><!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --></html>

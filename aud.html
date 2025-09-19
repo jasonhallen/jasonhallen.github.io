@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jason Hallen">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, Jason Hallen, computer music, recordings">
+<meta name="description" content="">
+<!-- <title></title> -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    // console.log(event);
+    var elem = document.getElementsByClassName("select-items");
+    if (elem[0].classList.contains("select-hide")) {
+      elem[0].classList.remove("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.add("open");
+    } else {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+      
+    }
+    event.stopPropagation()
+  }
+  function selectClose() {
+    var elem = document.getElementsByClassName("select-items");
+    if (!elem[0].classList.contains("select-hide")) {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+    }
+  }
+  document.addEventListener("click", selectClose);
+</script>
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+<link rel="stylesheet" href="/style.css"></head>
+
+<body>
+    <div id="header">
+        <span id="jason-hallen">
+            <a href="/">Jason Hallen</a>
+        </span>
+        <div id="nav">
+            <ul>
+                <li><a href="/txt">txt</a></li>
+                <li><a href="/img">img</a></li>
+                <li class="active"><a href="/aud">aud</a></li>
+                <li><a href="/vid">vid</a></li>
+                <li><a href="/bio">bio</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div id="page-content"><h2 id="aya-2023">Aya (2023)</h2>
+<figure><img src="/images/aya_screenshot.png" alt="Aya program interface"></figure>
+
+<p>A real-time sampler and looper instrument controlled entirely by computer keyboard input. It's an extension of my "buffer" project, which itself was an extension of my Looper project below.</p>
+<figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/aya_2023_11_9.mp3" type="audio/mp3"></audio>
+<figcaption>"aya_2023_11_9.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/aya_2023_11_11.mp3" type="audio/mp3"></audio>
+<figcaption>"aya_2023_11_11.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/aya_2023_12_7.mp3" type="audio/mp3"></audio>
+<figcaption>"aya_2023_12_7.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/aya_2023_12_15.mp3" type="audio/mp3"></audio>
+<figcaption>"aya_2023_12_15.mp3"</figcaption>
+</figure>
+
+<h2 id="buffer-2022">Buffer (2022)</h2>
+<p>An extension of the Looper project. Ported into pure Csound. Controlled entirely by computer keyboard input.</p>
+<figure><audio controls="controls">Your browser does not support the audio element.<source src="/audio/buffer_2022_10_2.mp3" type="audio/mp3"></audio>
+<figcaption>"buffer_2022_10_2.mp3"</figcaption>
+</figure>
+
+<h2 id="looper-2021">Looper (2021)</h2>
+<p>A web-based looping and processing instrument built with Web Csound and p5.js. I perform an homage to Carl Stone.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/5-UH1UPIE58" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<h2 id="318-2020"><em>318</em> (2020)</h2>
+<p>All tracks were entirely composed by algorithms.  Quick summary: a grammar constructs the melodies and rhythms of each track and a rule system transforms these melodies and rhythms throughout the track.</p>
+<figure><iframe src="https://bandcamp.com/EmbeddedPlayer/album=3523620370/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" style="border: 0; width: 100%; height: 120px;" width="100%" height="120px" frameborder="0"></iframe></figure>
+
+<h2 id="rhythmic-pattern-generator-2020">Rhythmic Pattern Generator (2020)</h2>
+<figure><img src="/images/fell_rhythmic_pattern_generator.png" alt="Fell rhythmic pattern generator">
+</figure>
+
+<p>An instrument for live rhythmic pattern generation inspired by the work of Mark Fell.</p>
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_a.mp3" type="audio/mp3"></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_a.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_e.mp3" type="audio/mp3"></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_e.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_c.mp3" type="audio/mp3"></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_c.mp3"</figcaption>
+</figure>
+
+<figure><audio controls="controls"> Your browser does not support the audio element.<source src="/audio/hallen_fell_rhythm_2020_4_1_b.mp3" type="audio/mp3"></audio>
+<figcaption>"hallen_fell_rhythm_2020_4_1_b.mp3"</figcaption>
+</figure>
+
+<h2 id="necrotic-blanket-2011"><em>Necrotic Blanket</em> (2011)</h2>
+<p>Written and performed by Battle Napkin, except "Hanky Panky Nohow" written by John Cale. Jason Hallen - guitar and vocals, Lindsay Baukert - bass, Oliver Moltaji - drums</p>
+<iframe src="https://bandcamp.com/EmbeddedPlayer/album=4161599820/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" style="border: 0; width: 100%; height: 120px;" width="100%" height="120px" frameborder="0"></iframe></div>
+
+
+</body></html>

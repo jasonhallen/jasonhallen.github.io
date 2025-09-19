@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jason Hallen">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, photography, film, kodak, tmax, canon, 35mm">
+<meta name="description" content="">
+<!-- <title></title> -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    // console.log(event);
+    var elem = document.getElementsByClassName("select-items");
+    if (elem[0].classList.contains("select-hide")) {
+      elem[0].classList.remove("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.add("open");
+    } else {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+      
+    }
+    event.stopPropagation()
+  }
+  function selectClose() {
+    var elem = document.getElementsByClassName("select-items");
+    if (!elem[0].classList.contains("select-hide")) {
+      elem[0].classList.add("select-hide");
+      const select_h2 = document.querySelector('#select-selected h2');
+      select_h2.classList.remove("open");
+    }
+  }
+  document.addEventListener("click", selectClose);
+</script>
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+<link rel="stylesheet" href="/style.css"></head>
+
+<body>
+    <div id="header">
+        <span id="jason-hallen">
+            <a href="/">Jason Hallen</a>
+        </span>
+        <div id="nav">
+            <ul>
+                <li><a href="/txt">txt</a></li>
+                <li class="active"><a href="/img">img</a></li>
+                <li><a href="/aud">aud</a></li>
+                <li><a href="/vid">vid</a></li>
+                <li><a href="/bio">bio</a></li>
+            </ul>
+        </div>        
+    </div>
+    <div id="page-content"><div id="select-custom">
+<div id="select-selected"><h2 onclick="selectOpen(event)">Roll: 043</h2></div>
+<div class="select-items select-hide">
+<div><a href="/img/049">049</a></div>
+<div><a href="/img/048">048</a></div>
+<div><a href="/img/047">047</a></div>
+<div><a href="/img/045">045</a></div>
+<div class="current-selection"><a href="/img/043">043</a></div>
+<div><a href="/img/042">042</a></div>
+<div><a href="/img/041">041</a></div>
+<div><a href="/img/040">040</a></div>
+</div>
+</div>
+<p class="muted photo-metadata">Kodak Tri-X 400<br>Canon A-1<br>August 2025</p><div id="photos">
+    <img class="landscape" src="/images/film/043_22_web.jpg" alt="Ryan Davis and the Roadhouse Band playing live">
+    <img class="portrait" src="/images/film/043_28_web.jpg" alt="Ryan Davis and the Roadhouse Band playing live">
+    <img class="landscape" src="/images/film/043_32_web.jpg" alt="Ryan Davis and the Roadhouse Band playing live">
+    <img class="landscape" src="/images/film/043_02_web.jpg" alt="Annie on the bed at night">
+    <img class="portrait" src="/images/film/043_08_web.jpg" alt="Audience member watching concert through a door at the Shitty Barn">
+    <img class="landscape" src="/images/film/043_18_web.jpg" alt="Ryan Davis and the Roadhouse Band playing live">
+    <img class="landscape" src="/images/film/043_09_web.jpg" alt="Audience members watching concert through windows at the Shitty Bard">
+    <img class="portrait" src="/images/film/043_17_web.jpg" alt="Percussionist playing in Ryan Davis and the Roadhouse Band">
+    <img class="landscape" src="/images/film/043_06_web.jpg" alt="Fish mural on cinderblock wall">
+    <img class="landscape" src="/images/film/043_04_web.jpg" alt="Mr. G's Shoes and Clothing in Viroqua">
+    <img class="portrait" src="/images/film/043_19_web.jpg" alt="Pedal steel player in Ryan Davis and the Roadhouse Band">
+    <img class="landscape" src="/images/film/043_24_web.jpg" alt="Lead guitarist in Ryan Davis and the Roadhouse Band playing live">
+    <img class="landscape" src="/images/film/043_34_web.jpg" alt="Annie in the car on drive back home">
+<div></div></div></div>
+
+
+</body></html>

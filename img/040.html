@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-    <!-- <meta charset="utf-8"/> -->
-    <!-- <script src="/videos.js"></script> -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Jason Hallen">
-<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, Jason Hallen, computer music, biography, about">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, photography, film, medium format, 120, ilford, hp5, yashica">
 <meta name="description" content="">
 <!-- <title></title> -->
 
@@ -48,37 +46,40 @@
 <!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
 <link rel="stylesheet" href="/style.css"></head>
 
-<body onresize="update_button_position()">
-    <div id="header" class="home" "="">
+<body>
+    <div id="header">
         <span id="jason-hallen">
             <a href="/">Jason Hallen</a>
         </span>
         <div id="nav">
             <ul>
                 <li><a href="/txt">txt</a></li>
-                <li><a href="/img">img</a></li>
+                <li class="active"><a href="/img">img</a></li>
                 <li><a href="/aud">aud</a></li>
                 <li><a href="/vid">vid</a></li>
                 <li><a href="/bio">bio</a></li>
             </ul>
         </div>        
     </div>
-    <!-- <div id='page-content'>
-    </div> -->
-    <div id="home_video_container" onclick="new_toggle_play()">
-        <video id="vid0" class="home_video" style="z-index: 50;" muted="true" playsinline="" preload="auto" type="video/mp4"></video>
-        <video id="vid1" class="home_video" style="z-index: 25;" muted="true" playsinline="" preload="auto" type="video/mp4"></video>
-       
-        <script src="/videos.js"></script>
-        <!-- <script>
-            change_video()
-        </script> -->
-    </div>
-    <!--  play = &#9658;, next = &#10227; -->
-    <!-- <button id="next" class='media_button hidden' onclick="create_new_video(button_clicked = true)">*</button> -->
-    <button id="next" class="media_button hidden" onclick="change_video(button_clicked = true)">*</button>
-    <button id="play_pause" class="media_button hidden" onclick="new_toggle_play()">&gt;</button>
-    
+    <div id="page-content"><div id="select-custom">
+<div id="select-selected"><h2 onclick="selectOpen(event)">Roll: 040</h2></div>
+<div class="select-items select-hide">
+<div><a href="/img/049">049</a></div>
+<div><a href="/img/048">048</a></div>
+<div><a href="/img/047">047</a></div>
+<div><a href="/img/045">045</a></div>
+<div><a href="/img/043">043</a></div>
+<div><a href="/img/042">042</a></div>
+<div><a href="/img/041">041</a></div>
+<div class="current-selection"><a href="/img/040">040</a></div>
+</div>
+</div>
+<p class="muted photo-metadata">Ilford HP5 Plus 400<br>Yashica-D<br>July - August 2025</p><div id="photos">
+    <img class="landscape" src="/images/film/040_01_web.jpg" alt="Kallie sitting on a bridge with second exposure of a different angle of the bridge">
+    <img class="landscape" src="/images/film/040_03_web.jpg" alt="Fountain sculpture next to art building">
+    <img class="landscape" src="/images/film/040_04_web.jpg" alt="Kallie's legs walking over concrete sculpture in front of art building">
+    <img class="landscape" src="/images/film/040_11_web.jpg" alt="Ben and his daughter Lucy swinging on a bench seat">
+<div></div></div></div>
 
 
 </body></html>
