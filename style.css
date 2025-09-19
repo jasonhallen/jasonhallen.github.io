@@ -709,6 +709,18 @@ select, select:hover, select:focus {
     max-height: 324px;
     overflow-y: scroll;
     scrollbar-width: thin;
+    scrollbar-color: black white;
+}
+
+.select-items::-webkit-scrollbar {
+  /* This is the key to forcing visibility on these browsers */
+  width: 8px; 
+  background: #f1f1f1; /* An optional light background color for the track */
+}
+
+.select-items::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
 }
 
 .select-items div:hover {
