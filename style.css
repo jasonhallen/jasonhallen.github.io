@@ -520,6 +520,7 @@ h3#comment-form-header {
         position: relative;
         width: 100%;
         margin-bottom: 0px;
+        z-index: 101;
     }
     #header.home {
         position: fixed;
@@ -608,7 +609,7 @@ h3#comment-form-header {
     #nav li {
         /* margin: 0px 30px 7px 0px; */
         font-size: calc(8.5px + 4.0625vw);
-        /* margin-right: 10px; */
+        margin-right: 8px;
     }
 }
 
