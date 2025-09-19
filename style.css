@@ -112,7 +112,7 @@ figure img, figure audio, figure iframe {
     margin-right: auto;
 }
 figcaption {
-    display: table-caption;
+    /* display: table-caption; */
     max-width: 100%;
     caption-side: bottom;
     font-style: italic;
