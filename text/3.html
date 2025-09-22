@@ -2,11 +2,17 @@
 <html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="author" content="Jason Hallen">
-<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, photography, film, media, video, datamoshing">
 <meta name="description" content="This blog documents Jason Hallen's delving into the world of computer music.  He discusses the Csound language, learning code, building GUIs, the history of computer music, and reflections on music and the creative process.">
 <!-- <title></title> -->
-
+<link rel="stylesheet" href="/style.css">
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -15,20 +21,15 @@
   gtag('config', 'G-9FW0V3NTDJ');
 
   function selectOpen(event) {
-    // console.log(event);
     var elem = document.getElementsByClassName("select-items");
     const current_selection = document.querySelector('.current-selection');
     if (elem[0].classList.contains("select-hide")) {
+      
       // Show dropdown
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.add("open");
       elem[0].classList.remove("select-hide");
       
-      // current_selection.scrollIntoView({
-        //   block: 'center',
-        //   inline: 'nearest'
-        // });
-        
         // If an active item exists, scroll the container
         if (current_selection) {
           // Get the item's position relative to the document
@@ -49,6 +50,7 @@
     }
     event.stopPropagation()
   }
+
   function selectClose() {
     var elem = document.getElementsByClassName("select-items");
     if (!elem[0].classList.contains("select-hide")) {
@@ -58,7 +60,16 @@
       const current_selection = document.querySelector('.current-selection');
       current_selection.classList.add('pseudo-hover');
     }
+    const nav = document.querySelector('#nav');
+    const hamburger = document.querySelector('#hamburger-menu');
+    if (nav.classList.contains('open')) {
+      // console.log("Nav contains open");
+      // nav.classList.remove('open');
+      // Toggle the 'active' class on the hamburger for the icon animation
+  //     hamburger.classList.toggle('active');
+    }
   }
+
   function mouseoverDropdown(event) {
     const targetItem = event.target.closest('.current-selection');
     if (targetItem == null) {
@@ -68,32 +79,110 @@
   }
 
   document.addEventListener("click", selectClose);
-  // const select_items = document.querySelector('.select-items');
-  // select_items.addEventListener('mouseover', (event) => {
-  //   const targetItem = event.target.closest('.current-selection');
-  //   console.log(targetItem);
-  // });
-</script>
-<link href="/images/favicon.ico" rel="shortcut icon">
-<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
-<!-- <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> -->
-<link rel="stylesheet" href="/style.css"><title>Jason Hallen</title></head>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('#hamburger-menu');
+    const nav = document.querySelector('#nav');
+    
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      });
+    }
+    
+    // if (hamburger && nav) {
+    //   nav.classList.add('no-anim');
+    //   hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    //   hamburger.classList.remove('active');
+
+    //   // void nav.offsetHeight;
+
+    //   nav.classList.remove('no-anim');
+    //   hamburger.classList.remove('no-anim');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+  });
+
+  // Listen for window resize events
+  window.addEventListener('resize', () => {
+    // Check if the screen width is greater than your mobile breakpoint
+    if (window.innerWidth > 767) {
+      // If so, remove the 'open' class to ensure the menu is visible
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  window.addEventListener('pageshow', (event) => {
+  if (event.persisted) {
+    console.log("Persisted");
+    window.location.reload()
+    // This code runs when the page is restored from BFcache
+    // const hamburger = document.querySelector('#hamburger-menu');
+    // const nav = document.querySelector('#nav');
+    
+    // if (hamburger) {
+    //   hamburger.style.transition = 'none';
+    //   hamburger.classList.remove('active');
+    // }
+    // if (nav) {
+    //   // nav.classList.add('no-anim');
+    //   nav.style.transition = 'none';
+    //   // hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+
+    
+    // Find all menu items with the 'hover-active' or 'active' class
+    // const activeItems = document.querySelectorAll('.active');
+    
+    // Loop through them and remove the class
+    // activeItems.forEach(item => {
+    //   item.classList.remove('pseudo-hover');
+    //   // item.classList.remove('active');
+    //   // nav.classList.remove('close');
+    //   // hamburger.classList.remove('active');
+    // });
+  }
+});
+// document.body.removeAttribute('data-no-display');
+</script><title>Jason Hallen</title></head>
 
 <body>
-    <div id="header">
-        <span id="jason-hallen">
-            <a href="/">Jason Hallen</a>
-        </span>
-        <div id="nav">
-            <ul>
-                <li class="active"><a href="/text">Text</a></li>
-                <li><a href="/photo">Photo</a></li>
-                <li><a href="/audio">Audio</a></li>
-                <li><a href="/video">Video</a></li>
-                <li><a href="/info">Info</a></li>
-            </ul>
-        </div>        
+    <div id="header"><span id="jason-hallen">
+    <a href="/">Jason Hallen</a>
+</span>
+<div id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+<div id="nav">
+    <ul>
+        <li class="active"><a href="/text">Text</a></li>
+        <li><a href="/photo">Photo</a></li>
+        <li><a href="/audio">Audio</a></li>
+        <li><a href="/video">Video</a></li>
+        <li><a href="/info">Info</a></li>
+    </ul>
+</div>        
+
     </div>
     <div id="page-content"><h2><a href="/text/mysterious-world-of-csound">The Mysterious World of Csound</a></h2><span class="muted date">October 6, 2019</span>
 
