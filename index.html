@@ -56,7 +56,7 @@
 
   function selectClose() {
     var elem = document.getElementsByClassName("select-items");
-    if (!elem[0].classList.contains("select-hide")) {
+    if (elem.length > 0 && !elem[0].classList.contains("select-hide")) {
       elem[0].classList.add("select-hide");
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.remove("open");
@@ -119,6 +119,8 @@
   window.addEventListener('resize', () => {
     // Check if the screen width is greater than your mobile breakpoint
     if (window.innerWidth > 767) {
+      const hamburger = document.querySelector('#hamburger-menu');
+      const nav = document.querySelector('#nav');
       // If so, remove the 'open' class to ensure the menu is visible
       nav.classList.remove('open');
       hamburger.classList.remove('active');
@@ -197,11 +199,14 @@
         <!-- <script>
             change_video()
         </script> -->
+        <div id="home_video_buttons">
+            <button id="play_pause" class="media_button hidden" onclick="new_toggle_play()">&gt;</button>
+            <button id="next" class="media_button hidden" onclick="change_video(button_clicked = true)">*</button>
+        </div>
     </div>
     <!--  play = &#9658;, next = &#10227; -->
     <!-- <button id="next" class='media_button hidden' onclick="create_new_video(button_clicked = true)">*</button> -->
-    <button id="next" class="media_button hidden" onclick="change_video(button_clicked = true)">*</button>
-    <button id="play_pause" class="media_button hidden" onclick="new_toggle_play()">&gt;</button>
+    
     
 
 

@@ -291,6 +291,13 @@ video {
     position: relative;
     aspect-ratio: 3 / 2;
 }
+#home_video_buttons {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+}
 .home_video {
     /* width: 75%;
     margin-left: 200px; */
@@ -431,7 +438,7 @@ h3#comment-form-header {
     display: none !important;
 }
 .media_button {
-    position: absolute;
+    /* position: absolute */
     z-index: 100;
     font-family: "Source Sans Pro";
     background-color: white;
@@ -448,15 +455,15 @@ h3#comment-form-header {
     /* color: white; */
 }
 #play_pause {
-    top: 602px;
-    left: 40px;
+    /* top: 602px; */
+    /* left: 40px; */
     padding: 0px 0px 0px 13px;
     font-size: 48px;
     font-weight: bold;
 }
 #next {
-    top: 602px;
-    left: 90px;
+    /* top: 602px; */
+    /* left: 90px; */
     padding: 33px 0px 0px 11px;
     font-size: 74px;
 }
@@ -521,7 +528,7 @@ h3#comment-form-header {
         float: right;
     }
     #play_pause, #next {
-        top: 40px;
+        /* top: 40px; */
     } 
 }
 @media (max-width: 767px) {
@@ -547,7 +554,7 @@ h3#comment-form-header {
         top: 20px; /* Position the menu off-screen to the left */
         right: -5.5em;
         width: 4em; /* Make the menu span the full viewport width */
-        height: 12.5em; /* Make the menu span the full viewport height */
+        height: 9.5em; /* Make the menu span the full viewport height */
         /* max-height: 0; */
         /* opacity: 0; */
         overflow: hidden; /* This hides any content that overflows during the transition */
@@ -565,6 +572,9 @@ h3#comment-form-header {
         margin: 8px;
         padding-left: 8px;
         text-align: right;
+    }
+    #nav li a {
+        line-height: 44px;
     }
     #page-content, #pagination {
         margin-left: 0px;
@@ -621,7 +631,7 @@ h3#comment-form-header {
         margin-left: 0px;
     }
     #play_pause, #next {
-        top: 80px;
+        /* top: 80px; */
         z-index: 90;
     }
 }
