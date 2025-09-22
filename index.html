@@ -169,7 +169,7 @@
 // document.body.removeAttribute('data-no-display');
 </script></head>
 
-<body onresize="update_button_position()">
+<body>
     <div id="header" class="home" "=""><span id="jason-hallen">
     <a href="/">Jason Hallen</a>
 </span>
@@ -191,19 +191,19 @@
     </div>
     <!-- <div id='page-content'>
     </div> -->
-    <div id="home_video_container" onclick="new_toggle_play()">
+    <div id="home_video_container" onclick="new_toggle_play(event)">
         <video id="vid0" class="home_video" style="z-index: 50;" muted="true" playsinline="" preload="auto" type="video/mp4"></video>
         <video id="vid1" class="home_video" style="z-index: 25;" muted="true" playsinline="" preload="auto" type="video/mp4"></video>
        
-        <script src="/videos.js"></script>
         <!-- <script>
             change_video()
         </script> -->
         <div id="home_video_buttons">
-            <button id="play_pause" class="media_button hidden" onclick="new_toggle_play()">&gt;</button>
-            <button id="next" class="media_button hidden" onclick="change_video(button_clicked = true)">*</button>
+            <button id="play_pause" class="media_button hidden" onclick="new_toggle_play(event)">&gt;</button>
+            <button id="next" class="media_button hidden" onclick="change_video(event, button_clicked = true)">*</button>
         </div>
     </div>
+    <script type="text/javascript" src="/videos.js"></script>
     <!--  play = &#9658;, next = &#10227; -->
     <!-- <button id="next" class='media_button hidden' onclick="create_new_video(button_clicked = true)">*</button> -->
     

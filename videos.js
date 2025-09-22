@@ -1,3 +1,4 @@
+
 var videos_all = [
     'mosh_kallie_annie_2024_4_15.mp4',    
     'mosh_kallie_horizontal11_2024_4_15.mp4',
@@ -90,7 +91,7 @@ var home_video_0 = new HomeVideo('vid0', 0)
 var home_video_1 = new HomeVideo('vid1', 1)
 var home_video_list = [home_video_0, home_video_1]
 
-function change_video(change_button_clicked = false) {
+function change_video(event = null, change_button_clicked = false) {
     console.log(`CHANGE_VIDEO:`)
     // var video_element = document.querySelector('.home_video')
     // var home_video = home_video_list[video_index]
@@ -103,6 +104,9 @@ function change_video(change_button_clicked = false) {
     home_video_list[-video_index + 1].element.src = '/video/' + select_video_source()
     home_video_list[-video_index + 1].element.load()
     // home_video.element.onloadedmetadata = home_video.set_video_start_duration.bind(home_video)
+    if (event != null) {
+        event.stopPropagation()
+    }
 }
 
 function select_video_source() {
@@ -198,7 +202,7 @@ function toggle_video_index() {
     // if (this.element.autoplay) {
     //     this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
     // }
-    update_button_position()
+    // update_button_position()
 }
 
 function check_elapsed_time() {
@@ -213,7 +217,8 @@ function check_elapsed_time() {
         }
 }
 
-function new_toggle_play() {
+function new_toggle_play(event) {
+    console.log("PLAY HIT")
     // var active_video = document.getElementsByClassName('home_video')[0]
     var play_pause_button = document.getElementById('play_pause')
 
@@ -239,17 +244,18 @@ function new_toggle_play() {
         play_pause_button.classList.add('rotate')
         // set_time_duration(active_video)
         // active_video_list.forEach(video => {
-        //     // console.log(`playing = ${!video.element.paused}`)
-        //     video.element.play()
-        //     video.timer = setInterval(video.check_elapsed_time.bind(video), 30)
-        // })
-        // video_timer = setInterval(check_elapsed_time.bind(document.getElementsByClassName('home_video')[1], start_time, duration))
-        home_video_list[video_index].timer = setInterval(check_elapsed_time.bind(home_video_list[video_index]))
-        home_video_list[video_index].element.play()
-        // home_video_list[1].element.play()
-        video_playing = true
+            //     // console.log(`playing = ${!video.element.paused}`)
+            //     video.element.play()
+            //     video.timer = setInterval(video.check_elapsed_time.bind(video), 30)
+            // })
+            // video_timer = setInterval(check_elapsed_time.bind(document.getElementsByClassName('home_video')[1], start_time, duration))
+            home_video_list[video_index].timer = setInterval(check_elapsed_time.bind(home_video_list[video_index]))
+            home_video_list[video_index].element.play()
+            // home_video_list[1].element.play()
+            video_playing = true
         // active_video.play()        
     }
+    event.stopPropagation();
 }
 
 /*
@@ -293,7 +299,11 @@ function new_toggle_play() {
 
 */
 
-window.onresize = update_button_position
+// window.onresize = update_button_position
+const play_pause_button = document.getElementById('play_pause')
+play_pause_button.classList.remove('hidden')
+const next_button = document.getElementById('next')
+next_button.classList.remove('hidden')
 change_video()
 // home_video_list[-video_index + 1].element.load()
 
@@ -377,7 +387,7 @@ class CustomVideo {
         // if (this.element.autoplay) {
         //     this.timer = setInterval(this.check_elapsed_time.bind(this), 30)
         // }
-        update_button_position()
+        // update_button_position()
     }
 
     toggle_play() {
