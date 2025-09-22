@@ -52,10 +52,11 @@
     event.stopPropagation()
   }
 
-  function selectClose() {
-    var elem = document.getElementsByClassName("select-items");
-    if (elem.length > 0 && !elem[0].classList.contains("select-hide")) {
-      elem[0].classList.add("select-hide");
+  function selectClose(event) {
+    console.log(event.target);
+    var select_items = document.getElementsByClassName("select-items");
+    if (select_items.length > 0 && !select_items[0].classList.contains("select-hide")) {
+      select_items[0].classList.add("select-hide");
       const select_h2 = document.querySelector('#select-selected h2');
       select_h2.classList.remove("open");
       const current_selection = document.querySelector('.current-selection');
@@ -63,11 +64,11 @@
     }
     const nav = document.querySelector('#nav');
     const hamburger = document.querySelector('#hamburger-menu');
-    if (nav.classList.contains('open')) {
-      // console.log("Nav contains open");
-      // nav.classList.remove('open');
+    if (nav.classList.contains('open') && event.target.closest('#hamburger-menu') != hamburger && event.target.tagName != "A") {
+      console.log("Close nav menu");
+      nav.classList.remove('open');
       // Toggle the 'active' class on the hamburger for the icon animation
-  //     hamburger.classList.toggle('active');
+      hamburger.classList.toggle('active');
     }
   }
 
@@ -126,9 +127,9 @@
   });
 
   window.addEventListener('pageshow', (event) => {
-  if (event.persisted) {
-    console.log("Persisted");
-    window.location.reload()
+    if (event.persisted) {
+      console.log("Persisted");
+      window.location.reload()
     // This code runs when the page is restored from BFcache
     // const hamburger = document.querySelector('#hamburger-menu');
     // const nav = document.querySelector('#nav');
@@ -162,8 +163,8 @@
     //   // nav.classList.remove('close');
     //   // hamburger.classList.remove('active');
     // });
-  }
-});
+    }
+  });
 // document.body.removeAttribute('data-no-display');
 </script><title>The Mysterious World of Csound</title></head>
 
@@ -280,4 +281,4 @@
 
 
 <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
-</body><!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --></html>
+<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">this frame prevents back/forward cache</iframe></body><!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --></html>

@@ -182,7 +182,7 @@ audio {
     line-height: 60px;
     padding: 14px 3px 5px 0px;
 }
-#header a:hover, #header.home span:hover, #nav li a:hover, #nav li a:focus {
+#header a:hover, #header.home span a:hover, #nav li a:hover, #nav li a:focus {
     /* background-color: #eee; */
     background-color: #ffc2cb;
 }
@@ -431,7 +431,7 @@ h3#comment-form-header {
     z-index: 99;
 }
 
-.home span, .home a {
+.home span a, .home a {
     background-color: white;
 }
 .hidden {
@@ -545,6 +545,7 @@ h3#comment-form-header {
         z-index: 101;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
     }
     #header.home {
         /* position: fixed; */
@@ -793,10 +794,13 @@ select, select:hover, select:focus {
   cursor: pointer;
   padding: 10px;
 }
+#hamburger-menu:hover {
+    background-color: #ffc2cb;
+}
 #hamburger-menu .bar {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background-color: black;
   margin: 5px 0;
   transition: 0.4s;
 }
