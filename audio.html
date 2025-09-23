@@ -64,11 +64,18 @@
     }
     const nav = document.querySelector('#nav');
     const hamburger = document.querySelector('#hamburger-menu');
-    if (nav.classList.contains('open') && event.target.closest('#hamburger-menu') != hamburger && event.target.tagName != "A") {
-      console.log("Close nav menu");
-      nav.classList.remove('open');
-      // Toggle the 'active' class on the hamburger for the icon animation
-      hamburger.classList.toggle('active');
+    if (nav.classList.contains('open')) {
+      if (event.target.closest('#hamburger-menu') != hamburger && event.target.tagName != "A") {
+        console.log("Close nav menu");
+        nav.classList.remove('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      } else if (event.target.tagName == "A") {
+        nav.style.transition = 'none';
+        nav.classList.remove('open');
+        hamburger.classList.toggle('active');
+
+    }
     }
   }
 
@@ -179,11 +186,11 @@
 </div>
 <div id="nav">
     <ul>
-        <li><a href="/text">Text</a></li>
-        <li><a href="/photo">Photo</a></li>
-        <li class="active"><a href="/audio">Audio</a></li>
-        <li><a href="/video">Video</a></li>
-        <li><a href="/info">Info</a></li>
+        <li><a href="/text"><span>Text</span></a></li>
+        <li><a href="/photo"><span>Photo</span></a></li>
+        <li class="active"><a href="/audio"><span>Audio</span></a></li>
+        <li><a href="/video"><span>Video</span></a></li>
+        <li><a href="/info"><span>Info</span></a></li>
     </ul>
 </div>        
 

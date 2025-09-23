@@ -189,8 +189,8 @@ audio {
 /* #header li:hover, #nav li:hover {
     background-color: #eee;
 } */
-#nav li.active a {
-    border-bottom: 3px solid black;
+#nav li.active a span {
+    border-bottom: 4px solid black;
 }
 #post-section {
     border-bottom: 2px solid black;
@@ -555,7 +555,7 @@ h3#comment-form-header {
         top: 20px; /* Position the menu off-screen to the left */
         right: -5.5em;
         width: 4em; /* Make the menu span the full viewport width */
-        height: 9.5em; /* Make the menu span the full viewport height */
+        /* height: 11em; Make the menu span the full viewport height */
         /* max-height: 0; */
         /* opacity: 0; */
         overflow: hidden; /* This hides any content that overflows during the transition */
@@ -570,12 +570,15 @@ h3#comment-form-header {
     }
     #nav li {
         float: none;
-        margin: 8px;
-        padding-left: 8px;
+        /* margin: 8px; */
+        /* padding-left: 8px; */
         text-align: right;
+        margin: 0;
     }
     #nav li a {
         line-height: 44px;
+        display: block;
+        padding-right: 11px;
     }
     #page-content, #pagination {
         margin-left: 0px;
