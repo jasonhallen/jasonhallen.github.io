@@ -737,6 +737,9 @@ select, select:hover, select:focus {
 #select-selected:hover {
     background-color: #ffc2cb;
 }
+#select-selected .dropdown-icon {
+    font-weight: bold;
+}
 
 /* #select-selected h2::after {
     /* position: absolute; */
