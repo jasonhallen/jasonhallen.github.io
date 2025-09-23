@@ -580,6 +580,9 @@ h3#comment-form-header {
         display: block;
         padding-right: 11px;
     }
+    #select-selected .dropdown-icon {
+        padding-top: 17px;
+    }
     #page-content, #pagination {
         margin-left: 0px;
         max-width: 100%;
@@ -724,11 +727,18 @@ select, select:hover, select:focus {
     position: relative;
 }
 
-#select-selected h2 {
+#select-selected {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5em;
     cursor: pointer;
 }
+#select-selected:hover {
+    background-color: #ffc2cb;
+}
 
-#select-selected h2::after {
+/* #select-selected h2::after {
     /* position: absolute; */
     /* content: ""; */
     content: " \2228";
@@ -744,7 +754,7 @@ select, select:hover, select:focus {
     font-size: 18px;
     bottom: 6px;
     left: 5px;
-}
+} */
 
 #select-selected h2.open::after {
     content: " \2227";
