@@ -560,7 +560,7 @@ h3#comment-form-header {
         /* opacity: 0; */
         overflow: hidden; /* This hides any content that overflows during the transition */
         /* transition: max-height 0.3s ease-out, opacity 0.3s ease-out; The animation */
-        transition: right 0.3s ease-in-out;
+        /* transition: right 0.3s ease-in-out; */
         /* display: none; */
         background-color: white;
         border: 4px solid black;
@@ -805,7 +805,7 @@ select, select:hover, select:focus {
   height: 3px;
   background-color: black;
   margin: 5px 0;
-  transition: 0.4s;
+  /* transition: 0.4s; */
 }
 /* The styles when the hamburger icon is "active" */
 #hamburger-menu.active .bar:nth-child(2) {

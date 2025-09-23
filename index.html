@@ -73,11 +73,12 @@
         // Toggle the 'active' class on the hamburger for the icon animation
         hamburger.classList.toggle('active');
       } else if (event.target.tagName == "A") {
-        nav.style.transition = 'none';
+        console.log('Click A, transition = none')
+        // nav.style.transition = 'none';
+        // hamburger.style.transition = 'none';
         nav.classList.remove('open');
         hamburger.classList.toggle('active');
-
-    }
+      }
     }
   }
 
