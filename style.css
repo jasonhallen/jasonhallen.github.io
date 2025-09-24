@@ -790,7 +790,7 @@ select, select:hover, select:focus {
     line-height: 1.5em;
     border: 4px solid black;
     z-index: 100;
-    height: 324px;
+    height: 210px;
     max-height: 324px;
     overflow: auto;
     scrollbar-width: thin;
