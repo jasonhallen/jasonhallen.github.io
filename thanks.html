@@ -25,7 +25,8 @@
   function selectOpen(event) {
     var elem = document.getElementsByClassName("select-items");
     const current_selection = document.querySelector('.current-selection');
-    const dropdown_icon = document.querySelector('#select-selected .dropdown-icon');
+    // const dropdown_icon = document.querySelector('#select-selected .dropdown-icon');
+    const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
     if (elem[0].classList.contains("select-hide")) {
       
       // Show dropdown
@@ -34,16 +35,16 @@
       dropdown_icon.innerHTML = '&#x2227;';
       elem[0].classList.remove("select-hide");
       
-        // If an active item exists, scroll the container
-        if (current_selection) {
-          // Get the item's position relative to the document
-          const itemTop = current_selection.offsetTop;
-          const itemHeight = current_selection.clientHeight;
-          const containerHeight = elem[0].clientHeight;
-          
-          // Set the container's scroll position to match the item's position
-          elem[0].scrollTop = itemTop - (containerHeight / 2) + (itemHeight / 2);
-        }
+      // If an active item exists, scroll the container
+      if (current_selection) {
+        // Get the item's position relative to the document
+        const itemTop = current_selection.offsetTop;
+        const itemHeight = current_selection.clientHeight;
+        const containerHeight = elem[0].clientHeight;
+        
+        // Set the container's scroll position to match the item's position
+        elem[0].scrollTop = itemTop - (containerHeight / 2) + (itemHeight / 2);
+      }
     } else {
       // Hide dropdown
       elem[0].classList.add("select-hide");
@@ -63,7 +64,7 @@
       select_items[0].classList.add("select-hide");
       // const select_h2 = document.querySelector('#select-selected h2');
       // select_h2.classList.remove("open");
-      const dropdown_icon = document.querySelector('#select-selected .dropdown-icon');
+      const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
       dropdown_icon.innerHTML = '&#x2228;';
       const current_selection = document.querySelector('.current-selection');
       current_selection.classList.add('pseudo-hover');

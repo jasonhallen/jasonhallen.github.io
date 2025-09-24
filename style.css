@@ -233,21 +233,31 @@ audio {
 .muted.photo-metadata {
     margin-bottom: 40px;
 }
+#rolls_navigation {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
 .date {
     margin: 0px 0px 30px;
     display: block;
 }
-#pagination span {
+#pagination span, #rolls_navigation span {
     /* margin-right:5px; */
     text-decoration: none;
     font-family: "Josefin Slab";
     font-weight: bold;
     font-size: 30px;
 }
-#pagination span a, #pagination span.muted {
+#pagination span a, #pagination span.muted, #rolls_navigation span a, #rolls_navigation span.muted {
     font-size: 30px;
     text-decoration: none;
     padding: 10px 15px;
+}
+#rolls_navigation span, #rolls_navigation span a, #rolls_navigation span.muted {
+    font-size: 20px;
+    padding: 0;
 }
 #pagination span a:hover {
     background-color: #ffc2cb;
@@ -727,18 +737,20 @@ select, select:hover, select:focus {
     position: relative;
 }
 
-#select-selected {
+#select-selected, #rolls-nav-select {
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 0.5em;
+    /* gap: 0.5em; */
     cursor: pointer;
 }
-#select-selected:hover {
+#select-selected:hover, #rolls-nav-select:hover {
     background-color: #ffc2cb;
 }
-#select-selected .dropdown-icon {
-    font-weight: bold;
+#rolls-nav-select .dropdown-icon {
+    /* font-weight: bold; */
+    font-size: 12px;
+    margin-left: 20px;
 }
 
 /* #select-selected h2::after {
@@ -769,10 +781,11 @@ select, select:hover, select:focus {
 
 .select-items {
     font-family: "Josefin Slab";
-    font-size: 36px;
+    font-size: 24px;
     font-weight: bold;
     position: absolute;
-    left: 64px;
+    left: 79px;
+    top: 36px;
     background-color: white;
     line-height: 1.5em;
     border: 4px solid black;
