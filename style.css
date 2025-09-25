@@ -861,7 +861,13 @@ select, select:hover, select:focus {
   transition: none !important;
 }
 
-.photo-icons {
+.photo-icon {
     fill: #757575;
     width: 20px;
+    margin-top: 3px;
+}
+
+.photo-metadata-line {
+    display: flex;
+    gap: 12px;
 }
