@@ -259,6 +259,9 @@ audio {
     font-size: 20px;
     padding: 0;
 }
+#rolls_navigation span.muted {
+    opacity: 0.4;
+}
 #pagination span a:hover {
     background-color: #ffc2cb;
 }
@@ -738,6 +741,7 @@ select, select:hover, select:focus {
 }
 
 #select-selected, #rolls-nav-select {
+    position: relative;
     display: inline-flex;
     justify-content: flex-start;
     align-items: center;
@@ -747,16 +751,20 @@ select, select:hover, select:focus {
 #select-selected:hover, #rolls-nav-select:hover {
     background-color: #ffc2cb;
 }
+#rolls_navigation #rolls-nav-select a {
+    display: block;
+    font-size: 24px;
+}
 #rolls-nav-select .dropdown-icon {
     /* font-weight: bold; */
-    font-size: 12px;
+    font-size: 15px;
     margin-left: 20px;
-}
 
+}
 /* #select-selected h2::after {
     /* position: absolute; */
     /* content: ""; */
-    content: " \2228";
+    /* content: " \2228";
     /* top: 14px; */
     /* right: 0px; */
     /* width: 0; */
@@ -764,7 +772,7 @@ select, select:hover, select:focus {
     /* background-color: red; */
     /* border: 6px solid transparent; */
     /* border-color: #fff transparent transparent transparent; */
-    position: relative;
+    /* position: relative;
     display: inline;
     font-size: 18px;
     bottom: 6px;
@@ -784,14 +792,17 @@ select, select:hover, select:focus {
     font-size: 24px;
     font-weight: bold;
     position: absolute;
-    left: 79px;
+    left: 50%;
+    transform: translateX(-50%);
     top: 36px;
     background-color: white;
     line-height: 1.5em;
+    text-align: center;
     border: 4px solid black;
     z-index: 100;
     height: 210px;
     max-height: 324px;
+    width: 83%;
     overflow: auto;
     scrollbar-width: thin;
     scrollbar-color: black white;
