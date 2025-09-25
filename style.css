@@ -860,3 +860,8 @@ select, select:hover, select:focus {
 .no-anim {
   transition: none !important;
 }
+
+.photo-icons {
+    fill: #757575;
+    width: 20px;
+}
