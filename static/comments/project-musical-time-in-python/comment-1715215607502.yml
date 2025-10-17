@@ -1,0 +1,28 @@
+_id: 9d106a60-0d9d-11ef-8568-0bbe18ed9cc6
+_parent: 'https://jasonhallen.com/blog/project-musical-time-in-python.html'
+replying_to_uid: ''
+message: >-
+  I'm late to the party but you can simplify Solution #4 by using Python's
+  built-in performance timer.  Use time.perf_counter() instead of time.time(). 
+  The following changes to Solution #4 should give you an accurate click and
+  eliminate the dependency on cs.scoreTime():
+
+
+  ```
+      time_clock = 0
+      while True:   # GUI event loop
+          time_interval = 60/values['TEMPO']
+          test_interval = time.perf_counter() - time_clock
+          if test_interval >= time_interval:
+              cs.sendScore("i 1 0 0.1")   # trigger note in Csound
+              time_clock = time.perf_counter()
+  ```
+
+
+  I believe time.perf_counter() was introduced in Python 3.3.
+
+
+  Tom
+name: Tom Pellicer
+email: 38af8a747922dd52cd631cc77603730c
+date: '2024-05-09T00:46:47.496Z'
