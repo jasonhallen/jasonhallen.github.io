@@ -753,7 +753,7 @@ select, select:hover, select:focus {
 }
 #rolls_navigation #rolls-nav-select a {
     display: block;
-    font-size: 36px;
+    font-size: 28px;
 }
 #rolls-nav-select .dropdown-icon {
     /* font-weight: bold; */
