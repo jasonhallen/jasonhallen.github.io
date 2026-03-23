@@ -689,6 +689,10 @@ h3#comment-form-header {
 
 #photos {
     container-type: inline-size;
+    text-align: center;
+    font-family: "Josefin Slab";
+    font-size: 24px;
+    font-weight: bold;
 }
 /* Base styles for all images */
 #photos img {
