@@ -691,7 +691,7 @@ h3#comment-form-header {
     container-type: inline-size;
     text-align: center;
     font-family: "Josefin Slab";
-    font-size: 24px;
+    font-size: 64px;
     font-weight: bold;
 }
 /* Base styles for all images */
@@ -716,7 +716,9 @@ h3#comment-form-header {
   /* width: auto; */
   max-height: 100cqi;
 }
-
+#photos a {
+    text-decoration: none;
+}
 select,
 ::picker(select) {
   appearance: none;
