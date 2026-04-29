@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jason Hallen">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, photography, film, media, video, datamoshing, visual art, video, datamoshing, photography, film, coding, music, computer music">
+<meta name="description" content="I attended the Algorithmic Art Assembly v3.0 in San Francisco and these were the highlights.">
+<link rel="stylesheet" href="/style.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    var elem = document.getElementsByClassName("select-items");
+    const current_selection = document.querySelector('.current-selection');
+    // const dropdown_icon = document.querySelector('#select-selected .dropdown-icon');
+    const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
+    if (elem[0].classList.contains("select-hide")) {
+      
+      // Show dropdown
+      const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.add("open");
+      dropdown_icon.innerHTML = '&#x2227;';
+      elem[0].classList.remove("select-hide");
+      
+      // If an active item exists, scroll the container
+      if (current_selection) {
+        // Get the item's position relative to the document
+        const itemTop = current_selection.offsetTop;
+        const itemHeight = current_selection.clientHeight;
+        const containerHeight = elem[0].clientHeight;
+        
+        // Set the container's scroll position to match the item's position
+        elem[0].scrollTop = itemTop - (containerHeight / 2) + (itemHeight / 2);
+      }
+    } else {
+      // Hide dropdown
+      elem[0].classList.add("select-hide");
+      // const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.remove("open");
+      dropdown_icon.innerHTML = '&#x2228;';
+      // Add pseudo-hover class back to current-selection
+      current_selection.classList.add('pseudo-hover');
+    }
+    event.stopPropagation()
+  }
+
+  function selectClose(event) {
+    console.log(event.target);
+    var select_items = document.getElementsByClassName("select-items");
+    if (select_items.length > 0 && !select_items[0].classList.contains("select-hide")) {
+      select_items[0].classList.add("select-hide");
+      // const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.remove("open");
+      const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
+      dropdown_icon.innerHTML = '&#x2228;';
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.add('pseudo-hover');
+    }
+    const nav = document.querySelector('#nav');
+    const hamburger = document.querySelector('#hamburger-menu');
+    if (nav.classList.contains('open')) {
+      if (event.target.closest('#hamburger-menu') != hamburger && event.target.tagName != "A") {
+        console.log("Close nav menu");
+        nav.classList.remove('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      } else if (event.target.tagName == "A") {
+        console.log('Click A, transition = none')
+        // nav.style.transition = 'none';
+        // hamburger.style.transition = 'none';
+        nav.classList.remove('open');
+        hamburger.classList.toggle('active');
+      }
+    }
+  }
+
+  function mouseoverDropdown(event) {
+    const targetItem = event.target.closest('.current-selection');
+    if (targetItem == null) {
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.remove('pseudo-hover')
+    }
+  }
+
+  document.addEventListener("click", selectClose);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('#hamburger-menu');
+    const nav = document.querySelector('#nav');
+    
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      });
+    }
+    
+    // if (hamburger && nav) {
+    //   nav.classList.add('no-anim');
+    //   hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    //   hamburger.classList.remove('active');
+
+    //   // void nav.offsetHeight;
+
+    //   nav.classList.remove('no-anim');
+    //   hamburger.classList.remove('no-anim');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+  });
+
+  // Listen for window resize events
+  window.addEventListener('resize', () => {
+    // Check if the screen width is greater than your mobile breakpoint
+    if (window.innerWidth > 767) {
+      const hamburger = document.querySelector('#hamburger-menu');
+      const nav = document.querySelector('#nav');
+      // If so, remove the 'open' class to ensure the menu is visible
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      console.log("Persisted");
+      window.location.reload()
+    // This code runs when the page is restored from BFcache
+    // const hamburger = document.querySelector('#hamburger-menu');
+    // const nav = document.querySelector('#nav');
+    
+    // if (hamburger) {
+    //   hamburger.style.transition = 'none';
+    //   hamburger.classList.remove('active');
+    // }
+    // if (nav) {
+    //   // nav.classList.add('no-anim');
+    //   nav.style.transition = 'none';
+    //   // hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+
+    
+    // Find all menu items with the 'hover-active' or 'active' class
+    // const activeItems = document.querySelectorAll('.active');
+    
+    // Loop through them and remove the class
+    // activeItems.forEach(item => {
+    //   item.classList.remove('pseudo-hover');
+    //   // item.classList.remove('active');
+    //   // nav.classList.remove('close');
+    //   // hamburger.classList.remove('active');
+    // });
+    }
+  });
+// document.body.removeAttribute('data-no-display');
+</script><title>Update: Algorithmic Art Assembly v3.0</title></head>
+
+<body>
+    <div id="header"><span id="jason-hallen">
+    <a href="/">Jason Hallen</a>
+</span>
+<div id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+<div id="nav">
+    <ul>
+        <li class="active"><a href="/text"><span>Text</span></a></li>
+        <li><a href="/photo"><span>Photo</span></a></li>
+        <li><a href="/audio"><span>Audio</span></a></li>
+        <li><a href="/video"><span>Video</span></a></li>
+        <li><a href="/info"><span>Info</span></a></li>
+    </ul>
+</div>        
+
+    </div>
+    <div id="page-content"><div id="post-section"><h2>Update: Algorithmic Art Assembly v3.0</h2><span class="muted date">April 29, 2026</span>
+
+<figure><img class="cover-image" src="/images/075_14_detail.jpg" alt=""></figure>
+
+<p>The <a href="https://aaassembly.org/">Algorithmic Art Assembly v3.0</a> took place March 26-28 at <a href="https://grayarea.org/">Gray Area/Grand Theater</a> in San Francisco. My friend James and I were there to take in three days of talks and concerts (<a href="https://grayarea.org/event/algorithmic-art-assembly-v3-0/">see the full program here</a>). Here were the highlights from that trip.</p>
+
+<h3 id="prologue">Prologue</h3>
+<p><a href="https://williamfields.com/">William Fields</a> sent an update to his email list in January about his upcoming performance at the Algorithmic Art Assembly v3.0 (aka AAA). I had heard of AAA before but missed the first one in 2019 and the second one in 2022. Now the third one was upon us. The program featured three artists that were important to me: William Fields, Gábor Lázár, and Kara-Lis Coverdale.</p>
+<p>I texted my friend James on a whim to see if he had any interest in going. He texted back right away, "Yeah let's do it." That's what I'm talkin' about! He and I had been cooking up an electronic music project but it had stalled out. We thought going out to AAA might rekindle it. We bought tickets to AAA and booked the plane tickets and Airbnb.</p>
+<h3 id="day-one">Day One</h3>
+<p>A couple months later there we were in San Francisco. It was a Thursday and we arrived around noon. We made our way to the Mission District where our Airbnb and the Grand Theater were.</p>
+<p>We had a few hours to kill before the AAA performances started that night, so we strolled to <a href="https://www.grandcoffeesf.com/">Grand Coffee</a> a few blocks away. As we waited in line I thought I recognized the barista taking orders. She looked like Kim, an old friend I had from elementary through high school in Illinois. We hadn't seen each other in over 20 years so I wasn't entirely sure.</p>
+<p>Turns out she was indeed Kim and she was a co-owner of the coffee shop. She remembered me, too. We caught up for a while and planned to get together a few days later in her neighborhood. More on that later.</p>
+<div class="photos">
+    <figure><img class="portrait" src="/images/film/072_30_web.jpg" alt="A man sitting in the front of Grand Coffee in the Mission">
+        <figcaption>Grand Coffee in the Mission.</figcaption>
+    </figure>
+</div>
+
+<p>For this trip I brought my Canon 7s rangefinder camera. I had it loaded with Kodak T-Max 400 film and had a Jupiter-8 50mm f/2 lens on it for the first roll. I developed the film with Legacy Pro L110 for 11 minutes in a dilution of 1+63 at 68º. Above is a shot from inside Grand Coffee. Note the light leaks. After the trip I found where the light is leaking into the camera body and will fix that.</p>
+<p>From the Mission we walked northeast toward Chinatown. We stopped at the San Francisco Museum of Modern Art along the way and enjoyed the collections.</p>
+<div class="photos">
+    <figure><img class="landscape" src="/images/film/072_24_web.jpg" alt="Courtyard at the San Francisco Museum of Modern Art">
+        <figcaption>The courtyard at SF MoMA.</figcaption>
+    </figure>
+    <figure><img class="landscape" src="/images/film/072_25_web.jpg" alt="Close up of fiber art by Sheila Hicks">
+        <figcaption>Fiber art by Sheila Hicks.</figcaption>
+    </figure>
+    <figure><img class="landscape" src="/images/film/072_26_web.jpg" alt="Portrait of me in front of walk of drawings">
+        <figcaption>Me in front of artwork by Barry McGee, shot by James.</figcaption>
+    </figure>
+</div>
+
+<p>We got dim sum at a restaurant in Chinatown that President Obama ate at and then headed back down to the Mission for the official start of AAA.</p>
+<p><strong><a href="https://grayarea.org/event/algorithmic-art-assembly-v3-0/">Follow along with the full AAA program</a>.</strong></p>
+<p><strong><a href="https://www.youtube.com/@AlgorithmicArtAssembly">Watch videos of all the talks and performances</a>.</strong></p>
+<p>All three nights featured performances by five artists. The highlights of the first night for me were Wolff Parkinson White and William Fields.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/A7GchXOECMk?si=1O0GGRStLV9PXo3A" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<div class="photos">
+    <figure><img class="landscape" src="/images/film/072_27_web.jpg" alt="A man sitting in the front of Grand Coffee in the Mission">
+        <figcaption>Wolff Parkinson White performing at AAA.</figcaption>
+    </figure>
+</div>
+
+<p>I hadn't heard of Wolff Parkinson White before. It's actually the project of a man named <a href="https://www.jochenrueckert.net/">Jochen Rueckert</a>. I dug the music. It has this abstract pointillistic quality that I often enjoy in electronic music.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/kPpn67lQAXs?si=8SYxufmwATtY9jPB" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p>William Fields is why I came to AAA. First of all, I only knew it was happening because of the email he sent out. More importantly, he's heavily influenced how I've approached coding improvisational music systems. My favorite recordings by him include <a href="https://conditionalrecs.bandcamp.com/album/shackamaxon">Shackamaxon</a>, <a href="https://greatcurve.bandcamp.com/album/chirality-2">Chirality</a>, <a href="https://superpang.bandcamp.com/album/zugzwang">Zugzwang</a> (a duo with the aforementioned Jochen Rueckert), and the sprawling <a href="https://williamfields.bandcamp.com/album/fieldsos">FieldsOS</a>. His music hits the sweet spot of rhythm, chaos, and madcap whimsy. If you want a sense for his whimsy, check out the visuals provided during this live set.</p>
+<p>The unfortunate truth is that with the long day of travel and the two-hour time difference (midnight felt like 2am) I was hitting a wall as the evening progressed. As a result I bailed on the final set which was by <a href="https://www.kindohm.com/">Kindohm</a> and <a href="https://www.sebastiancamens.com/">Sebastian Camens</a>. This is a shame because Kindohm is from Minneapolis. It would have been nice to support the hometown guy. The visualizations also looked incredible.</p>
+<h3 id="day-two">Day Two</h3>
+<p>The second day of AAA started with a series of talks. Here were the highlights for me.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/oWb905HpxT4?si=bp496lSh7Yq4vfxW" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://clairelevans.com/">Claire L. Evans</a> is an artist and science journalist who makes the case that computation as we currently think about it is done with "rock-based computers" (i.e with mircochips made out of metals and minerals). I love this image. It demystifies computers a little bit, puts them in their place. They're not magical metaphysical devices. They're just made out of rocks.</p>
+<p>She points out that nature is already able to do computation using biological systems that have evolved for thousands of years. She advocates for research into bio-computing technology which is as wild as it sounds. Microchips augmented with neural cells and networks. Literally computers that have a biological life span.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/RV3gJVQqmms?si=gcuu1uDmJ7NymnRl" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://charstiles.com/">Char Stiles</a> is computational artist known for her live visual performances accompanying live music. She presented on how live coders can enhance their IDEs to be more engaging for the audience. For example, in her performances she displays live video streams and a live chat box where the audience can send messages.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/V40xM3KjjrY?si=16gZr2A0Qh0BLwz2" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://danieltemkin.com/">Daniel Temkin</a> presented on a fascinating programming subculture around esoteric languages, or esolangs. According to <a href="https://www.esolangs.org">esolangs.org</a>, these are "programming languages designed to be unique, difficult to program in, or just plain weird". Temkin's dive into the world of esolangs was mind bending. It seems to me like the conceptual art of creative coding. In fact, Temkin connected his work with esolangs to lots of other 20th century artists and movements, chief among them being Fluxus.</p>
+<p>Esolangs can be used to explore and disrupt the axioms and objectives inherent in programming languages. An example of an esolang created by Temkin is <a href="https://entropy-lang.org/">Entropy</a>, "a language where data decays the more it's used". In other words, each time you access or calculate a variable a degree of random variation is introduced in its value. A program written in Entropy would produce unpredictable results. It's an absurd language to use for most traditional use cases, and that's the point. Entropy subverts the idea of control at the heart of programming.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/4uqVxzpJHAs?si=gvhcaGXFEwhzDHhH" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p>There were another five musical performances that evening. One that I really enjoyed was <a href="https://luisamei.bandcamp.com/">Luisa Mei</a>. Much of the music at AAA was ominous and dissonant. Not Mei's. It was harmonic and entrancing. The visuals were also refreshingly colorful and surreal. She incorporated her own illustrations and footage of animals into the visual layers.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/NHSfgkaO0PE?si=Kg4i25inShg4YszE" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://soundcloud.com/klissay">Kara-Lis Coverdale</a> closed the evening. I've been a fan of hers since her 2017 album <a href="https://kara-liscoverdale.bandcamp.com/album/grafts">Grafts</a>. I can't count the number of times I've listened to it. This was my first time getting to see her live. It was excellent, but admittedly I was lying on the ground half asleep due to jet lag. Not a bad way to experience music like hers, to be honest. You can even spot me in the video standing front and to the right of her set up. After 13 minutes I lie down on the floor for the rest of the set.</p>
+<h3 id="day-three">Day Three</h3>
+<p>By the final day of AAA I was really coming to appreciate the experience we'd been having. The first two days I felt out of my element being in a new city, dealing with jet lag, and initially feeling underwhelmed with some of the music. Not that the music was bad. It just wasn't up my alley. The venue itself was always dark inside and had no seating, so it wasn't a comfortable place to spend five hours watching music each night.</p>
+<p>And yet, by the third day I was having a blast because it wasn't just about AAA. It was also about being in San Francisco, especially the Mission District which was full of amazing restaurants, food, and people. James and I were struck by how nice everyone was that we encountered in the city. <a href="https://www.dogearedbooks.com/">Killer bookshop</a>, check. <a href="https://www.instagram.com/jellydonuts_415/">Killer donuts</a> where they actually throw extra free donuts into your bag, check. <a href="https://www.grandcoffeesf.com/">Killer coffee shop</a> which I've already covered, check.</p>
+<p>San Francisco won me over. I loosened up a bit and enjoyed the ebb and flo, push and pull of AAA. Not everything had to land for me. On a positive note, most of the things that didn't land for me also didn't land for James. This at least indicated that we might be well-aligned musical collaborators.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/KInm_OBqfkU?si=vYOXLaDGwgosmbLa" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://www.instagram.com/c_robo_">Will Rinkoff's</a> (aka c_robo's) talk did land for me in a big way. He articulated so many of my thoughts on designing fast, ergonomic control systems for live improvised electronic music. He, like me, was inspired by the Vim system of commands and hotkeys. He comes from a live coding background, but he's increasingly moved toward executing commands that batch update live code rather than evaluating changes to the live code itself.</p>
+<p>Much of his talk was geared toward the live coding community. He explored the aesthetics and values of live coding. He even shared his live coding manifesto. Not being a live coder myself I wasn't too interested in its polemics.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/x9zdEKdlNYU?si=ZxYf2kvuB79p-gXU" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p>Veteran electronic composer <a href="https://keithfullertonwhitman.com/">Keith Fullerton Whitman</a> gave an informal talk on his current creative practice which is based around a modular synthesis rig. He introduced the rig as his "computer" because the modules were mostly digital rather than analog. I loved hearing him talk about his process. He kept it grounded and simple. His goal is to use the synthesis rig to generate complex, dynamic rhythms like the ones he enjoys in free jazz. He's even playing live with free jazz musicians with this rig. You could hear his enthusiasm for and curiosity about music in his voice. The demonstration he gave of the rig sounded fabulous.</p>
+<div class="photos">
+    <figure><img class="landscape" src="/images/film/075_09_web.jpg" alt="Tom Hall performing at the Algorithmic Art Assembly">
+        <figcaption>Tom Hall performing at AAA.</figcaption>
+    </figure>
+    <figure><img class="landscape" src="/images/film/075_10_web.jpg" alt="Tom Hall performing at the Algorithmic Art Assembly">
+        <figcaption>Tom Hall from the side of the stage.</figcaption>
+    </figure>
+</div>
+
+<p><a href="https://www.tomhall.xyz/">Tom Hall</a> gave a great talk and performance. Above are a couple photos I took of his set. Note that I was on to my second roll of film for all the remaining photos in this post. I shot these on FujiFilm Neopan Across 100II with a Canon 35mm f/2 LTM lens.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/j7SjnFCEvv8?si=CftZ8aus4FZ1qd9E" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p>The Algorithmic Art Assembly might be more accurately named the Algorithmic Music and Music Visualization Assembly. Other forms of algorithmic art were less represented. One exception was the final talk by <a href="https://archdesign.utk.edu/directory/carl-lostritto/">Carl Lostritto</a> and <a href="https://archdesign.utk.edu/directory/catty-dan-zhang/">Catty Dan Zhang</a>, two professors in the School of Architecture at the University of Tennessee Knoxville. They shared their ambitious 3D modeling project called #CLOUD (Clouds Lent Out Use Discipline). Their work was technically impressive, visually dazzling, and conceptually rich.</p>
+<div class="photos">
+    <figure><img class="landscape" src="/images/film/075_11_web.jpg" alt="A wall on Valencia Street in San Francisco full of Epstein and anti-ICE posters">
+        <figcaption>A good use of a wall.</figcaption>
+    </figure>
+</div>
+
+<p>At some point in between the talks and the evening performances I shot the photo above on Valencia St. in the Mission.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/DKB4hOS8dxM?si=r5jwQCdUvTHczy1x" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://codie.live/">Codie</a> performed one of my favorite sets of AAA. Earlier in the day I had asked James, "Where's the whimsy, the fun?" There's only so much intense percussive music with austere visuals that I can take in in a dark theater. Ask and you shall receive. Codie, a live coding trio that was down to just two people for this performance, brought the whimsy and fun. The music was bright and groovy. It had bass lines and sounded almost post-punky to me. I could have walked the visuals for hours. They had punchy colors, squiggly lines and other geometric forms, and a lovely sense of movement.</p>
+<div class="photos">
+    <figure><img class="portrait" src="/images/film/075_14_web.jpg" alt="Codie performing at the Algorithmic Art Assembly">
+        <figcaption>Codie performing at AAA.</figcaption>
+    </figure>
+</div>
+
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/ya7FEFjaV5g?si=g5NOhsmB3t0iZeiu" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p>Before Keith Fullerton Whitman's set I had a chance to chat with him. He was a nice guy. We talked about Csound, which he learned in the 90s at the Berklee School of Music under the esteemed Dr. Boulanger. For his set he performed with the modular rig he demoed earlier in the day. Damn, the music was gorgeous. I and much of the audience laid on the floor in front of the stage. The sound rattled my body. Normally I don't find that kind of bodily experience of loud sound waves aesthetically compelling, but this was different. Fullerton Whitman pulled it off in a way that felt like a powerful, artful experience.</p>
+<figure style="text-align: center;" data-wf-figure="1"><iframe title="YouTube video player" src="https://www.youtube.com/embed/26F4dlvI9Bc?si=ATR8k4D8-3bqDFtE" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></figure>
+
+<p><a href="https://gaborlazar.com/">Gábor Lázár</a> played the final set of AAA. I'm such a big fan of his sound. He follows in the rigorous footsteps of Mark Fell with his algorithmic drum samples and FM synths. In fact, his collaborative album with Mark Fell was a major influence on <a href="">how I've approached algorithmic performance systems</a>. He was one of the few performers at AAA who made me dance. Admittedly, dancing to his music is a little awkward due to the unpredictable rhythms, and yet it still feels natural to let my body move around within the rhythms.</p>
+<div class="photos">
+    <figure><img class="portrait" src="/images/film/075_17_web.jpg" alt="Gábor Lázár performing at the Algorithmic Art Assembly">
+        <figcaption>Gábor Lázár closing out AAA.</figcaption>
+    </figure>
+</div>
+
+<h3 id="day-four">Day Four</h3>
+<p>Sunday was our first completely free day. In the morning we met up with Kim in Outer Richmond. We got bagels at the <a href="https://www.thelaundromatsf.com/">Laudromat</a> and walked west to Sutro Heights.</p>
+<div class="photos">
+    <figure><img class="portrait" src="/images/film/075_19_web.jpg" alt="Long line in front of the Laundromat bagel shop in Outer Richmond, San Francisco">
+        <figcaption>In line for bagels at the Laundromat.</figcaption>
+    </figure>
+    <figure><img class="portrait" src="/images/film/075_24_web.jpg" alt="Two people jogging on a path overlooking the Pacific coast at Sutro Heights in San Francisco">
+        <figcaption>Looking south from Sutro Heights.</figcaption>
+    </figure>
+    <figure><img class="portrait" src="/images/film/075_22_web.jpg" alt="A man in sunglasses sitting on a rock overlooking the Pacific coast at Sutro Heights in San Francisco">
+        <figcaption>James at Sutro Heights.</figcaption>
+    </figure>
+    <figure><img class="portrait" src="/images/film/075_23_web.jpg" alt="A woman sitting on a rock overlooking the Pacific coast at Sutro Heights in San Francisco">
+        <figcaption>Kim at Sutro Heights.</figcaption>
+    </figure>
+</div>
+
+<p>We then headed up to the <a href="https://www.nps.gov/goga/learn/historyculture/sutro-baths.htm">Sutro Baths</a>, a modern-day ruins on the coast that was an opulent public bath house in the early 1900s. It burned down in 1966 and is now part of a national recreation area.</p>
+<div class="photos">
+    <figure><img class="landscape" src="/images/film/075_25_web.jpg" alt="A woman holding a bag of bagels and looking at the camera in front of a pool of water at Sutro Baths">
+        <figcaption>Kim and her bag of bagels at Sutro Baths.</figcaption>
+    </figure>
+    <figure><img class="portrait" src="/images/film/075_29_web.jpg" alt="A family sitting on the edge of a pool looking out at the Pacific coast at the Sutro Baths">
+        <figcaption>A family looking out at the ocean at Sutro Baths.</figcaption>
+    </figure>
+    <figure><img class="portrait" src="/images/film/075_28_web.jpg" alt="A mostly black photo taken within a cave with a circle of light looking outside of the cave">
+        <figcaption>From a cave at Sutro Baths.</figcaption>
+    </figure>
+    <figure><img class="landscape" src="/images/film/075_27_web.jpg" alt="Looking out on the Pacific coast from within a rock tunnel at Sutro Baths">
+        <figcaption>The other end of the cave at Sutro Baths.</figcaption>
+    </figure>
+</div>
+
+<p>We parted ways with Kim in the early afternoon. From there James and I spent a few hours strolling south and walking through Golden Gate Park. I can't even remember what happened the rest of the day.</p>
+<h3 id="day-five">Day Five</h3>
+<p>Monday was our last day in San Francisco. In the morning James and I split up to do our own explorations. I walked west from the Mission to Inner Sunset and snapped more photos along the way. In the afternoon we hopped on a plane and got out of there.</p>
+<div class="photos">
+    <figure><img class="landscape" src="/images/film/075_32_web.jpg" alt="A circular convex mirror mounted next to a parking garage door in San Francisco">
+        <figcaption>On 20th St.</figcaption>
+    </figure>
+    <figure><img class="landscape" src="/images/film/075_34_web.jpg" alt="The graffiti-covered storefront of an abandoned laundromat in San Francisco">
+        <figcaption>On 20th St.</figcaption>
+    </figure>
+    <figure><img class="portrait" src="/images/film/075_33_web.jpg" alt="Tall palm trees at Delores Park with a skyscraper in the distance in San Francisco">
+        <figcaption>Dolores Park in the Mission.</figcaption>
+    </figure>
+    <figure><img class="landscape" src="/images/film/075_35_web.jpg" alt="The coffee bar at Hedge Coffee in San Francisco">
+        <figcaption>Hedge Coffee.</figcaption>
+    </figure>
+</div>
+
+<h3 id="epilogue">Epilogue</h3>
+<p>I'll definitely attend the next AAA. It was worth the trip. Plus, it did the trick. Perhaps invigorated by AAA, James and I have revived our music project. Throughout AAA he and I exchanged ideas and reflections on what we were experiencing. Sometimes we learned more about what we wanted to avoid than about what we wanted to do. James even came up with the first tenet of our manifesto:</p>
+<p><strong>1. Don't let the audience get to the point where they are waiting for you to be done.</strong></p>
+<div id="prev-next-container"><span class="older-button"><a href="/text/update-visual-work" class="readmore">Older</a></span></div></div><div id="comments-section"><div id="comment-form"><form class="js-form" method="post" action="https://staticman-comments-rbo6.onrender.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
+    
+    <!-- <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}"> -->
+    <input type="hidden" name="options[parent]" value="https://jasonhallen.com/blog/update-algorithmic-art-assembly.html">
+    <!-- <input name="options[redirect]" type="hidden" value="https://jasonhallen.com/thanks"> -->
+    <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
+    <input type="hidden" name="options[slug]" value="update-algorithmic-art-assembly">
+    
+    <!-- reCaptcha -->
+    <input type="hidden" name="options[reCaptcha][siteKey]" value="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI">
+    <input type="hidden" name="options[reCaptcha][secret]" value="J/1tx/gxjjcF4Qw17kZ0QUhUK9xnotL31qIetlT0EGmt7rZEyYfRDfKKHit/hxajHF4EV898b9pWqF0nbhZVa+j+AmxyMrcJTvP7lD0Fvfdk6fK/W/6OMe1q3dOROo/HIF5lLmDcdFMKc9L1Y3T0wDNuStn2lvL3v2ECnajXG5/CSurNFRnFq1k1iwGvHn5XLeypNgz08MKk+5E5f55DyEeRwxtLu2wAaiyIBISpboEas5v9OZpPoclYnYWneAiX0CeccxGSL3EyxJ3CCD9GSJsFrrOYAPRRujw4hXmRzAzzJunSLd1V4icFPaqlsqWYAGYMehQeeHlV77MAcg7gxeSJv9GVyrfbtg82yhsASgtkGhtUFEmN7AenM1XZs4TDqUUxP01o9Gj/oYmfGQUdr734IVewVQkcm65zF092ZSeeTefX/5s8cZedPiFK6bvLylbFxu/s4kLG482H/ZU64QdSIyrDuSzOISbZo+0Yd9OlElvkgeZML6+pyjd8SrNjxfCSA1bgOhb+3aGfXKVw+JxinWCizR2JB6Q/FOZzEa4I0aefzOeGwNK8XGC/vHzmt/58KFeEDNTpse77cHywvoT74XVIciJcPUvTrq6rAw5tkaekmuDX03Trefxo+pAMBXqj8wy06mgYsg721XNd8IpE+Qk7wPs/Dv8BfEhH6sc=">
+    
+    <h2 id="comment-form-header">Leave a Comment</h2>
+
+    <div class="textfield">
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <label for="comment-form-message"><strong>Comment *</strong></label>
+        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="[You can use Markdown.]" required="" rows="6"></textarea>
+    </div>
+
+    <div class="textfield">
+        <label for="comment-form-name"><strong>Name *</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" required="">
+    </div>
+    
+    <div class="textfield">
+        <label for="comment-form-email"><strong>Email</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email">
+    </div>
+    
+    <div class="textfield hp">
+    <label for="hp">
+        <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
+    </label>
+    </div>
+
+    <div id="reCaptcha" class="g-recaptcha" data-sitekey="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI"></div>
+
+    <div id="submit-cancel-buttons">
+        <button class="readmore" id="comment-form-submit">
+        Submit
+        </button>
+
+        <button type="button" class="readmore" id="cancel-comment-reply-link" style="display: none">
+        Cancel
+        </button>
+        <!-- <p id="recaptcha-fine-print"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small></p> -->
+    </div>
+
+</form>
+
+<div id="modal-wrapper" style="display: none;">
+    <article class="modal">
+        <img class="modal-image" src="">
+            <div id="modal-text-wrapper">
+            <h3 class="modal-title js-modal-title"></h3>
+            <div class="mdl-card__supporting-text js-modal-text"></div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button class="button readmore mdl-button--colored mdl-js-button mdl-js-ripple-effect js-close-modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <symbol id="icon-loading" viewBox="149.8 37.8 499.818 525"><path d="M557.8 187.8c13.8 0 24.601-10.8 24.601-24.6S571.6 138.6 557.8 138.6s-24.6 10.8-24.6 24.6c0 13.2 10.8 24.6 24.6 24.6zm61.2 90.6c-16.8 0-30.6 13.8-30.6 30.6s13.8 30.6 30.6 30.6 30.6-13.8 30.6-30.6c.6-16.8-13.2-30.6-30.6-30.6zm-61.2 145.2c-20.399 0-36.6 16.2-36.6 36.601 0 20.399 16.2 36.6 36.6 36.6 20.4 0 36.601-16.2 36.601-36.6C595 439.8 578.2 423.6 557.8 423.6zM409 476.4c-24 0-43.2 19.199-43.2 43.199s19.2 43.2 43.2 43.2 43.2-19.2 43.2-43.2S433 476.4 409 476.4zM260.8 411c-27 0-49.2 22.2-49.2 49.2s22.2 49.2 49.2 49.2 49.2-22.2 49.2-49.2-22.2-49.2-49.2-49.2zm-10.2-102c0-27.6-22.8-50.4-50.4-50.4-27.6 0-50.4 22.8-50.4 50.4 0 27.6 22.8 50.4 50.4 50.4 27.6 0 50.4-22.2 50.4-50.4zm10.2-199.8c-30 0-54 24-54 54s24 54 54 54 54-24 54-54-24.6-54-54-54zM409 37.8c-35.4 0-63.6 28.8-63.6 63.6S374.2 165 409 165s63.6-28.8 63.6-63.6-28.2-63.6-63.6-63.6z"></path>
+    </symbol>
+</svg></div></div></div>
+    <script src="/comments.js"></script>
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">this frame prevents back/forward cache</iframe></body><!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --></html>
