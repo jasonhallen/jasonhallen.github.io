@@ -701,7 +701,7 @@ h3#comment-form-header {
 
 /* Base styles for all images */
 #photos img, .photos img {
-    display: block;
+    /* display: block; */
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -711,12 +711,19 @@ h3#comment-form-header {
 #photos img.landscape, .photos img.landscape {
     /* width: 100%;
     height: auto; */
+    max-width: 720px;
+}
+
+img {
+    color: transparent;
 }
 
 /* Styles for portrait images */
 #photos img.portrait, .photos img.portrait {
   /* height: auto; */
-  max-height: 100cqi;
+  height: 100cqi;
+  max-height: 720px;
+
 }
 
 .photos figure img.portrait {
