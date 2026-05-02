@@ -728,6 +728,7 @@ img {
 
 .photos figure img.portrait {
     width: 67%;
+    height: auto;
 }
 #photos a, .photos a {
     text-decoration: none;
