@@ -94,19 +94,26 @@ ul, ol {
 }
 img {
     max-width: 100%;
+    color: transparent;
 }
 figure {
-    display: table;
     margin: 50px 0px 45px;
+}
+figure, .photos:not(:has(figcaption)) img.landscape {
+    display: table;
     width: 100%;
     max-width: 600px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
-figure img, figure audio, figure iframe {
+.photos:not(:has(figcaption)) img.portrait {
+    height: 100cqi;
+    max-height: 600px;
+}
+figure img, figure audio, figure iframe, figure video {
     max-width: 100%;
-    width: 600px;
+    /* width: 600px; */
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -120,6 +127,51 @@ figcaption {
     text-align: center;
     margin-top: 14px;
 }
+#photos, .photos {
+    container-type: inline-size;
+    text-align: center;
+    /* font-family: "Josefin Slab"; */
+    font-size: 64px;
+    /* font-weight: bold; */
+}
+
+.photos:not(:has(figcaption)) {
+    margin-top: 60px;
+}
+
+.photos figcaption {
+    margin-top: -37px;
+}
+
+/* Base styles for all images */
+#photos img, .photos img {
+    /* display: block; */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 50px;
+}
+/* Styles for landscape images */
+#photos img.landscape, .photos img.landscape {
+    /* width: 100%;
+    height: auto; */
+    max-width: 720px;
+}
+
+/* Styles for portrait images */
+#photos img.portrait, .photos img.portrait {
+  /* height: auto; */
+  height: 100cqi;
+  max-height: 720px;
+}
+.photos figure img.portrait {
+    width: 67%;
+    height: auto;
+}
+#photos a, .photos a {
+    text-decoration: none;
+}
+
 pre {
     background: #eee;
     padding: 10px 12px;
@@ -687,52 +739,6 @@ h3#comment-form-header {
     }
 }
 
-#photos, .photos {
-    container-type: inline-size;
-    text-align: center;
-    /* font-family: "Josefin Slab"; */
-    font-size: 64px;
-    /* font-weight: bold; */
-}
-
-#photos figcaption, .photos figcaption {
-    margin-top: -37px;
-}
-
-/* Base styles for all images */
-#photos img, .photos img {
-    /* display: block; */
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    margin-bottom: 50px;
-}
-/* Styles for landscape images */
-#photos img.landscape, .photos img.landscape {
-    /* width: 100%;
-    height: auto; */
-    max-width: 720px;
-}
-
-img {
-    color: transparent;
-}
-
-/* Styles for portrait images */
-#photos img.portrait, .photos img.portrait {
-  /* height: auto; */
-  height: 100cqi;
-  max-height: 720px;
-
-}
-
-.photos figure img.portrait {
-    width: 67%;
-    height: auto;
-}
-#photos a, .photos a {
-    text-decoration: none;
-}
 select,
 ::picker(select) {
   appearance: none;
