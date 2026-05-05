@@ -127,16 +127,11 @@ function select_video_source() {
 }
 
 function set_video_start_duration() {
-    // var time_left = this.duration - this.currentTime
-    // console.log(this.duration, this.currentTime)
     if (this.element.duration > 4) {
         this.duration = Math.random() * 3 + 0.5
         this.start_time = Math.random() * (this.element.duration - this.duration)
-    // determine if video is playing
-    // if (home_video_list.length && !home_video_list[0].paused) {
-    //     var start_time = set_time_duration(this).toString()
     } else {
-        this.duration = this.element.duration - 0.2
+        this.duration = this.element.duration - 0.5
         this.start_time = 0
     }
     this.element.currentTime = this.start_time.toString()
@@ -145,10 +140,7 @@ function set_video_start_duration() {
     } else {
         this.element.style.transform = 'scaleX(1)'
     }
-    // this.element.onseeked = toggle_video_index.bind(this)
-    // this.ended = 0
     console.log(`set_video_start_duration: total = ${this.element.id}, ${this.element.duration}, current_time = ${this.element.currentTime}, start_time = ${this.start_time}, duration = ${this.duration}, autoplay = ${this.element.autoplay}, source = ${this.element.src}`)
-    // this.ontimeupdate = check_elapsed_time(this, start_time, duration)
 }
 
 function prepare_for_display() {
