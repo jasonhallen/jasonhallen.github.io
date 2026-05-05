@@ -133,7 +133,7 @@ function select_video_source() {
 
 function set_video_start_duration() {
     if (this.element.duration > 4) {
-        this.duration = Math.random() * 3 + 0.5
+        this.duration = Math.random() * 2.75 + 0.75
         this.start_time = Math.random() * (this.element.duration - this.duration)
     } else {
         this.duration = this.element.duration - 0.5
