@@ -2,14 +2,10 @@
 var videos_all = [
     'mosh_kallie_annie_2024_4_15.mp4',    
     'mosh_kallie_horizontal11_2024_4_15.mp4',
-    'mosh_kallie_horizontal14_2024_4_15.mp4',
-    'mosh_kallie_average8_2024_4_15.mp4',
     'mosh_output4_2024_2_27.mp4',
     'mosh_abs_average_forward_10_2024_4_16.mp4',
     'mosh_abs_average_forward_10_2_2024_4_16.mp4',
     'mosh_earth_horizontal_2024_4_15.mp4',
-    'mosh_puppy4_2024_4_13.mp4',
-    'mosh_puppy_output2_2024_4_14.mp4',
     'mosh_planet_transfer_2024_4_15.mp4',
     'mosh_turtle_average_2024_4_15.mp4',
     'mosh_turtle_horizontal_2024_4_15.mp4',
@@ -21,18 +17,28 @@ var videos_all = [
     'anim_horizontal_2024_2_27.mp4',
     'anim_transitions_2024_2_28.mp4',
     'anim_pan_skew_2024_3_20.mp4',
-    'anim_smear_2024_4_11.mp4',
     'anim_molly_2024_4_10.mp4',
     'anim_lake_2024_4_8.mp4',
     'anim_red_grid_2024_4_10.mp4',
     'anim_coast_2024_4_10.mp4',
-    'anim_smear_annie_2024_4_11.mp4',
     'anim_glitch_2024_4_8.mp4',
     'anim_glitch2_2024_4_8.mp4',
     'anim_coffee_2024_3_21.mp4',
     'anim_rotate_2024_3_21.mp4',
     'anim_rotate2_2024_3_21.mp4',
-    'anim_rotate3_2024_3_21.mp4'
+    'anim_rotate3_2024_3_21.mp4',
+    'planet_clouds.mp4',
+    'planet_seal.mp4',
+    'planet_shark.mp4',
+    'planet_frog.mp4',
+    'planet_paradise.mp4',
+    'planet_bird_fall.mp4',
+    'planet_bird_leap.mp4',
+    'planet_rams.mp4',
+    'planet_puma.mp4',
+    'planet_zebras.mp4',
+    'planet_color_sequence.mp4',
+    'planet_ibex.mp4',
 ]
 
 var starting_video = 'anim_transitions_2024_2_28.mp4'
@@ -130,10 +136,15 @@ function set_video_start_duration() {
     // if (home_video_list.length && !home_video_list[0].paused) {
     //     var start_time = set_time_duration(this).toString()
     } else {
-        this.duration = 0
+        this.duration = this.element.duration - 0.2
         this.start_time = 0
     }
     this.element.currentTime = this.start_time.toString()
+    if (Math.random() < 0.5) {
+        this.element.style.transform = 'scaleX(-1)'
+    } else {
+        this.element.style.transform = 'scaleX(1)'
+    }
     // this.element.onseeked = toggle_video_index.bind(this)
     // this.ended = 0
     console.log(`set_video_start_duration: total = ${this.element.id}, ${this.element.duration}, current_time = ${this.element.currentTime}, start_time = ${this.start_time}, duration = ${this.duration}, autoplay = ${this.element.autoplay}, source = ${this.element.src}`)
