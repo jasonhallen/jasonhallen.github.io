@@ -126,7 +126,7 @@ class HomeVideo {
         // var home_video_list = document.getElementsByClassName('home_video')
         if (initial_load == true) {
             swap_video_elements()
-            initial_load = false
+            // initial_load = false
         }
     }
 
@@ -281,7 +281,10 @@ function play_pause_clicked(event) {
         play_pause_button.classList.add('rotate')
         // play_video()
         video_playing = true
-        current_video.load_other_video()
+        if (initial_load == true) {
+            initial_load = false
+            current_video.load_other_video()
+        }
         current_video.play_video()
         // home_video_list[video_index].timer = setInterval(check_elapsed_time.bind(home_video_list[video_index]))
         // home_video_list[video_index].element.play()
