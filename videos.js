@@ -43,6 +43,12 @@ var videos_all = [
     'planet_zebras.mp4',
     'planet_color_sequence.mp4',
     'planet_ibex.mp4',
+    'planet_shrimp.mp4',
+    'planet_peak.mp4',
+    'planet_lava.mp4',
+    'planet_lava_shark1.mp4',
+    'planet_stingray.mp4',
+    'planet_fish.mp4',
 ]
 
 var videos_available = videos_all.map((x) => x)
