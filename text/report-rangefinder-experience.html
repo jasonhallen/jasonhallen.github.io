@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jason Hallen">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, photography, film, media, video, datamoshing, photography, film, slr, rangefinder, ricoh, canon, pentax, petri, yashica">
+<meta name="description" content="I attended the Algorithmic Art Assembly v3.0 in San Francisco and these were the highlights.">
+<link rel="stylesheet" href="/style.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    var elem = document.getElementsByClassName("select-items");
+    const current_selection = document.querySelector('.current-selection');
+    // const dropdown_icon = document.querySelector('#select-selected .dropdown-icon');
+    const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
+    if (elem[0].classList.contains("select-hide")) {
+      
+      // Show dropdown
+      const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.add("open");
+      dropdown_icon.innerHTML = '&#x2227;';
+      elem[0].classList.remove("select-hide");
+      
+      // If an active item exists, scroll the container
+      if (current_selection) {
+        // Get the item's position relative to the document
+        const itemTop = current_selection.offsetTop;
+        const itemHeight = current_selection.clientHeight;
+        const containerHeight = elem[0].clientHeight;
+        
+        // Set the container's scroll position to match the item's position
+        elem[0].scrollTop = itemTop - (containerHeight / 2) + (itemHeight / 2);
+      }
+    } else {
+      // Hide dropdown
+      elem[0].classList.add("select-hide");
+      // const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.remove("open");
+      dropdown_icon.innerHTML = '&#x2228;';
+      // Add pseudo-hover class back to current-selection
+      current_selection.classList.add('pseudo-hover');
+    }
+    event.stopPropagation()
+  }
+
+  function selectClose(event) {
+    console.log(event.target);
+    var select_items = document.getElementsByClassName("select-items");
+    if (select_items.length > 0 && !select_items[0].classList.contains("select-hide")) {
+      select_items[0].classList.add("select-hide");
+      // const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.remove("open");
+      const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
+      dropdown_icon.innerHTML = '&#x2228;';
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.add('pseudo-hover');
+    }
+    const nav = document.querySelector('#nav');
+    const hamburger = document.querySelector('#hamburger-menu');
+    if (nav.classList.contains('open')) {
+      if (event.target.closest('#hamburger-menu') != hamburger && event.target.tagName != "A") {
+        console.log("Close nav menu");
+        nav.classList.remove('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      } else if (event.target.tagName == "A") {
+        console.log('Click A, transition = none')
+        // nav.style.transition = 'none';
+        // hamburger.style.transition = 'none';
+        nav.classList.remove('open');
+        hamburger.classList.toggle('active');
+      }
+    }
+  }
+
+  function mouseoverDropdown(event) {
+    const targetItem = event.target.closest('.current-selection');
+    if (targetItem == null) {
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.remove('pseudo-hover')
+    }
+  }
+
+  document.addEventListener("click", selectClose);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('#hamburger-menu');
+    const nav = document.querySelector('#nav');
+    
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      });
+    }
+    
+    // if (hamburger && nav) {
+    //   nav.classList.add('no-anim');
+    //   hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    //   hamburger.classList.remove('active');
+
+    //   // void nav.offsetHeight;
+
+    //   nav.classList.remove('no-anim');
+    //   hamburger.classList.remove('no-anim');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+  });
+
+  // Listen for window resize events
+  window.addEventListener('resize', () => {
+    // Check if the screen width is greater than your mobile breakpoint
+    if (window.innerWidth > 767) {
+      const hamburger = document.querySelector('#hamburger-menu');
+      const nav = document.querySelector('#nav');
+      // If so, remove the 'open' class to ensure the menu is visible
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      console.log("Persisted");
+      window.location.reload()
+    // This code runs when the page is restored from BFcache
+    // const hamburger = document.querySelector('#hamburger-menu');
+    // const nav = document.querySelector('#nav');
+    
+    // if (hamburger) {
+    //   hamburger.style.transition = 'none';
+    //   hamburger.classList.remove('active');
+    // }
+    // if (nav) {
+    //   // nav.classList.add('no-anim');
+    //   nav.style.transition = 'none';
+    //   // hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+
+    
+    // Find all menu items with the 'hover-active' or 'active' class
+    // const activeItems = document.querySelectorAll('.active');
+    
+    // Loop through them and remove the class
+    // activeItems.forEach(item => {
+    //   item.classList.remove('pseudo-hover');
+    //   // item.classList.remove('active');
+    //   // nav.classList.remove('close');
+    //   // hamburger.classList.remove('active');
+    // });
+    }
+  });
+// document.body.removeAttribute('data-no-display');
+</script><title>Report: Rangefinder Experiences</title></head>
+
+<body>
+    <div id="header"><span id="jason-hallen">
+    <a href="/">Jason Hallen</a>
+</span>
+<div id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+<div id="nav">
+    <ul>
+        <li class="active"><a href="/text"><span>Text</span></a></li>
+        <li><a href="/photo"><span>Photo</span></a></li>
+        <li><a href="/audio"><span>Audio</span></a></li>
+        <li><a href="/video"><span>Video</span></a></li>
+        <li><a href="/info"><span>Info</span></a></li>
+    </ul>
+</div>        
+
+    </div>
+    <div id="page-content"><div id="post-section"><h2>Report: Rangefinder Experiences</h2><span class="muted date">May 3, 2026</span>
+
+<p>It started with an interest in smaller, simpler 35mm film cameras. I've since acquired six different rangefinder cameras. Sears 35|RF, Yashica Electro 35 GSN, Yashica Lynx 5000E, Konica IIIA, Canon 7s, and Petri Racer. I'll tell you about each of these cameras and why I find myself drawn to rangefinders more than SLRs.</p>
+
+<h3 id="sears-35rf">Sears 35|RF</h3>
+<p>I didn’t expect the <a href="https://www.35mmc.com/17/06/2025/5-frames-after-a-storm-with-a-pentax-mx-and-lomography-berlin-400/">Pentax MX to feel so liberating</a>. It was small enough to carry around in a pocket, light in the hand, and quick to dial in the exposure. Nothing fancy got in the way. So of course I wondered how shooting with an even smaller and simpler camera would feel.</p>
+<p>This led me to the <a href="https://cameraquest.com/com35s.htm">fixed-lens compact rangefinders</a> that were popular in the 60s and 70s. After reading up on the various models I decided on a Ricoh 500G for two particular features.</p>
+<ul>
+<li>It has both an automatic exposure mode and a manual mode.</li>
+<li>Its light meter works in both modes. Often in this class of camera the light meter only works in automatic exposure mode, not in manual mode.</li>
+</ul>
+<p>[IMAGE OF SEARS 35|RF]</p>
+<p>The Ricoh 500G was also rebranded and sold as the Sears 35|RF. You can often pick up the Sears 35|RF for cheaper than the Ricoh 500G, so that's what I did. My Sears 35|RF arrived fully operational and in good condition. I cleaned it up, put in new light seals, popped in a new battery, tuned the variable resistors in the light meter circuit, and adjusted the infinity focus. Good to go.</p>
+<h4 id="features">Features</h4>
+<ul>
+<li>40mm f/2.8 fixed lens</li>
+<li>Leaf shutter</li>
+<li>1/8s - 1/500s shutter speeds</li>
+<li>f/2.8 - f/16 aperture</li>
+<li>Shutter speed priority auto exposure mode</li>
+<li>Manual exposure mode</li>
+<li>No parallax correction, just parallax indicator lines</li>
+</ul>
+<h4 id="photos">Photos</h4>
+<p>I had only shot with SLRs before, so <a href="../photo/032">I spent the first roll</a> getting used to focusing and composing with a rangefinder. Here are a few shots from that roll which was Lomography Berlin Kino 400.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/032_19_web.jpg" alt="Kallie and Annie playing in the grass">
+    <img class="portrait" src="/images/film/032_16_web.jpg" alt="A fenced path through the arboretum">
+    <img class="landscape" src="/images/film/032_15_web.jpg" alt="Kallie walking Annie next to a block of blooming bushes">
+    <img class="portrait" src="/images/film/032_35_web.jpg" alt="Multiple groups of people eating ice cream on the riverwalk">
+</div>
+
+<p>From this first roll I sensed something special about the photos coming out of this camera. It was hard to put my finger on it. The compositions seemed stronger. See, I don't like to crop my photos. I want to see the full compositions framed by the dark borders around the negatives. With that self-imposed constraint, my photos live and die by how well I framed the composition I had in mind while snapping. With the Sears 35|RF my photos seemed to have a higher-than-average rate of winners. Or maybe this was just in my head?</p>
+<p><a href="../photo/033">I shot another roll</a>, this time Kentmere Pan 400.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/033_21_web.jpg" alt="Two young girls skipping together along the riverwalk">
+    <img class="landscape" src="/images/film/033_33_web.jpg" alt="Annie sitting between Kallie's legs on the porch">
+    <img class="portrait" src="/images/film/033_16_web.jpg" alt="Concrete stairs and seats on the St. Olaf hill">
+    <img class="landscape" src="/images/film/033_27_web.jpg" alt="Old brick apartment building with fire escape and a telephone pole">
+</div>
+
+<p>This only confirmed my suspicion that the photos were coming out better composed. I was hooked on this camera. Here's what I liked about the Sears 35|RF, which also applies to the Ricoh 500G.</p>
+<ul>
+<li>Simple<ul>
+<li>Fixed lens</li>
+<li>Mechanical</li>
+<li>Leaf shutter</li>
+</ul>
+</li>
+<li>Cheap<ul>
+<li>$40</li>
+</ul>
+</li>
+<li>Discrete<ul>
+<li>Small, pocketable, light</li>
+<li>Unobtrusive</li>
+<li>Quiet</li>
+</ul>
+</li>
+<li>Approximate<ul>
+<li>Focusing is quick and dirty</li>
+<li>No depth of field preview, depth of field scale, parallax correction</li>
+<li>Estimation of focus and composition</li>
+</ul>
+</li>
+</ul>
+<p>I went on to shoot several more rolls on the Sears 35|RF on trips to Atlanta, Des Moines, and Indiana. Here's a sampling of photos from rolls <a href="../photo/034">034</a>, <a href="../photo/035">035</a>, <a href="../photo/039">039</a>, <a href="../photo/041">041</a>, and <a href="../photo/046">046</a>.</p>
+<div class="photos">
+    <img class="portrait" src="/images/film/035_01_web.jpg" alt="Yellow Ducati motorcycle under a Liberty for All banner inside the Chrome Yellow coffee shop in Atlanta">
+    <img class="landscape" src="/images/film/046_01_web.jpg" alt="Saturated red shed next to a tall green tree in a field">
+    <img class="landscape" src="/images/film/039_19_web.jpg" alt="A pile of clothing with mannequin legs sticking out at Dust vintage shop in Des Moines">
+    <img class="portrait" src="/images/film/039_20_web.jpg" alt="A toilet, sink, and tub in the front window of American Plumbing Supply shop in Des Moines">
+    <img class="portrait" src="/images/film/035_29_web.jpg" alt="A bronze statue of a person that is glistening in the rain with foliage of trees in the background">
+    <img class="portrait" src="/images/film/039_27_web.jpg" alt="The top half of a mannequin and a street light inside an otherwise empty store front in Des Moines">
+    <img class="portrait" src="/images/film/046_31_web.jpg" alt="A mannequin torso and a sepia photograph of two dogs in Zodiac Vintage">
+    <img class="landscape" src="/images/film/034_10_web.jpg" alt="People trapped under an overpass during a storm in Atlanta">
+    <img class="portrait" src="/images/film/039_21_web.jpg" alt="A man sitting at the espresso bar of Horizon Line coffee shop in Des Moines">
+    <img class="landscape" src="/images/film/041_31_web.jpg" alt="Jason and Kallie reflection in a window with the Crump theater behind them">
+    <img class="landscape" src="/images/film/041_05_web.jpg" alt="Kallie driving with Annie looking out the window on her lap">
+    <img class="landscape" src="/images/film/034_26_web.jpg" alt="Youths descending into subway on escalator in Atlanta">
+    <img class="portrait" src="/images/film/034_22_web.jpg" alt="View from the front window of East Pole Coffee in Atlanta">
+    <img class="landscape" src="/images/film/041_19_web.jpg" alt="Mid-century clock in university library">
+    <img class="portrait" src="/images/film/046_38_web.jpg" alt="A brass boat mounted a table">
+    <img class="landscape" src="/images/film/035_16_web.jpg" alt="Courtney holding her infant son Huey at a wedding reception">
+    <img class="portrait" src="/images/film/034_01_web.jpg" alt="Atlanta airport baggage claim with woman crossing the foreground">
+    <img class="portrait" src="/images/film/034_35_web.jpg" alt="Looking up the elevator shaft inside a brutalist hotel in Atlanta">
+    <img class="landscape" src="/images/film/041_07_web.jpg" alt="Driving on interstate in Indiana">
+    <img class="landscape" src="/images/film/035_24_web.jpg" alt="A girl crawling out of a tent at the kids' play area at a wedding reception">
+</div>
+
+<p>This is one of my favorite cameras. It's perfect for an around-the-town or travel camera because it's so small. I nails focus, framing, and exposure, and the lens is great. I don't feel like I'm sacrificing any image quality when shooting on this.</p>
+<p>The downsides</p>
+<ul>
+<li>The focus, shutter speed, and aperture rings are packed tightly on the lens barrel, so it can be awkward to adjust</li>
+<li>Can forget to use the parallax indication lines</li>
+</ul>
+<h3 id="yashica-electro-35-gsn">Yashica Electro 35 GSN</h3>
+<p>My coffee shop buddy Nate heard that I was shooting film and fixing up cameras. He asked if I could fix his old Yashica Electro 35 GSN that he had in the 1970s. It had stopped working years ago, so he bought a second one. He said if I could fix his old one then I could have his other one.</p>
+<p>Fixing his Electro 35 was easy. The wire going out of the negative terminal of the battery compartment had corroded and become disconnected. I soldered it back in place and it worked just fine. I then took possession of his other Electro 35.</p>
+<p>Features</p>
+<ul>
+<li>45mm f/1.8 fixed lens</li>
+<li>Shutter speed range</li>
+<li>Shutter speed priority exposure mode</li>
+<li>No manual exposure mode</li>
+</ul>
+<p>I've shot three rolls on the Electro 35. Two of them were black and white which I've developed. The third was Ektar 100, which I haven't developed yet.</p>
+<p>The photos coming out of the Electro 35 blew me away. The lens is the star of the show. My God, the photos are beautiful. However, there was one big flaw.</p>
+<p>Downsides</p>
+<ul>
+<li>No manual exposure control. Forget using an incident meter.</li>
+<li>Metering is janky with two-stage travel of the shutter release button</li>
+<li>It's big but whatever</li>
+</ul>
+<div class="photos">
+    <img class="landscape" src="/images/film/045_24_web.jpg" alt="Concrete and concentric circle steps">
+    <img class="portrait" src="/images/film/045_02_web.jpg" alt="St. Olaf hill and smokestack">
+    <img class="landscape" src="/images/film/045_07_web.jpg" alt="Annie the dog laying on the back cushion of the couch">
+    <img class="landscape" src="/images/film/045_22_web.jpg" alt="Through the window into Madarin Garden">
+    <img class="landscape" src="/images/film/045_20_web.jpg" alt="Jason's feet up on his desk with plastic skull beside them">
+    <img class="landscape" src="/images/film/047_11_web.jpg" alt="Shriner car driving by in parade">
+    <img class="portrait" src="/images/film/047_04_web.jpg" alt="Kallie doing chores">
+    <img class="landscape" src="/images/film/047_02_web.jpg" alt="The Store building">
+    <img class="portrait" src="/images/film/047_16_web.jpg" alt="Ada and Eileen">
+    <img class="landscape" src="/images/film/047_34_web.jpg" alt="Claw machine with stuff animal">
+</div>
+
+<p><a href="../photo/045">045</a>
+<a href="../photo/047">047</a></p>
+<h3 id="yashica-linx-5000e">Yashica Linx 5000E</h3>
+<p>The ideal Electro 35. Manual exposure control. Better metering ergonomics. Smaller, cuter.</p>
+<p>Previous generation before the Electro 35.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/058_09_web.jpg" alt="James sitting on his couch">
+    <img class="landscape" src="/images/film/058_21_web.jpg" alt="Annie the dog doing a full body shake on the rug">
+    <img class="landscape" src="/images/film/058_14_web.jpg" alt="Beach towel draped over a chair in the sunlight">
+    <img class="landscape" src="/images/film/058_16_web.jpg" alt="Driving down Highway 3 while Annie sits in my lap">
+    <img class="landscape" src="/images/film/058_29_web.jpg" alt="White building across the street from Oak Center">
+</div>
+
+<p>Downsides</p>
+<ul>
+<li>I had strange colors and exposures with this.</li>
+<li>Spent a lot of time repairing it but the shutter blades bound and dented</li>
+</ul>
+<p>54 (needs rescan)
+<a href="../photo/058">058</a></p>
+<h3 id="konica-iiia">Konica IIIA</h3>
+<p>Considered one of the greatest rangefinder and viewfinders of all time</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/059_12_web.jpg" alt="James holding his son Huey at Oak Center">
+    <img class="portrait" src="/images/film/059_14_web.jpg" alt="Wicker laundry basket in the afternoon sun">
+    <img class="landscape" src="/images/film/059_23_web.jpg" alt="Concrete stairs in snowy hillside at St. Olaf College">
+    <img class="portrait" src="/images/film/059_24_web.jpg" alt="Statue of a nude without a head at St. Olaf College">
+    <img class="landscape" src="/images/film/059_27_web.jpg" alt="Many rows of pews at the chapel at St. Olaf College">
+    <img class="landscape" src="/images/film/059_28_web.jpg" alt="Stereo photographs from the college archives on display at St. Olaf College">
+    <img class="landscape" src="/images/film/071_01_web.jpg" alt="Skeleton in pirate outfit sitting next to a photograph of the Rock of Gibralter">
+    <img class="portrait" src="/images/film/071_11_web.jpg" alt="Inflatable tube man set against the sky">
+    <img class="landscape" src="/images/film/071_16_web.jpg" alt="Concrete stairs and outdoor light fixture">
+    <img class="portrait" src="/images/film/071_14_web.jpg" alt="Flannery the cat sleeping next to a desk with her paws in the air">
+</div>
+
+<p><a href="../photo/059">059</a>
+<a href="../photo/071">071</a></p>
+<p>Mine had a very gummy winding lever. It made shooting the first two rolls annoying. The lever would bind up. I stripped this down to clean it out. Eventually I got it working consistently, but now I'm distrustful of it.</p>
+<p>Fast shutter speeds are also too slow, so I have to remap the speeds when I shoot with it.</p>
+<p>I want to love this camera. The viewfinder and advancement lever are so nice. The optics are great. But I don't trust it.</p>
+<h3 id="canon-7s">Canon 7s</h3>
+<p>A true joy. I briefly had a Canon P but it broke. I didn't dig the framelines anyway, so I was happy to return it.</p>
+<p>My first interchangeable lens rangefinder. Focal plane shutter.</p>
+<p>This is an incredible camera. The only downside is that the meter doesn't work.</p>
+<p><a href="../photo/069">069</a>
+<a href="../photo/072">072</a>
+<a href="../photo/075">075</a></p>
+<h3 id="petri-racer">Petri Racer</h3>
+<p>I saw a photo of this camera online. It totally enchanted me. Bought it cheap off eBay. Worked really well, even the meter.</p>
+<ul>
+<li>Leaf shutter</li>
+<li>Manual exposure mode</li>
+</ul>
+<p><a href="../photo/074">074</a>
+<a href="../photo/076">076</a></p>
+<p>Downsides</p>
+<ul>
+<li>Have to advance the film before meter turns on</li>
+<li>Pain in the butt to calibrate the rangefinder and get good focus</li>
+<li>Easy to accidentally move the ISO setting and throw off the meter</li>
+<li>No parallax correction, only indicator lines</li>
+</ul>
+<div id="prev-next-container"><span class="older-button"><a href="/text/report-algorithmic-art-assembly-v3" class="readmore">Older</a></span></div></div><div id="comments-section"><div id="comment-form"><form class="js-form" method="post" action="https://staticman-comments-rbo6.onrender.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
+    
+    <!-- <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}"> -->
+    <input type="hidden" name="options[parent]" value="https://jasonhallen.com/blog/report-rangefinder-experience.html">
+    <!-- <input name="options[redirect]" type="hidden" value="https://jasonhallen.com/thanks"> -->
+    <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
+    <input type="hidden" name="options[slug]" value="report-rangefinder-experience">
+    
+    <!-- reCaptcha -->
+    <input type="hidden" name="options[reCaptcha][siteKey]" value="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI">
+    <input type="hidden" name="options[reCaptcha][secret]" value="J/1tx/gxjjcF4Qw17kZ0QUhUK9xnotL31qIetlT0EGmt7rZEyYfRDfKKHit/hxajHF4EV898b9pWqF0nbhZVa+j+AmxyMrcJTvP7lD0Fvfdk6fK/W/6OMe1q3dOROo/HIF5lLmDcdFMKc9L1Y3T0wDNuStn2lvL3v2ECnajXG5/CSurNFRnFq1k1iwGvHn5XLeypNgz08MKk+5E5f55DyEeRwxtLu2wAaiyIBISpboEas5v9OZpPoclYnYWneAiX0CeccxGSL3EyxJ3CCD9GSJsFrrOYAPRRujw4hXmRzAzzJunSLd1V4icFPaqlsqWYAGYMehQeeHlV77MAcg7gxeSJv9GVyrfbtg82yhsASgtkGhtUFEmN7AenM1XZs4TDqUUxP01o9Gj/oYmfGQUdr734IVewVQkcm65zF092ZSeeTefX/5s8cZedPiFK6bvLylbFxu/s4kLG482H/ZU64QdSIyrDuSzOISbZo+0Yd9OlElvkgeZML6+pyjd8SrNjxfCSA1bgOhb+3aGfXKVw+JxinWCizR2JB6Q/FOZzEa4I0aefzOeGwNK8XGC/vHzmt/58KFeEDNTpse77cHywvoT74XVIciJcPUvTrq6rAw5tkaekmuDX03Trefxo+pAMBXqj8wy06mgYsg721XNd8IpE+Qk7wPs/Dv8BfEhH6sc=">
+    
+    <h2 id="comment-form-header">Leave a Comment</h2>
+
+    <div class="textfield">
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <label for="comment-form-message"><strong>Comment *</strong></label>
+        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="[You can use Markdown.]" required="" rows="6"></textarea>
+    </div>
+
+    <div class="textfield">
+        <label for="comment-form-name"><strong>Name *</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" required="">
+    </div>
+    
+    <div class="textfield">
+        <label for="comment-form-email"><strong>Email</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email">
+    </div>
+    
+    <div class="textfield hp">
+    <label for="hp">
+        <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
+    </label>
+    </div>
+
+    <div id="reCaptcha" class="g-recaptcha" data-sitekey="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI"></div>
+
+    <div id="submit-cancel-buttons">
+        <button class="readmore" id="comment-form-submit">
+        Submit
+        </button>
+
+        <button type="button" class="readmore" id="cancel-comment-reply-link" style="display: none">
+        Cancel
+        </button>
+        <!-- <p id="recaptcha-fine-print"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small></p> -->
+    </div>
+
+</form>
+
+<div id="modal-wrapper" style="display: none;">
+    <article class="modal">
+        <img class="modal-image" src="">
+            <div id="modal-text-wrapper">
+            <h3 class="modal-title js-modal-title"></h3>
+            <div class="mdl-card__supporting-text js-modal-text"></div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button class="button readmore mdl-button--colored mdl-js-button mdl-js-ripple-effect js-close-modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <symbol id="icon-loading" viewBox="149.8 37.8 499.818 525"><path d="M557.8 187.8c13.8 0 24.601-10.8 24.601-24.6S571.6 138.6 557.8 138.6s-24.6 10.8-24.6 24.6c0 13.2 10.8 24.6 24.6 24.6zm61.2 90.6c-16.8 0-30.6 13.8-30.6 30.6s13.8 30.6 30.6 30.6 30.6-13.8 30.6-30.6c.6-16.8-13.2-30.6-30.6-30.6zm-61.2 145.2c-20.399 0-36.6 16.2-36.6 36.601 0 20.399 16.2 36.6 36.6 36.6 20.4 0 36.601-16.2 36.601-36.6C595 439.8 578.2 423.6 557.8 423.6zM409 476.4c-24 0-43.2 19.199-43.2 43.199s19.2 43.2 43.2 43.2 43.2-19.2 43.2-43.2S433 476.4 409 476.4zM260.8 411c-27 0-49.2 22.2-49.2 49.2s22.2 49.2 49.2 49.2 49.2-22.2 49.2-49.2-22.2-49.2-49.2-49.2zm-10.2-102c0-27.6-22.8-50.4-50.4-50.4-27.6 0-50.4 22.8-50.4 50.4 0 27.6 22.8 50.4 50.4 50.4 27.6 0 50.4-22.2 50.4-50.4zm10.2-199.8c-30 0-54 24-54 54s24 54 54 54 54-24 54-54-24.6-54-54-54zM409 37.8c-35.4 0-63.6 28.8-63.6 63.6S374.2 165 409 165s63.6-28.8 63.6-63.6-28.2-63.6-63.6-63.6z"></path>
+    </symbol>
+</svg></div></div></div>
+    <script src="/comments.js"></script>
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">this frame prevents back/forward cache</iframe></body><!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --></html>
