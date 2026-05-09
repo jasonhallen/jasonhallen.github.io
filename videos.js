@@ -77,7 +77,7 @@ class HomeVideo {
     }
 
     load_video(event = null, change_button_clicked = false) {
-        console.log(`LOAD_NEXT_VIDEO:`)
+        console.log(`LOAD_VIDEO:`)
         // if (change_button_clicked) {
         //     clearInterval(home_video_list[video_index].timer)
         // }
@@ -124,18 +124,9 @@ class HomeVideo {
         this.seeked = true
         // var home_video_container = document.getElementById('home_video_container')
         // var home_video_list = document.getElementsByClassName('home_video')
-        if (video_playing == true) {
-            // this.element.oncanplay = this.element.play
-            // this.element.onplaying = swap_video_elements.bind(this)
-            // this.element.autoplay = true
-            // this.element.play()
-            // start timer
-            // clearInterval(this.timer)
-            
-            // this.timer = setInterval(check_elapsed_time.bind(this))
-        } else {
-            // this.element.pause()
-            // this.swap_video_elements()
+        if (initial_load == true) {
+            swap_video_elements()
+            initial_load = false
         }
     }
 
@@ -144,37 +135,37 @@ class HomeVideo {
         if (this.seeked == true) {
             this.can_play = true
         }
+        console.log(`oncanplay-->set_can_play: ${this.element.id}, video_playing = ${video_playing}, seeked = ${this.seeked}, can_play = ${this.can_play}, intial_load = ${initial_load}, readyState = ${this.element.readyState}`)
 
         if (initial_load == true && this.can_play == true) {
             // this.swap_video_elements()
-            swap_video_elements()
-            initial_load = false
+            // swap_video_elements()
+            // initial_load = false
         } else if (video_playing == true && this.can_play == true) {
             // this.timer = setInterval(check_elapsed_time.bind(this))
             // this.element.play() // triggers swap_video_elements
         }
-        console.log(`oncanplay-->set_can_play: ${this.element.id}, video_playing = ${video_playing}, seeked = ${this.seeked}, can_play = ${this.can_play}, readyState = ${this.element.readyState}`)
     }
 
-    swap_video_elements() {
-        // only toggle when playing is paused
-        console.log(`swap_video_elements: ${this.element.id}, video_playing = ${video_playing}`)
-        if (this === window || video_playing == false || (video_playing == true)) {
-            current_video = this.other_video
-            this.other_video.element.style.zIndex = 50
-            this.element.style.zIndex = 25
-            // this.element.pause()
-            // video_index = -this.other_video.id + 1
-            console.log(`index changed = ${this.other_video.element.id}`)
-        } else {
-            console.log(`index not changed = ${this.id}, element paused = ${this.element.paused}`)
-        }
-    }
+    // swap_video_elements() {
+    //     // only toggle when playing is paused
+    //     console.log(`swap_video_elements: ${this.element.id}, video_playing = ${video_playing}`)
+    //     if (this === window || video_playing == false || (video_playing == true)) {
+    //         current_video = this.other_video
+    //         this.other_video.element.style.zIndex = 50
+    //         this.element.style.zIndex = 25
+    //         // this.element.pause()
+    //         // video_index = -this.other_video.id + 1
+    //         console.log(`video changed = ${this.other_video.element.id}`)
+    //     } else {
+    //         console.log(`video not changed = ${this.id}, element paused = ${this.element.paused}`)
+    //     }
+    // }
 
     play_video() {
         // this.timer = setInterval(check_elapsed_time.bind(this))
         console.log("PLAY_VIDEO")
-        this.timer = setInterval(this.check_elapsed_time.bind(this))
+        this.timer = setInterval(this .check_elapsed_time.bind(this))
         this.element.play()
     }
 
@@ -266,18 +257,17 @@ function swap_video_elements() {
         current_video = current_video.other_video
         // this.element.pause()
         // video_index = -this.other_video.id + 1
-        console.log(`index changed = ${current_video.element.id}`)
+        console.log(`video changed = ${current_video.element.id}`)
     // } else {
         // console.log(`index not changed = ${this.id}, element paused = ${this.element.paused}`)
     // }
 }
 
 function play_pause_clicked(event) {
-    console.log("PLAY/PAUSE CLICKED")
     var play_pause_button = document.getElementById('play_pause')
 
     if (video_playing == true) {
-        console.log(`PLAY_PAUSE: video_playing = ${video_playing}, pausing, video_index = ${video_index}`)
+        console.log(`PLAY_PAUSE: video_playing = ${video_playing}, pausing, video = ${current_video.element.id}`)
         play_pause_button.innerHTML = ">"
         play_pause_button.classList.remove('rotate')
 
@@ -286,7 +276,7 @@ function play_pause_clicked(event) {
         video_playing = false
 
     } else {
-        console.log(`PLAY_PAUSE: video_playing = ${video_playing}, starting, video_index = ${video_index}`)
+        console.log(`PLAY_PAUSE: video_playing = ${video_playing}, starting, video = ${current_video.element.id}`)
         play_pause_button.innerHTML = "="
         play_pause_button.classList.add('rotate')
         // play_video()
@@ -317,44 +307,3 @@ console.log(`STARTING: current_video: ${current_video.element.id}`)
 current_video.other_video.load_video()
 // current_video.swap_video_elements()
 // home_video_list[-video_index + 1].element.load()
-
-/*
-1) load initial video
-- playing = false
-- select source
-- set video start duration
-- determine play -> paused, so do not play element
-- toggle index -> yes, display initial paused screen (WORKS)
-
-2) play initial video
-- playing = false
-- start timer
-- play element => toggle index -> no, the video_index is already set (WORKS)
-
-3) change video while playing (auto or manual)
-- playing = true
-- load_next_video trigger
-- select source for non-video_index element
-- set video start duration
-- determine play -> playing, so play element
-- toggle index -> yes, to show next element (DOESN'T WORK)
-
-4) pause video
-- playing = true
-- clear timer
-- pause element (WORKS)
-
-5) restart video
-- playing = false
-- start timer
-- play element => toggle index -> no, stay on current video_index (WORKS)
-
-6) change video while paused
-- playing = false
-- select source
-- set video start duration
-- determine play -> paused, so do not play element
-- pause element
-- toggle index -> yes, show video screen even when paused (WORKS)
-
-*/
