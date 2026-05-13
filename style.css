@@ -75,6 +75,7 @@ p {
 }
 a {
     color: black;
+    text-decoration-thickness: 2px;
     /* padding: 2px 0px; */
 }
 a:hover {
@@ -98,6 +99,9 @@ img {
 }
 figure {
     margin: 50px 0px 45px;
+}
+h3 + figure {
+    margin-top: 20px;
 }
 figure, .photos:not(:has(figcaption)) img.landscape {
     display: table;

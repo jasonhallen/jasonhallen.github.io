@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Jason Hallen">
+<meta name="keywords" content="Jason Hallen, blog, computer music, algorithmic music, electronic music, csound, synthesis, experimental music, photography, film, media, video, datamoshing, photography, film, slr, rangefinder, ricoh, canon, pentax, petri, yashica">
+<meta name="description" content="There's something special about shooting on rangefinder cameras. In this post I'll share how I became interested in rangefinders, my thoughts on the six rangefinders I've shot on, and why I'm now drawn to them over SLRs.">
+<link rel="stylesheet" href="/style.css">
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9FW0V3NTDJ"></script>
+
+<link href="/images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9FW0V3NTDJ');
+
+  function selectOpen(event) {
+    var elem = document.getElementsByClassName("select-items");
+    const current_selection = document.querySelector('.current-selection');
+    // const dropdown_icon = document.querySelector('#select-selected .dropdown-icon');
+    const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
+    if (elem[0].classList.contains("select-hide")) {
+      
+      // Show dropdown
+      const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.add("open");
+      dropdown_icon.innerHTML = '&#x2227;';
+      elem[0].classList.remove("select-hide");
+      
+      // If an active item exists, scroll the container
+      if (current_selection) {
+        // Get the item's position relative to the document
+        const itemTop = current_selection.offsetTop;
+        const itemHeight = current_selection.clientHeight;
+        const containerHeight = elem[0].clientHeight;
+        
+        // Set the container's scroll position to match the item's position
+        elem[0].scrollTop = itemTop - (containerHeight / 2) + (itemHeight / 2);
+      }
+    } else {
+      // Hide dropdown
+      elem[0].classList.add("select-hide");
+      // const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.remove("open");
+      dropdown_icon.innerHTML = '&#x2228;';
+      // Add pseudo-hover class back to current-selection
+      current_selection.classList.add('pseudo-hover');
+    }
+    event.stopPropagation()
+  }
+
+  function selectClose(event) {
+    console.log(event.target);
+    var select_items = document.getElementsByClassName("select-items");
+    if (select_items.length > 0 && !select_items[0].classList.contains("select-hide")) {
+      select_items[0].classList.add("select-hide");
+      // const select_h2 = document.querySelector('#select-selected h2');
+      // select_h2.classList.remove("open");
+      const dropdown_icon = document.querySelector('#rolls-nav-select .dropdown-icon');
+      dropdown_icon.innerHTML = '&#x2228;';
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.add('pseudo-hover');
+    }
+    const nav = document.querySelector('#nav');
+    const hamburger = document.querySelector('#hamburger-menu');
+    if (nav.classList.contains('open')) {
+      if (event.target.closest('#hamburger-menu') != hamburger && event.target.tagName != "A") {
+        console.log("Close nav menu");
+        nav.classList.remove('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      } else if (event.target.tagName == "A") {
+        console.log('Click A, transition = none')
+        // nav.style.transition = 'none';
+        // hamburger.style.transition = 'none';
+        nav.classList.remove('open');
+        hamburger.classList.toggle('active');
+      }
+    }
+  }
+
+  function mouseoverDropdown(event) {
+    const targetItem = event.target.closest('.current-selection');
+    if (targetItem == null) {
+      const current_selection = document.querySelector('.current-selection');
+      current_selection.classList.remove('pseudo-hover')
+    }
+  }
+
+  document.addEventListener("click", selectClose);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('#hamburger-menu');
+    const nav = document.querySelector('#nav');
+    
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        // Toggle the 'active' class on the hamburger for the icon animation
+        hamburger.classList.toggle('active');
+      });
+    }
+    
+    // if (hamburger && nav) {
+    //   nav.classList.add('no-anim');
+    //   hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    //   hamburger.classList.remove('active');
+
+    //   // void nav.offsetHeight;
+
+    //   nav.classList.remove('no-anim');
+    //   hamburger.classList.remove('no-anim');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+  });
+
+  // Listen for window resize events
+  window.addEventListener('resize', () => {
+    // Check if the screen width is greater than your mobile breakpoint
+    if (window.innerWidth > 767) {
+      const hamburger = document.querySelector('#hamburger-menu');
+      const nav = document.querySelector('#nav');
+      // If so, remove the 'open' class to ensure the menu is visible
+      nav.classList.remove('open');
+      hamburger.classList.remove('active');
+    }
+  });
+
+  window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+      console.log("Persisted");
+      window.location.reload()
+    // This code runs when the page is restored from BFcache
+    // const hamburger = document.querySelector('#hamburger-menu');
+    // const nav = document.querySelector('#nav');
+    
+    // if (hamburger) {
+    //   hamburger.style.transition = 'none';
+    //   hamburger.classList.remove('active');
+    // }
+    // if (nav) {
+    //   // nav.classList.add('no-anim');
+    //   nav.style.transition = 'none';
+    //   // hamburger.classList.add('no-anim');
+    //   nav.classList.remove('close');
+    // }
+
+    // // void nav.offsetHeight;
+    // // void hamburger.offsetHeight;
+
+    // if (document.activeElement) {
+    //   document.activeElement.blur();
+    // }
+
+    
+    // Find all menu items with the 'hover-active' or 'active' class
+    // const activeItems = document.querySelectorAll('.active');
+    
+    // Loop through them and remove the class
+    // activeItems.forEach(item => {
+    //   item.classList.remove('pseudo-hover');
+    //   // item.classList.remove('active');
+    //   // nav.classList.remove('close');
+    //   // hamburger.classList.remove('active');
+    // });
+    }
+  });
+// document.body.removeAttribute('data-no-display');
+</script><title>Shooting: Rangefinders</title></head>
+
+<body>
+    <div id="header"><span id="jason-hallen">
+    <a href="/">Jason Hallen</a>
+</span>
+<div id="hamburger-menu">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+<div id="nav">
+    <ul>
+        <li class="active"><a href="/text"><span>Text</span></a></li>
+        <li><a href="/photo"><span>Photo</span></a></li>
+        <li><a href="/audio"><span>Audio</span></a></li>
+        <li><a href="/video"><span>Video</span></a></li>
+        <li><a href="/info"><span>Info</span></a></li>
+    </ul>
+</div>        
+
+    </div>
+    <div id="page-content"><div id="post-section"><h2>Shooting: Rangefinders</h2><span class="muted date">May 12, 2026</span>
+
+<figure><img class="cover-image" src="/images/046_31_detail.jpg" alt=""></figure>
+
+<p>There's something special about shooting on rangefinder cameras. Even though they fell out of fashion after the ascendance of SLRs in the 1960s, rangefinders still offer a unique and compelling shooting experience. In this post I'll share how I became interested in rangefinders, my thoughts on the six rangefinders I've shot on, and why I'm now drawn to them over SLRs.</p>
+
+<p>I first became curious about rangefinders when I was on the hunt for a <strong>smaller, simpler film camera</strong> to shoot on. The Pentax MX <a href="https://www.35mmc.com/17/06/2025/5-frames-after-a-storm-with-a-pentax-mx-and-lomography-berlin-400/">had recently been a revelation to me</a> because it was small enough to carry around in a pocket, light in the hand, and quick to dial in the exposure. Nothing fancy got in the way. So of course I wondered how it would feel to go even smaller.</p>
+<p>This led me to the <a href="https://cameraquest.com/com35s.htm">fixed-lens compact rangefinders</a> that were popular in the 60s and 70s. These cameras could be so compact because they did without the mirror box of an SLR and the bulkier components of a focal plane shutter. After reading up on the various models of compact rangefinders I decided on a Ricoh 500G. But that turned out to be just the beginning of my rangefinder journey.</p>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ol>
+<li><a href="#whats-a-rangefinder">What's a Rangefinder?</a></li>
+<li><a href="#ricoh-500g--sears-35rf-1972">Ricoh 500G / Sears 35|RF (1972)</a></li>
+<li><a href="#yashica-electro-35-gsn-1973">Yashica Electro 35 GSN (1973)</a></li>
+<li><a href="#yashica-lynx-5000e-1968">Yashica Lynx 5000E (1968)</a></li>
+<li><a href="#konica-iiia-1958">Konica IIIA (1958)</a></li>
+<li><a href="#canon-7s-1967">Canon 7s (1967)</a></li>
+<li><a href="#petri-racer-1966">Petri Racer (1966)</a></li>
+<li><a href="#other-rangefinders">Other Rangefinders</a></li>
+<li><a href="#final-thoughts">Final Thoughts</a></li>
+</ol>
+<h3 id="whats-a-rangefinder">What's a Rangefinder?</h3>
+<p>But first, let's quickly talk about what a rangefinder camera is in case you're not familiar with them. I'll just refer you to the <a href="https://en.wikipedia.org/wiki/Rangefinder_camera">"Rangefinder camera" article on Wikipedia</a> for the complete explanation. The short version is that a rangefinder camera uses a <strong>specific focusing mechanism (called a rangefinder)</strong> where a double image appears in the viewfinder.</p>
+<p>Say you're taking a photo of a tree. You'll see a double image of the tree in the viewfinder. When you adjust the focusing lever or ring, the double image of the tree merges into a single image of the tree. That tells you that the tree will be in focus in the photo.</p>
+<p>We can compare this with a <a href="https://en.wikipedia.org/wiki/Single-lens_reflex_camera">single-lens reflex (SLR) camera</a>. With an SLR the image comes in through the lens, is reflected by a series of mirrors inside the camera, and is projected into the viewfinder. When you look through the viewfinder you're seeing the exact image that's coming in through the lens. With a rangefinder camera, the image you see through the viewfinder <strong>isn't coming in through the lens</strong>. It's coming in through the viewfinder and rangefinder windows on top of the camera.</p>
+<p>With good calibration, a rangefinder mechanism lets you compose and focus your photo just as well as an SLR camera. Maybe even better, as I'll argue later on.</p>
+<h3 id="ricoh-500g--sears-35rf-1972">Ricoh 500G / Sears 35|RF (1972)</h3>
+<figure><img src="/images/sears_35rf.jpg" alt="Sears 35|RF rangefinder camera">
+</figure>
+
+<p><strong>Lens:</strong> 40mm f/2.8 fixed<br>
+<strong>Shutter:</strong> Leaf, 1/8 sec to 1/500 sec<br>
+<strong>Meter:</strong> CdS cell<br>
+<strong>Exposure:</strong> Manual and semi-auto shutter-priority<br>
+<strong>Parallax:</strong> Indicator lines</p>
+<p>Now back to the <strong>Ricoh 500G</strong>, the first rangefinder camera I purchased. I decided on it for two particular reasons.</p>
+<ul>
+<li>It has <strong>both a semi-automatic exposure mode and a manual mode</strong>. Many compact rangefinders only have the semi-automatic mode.</li>
+<li>Its light meter <strong>works in both exposure modes</strong>. Often with compact rangefinders the light meter only works in the semi-automatic exposure mode, not in the manual mode in the rare chance there is one.</li>
+</ul>
+<p>The Ricoh 500G was also rebranded and sold as the <strong>Sears 35|RF</strong>. You can often pick up the Sears 35|RF for cheaper than the Ricoh 500G, and that's what I did. My Sears 35|RF arrived fully operational and in good condition. I cleaned it up, put in new light seals, popped in a new battery, tuned the variable resistors in the light meter circuit, and adjusted the infinity focus.</p>
+<p>In the photo of my Sears 35|RF above you'll notice the leatherette is missing from the front of the camera. I took it off when fixing it up and haven't put it back on yet.</p>
+<p>I had only shot with SLRs before, so <a href="../photo/032">I spent the first roll</a> getting used to focusing and composing with a rangefinder. These are a few shots from that roll, which was Lomography Berlin Kino 400.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/032_19_web.jpg" alt="Kallie and Annie playing in the grass">
+    <img class="portrait" src="/images/film/032_16_web.jpg" alt="A fenced path through the arboretum">
+    <img class="landscape" src="/images/film/032_15_web.jpg" alt="Kallie walking Annie next to a block of blooming bushes">
+    <img class="portrait" src="/images/film/032_35_web.jpg" alt="Multiple groups of people eating ice cream on the riverwalk">
+</div>
+
+<p>From this first roll <strong>I sensed something special</strong> about the photos coming out of this camera. It was hard to put my finger on it. The compositions seemed stronger.</p>
+<p>See, I don't like to crop my photos. I want to see the full compositions framed by the dark borders around the negatives. With that self-imposed constraint my photos live and die by how well I framed the composition in the moment of taking the photo. With this first roll my photos seemed to have a <strong>higher-than-average rate of winners</strong> to my eye. Or maybe this was just in my head?</p>
+<p><a href="../photo/033">I shot another roll</a>, this time Kentmere Pan 400.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/033_21_web.jpg" alt="Two young girls skipping together along the riverwalk">
+    <img class="landscape" src="/images/film/033_33_web.jpg" alt="Annie sitting between Kallie's legs on the porch">
+    <img class="portrait" src="/images/film/033_16_web.jpg" alt="Concrete stairs and seats on the St. Olaf hill">
+    <img class="landscape" src="/images/film/033_27_web.jpg" alt="Old brick apartment building with fire escape and a telephone pole">
+</div>
+
+<p>Yet again these photos were coming out with a certain <em>je ne sais quoi</em>. I was really digging the shooting experience and the results from the Sears 35|RF, but it wasn't clear to me what gave this camera its magic.</p>
+<p>I have a theory though. Rangefinders typically have framelines in their viewfinders. As the name suggests, framelines indicate what part of the image in the viewfinder will be captured in the 35mm frame. But their real benefit is that you can <strong>see what's outside of the framelines</strong> in the viewfinder.</p>
+<p>This is actually a big deal. You get to see more of the scene which lets you <strong>dial in exactly the composition you want</strong> within the framelines and dial out exactly what you don't want. You don't get this with SLR viewfinders. In fact, SLR viewfinders typically display only 93-98% of what will be captured on the 35mm frame. This means it's easier to accidentally capture something on the film that's just out of view of the viewfinder.</p>
+<p>Admittedly, if I were open to cropping my photos this wouldn't matter much. If something intruded into the frame that I didn't want I would just crop it out. However, since I don't want to crop my photos, rangefinders might actually be the better tool for me.</p>
+<p>I went on to shoot several more rolls on the Sears 35|RF on trips to Atlanta, Des Moines, and Indiana. Here's a sampling of photos from rolls <a href="../photo/034">034 (Kodak Tri-X 400)</a>, <a href="../photo/035">035 (Kodak Ektar 100)</a>, <a href="../photo/039">039 (Kodak Color Plus 200)</a>, <a href="../photo/041">041 (Lomography Berlin Kino 400)</a>, and <a href="../photo/046">046 (Kodak Portra 160)</a>.</p>
+<div class="photos">
+    <img class="portrait" src="/images/film/035_29_web.jpg" alt="A bronze statue of a person that is glistening in the rain with foliage of trees in the background">
+    <img class="landscape" src="/images/film/034_26_web.jpg" alt="Youths descending into subway on escalator in Atlanta">
+    <img class="landscape" src="/images/film/041_05_web.jpg" alt="Kallie driving with Annie looking out the window on her lap">
+    <img class="portrait" src="/images/film/046_38_web.jpg" alt="A brass boat mounted a table">
+    <img class="portrait" src="/images/film/034_35_web.jpg" alt="Looking up the elevator shaft inside a brutalist hotel in Atlanta">
+    <img class="landscape" src="/images/film/041_07_web.jpg" alt="Driving on interstate in Indiana">
+    <img class="landscape" src="/images/film/041_31_web.jpg" alt="Jason and Kallie reflection in a window with the Crump theater behind them">
+    <img class="landscape" src="/images/film/039_19_web.jpg" alt="A pile of clothing with mannequin legs sticking out at Dust vintage shop in Des Moines">
+    <img class="portrait" src="/images/film/046_31_web.jpg" alt="A mannequin torso and a sepia photograph of two dogs in Zodiac Vintage">
+    <img class="portrait" src="/images/film/035_01_web.jpg" alt="Yellow Ducati motorcycle under a Liberty for All banner inside the Chrome Yellow coffee shop in Atlanta">
+    <img class="portrait" src="/images/film/034_22_web.jpg" alt="View from the front window of East Pole Coffee in Atlanta">
+    <img class="portrait" src="/images/film/039_20_web.jpg" alt="A toilet, sink, and tub in the front window of American Plumbing Supply shop in Des Moines">
+    <img class="landscape" src="/images/film/041_19_web.jpg" alt="Mid-century clock in university library">
+    <img class="landscape" src="/images/film/035_24_web.jpg" alt="A girl crawling out of a tent at the kids' play area at a wedding reception">
+    <img class="landscape" src="/images/film/035_16_web.jpg" alt="Courtney holding her infant son Huey at a wedding reception">
+    <img class="portrait" src="/images/film/034_01_web.jpg" alt="Atlanta airport baggage claim with woman crossing the foreground">
+    <img class="landscape" src="/images/film/034_10_web.jpg" alt="People trapped under an overpass during a storm in Atlanta">
+    <img class="landscape" src="/images/film/046_01_web.jpg" alt="Saturated red shed next to a tall green tree in a field">
+    <img class="portrait" src="/images/film/039_21_web.jpg" alt="A man sitting at the espresso bar of Horizon Line coffee shop in Des Moines">
+    <img class="portrait" src="/images/film/039_27_web.jpg" alt="The top half of a mannequin and a street light inside an otherwise empty store front in Des Moines">
+</div>
+
+<p>Like with any camera, there are downsides.</p>
+<ul>
+<li>The focus, shutter speed, and aperture rings are packed tightly on the lens barrel, so <strong>adjusting the settings can be clumsy</strong>.</li>
+<li>It's easy to forget to use the parallax indication lines when shooting at close focus. This will cause <strong>inaccurate framing of compositions</strong>.</li>
+</ul>
+<p>These downsides are <strong>totally acceptable to me</strong>, and the Sears 35|RF is now in the list of Cameras I Wouldn't Get Rid Of. It's perfect for an around-the-town or travel camera because it's so small. It nails focus, framing, and exposure, and the lens is great. I don't feel like I'm sacrificing image quality when shooting on this.</p>
+<p>My love for the Sears 35|RF also kick started my love for rangefinders. In short order I began acquiring other rangefinders in the quest for the ideal.</p>
+<h3 id="yashica-electro-35-gsn-1973">Yashica Electro 35 GSN (1973)</h3>
+<figure><img src="/images/yashica_electro35_gsn.jpg" alt="Yashica Electro 35 GSN rangefinder camera">
+</figure>
+
+<p><strong>Lens:</strong> 45mm f/1.7 fixed<br>
+<strong>Shutter:</strong> Leaf, 30 sec to 1/500 sec<br>
+<strong>Meter:</strong> CdS cell<br>
+<strong>Exposure:</strong> Semi-auto aperture-priority<br>
+<strong>Parallax:</strong> Automatic correction</p>
+<p>My coffee shop buddy Nate heard that I was shooting film and fixing up cameras. He asked if I could fix his old <strong>Yashica Electro 35 GSN</strong> that he's had since the 1970s. It had stopped working years ago, so he bought a second one. He said if I could fix his original Electro 35 he'd give me his second one.</p>
+<p>Fixing his Electro 35 was easy. The wire going out of the negative terminal of the battery compartment had corroded and become disconnected. A very common issue on old cameras. The Electro 35 was <strong>one of the first cameras to have an electronic shutter</strong>, so unlike a fully mechanical camera it required batteries to operate. I opened up the camera and soldered the battery wire back in place. Camera fixed! I then took possession of his other Electro 35.</p>
+<p>I've shot three rolls on the Electro 35: <a href="../photo/045">Lomography Berlin Kino 400</a>, <a href="../photo/047">Lomography Potsdam Kino 100</a>, and Kodak Ektar 100. I haven't developed the third roll yet, so here are shots from the first two.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/045_24_web.jpg" alt="Concrete and concentric circle steps">
+    <img class="portrait" src="/images/film/045_02_web.jpg" alt="St. Olaf hill and smokestack">
+    <img class="landscape" src="/images/film/045_07_web.jpg" alt="Annie the dog laying on the back cushion of the couch">
+    <img class="landscape" src="/images/film/045_22_web.jpg" alt="Through the window into Madarin Garden">
+    <img class="landscape" src="/images/film/045_20_web.jpg" alt="Jason's feet up on his desk with plastic skull beside them">
+    <img class="landscape" src="/images/film/047_11_web.jpg" alt="Shriner car driving by in parade">
+    <img class="portrait" src="/images/film/047_04_web.jpg" alt="Kallie doing chores">
+    <img class="landscape" src="/images/film/047_02_web.jpg" alt="The Store building">
+    <img class="portrait" src="/images/film/047_16_web.jpg" alt="Ada and Eileen">
+    <img class="landscape" src="/images/film/047_34_web.jpg" alt="Claw machine with stuff animal">
+</div>
+
+<p>The photos coming out of the Electro 35 blew me away. I found the <strong>compositions to be strong</strong> just like with the Sears 35|RF, and the Electro 35's <strong>lens was just magical</strong>, so sharp and contrasty.</p>
+<p>However, with the Electro 35 there were downsides that were deal breakers for me.</p>
+<ul>
+<li>There is <strong>no manual exposure mode</strong>. There is only the semi-auto aperture-priority mode. This means that you set the aperture and the camera determines the shutter speed to get proper exposure according to the meter. Making matters worse, the camera <strong>doesn't tell you the shutter speed</strong>* it will use for the exposure.<ul>
+<li>On the plus side, the semi-auto exposures on the Electro 35 are excellent.</li>
+<li>On the negative side, achieving manual control over the shutter speed is not possible in any practical way. I often like to set my exposure manually according to an incident light meter, so this camera is terrible for that.</li>
+</ul>
+</li>
+<li>Activating the light meter is a <strong>fiddly process</strong> of pressing the shutter release button through two different stages of travel.<ul>
+<li>In the first couple millimeters of the travel you activate the overexposure circuit where a red light indicates that the 1/500 sec top shutter speed is insufficient due to strong light.</li>
+<li>In the next couple millimeters of the travel you activate the underexposure circuit where an orange light indicates that the shutter speed will fall below 1/30 sec due to low light.</li>
+<li>In practice this means you keep toggling the shutter release button up and down to see the lights turn on, all while praying you don't accidentally push the button too far and prematurely snap the photo.</li>
+</ul>
+</li>
+<li>The light meter will <strong>only activate after the film has been advanced and the shutter cocked</strong>. I'd much rather be able to activate the meter beforehand to assess the lighting conditions and decide whether to take a photo.</li>
+</ul>
+<p>What a bummer. I found a camera where I was thrilled with the photos, but I hated the shooting experience. If only I could find a camera just like the Electro 35 but with manual exposure control and more convenient light meter operation.</p>
+<h3 id="yashica-lynx-5000e-1968">Yashica Lynx 5000E (1968)</h3>
+<figure><img src="/images/yashica_lynx_5000e.jpg" alt="Yashica Lynx 5000E rangefinder camera">
+</figure>
+
+<p><strong>Lens:</strong> 45mm f/1.8 fixed<br>
+<strong>Shutter:</strong> Leaf, 1 sec to 1/1000 sec<br>
+<strong>Meter:</strong> CdS cell<br>
+<strong>Exposure:</strong> Manual<br>
+<strong>Parallax:</strong> Automatic correction</p>
+<p>After some further research I realized that the <strong>Yashica Lynx 5000E</strong> might be the camera I was looking for. The Yashica Lynx series of cameras (1960-1968) was the direct precursor to the Yashica Electro 35 series (1966-1975). The main difference is that Lynx cameras had all-mechanical shutters and <strong>only a manual exposure mode</strong>. The Electro 35 cameras had electronically-controlled shutters and only the semi-auto aperture-priority exposure mode. Another difference is that the Electro 35 goes for at least $100 while the Lynx 5000E can be picked up for under $30.</p>
+<p>Note that the photo of my Lynx 5000E above shows the camera in a state of disassembly. I'll explain that later.</p>
+<p>Interestingly, the Yashica Lynx 5000E was released in 1968 along with the Lynx 14E as the final Lynx models. That means the Lynx 5000E was on the market at the same time as the original Electro 35. The Electro 35 proved to be the international breakout hit for Yashica due to its crowd-pleasing semi-auto exposure mode. The Lynx series would quickly be retired.</p>
+<p>Here's why the Lynx 5000E is better for me than the Electro 35.</p>
+<ul>
+<li>The Lynx 5000E only has manual exposure control. I can set the shutter speed and aperture independently. This means I can easily set the exposure according to an incident meter or according to the camera's reflective light meter.</li>
+<li>The meter can be <strong>activated at any time</strong> by pressing a button on the front of the camera. I don't have to advance the winding lever first. When activated, the meter will indicate whether the current aperture and shutter speed settings would result in underexposure or overexposure. There's no toggling between two stages of the shutter release button. This is a much more normal way for a meter to operate than the convoluted solution they came up with for the Electro 35.</li>
+<li>The Lynx 5000E is <strong>smaller and cuter</strong> than the ugly brick that is the Electro 35.</li>
+</ul>
+<p>These are shots from a roll of Lomography Potsdam Kino 100 and <a href="../photo/058">a roll of Kodak Pro Image 100</a>.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/058_16_web.jpg" alt="Driving down Highway 3 while Annie sits in my lap">
+    <img class="portrait" src="/images/film/054_07_web.jpg" alt="Mannequin dressed as Taylor Swift wearing a sweater that says 'Kansas City vs All Y'All' and holding a photo of Travis Kelce">
+    <img class="portrait" src="/images/film/054_25_web.jpg" alt="A freight train car with graffiti including a portrait of a man's face">
+    <img class="landscape" src="/images/film/058_09_web.jpg" alt="James sitting on his couch">
+    <img class="landscape" src="/images/film/058_29_web.jpg" alt="White building across the street from Oak Center">
+    <img class="landscape" src="/images/film/054_18_web.jpg" alt="A dark glass spray bottle sitting on top of a filing cabinet in the corner of an office">
+    <img class="landscape" src="/images/film/058_14_web.jpg" alt="Beach towel draped over a chair in the sunlight">
+    <img class="landscape" src="/images/film/058_21_web.jpg" alt="Annie the dog doing a full body shake on the rug">
+    <img class="portrait" src="/images/film/054_10_web.jpg" alt="The author sitting cross-legged in a camping chair in front of a wooden fence">
+    <img class="landscape" src="/images/film/054_19_web.jpg" alt="A young man walking up a hill shot through multiple windows of a building">
+    <img class="landscape" src="/images/film/054_28_web.jpg" alt="Cars passing each other on a highway with motion blur">
+    <img class="landscape" src="/images/film/054_17_web.jpg" alt="The author's office with plants on shelves and his jacket hanging on the back of a door">
+</div>
+
+<p>I love shooting on this camera. It's dead simple. The size is right. The lens is sharp and has character. When everything goes right the photos look wonderful. Alas, <strong>sometimes everything does not go right</strong>. Which brings us to the downsides of this camera.</p>
+<ul>
+<li>Some photos from the roll of Pro Image 100 had <strong>garish green and yellow casts</strong>. I wasn't sure what caused these issues. It could be that the lens had inferior coatings that caused irregular color rendition. Or perhaps the slow shutter speeds were inconsistent. It could also be that the roll of film was compromised, but many of the photos turned out well. The black and white roll turned out well, so why was the color roll wonky?</li>
+<li>There's <strong>heavy vignetting</strong> when shot wide open. That's to be expected on older cameras, and honestly I'm not too disturbed by it. It's not a deal breaker at all. It's just interesting that the Electro 35 lens doesn't have the same vignetting issues.</li>
+</ul>
+<p>In order to investigate the color issues I disassembled the camera and cleaned and tested every part. The shutter speeds were very consistent. Everything seemed to be in working order. I reassembled the camera. It was working great, but then the <strong>leaf blades of the shutter got bound up and were damaged</strong>. I disassembled the camera one more time, called it quits, and stored the components in a plastic bag for parts.</p>
+<p>This was almost the my ideal fix-lens rangefinder. I just got spooked by the roll of color film that had some awful results, which in the end led me to accidentally break the camera. My bad. It could have just been a bad roll of film or even a bad Lynx 5000E. I liked the camera so much that I plan to buy another one and see if I run into the same problems. That's for another day though. </p>
+<h3 id="konica-iiia-1958">Konica IIIA (1958)</h3>
+<figure><img src="/images/konica_iiia.jpg" alt="Konica IIIA rangefinder camera">
+</figure>
+
+<p><strong>Lens:</strong> 50mm f/1.8 fixed<br>
+<strong>Shutter:</strong> Leaf, 1 sec to 1/500 sec<br>
+<strong>Meter:</strong> None<br>
+<strong>Exposure:</strong> Manual<br>
+<strong>Parallax:</strong> Automatic correction</p>
+<p>The <strong>Konica IIIA</strong> is another camera I was drawn to as a better alternative to the Yashica Electro 35. While the IIIA does not have a light meter, it does have <strong>manual exposure control and a highly-revered lens in the Hexanon 50mm f/1.8</strong>. What it is most celebrated for, however, is its <strong>large and bright viewfinder</strong>. Some consider it the most beautiful viewfinder of its era.</p>
+<p>I received my IIIA in mostly great condition. The one frustrating issue it had was <strong>dried and gummy lubricant</strong> in the film advancement spools. This made the first two rolls difficult to shoot. It took me few attempts to clean out the old lubricant, but I think it's good now. I also removed the EV lock mechanism so I could more easily dial in the exposure settings I wanted.</p>
+<p>These are shots from <a href="../photo/059">a roll of Lomography Berlin Kino 400</a> and <a href="../photo/071">a roll of Lfani Dama 100</a>.</p>
+<div class="photos">
+    <img class="portrait" src="/images/film/059_24_web.jpg" alt="Statue of a nude without a head at St. Olaf College">
+    <img class="portrait" src="/images/film/071_14_web.jpg" alt="Flannery the cat sleeping next to a desk with her paws in the air">
+    <img class="landscape" src="/images/film/071_16_web.jpg" alt="Concrete stairs and outdoor light fixture">
+    <img class="landscape" src="/images/film/059_23_web.jpg" alt="Concrete stairs in snowy hillside at St. Olaf College">
+    <img class="portrait" src="/images/film/059_14_web.jpg" alt="Wicker laundry basket in the afternoon sun">
+    <img class="landscape" src="/images/film/059_27_web.jpg" alt="Many rows of pews at the chapel at St. Olaf College">
+    <img class="landscape" src="/images/film/071_01_web.jpg" alt="Skeleton in pirate outfit sitting next to a photograph of the Rock of Gibralter">
+    <img class="portrait" src="/images/film/071_11_web.jpg" alt="Inflatable tube man set against the sky">
+    <img class="landscape" src="/images/film/059_12_web.jpg" alt="James holding his son Huey at Oak Center">
+    <img class="landscape" src="/images/film/059_28_web.jpg" alt="Stereo photographs from the college archives on display at St. Olaf College">
+</div>
+
+<p>I'm very pleased with the photos coming out the IIIA. The photos from the Lfani Dama roll in particular reveal the detail the Hexanon lens can render. When it was working smoothly I found the camera just lovely to shoot with. The dual-advance winding lever on the front of the camera is novel and quite ergonomic. From a design and functionality standpoint it's just one of the <strong>most beautiful cameras I own</strong>.</p>
+<p>And yet why am I hesitant to shoot more rolls on it?</p>
+<ul>
+<li><p>The gummy winding lever really took away from the shooting experience. In the second half of each roll, as the film tension on the winding spools and rods increased, <strong>the lever would start grinding to a halt mid-travel</strong>. It felt like I was going to break the camera at times, though I never did. I believe I've fixed the issue by cleaning out all the old lubricant, but it may take a while for me to build trust with the camera.</p>
+</li>
+<li><p>According to my shutter speed measurements the <strong>fast shutter speeds are also too slow</strong> by a stop or more. I haven't been able to improve the speeds with shutter adjustments, so I just have to keep the true speeds in mind while shooting. The basically means my IIIA has a maximum shutter speed of 1/250 which is pretty low.</p>
+</li>
+</ul>
+<p>I'm not giving up on this camera. I just haven't shot another roll on it since cleaning out the lubricant. Hopefully the next roll will be a more pleasant experience and my love for the camera will deepen.</p>
+<h3 id="canon-7s-1967">Canon 7s (1967)</h3>
+<figure><img src="/images/canon7s.jpg" alt="Canon 7s rangefinder camera">
+</figure>
+
+<p><strong>Lens:</strong> Interchangeable, Leica thread mount<br>
+<strong>Shutter:</strong> Focal plane, 1 sec to 1/1000 sec<br>
+<strong>Meter:</strong> CdS cell<br>
+<strong>Exposure:</strong> Manual<br>
+<strong>Parallax:</strong> Automatic correction</p>
+<p>The initial draw of rangefinders for me was their simplicity. They had simpler and quieter leaf shutters, smaller form factors, and fixed lenses. Throw one in your pocket, don't fret about what extra lenses to bring, and shoot some photos. For a long time I resisted the urge to get an interchangeable lens rangefinder because that went against the spirit of simplicity. But let's be real. It was inevitable that I'd eventually explore them, too.</p>
+<p>I first bought a <strong>Canon P</strong> because many people rank it as their favorite Canon rangefinder. In the week I owned it I was bugged by the 35mm, 50mm, and 100mm framelines that were <strong>permanently visible in the viewfinder</strong>. Lots of people like to use those framelines as composition guides, and others just learn to tune them out. I found them to <strong>clutter the viewfinder</strong>. I had buyer's remorse, so it was a blessing that the shutter broke after a week and I had an excuse to return it.</p>
+<p>Next I decided to get a <strong>Canon 7s</strong>. More specifically, I got a <strong>Canon 7sz</strong>, the unofficial final version of the 7s that had slight improvements to viewfinder. This was the one of the most technologically advanced rangefinders of its time. Its premium features included a coupled CdS cell meter, switchable framelines for 35mm, 50mm, 85mm, 100mm, and 135mm focal lengths, a metal focal plane shutter, and big bright viewfinder.</p>
+<p>The meter on my copy was broken, which the seller was up front about. I tried to fix it but it was the galvanometer coil itself that was damaged. No worries. I tend to use an external incident meter anyway. I did have to do a fair amount of calibration of the rangefinder though. More on that later.</p>
+<figure><img src="/images/canon_jupiter_lenses.jpg" alt="">
+</figure>
+
+<p>Canon rangefinders used the <strong>Leica thread mount (LTM)</strong> for their lenses. To cover my two preferred focal lengths I picked up a Canon 35mm f/2 and a Jupiter-8 50mm f/2.</p>
+<p>These are photos from <a href="../photo/069">a roll of Kentmere Pan 400</a>, <a href="../photo/072">a roll of Kodak T-Max 400</a>, and <a href="../photo/075">a roll of FujiFilm Neopan Acros 100II</a>.</p>
+<div class="photos">
+    <img class="portrait" src="/images/film/069_04_web.jpg" alt="Twenty foot tall macramé piece hanging on the wall of the Carleton College library">
+    <img class="landscape" src="/images/film/072_20_web.jpg" alt="A small clay puppeteer with a frowning face holding two puppets on his hands, set in a frame sitting on the shelf of an antique store">
+    <img class="portrait" src="/images/film/075_14_web.jpg" alt="The musical duo of Codie in front of a large projection of digital animation at the Algorithmic Art Assembly v.3">
+    <img class="landscape" src="/images/film/075_35_web.jpg" alt="The coffee bar at Hedge Coffee in San Francisco">
+    <img class="portrait" src="/images/film/069_33_web.jpg" alt="A metal statue of a man behind the St. Olaf College art building">
+    <img class="landscape" src="/images/film/069_14_web.jpg" alt="Paintings and poems on pages of paper mounted on a wall at the Veronique Wantz Gallery in Minneapolis">
+    <img class="portrait" src="/images/film/075_29_web.jpg" alt="A family sitting on the edge of a pool looking out at the Pacific coast at the Sutro Baths">
+    <img class="portrait" src="/images/film/069_29_web.jpg" alt="A dog tied to a bike rack outside of the Little Joy coffee shop">
+    <img class="portrait" src="/images/film/075_24_web.jpg" alt="Two people jogging on a path overlooking the Pacific coast at Sutro Heights in San Francisco">
+    <img class="landscape" src="/images/film/072_22_web.jpg" alt="The side of an old rusty pickup truck">
+    <img class="landscape" src="/images/film/075_25_web.jpg" alt="A woman holding a bag of bagels and looking at the camera in front of a pool of water at Sutro Baths">
+    <img class="landscape" src="/images/film/075_11_web.jpg" alt="A wall on Valencia Street in San Francisco full of Epstein and anti-ICE posters">
+    <img class="portrait" src="/images/film/072_30_web.jpg" alt="A man sitting in the front window of a coffee shop while another man walking on the sidewalk in the background">
+    <img class="landscape" src="/images/film/072_09_web.jpg" alt="A young boy and a woman putting their heads through cardboard cutouts of potatoes at a St. Patrick's Day party">
+    <img class="portrait" src="/images/film/069_11_web.jpg" alt="Kallie at the SK coffee shop in Minneapolis">
+    <img class="landscape" src="/images/film/075_32_web.jpg" alt="A circular convex mirror mounted next to a parking garage door in San Francisco">
+    <img class="portrait" src="/images/film/072_11_web.jpg" alt="A toddler girl standing on the floor at a party surrounded by adults, looking up into the camera">
+</div>
+
+<p>The Canon 7s is a treasure. I love every aspect of shooting with it. Composing and focusing are a joy with the <strong>glorious viewfinder and framelines</strong>. The film advance is smooth. My favorite thing might be the <strong>quiet, low-pitched, hollow sound</strong> of the metal shutter curtain. It's an unusual sound for a shutter but I'm always tickled by it.</p>
+<p>As for the photos, wow, I couldn't be happier with them. All credit for their optical character goes to the lenses, but the strong compositions are a credit to the precise viewfinder/rangefinder mechanism in the camera.</p>
+<p>I wouldn't say the Canon 7s has any real downsides. The two issues I've had with it are fixable rather than lingering.</p>
+<ul>
+<li><p><strong>Calibrating the rangefinder mechanism was quite a project.</strong> Right off the bat I wasn't able to dial in the infinity focus for the lenses. After ruling out the lenses as the problem I determined that the Canon 7s's flange focal distance (FFD) was slightly too short. I ended up creating a circular shim out of a few layers of copper tape. This shim went under the lens mount on the front of the body. I was finally able to finish the calibration. The hassle was totally worth it because the two lenses focus fantastically now.</p>
+</li>
+<li><p>The Canon 7s is <strong>prone to light leaks</strong> if you don't install sufficient light seal foam. And guess what? I didn't install sufficient light seal foam. I balked at how much foam the service manual called for and paid the price. You'll notice light leaks in some of my photos. All I have to do is add more foam in a couple places and the light leaks should go away.</p>
+</li>
+</ul>
+<h3 id="petri-racer-1966">Petri Racer (1966)</h3>
+<figure><img src="/images/petri_racer.jpg" alt="Petri Racer rangefinder camera">
+</figure>
+
+<p><strong>Lens:</strong> 45mm f/1.8 fixed<br>
+<strong>Shutter:</strong> Leaf, 1 sec to 1/500 sec<br>
+<strong>Meter:</strong> CdS cell<br>
+<strong>Exposure:</strong> Manual<br>
+<strong>Parallax:</strong> Indicator dots</p>
+<p>The <strong>Petri Racer</strong> first caught my eye in <a href="https://www.35mmc.com/03/03/2026/out-of-the-drawer-and-into-the-light-a-journey-of-recovery-and-rejuvanation/#attachment_104710">a photo on 35mmc</a>. What a wild looking camera! The curvy boxiness of the body. The shutter button on the front. That futuristic "RACER" font. It enchanted me.</p>
+<p>I bought one off eBay for cheap because it was listed as "Inoperable". I figured I had learned enough about fixing up cameras that I could take a chance on it. Turns out it worked really well, even the meter! I hardly had to do anything to it, or so I thought. I'd later come to find it had a hidden issue.</p>
+<p>These are photos from <a href="../photo/074">a roll of Kentmere Pan 200</a> and <a href="../photo/076">a roll of Kentmere Pan 100</a>.</p>
+<div class="photos">
+    <img class="landscape" src="/images/film/076_25_web.jpg" alt="A newlywed couple dancing at their wedding receptive with three kids surrounding them">
+    <img class="landscape" src="/images/film/076_27_web.jpg" alt="Firewood being dumped from a truck into our backyard">
+    <img class="portrait" src="/images/film/074_19_web.jpg" alt="A man walking up a hill on a foggy day">
+    <img class="landscape" src="/images/film/074_13_web.jpg" alt="A still from an abstract visual art film by Michael Cina">
+    <img class="landscape" src="/images/film/074_12_web.jpg" alt="Kallie in a restaurant shaking her head to make a blurry motion effect in the photo">
+    <img class="landscape" src="/images/film/076_15_web.jpg" alt="Miscellaneous objects on the stage after a Jeremy Nedd performance at the Walker Art Center">
+    <img class="landscape" src="/images/film/074_27_web.jpg" alt="Self-portrait of me sitting at my desk">
+    <img class="portrait" src="/images/film/076_31_web.jpg" alt="A statue of a nude person on the St. Olaf College campus">
+    <img class="landscape" src="/images/film/076_18_web.jpg" alt="Two people getting married in front of a crowd">
+    <img class="portrait" src="/images/film/074_29_web.jpg" alt="Light coming in from a window in a stairwell in Boe Chapel">
+    <img class="landscape" src="/images/film/076_16_web.jpg" alt="A book of Mina Loy's poetry, a vase with flowers, and a cat on a dining room table shot from above">
+    <img class="portrait" src="/images/film/074_05_web.jpg" alt="My office at the library with a framed print on the wall and a chair at a round table">
+</div>
+
+<p>The Petri Racer kicks ass. It might be the <strong>most fun camera I've ever shot with</strong> for a few reasons. First, the film advance lever is tucked into the back right corner of the camera and is mindbogglingly smooth and fast. It's addictive to advance. Second, the shutter release button on the front isn't just a gimmick. It's ergonomic and feels great. Third, the viewfinder is big and bright.</p>
+<p>I had only bought the Racer for its looks, so I didn't have expectations for its optical qualities. But my oh my. I wasn't prepared for how awesome the photos could look coming out of it. This thing could hold its own with other more celebrated rangefinders.</p>
+<p>And now for the hidden issue I mentioned above. When looking at the photos from the first roll I noticed that the <strong>focusing at close distances was off</strong>. I promptly fell down a rabbit hole trying to troubleshoot this issue, which brings me to the downsides of the Racer.</p>
+<ul>
+<li><p>The rangefinder is an <strong>absolute pain in the butt to calibrate</strong>. I'd even venture to say that it's impossible to fully calibrate due to the optical and physical design of the camera. Or maybe it's just my copy that is funky. The Racer wasn't a high end camera, so Petri might have cut corners with the design and manufacturing.</p>
+<ul>
+<li>I adjusted the horizontal and vertical alignment, the rangefinder arm eccentric, and even the focusing helicoid starting threads. No matter what I did I couldn't get the rangefinder focal point to match the focal point on the film plane at close distances.</li>
+<li>In practice, this just means I can only reliably focus the Racer as close as 4ft as opposed to the 2.75ft minimum distance indicated on the focusing ring. Not a deal breaker.</li>
+</ul>
+</li>
+<li><p>You have to <strong>advance the film in order to use the light meter</strong> just like the Yashica Electro 35 GSN. This is only mildly annoying.</p>
+</li>
+<li><p>It's easy to <strong>accidentally move the ISO setting</strong> when adjusting the focus, aperture, or shutter speed. This can throw off your light meter readings if you don't notice the ISO setting has changed.</p>
+</li>
+<li><p>There's <strong>no parallax correction</strong>, only parallax indicator lines.</p>
+</li>
+<li><p>The lens has <strong>vignetting</strong> when shot wide open.</p>
+</li>
+</ul>
+<p>This is a long list of downsides, so you'd think I wouldn't want to shoot with this camera again. Wrong! I love the Racer so much. I'll probably buy another one to see if it doesn't have the same calibration problems as my copy.</p>
+<h3 id="other-rangefinders">Other Rangefinders</h3>
+<p>There are hundreds of other rangefinder cameras I could have explored. The list might include such beloved rangefinders as the Contax II, Contax G series, Nikon S series, Bessa T/R series, soviet FEDs and Kievs, and the many popular compact rangefinders by Minolta, Olympus, Canon, and Konica. Am I missing any...?</p>
+<p>Oh yes, why not Leicas? The M3, M4, and M6 are similar to the Canon 7s in that they are interchangeable-lens rangefinders with framelines for various focal lengths. They're expensive, but surely I must be harboring the desire to own the holy grail of 35mm cameras?</p>
+<p>To be honest, <strong>Leicas turn me off</strong>. I have no doubt they're worthy, phenomenal cameras, but to me their functions as photography equipment are eclipsed by their functions as status symbols and luxury goods. Every time I dip into the Leica world online I get a gross feeling and head for the doors. I'm open to a change of heart one day, but for now it's not for me.</p>
+<h3 id="final-thoughts">Final Thoughts</h3>
+<p>Clearly, I've become a huge fan of rangefinder cameras. They're perfect for the way I approach photography. However, that doesn't mean they're the perfect type of camera for every shooter and every shooting situation.</p>
+<p>In fact, rangefinders are not well-suited for:</p>
+<ul>
+<li><strong>Critical focusing</strong> where you need to see exactly what the lens is seeing</li>
+<li><strong>Wide and telephoto focal lengths</strong> where the viewfinder is less effective</li>
+<li><strong>Shooting close up</strong> where parallax and minimum focusing distance pose limitations</li>
+</ul>
+<p>I'm not a rangefinder evangelist. I don't think people should shoot on them just because that's what the cool kids do. Frankly, for most shooting situations I think SLRs are the tool for the job.</p>
+<p>For me it's as simple as this: <strong>I don't want to crop my photos</strong>. Therefore, I need a tool that gives me the best chance to make a good composition within the viewfinder. That tool is a rangefinder. If you don't mind cropping your photos, I'm not sure what advantage a rangefinder brings you.</p>
+<p>Of the six cameras I covered in this post, only two were complete knockouts: the Ricoh 500G/Sears 35|RF and the Canon 7s. All of them had redeeming qualities and were capable of taking evocative photos.</p>
+<p>Let's give out some awards to end this.</p>
+<ul>
+<li><strong>Most Automated:</strong> Yashica Electro 35 GSN</li>
+<li><strong>Most Unsung:</strong> Yashica Lynx 5000E</li>
+<li><strong>Most Elegant:</strong> Konica IIIA</li>
+<li><strong>Most Pocketable:</strong> Ricoh 500G/Sears 35|RF</li>
+<li><strong>Most Fun:</strong> Petri Racer</li>
+<li><strong>Most Versatile:</strong> Canon 7s</li>
+</ul>
+<div id="prev-next-container"><span class="older-button"><a href="/text/report-algorithmic-art-assembly-v3" class="readmore">Older</a></span></div></div><div id="comments-section"><div id="comment-form"><form class="js-form" method="post" action="https://staticman-comments-rbo6.onrender.com/v3/entry/github/jasonhallen/jasonhallen.github.io/main/comments">
+    
+    <!-- <input type="hidden" name="options[origin]" value="{{ page.url | absolute_url }}"> -->
+    <input type="hidden" name="options[parent]" value="https://jasonhallen.com/blog/shooting-rangefinders.html">
+    <!-- <input name="options[redirect]" type="hidden" value="https://jasonhallen.com/thanks"> -->
+    <input type="hidden" id="comment-replying-to-uid" name="fields[replying_to_uid]" value="">
+    <input type="hidden" name="options[slug]" value="shooting-rangefinders">
+    
+    <!-- reCaptcha -->
+    <input type="hidden" name="options[reCaptcha][siteKey]" value="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI">
+    <input type="hidden" name="options[reCaptcha][secret]" value="J/1tx/gxjjcF4Qw17kZ0QUhUK9xnotL31qIetlT0EGmt7rZEyYfRDfKKHit/hxajHF4EV898b9pWqF0nbhZVa+j+AmxyMrcJTvP7lD0Fvfdk6fK/W/6OMe1q3dOROo/HIF5lLmDcdFMKc9L1Y3T0wDNuStn2lvL3v2ECnajXG5/CSurNFRnFq1k1iwGvHn5XLeypNgz08MKk+5E5f55DyEeRwxtLu2wAaiyIBISpboEas5v9OZpPoclYnYWneAiX0CeccxGSL3EyxJ3CCD9GSJsFrrOYAPRRujw4hXmRzAzzJunSLd1V4icFPaqlsqWYAGYMehQeeHlV77MAcg7gxeSJv9GVyrfbtg82yhsASgtkGhtUFEmN7AenM1XZs4TDqUUxP01o9Gj/oYmfGQUdr734IVewVQkcm65zF092ZSeeTefX/5s8cZedPiFK6bvLylbFxu/s4kLG482H/ZU64QdSIyrDuSzOISbZo+0Yd9OlElvkgeZML6+pyjd8SrNjxfCSA1bgOhb+3aGfXKVw+JxinWCizR2JB6Q/FOZzEa4I0aefzOeGwNK8XGC/vHzmt/58KFeEDNTpse77cHywvoT74XVIciJcPUvTrq6rAw5tkaekmuDX03Trefxo+pAMBXqj8wy06mgYsg721XNd8IpE+Qk7wPs/Dv8BfEhH6sc=">
+    
+    <h2 id="comment-form-header">Leave a Comment</h2>
+
+    <div class="textfield">
+        <p>Your email address will not be published. Required fields are marked *</p>
+        <label for="comment-form-message"><strong>Comment *</strong></label>
+        <textarea class="textfield__input" name="fields[message]" type="text" id="comment-form-message" placeholder="[You can use Markdown.]" required="" rows="6"></textarea>
+    </div>
+
+    <div class="textfield">
+        <label for="comment-form-name"><strong>Name *</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[name]" type="text" id="comment-form-name" required="">
+    </div>
+    
+    <div class="textfield">
+        <label for="comment-form-email"><strong>Email</strong></label>
+        <br>
+        <input class="textfield__input" name="fields[email]" type="email" id="comment-form-email">
+    </div>
+    
+    <div class="textfield hp">
+    <label for="hp">
+        <input class="textfield__input" name=" hp" id="hp" type="text" placeholder="Leave blank">
+    </label>
+    </div>
+
+    <div id="reCaptcha" class="g-recaptcha" data-sitekey="6LcsNJIhAAAAAIF7ND_Y8QPGuocbqYoe3LPpNWPI"></div>
+
+    <div id="submit-cancel-buttons">
+        <button class="readmore" id="comment-form-submit">
+        Submit
+        </button>
+
+        <button type="button" class="readmore" id="cancel-comment-reply-link" style="display: none">
+        Cancel
+        </button>
+        <!-- <p id="recaptcha-fine-print"><small>This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy">Privacy Policy</a> and <a href="https://policies.google.com/terms">Terms of Service</a> apply.</small></p> -->
+    </div>
+
+</form>
+
+<div id="modal-wrapper" style="display: none;">
+    <article class="modal">
+        <img class="modal-image" src="">
+            <div id="modal-text-wrapper">
+            <h3 class="modal-title js-modal-title"></h3>
+            <div class="mdl-card__supporting-text js-modal-text"></div>
+            <div class="mdl-card__actions mdl-card--border">
+                <button class="button readmore mdl-button--colored mdl-js-button mdl-js-ripple-effect js-close-modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </article>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none">
+    <symbol id="icon-loading" viewBox="149.8 37.8 499.818 525"><path d="M557.8 187.8c13.8 0 24.601-10.8 24.601-24.6S571.6 138.6 557.8 138.6s-24.6 10.8-24.6 24.6c0 13.2 10.8 24.6 24.6 24.6zm61.2 90.6c-16.8 0-30.6 13.8-30.6 30.6s13.8 30.6 30.6 30.6 30.6-13.8 30.6-30.6c.6-16.8-13.2-30.6-30.6-30.6zm-61.2 145.2c-20.399 0-36.6 16.2-36.6 36.601 0 20.399 16.2 36.6 36.6 36.6 20.4 0 36.601-16.2 36.601-36.6C595 439.8 578.2 423.6 557.8 423.6zM409 476.4c-24 0-43.2 19.199-43.2 43.199s19.2 43.2 43.2 43.2 43.2-19.2 43.2-43.2S433 476.4 409 476.4zM260.8 411c-27 0-49.2 22.2-49.2 49.2s22.2 49.2 49.2 49.2 49.2-22.2 49.2-49.2-22.2-49.2-49.2-49.2zm-10.2-102c0-27.6-22.8-50.4-50.4-50.4-27.6 0-50.4 22.8-50.4 50.4 0 27.6 22.8 50.4 50.4 50.4 27.6 0 50.4-22.2 50.4-50.4zm10.2-199.8c-30 0-54 24-54 54s24 54 54 54 54-24 54-54-24.6-54-54-54zM409 37.8c-35.4 0-63.6 28.8-63.6 63.6S374.2 165 409 165s63.6-28.8 63.6-63.6-28.2-63.6-63.6-63.6z"></path>
+    </symbol>
+</svg></div></div></div>
+    <script src="/comments.js"></script>
+
+
+<script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+<iframe style="height:0px;width:0px;visibility:hidden" src="about:blank">this frame prevents back/forward cache</iframe></body><!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> --></html>
