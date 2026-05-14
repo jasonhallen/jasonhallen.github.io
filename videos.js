@@ -49,6 +49,18 @@ var videos_all = [
     'planet_lava_shark1.mp4',
     'planet_stingray.mp4',
     'planet_fish.mp4',
+    'invasive_01_01.mp4',
+    'invasive_01_02.mp4',
+    'invasive_03.mp4',
+    'invasive_04_01.mp4',
+    'invasive_04_02.mp4',
+    'methods_transfer3.mp4',
+    'shirley.mp4',
+    'shirley2.mp4',
+    'culkin.mp4',
+    'subscribe.mp4',
+    'storms.mp4',
+    'storms2.mp4',
 ]
 
 var videos_available = videos_all.map((x) => x)
