@@ -61,6 +61,8 @@ var videos_all = [
     'subscribe.mp4',
     'storms.mp4',
     'storms2.mp4',
+    'emergency.mp4',
+    'fireball.mp4',
 ]
 
 var videos_available = videos_all.map((x) => x)
