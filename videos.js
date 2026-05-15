@@ -73,6 +73,12 @@ var videos_all = [
     'diagonal.mp4',
     'scream.mp4',
     'arnold.mp4',
+    'yellow_car.mp4',
+    'static.mp4',
+    'noise.mp4',
+    'bloom.mp4',
+    'spin.mp4',
+    'spin2.mp4',
 ]
 
 var videos_available = videos_all.map((x) => x)
@@ -123,7 +129,7 @@ class HomeVideo {
         var video_source = videos_available[Math.floor(Math.random() * videos_available.length)]
         videos_available.splice(videos_available.indexOf(video_source), 1)
         videos_blocked.push(video_source)
-        if (videos_blocked.length > 5) {
+        if (videos_blocked.length > 20) {
             videos_available.push(videos_blocked.shift())
         }
         console.log(`select_video_source: ${video_source}`)
