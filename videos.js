@@ -44,7 +44,7 @@ var videos_all = {
     'mosh_output4_2024_2_27_1.mp4': 10.0,
     'mosh_output4_2024_2_27_2.mp4': 11.0,
     'mosh_output4_2024_2_27_3.mp4': 11.0,
-    'mosh_output4_2024_2_27_4.mp4': 11.08333,
+    'mosh_output4_2024_2_27_4.mp4': 8.5,
     'mosh_planet_transfer_2024_4_15.mp4': 8.208200,
     'noise.mp4': 5.333,
     'planet_bird_fall.mp4': 1.8333,
@@ -130,20 +130,20 @@ class HomeVideo {
         var video_source = videos_available[Math.floor(Math.random() * videos_available.length)]
         videos_available.splice(videos_available.indexOf(video_source), 1)
         videos_blocked.push(video_source)
-        if (videos_blocked.length > 20) {
+        if (videos_blocked.length > 40) {
             videos_available.push(videos_blocked.shift())
         }
         if (videos_all[video_source] > 4) {
             this.duration = Math.random() * 2.75 + 0.75
             this.start_time = Math.random() * (videos_all[video_source] - this.duration)
         } else {
-            this.duration = videos_all[video_source] - 0.5
+            this.duration = videos_all[video_source] - 0.2
             this.start_time = 0
         }
 
-        console.log(`select_video_source: ${video_source} (${videos_all[video_source]}), start: ${this.start_time}, dur: ${this.duration}`)
+        console.log(`select_video_source: ${video_source} (${videos_all[video_source]}), start: ${this.start_time}, end: ${this.start_time + this.duration}, dur: ${this.duration}`)
         // return video_source
-        return `/video/${video_source}#t=${this.start_time.toFixed(2)},${(this.start_time + this.duration).toFixed(2)}`
+        return `/video/${video_source}#t=${this.start_time.toFixed(2)},${(this.start_time + this.duration + 0.2).toFixed(2)}`
         
     }
 
@@ -222,7 +222,7 @@ class HomeVideo {
 
     check_elapsed_time() {
         var time_elapsed = this.element.currentTime - this.start_time
-        console.log(`check_elapsed_time - ${this.element.id}, time_elapsed: ${time_elapsed}`)
+        console.log(`check_elapsed_time - ${time_elapsed}, other can play: ${this.other_video.can_play}`)
         // console.log(`playing: time_elapsed = ${time_elapsed}, start_time = ${this.start_time}, duration = ${this.duration}`)
         // check that next video can play
         if (time_elapsed >= this.duration && this.other_video.can_play == true) {
