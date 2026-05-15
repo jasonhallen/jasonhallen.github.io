@@ -1,87 +1,88 @@
-var videos_all = [
-    'mosh_kallie_annie_2024_4_15_small.mp4',    
-    'mosh_kallie_horizontal11_2024_4_15.mp4',
-    'mosh_output4_2024_2_27_1.mp4',
-    'mosh_output4_2024_2_27_2.mp4',
-    'mosh_output4_2024_2_27_3.mp4',
-    'mosh_output4_2024_2_27_4.mp4',
-    'mosh_abs_average_forward_10_2024_4_16.mp4',
-    'mosh_abs_average_forward_10_2_2024_4_16.mp4',
-    'mosh_earth_horizontal_2024_4_15.mp4',
-    'mosh_planet_transfer_2024_4_15.mp4',
-    'mosh_turtle_average_2024_4_15.mp4',
-    'mosh_turtle_horizontal_2024_4_15.mp4',
-    'mosh_helicopter_2024_5_24_1.mp4',
-    'mosh_helicopter_2024_5_24_2.mp4',
-    'mosh_helicopter_2024_5_24_3.mp4',
-    'mosh_output_2024_2_27.mp4',
-    'mosh_output2_2024_2_27_1.mp4',
-    'mosh_output2_2024_2_27_2.mp4',
-    'mosh_output2_2024_2_27_3.mp4',
-    'anim_horizontal_2024_2_27.mp4',
-    'anim_transitions_2024_2_28.mp4',
-    'anim_pan_skew_2024_3_20.mp4',
-    'anim_molly_2024_4_10.mp4',
-    'anim_lake_2024_4_8.mp4',
-    'anim_red_grid_2024_4_10.mp4',
-    'anim_coast_2024_4_10.mp4',
-    'anim_glitch_2024_4_8.mp4',
-    'anim_glitch2_2024_4_8.mp4',
-    'anim_coffee_2024_3_21.mp4',
-    'anim_rotate_2024_3_21.mp4',
-    'anim_rotate2_2024_3_21.mp4',
-    'anim_rotate3_2024_3_21.mp4',
-    'planet_clouds.mp4',
-    'planet_seal.mp4',
-    'planet_shark.mp4',
-    'planet_frog.mp4',
-    'planet_paradise.mp4',
-    'planet_bird_fall.mp4',
-    'planet_bird_leap.mp4',
-    'planet_rams.mp4',
-    'planet_puma.mp4',
-    'planet_zebras.mp4',
-    'planet_color_sequence.mp4',
-    'planet_ibex.mp4',
-    'planet_shrimp.mp4',
-    'planet_peak.mp4',
-    'planet_lava.mp4',
-    'planet_lava_shark1.mp4',
-    'planet_stingray.mp4',
-    'planet_fish.mp4',
-    'invasive_01_01.mp4',
-    'invasive_01_02.mp4',
-    'invasive_03.mp4',
-    'invasive_04_01.mp4',
-    'invasive_04_02.mp4',
-    'methods_transfer3.mp4',
-    'shirley.mp4',
-    'shirley2.mp4',
-    'shirley3.mp4',
-    'culkin.mp4',
-    'subscribe.mp4',
-    'storms.mp4',
-    'storms2.mp4',
-    'emergency.mp4',
-    'fireball.mp4',
-    'zoom_in.mp4',
-    'zoom_in2.mp4',
-    'zoom_in3.mp4',
-    'alf.mp4',
-    'summers.mp4',
-    'brabie.mp4',
-    'diagonal.mp4',
-    'scream.mp4',
-    'arnold.mp4',
-    'yellow_car.mp4',
-    'static.mp4',
-    'noise.mp4',
-    'bloom.mp4',
-    'spin.mp4',
-    'spin2.mp4',
-]
+var videos_all = {
+    'alf.mp4': 4.5,
+    'anim_coast_2024_4_10.mp4': 10.083333,
+    'anim_coffee_2024_3_21_1.mp4': 9.0,
+    'anim_coffee_2024_3_21_2.mp4': 9.033333,
+    'anim_glitch_2024_4_8.mp4': 7.083333,
+    'anim_glitch2_2024_4_8.mp4': 6.350924,
+    'anim_horizontal_2024_2_27.mp4': 15.833333,
+    'anim_lake_2024_4_8.mp4': 25.513786,
+    'anim_molly_2024_4_10.mp4': 20.250000,
+    'anim_pan_skew_2024_3_20_1.mp4': 10.0,
+    'anim_pan_skew_2024_3_20_2.mp4': 12.5,
+    'anim_red_grid_2024_4_10.mp4': 20.083333,
+    'anim_rotate_2024_3_21.mp4': 18.523880,
+    'anim_rotate2_2024_3_21.mp4': 8.510107,
+    'anim_rotate3_2024_3_21_short.mp4': 9.500000,
+    'anim_rotate4_2024_3_21.mp4': 7.0,
+    'anim_rotate5_2024_3_21.mp4': 9.0,
+    'anim_transitions_2024_2_28.mp4': 23.923448,
+    'arnold.mp4': 3.9,
+    'bloom.mp4': 6.1,
+    'brabie.mp4': 7.0,
+    'culkin.mp4': 5.0333,
+    'diagonal.mp4': 5.0,
+    'emergency.mp4': 7.5,
+    'fireball.mp4': 11.0,
+    'invasive_01_01.mp4': 5.0,
+    'invasive_01_02.mp4': 6.6333,
+    'invasive_03.mp4': 8.0,
+    'invasive_04_01.mp4': 10.0,
+    'invasive_04_02.mp4': 6.5,
+    'methods_transfer3.mp4': 10.1333,
+    'mosh_abs_average_forward_10_2_2024_4_16.mp4':  11.011000,
+    'mosh_abs_average_forward_10_2024_4_16.mp4': 10.010000,
+    'mosh_earth_horizontal_2024_4_15.mp4': 8.008,
+    'mosh_helicopter_2024_5_24_1.mp4': 7.0,
+    'mosh_helicopter_2024_5_24_2.mp4': 7.0,
+    'mosh_helicopter_2024_5_24_3.mp4': 5.58333,
+    'mosh_kallie_annie_2024_4_15_small.mp4': 15.0,    
+    'mosh_output_2024_2_27.mp4': 16.25,
+    'mosh_output2_2024_2_27_1.mp4': 12.0,
+    'mosh_output2_2024_2_27_2.mp4': 12.0,
+    'mosh_output2_2024_2_27_3.mp4': 11.66667,
+    'mosh_output4_2024_2_27_1.mp4': 10.0,
+    'mosh_output4_2024_2_27_2.mp4': 11.0,
+    'mosh_output4_2024_2_27_3.mp4': 11.0,
+    'mosh_output4_2024_2_27_4.mp4': 11.08333,
+    'mosh_planet_transfer_2024_4_15.mp4': 8.208200,
+    'noise.mp4': 5.333,
+    'planet_bird_fall.mp4': 1.8333,
+    'planet_bird_leap.mp4': 3.6667,
+    'planet_clouds.mp4': 4.416667,
+    'planet_color_sequence.mp4':9.416667 ,
+    'planet_fish.mp4': 8.0,
+    'planet_frog.mp4': 3.416667,
+    'planet_ibex.mp4': 4.708333,
+    'planet_lava_shark1.mp4': 10.0,
+    'planet_lava.mp4': 6.96667,
+    'planet_paradise.mp4': 4.5,
+    'planet_peak.mp4': 7.13333,
+    'planet_puma.mp4': 5.875,
+    'planet_rams.mp4': 6.5,
+    'planet_seal.mp4': 2.0,
+    'planet_shark.mp4': 4.16667,
+    'planet_stingray.mp4': 8.4,
+    'planet_zebras.mp4': 9.0,
+    'scream.mp4': 8.0,
+    'shirley.mp4': 7.0,
+    'shirley2.mp4': 7.5,
+    'shirley3.mp4': 5.2,
+    'spin.mp4': 5.0,
+    'spin2.mp4': 6.3,
+    'static.mp4': 5.0,
+    'storms.mp4': 7.5,
+    'storms2.mp4': 7.0,
+    'subscribe.mp4': 6.0,
+    'summers.mp4': 4.7,
+    'yellow_car.mp4': 5.7,
+    'zoom_in.mp4': 4.5,
+    'zoom_in2.mp4': 4.3,
+    'zoom_in3.mp4': 4.5,
+}
 
-var videos_available = videos_all.map((x) => x)
+// var videos_available = videos_all.map((x) => x)
+var videos_available = Object.keys(videos_all)
 var videos_blocked = []
 var video_timer
 var video_playing = false
@@ -99,7 +100,7 @@ class HomeVideo {
         this.seeked = false
         this.can_play = false        
 
-        this.element.onloadedmetadata = () => {this.set_video_duration_start()}
+        // this.element.onloadedmetadata = () => {this.set_video_duration_start()}
         this.element.onseeked = () => {this.set_seeked_true()}
         this.element.oncanplay = () => {this.set_can_play()}
         // this.element.onplaying = () => {this.swap_video_elements()}
@@ -118,7 +119,7 @@ class HomeVideo {
         //     clearInterval(home_video_list[video_index].timer)
         // }
         this.seeked = false
-        this.element.src = '/video/' + this.select_video_source()
+        this.element.src = this.select_video_source()
         this.element.load()
         if (event != null) {
             event.stopPropagation()
@@ -132,8 +133,18 @@ class HomeVideo {
         if (videos_blocked.length > 20) {
             videos_available.push(videos_blocked.shift())
         }
-        console.log(`select_video_source: ${video_source}`)
-        return video_source
+        if (videos_all[video_source] > 4) {
+            this.duration = Math.random() * 2.75 + 0.75
+            this.start_time = Math.random() * (videos_all[video_source] - this.duration)
+        } else {
+            this.duration = videos_all[video_source] - 0.5
+            this.start_time = 0
+        }
+
+        console.log(`select_video_source: ${video_source} (${videos_all[video_source]}), start: ${this.start_time}, dur: ${this.duration}`)
+        // return video_source
+        return `/video/${video_source}#t=${this.start_time.toFixed(2)},${(this.start_time + this.duration).toFixed(2)}`
+        
     }
 
     set_video_duration_start() {
@@ -171,6 +182,10 @@ class HomeVideo {
         if (this.seeked == true) {
             this.can_play = true
         }
+        // if (initial_load == true) {
+        //     swap_video_elements()
+        //     // initial_load = false
+        // }
         console.log(`oncanplay-->set_can_play: ${this.element.id}, video_playing = ${video_playing}, seeked = ${this.seeked}, can_play = ${this.can_play}, intial_load = ${initial_load}, readyState = ${this.element.readyState}`)
 
         if (initial_load == true && this.can_play == true) {
@@ -206,8 +221,8 @@ class HomeVideo {
     }
 
     check_elapsed_time() {
-        console.log(`check_elapsed_time - ${this.element.id}`)
         var time_elapsed = this.element.currentTime - this.start_time
+        console.log(`check_elapsed_time - ${this.element.id}, time_elapsed: ${time_elapsed}`)
         // console.log(`playing: time_elapsed = ${time_elapsed}, start_time = ${this.start_time}, duration = ${this.duration}`)
         // check that next video can play
         if (time_elapsed >= this.duration && this.other_video.can_play == true) {
