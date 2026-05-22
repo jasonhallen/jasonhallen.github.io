@@ -140,6 +140,11 @@ class HomeVideo {
             this.duration = videos_all[video_source] - 0.2
             this.start_time = 0
         }
+        if (Math.random() < 0.5) {
+            this.element.style.transform = 'scaleX(-1)'
+        } else {
+            this.element.style.transform = 'scaleX(1)'
+        }
 
         console.log(`select_video_source: ${video_source} (${videos_all[video_source]}), start: ${this.start_time}, end: ${this.start_time + this.duration}, dur: ${this.duration}`)
         // return video_source
